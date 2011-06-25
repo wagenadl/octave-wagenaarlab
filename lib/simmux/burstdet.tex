@@ -1,0 +1,160 @@
+% Copyright (C) 2004  Daniel Wagenaar (wagenaar@caltech.edu)
+%
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; if not, write to the Free Software
+% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+\documentclass{article}
+\usepackage{txfonts}
+\usepackage{sectsty}
+\usepackage{listings}
+\lstset{language=matlab,basicstyle=\ttfamily\small}
+\sectionfont{\bf\normalsize}
+\usepackage[letterpaper,width=7in,height=9in]{geometry}
+\begin{document}
+\noindent{\Large\bf Multixburst --- 
+a burst detector based on individual channels}
+\medskip
+
+\noindent{By Daniel Wagenaar, 7/28/2003}
+
+
+\section{Introduction}
+
+The new burst detector works by first finding all bursts on individual
+channels, then combines those into barrages by linking together those
+individual bursts that overlap in time. To avoid confusion, I'll use
+the phrase {\it simplex burst} for a burst on an individual channel. A
+simplex burst is not necessarily a true single channel event: it may
+well co-occur with simplex bursts on other channels. When simplex
+bursts are collected together, the result is a {\it multix burst}.
+Multix bursts may be dishwide barrages, or more localized events,
+even including single channel bursts.
+
+I'll use words in preference to maths whenever possible in the
+following text, but a few symbols help keep the explanation coherent:
+
+\begin{itemize}
+\item[$f_c$] is the average firing rate on channel $c$, that is, the total
+number of spikes recorded on that channel divided by the duration of
+the recording.
+\item[$\tau_c$] is the threshold inter-spike interval (ISI) for
+channel $c$. For each channel, $\tau_c$ is set to the smaller of
+$1\over{4f_c}$ and 100~ms. The factor {\bf four\footnote{Most of the
+parameters of the algorithm are tunable. Rather than assigning symbols to
+all parameters, I'll typeset them in bold, to signify that they can be
+changed. The given values are ``sensible defaults''.}} ensures that
+only spikes that succeed each other faster than four times the average
+firing rate, can be considered bursts.
+\end{itemize}
+
+
+
+\section{Finding simplex bursts}
+
+The algorithm considers each channel fully independently. For a given
+channel, it searches for sequences of {\bf four} or more spikes with
+all included ISIs less than $\tau_c$. After these `core' bursts have
+been found, they are extended into the past and the future to also
+contain other spikes that have ISIs less than {\bf 200~ms}, (or less
+than $1\over{3f_c}$, whichever is smaller). Thus, a simplex burst must
+consist of a core of at least very four very closely spaced spikes,
+with an `entourage' of any number of slightly less closely spaced
+spikes.
+
+\section{Combining simplex bursts into multix bursts}\label{multix}
+
+Once all simplex bursts on all channels have been found, they are
+sorted in temporal order. A multix burst is simply a sequence of one
+or more simplex bursts that have any amount of overlap. Note that if a
+channel fires a burst all by itself, that event will still be detected
+as a multix burst, irrespective of the fact that it consists of only
+one simplex burst.
+
+\section{Post-processing}
+
+In many cultures, a small number of channels keep firing at strongly
+elevated rates for extended periods, sometimes until the next barrage.
+If that happens, several barrages would all be globbed together into one
+multix burst according to the algorithm in section \ref{multix}. This
+problem is corrected in a post-processing stage called {\it
+disjoinxburst}. It looks at each detected multix burst in turn, and
+constructs a graph of number of simultaneous simplex bursts vs time.
+If a multix burst corresponds to several barrages, this graph will
+have more than one hump. The algorithm finds these humps, and splits
+the multix bursts accordingly.
+
+\section{Finding superbursts}
+
+I'm not yet very satisfied with the way superbursts are detected,
+because there are too many parameters to twiddle. The basic operation
+is as follows:
+
+\begin{itemize}
+\item Find all `big' bursts, i.e., multix bursts with at least half of
+all `good' channels participating. (A `good' channel is a channel that
+participates in at least three bursts over the course of the
+recording.)
+
+\item Find sequences of {\bf two} or more big bursts that have internal
+inter-burst intervals (IBIs) less than {\bf 5~s}, and preceding and
+succeeding IBIs larger than {\bf three} times the average internal
+IBI (AIIBI). This defines the core superburst. 
+
+\item Add to this core any multix bursts (big or small) that happen
+within the core superburst, or within one AIIBI of the core.
+\end{itemize}
+
+This seems to work fine on recordings that have visibly clear
+superbursts, but it's not very elegant. Also, in recordings were there
+are bursts of many different sizes, which events are elevated to
+superburst status appears to be somewhat arbitrary.
+
+\section{Using the code}
+
+Here is an example of the use of the {\it multix} package.
+
+\begin{quotation}~\vspace{-\baselineskip}
+\begin{lstlisting}{}
+spk=loadspike_noc('/d4/dw/somefile.spike',2); % Load a spike file
+tms=spk.time; chs=spk.channel; % Extract times and channel numbers
+bb=simplexburst(tms,chs,.1,4,.25,3,4,5);  % Find simplex bursts
+    % Here's what those parameters mean:
+    %  .1:  100 ms threshold ISI
+    %  4:   minimum 4 spikes in the core burst
+    %  .25: 250 ms threshold ISI for entourage
+    %  3:   min. 3x elevated firing rate in entourage
+    %  4:   min. 4x elevated firing rate in core
+    %  5:   min. 5 spikes in burst total
+
+mm=multixburst(bb); % Find the candidate multix bursts
+mm=disjoinxburst(mm,bb); % ... and post-process them to disjoin globbed ones
+
+kk=bigxburst(mm); % Find all big multix bursts
+ss=superxburst(mm,kk,10,1); % Use that to find core superbursts
+    % 10 means: no IBIs more than 10s inside a superburst core
+    % 1 means: use mean onset/offset times of component simplex bursts rather
+    %          than first onset/last offset.
+
+ess=expandxburst(ss,mm,kk,1); % Add entourage to superbursts
+\end{lstlisting}\end{quotation}
+
+\section{Implementation}
+
+The file multix-1.0.tgz contains the implementation in matlab, as well
+as a digital version of this document. Refer to the matlab code for
+precise usage information. Each function outputs a structure with
+several burst parameters. Type, e.g., `help multixbursts' to learn
+what to expect from {\it multixbursts.m}.
+
+\end{document}

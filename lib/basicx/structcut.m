@@ -1,0 +1,23 @@
+function y=structcut(y,idx)
+% STRUCTCUT  Get subvector of all vectorfields of a structure.
+%   y = STRUCTCUT(y,idx) reduces all vector fields of Y to only include
+%   positions at IDX. Effect on non-vector fields is undefined.
+
+clever = version('-release') >= 14;
+
+fns = fieldnames(y); F=length(fns);
+for f=1:F
+  try
+    if clever
+      fy = y.(fns{f});
+      fy = fy(idx);
+      y.(fns{f}) = fy;
+    else
+      fy = getfield(y,fns{f});
+      fy = fy(idx);
+      y = setfield(y,fns{f},fy);
+    end
+  catch
+    lasterr(''); % Otherwise, runmatlab(1) will not be happy.
+  end
+end
