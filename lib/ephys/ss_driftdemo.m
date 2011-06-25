@@ -59,3 +59,8 @@ for t=1:T
   title(sprintf('%g s -- %g s',tt0(t),tt0(t)+TIMESTEP));
   axis(a);
 end
+
+figure(6);
+plot(spikes.spiketimes, jitter(spikes.hierarchy.assigns,.5), 'x', 'markersize', 2);
+xlabel 'Time (s)'
+ylabel 'Cluster'

@@ -45,3 +45,8 @@ figure(5);
 ss_overlayclust(out, 'oversamp', 5, 'ybins', 500, 'cmap', cm);
 % This demonstrates that there was a good reason that these spikes were
 % deemed outliers. Still, this could be useful in some circumstances.
+
+figure(6);
+plot(spikes.spiketimes, jitter(spikes.hierarchy.assigns,.5), 'x', 'markersize', 2);
+xlabel 'Time (s)'
+ylabel 'Cluster'
