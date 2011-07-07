@@ -8,7 +8,10 @@ function filters = ss_matchedfilters(templates, trace, spiketimes)
 %    TRACE should be (a portion of) the original signal, for the purpose
 %    of estimating noise.
 %    SS_MATCHEDFILTERS(templates, trace, spiketimes) avoids parts of the
-%    trace that contain spikes.
+%    trace that contain spikes. SPIKETIMES must be in scans, not seconds.
+%
+%    In practice, this doesn't work very well, because templates tend
+%    to be far too strongly correlated. 
 
 [T, K] = size(templates);
 
@@ -18,7 +21,7 @@ N = floor(L/W);
 
 trace = reshape(trace(1:N*W),[W,N]); % reshape into short windows
 
-cautioustimes = [spiketimes(:); spiketimes(:)-.8*T; spiketimes(:)+.8*T];
+cautioustimes = [spiketimes(:); spiketimes(:)-.5*W; spiketimes(:)+.5*W];
 
 % Determine which windows are contaminated by spikes
 spikewin = 1+floor((cautioustimes-1)/W); % these windows contain spikes
@@ -33,7 +36,7 @@ trace = trace(:,use);
 N = size(trace,2);
 xc = zeros(T,N);
 for n=1:N
-  x = xcorr(detrend(trace(:,n)), T, 'unbiased');
+  x = xcorr(detrend(trace(:,n)), T-1, 'unbiased');
   xc(:,n) = x(end-T+1:end);
 end
 
@@ -45,11 +48,13 @@ tmplf = fft(templates,[],1);
 rrf = zeros(T, K) + i;
 
 for k=1:K
+  num=ccf;
   for l=1:K
     if l~=k
-      rrf(:,k) = rrf(:,k) + tmplf(:,k)./(tmplf(:,l).*conj(tmplf(:,l))+ccf);
+      num = num + tmplf(:,l).*tmplf(:,l); 
     end
   end
+  rrf(:,k) = tmplf(:,k) ./ num;
 end
 
-rr = ifft(rrf,[],1);
+rr = real(ifft(rrf,[],1));

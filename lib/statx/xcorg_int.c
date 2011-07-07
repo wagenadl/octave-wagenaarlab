@@ -12,9 +12,9 @@
 #include "mex.h"
 #include "matrix.h"
 
-void xcorg_int(unsigned int *dst, unsigned int ndst,
-	       unsigned int const *ttx, unsigned int nx,
-	       unsigned int const *tty, unsigned int ny) {
+int xcorg_int(unsigned int *dst, unsigned int ndst,
+	      unsigned int const *ttx, unsigned int nx,
+	      unsigned int const *tty, unsigned int ny) {
   unsigned int tx, ty;
   unsigned int ix, iy, jy;
   unsigned int idst;
@@ -34,10 +34,15 @@ void xcorg_int(unsigned int *dst, unsigned int ndst,
     /* Look at all relevant points in Y and update output. */
     jy=iy;
     while (jy<ny && (ty=tty[jy])<tx+ndst) {
+      if (ty<tx) {
+	/* violation of assumption */
+	return 0;
+      }
       dst[ty-tx]++;
       jy++;
     }
   }    
+  return 1;
 }
 
 int checkVecInt(const mxArray *prhs) { 
@@ -86,7 +91,10 @@ void mexFunction( int nlhs, mxArray *plhs[],
   plhs[0] = mxCreateNumericMatrix(1,in_T, mxUINT32_CLASS, 0);
   out_xc = (unsigned int *)mxGetData(plhs[0]);
 
-  xcorg_int(out_xc,in_T, in_ttx,nx, in_tty,ny);
+  if (!xcorg_int(out_xc,in_T, in_ttx,nx, in_tty,ny)) {
+    // violation of assumption
+    mexErrMsgTxt("Vectors must be in non-decreasing order.");
+  }
 
 }
 
