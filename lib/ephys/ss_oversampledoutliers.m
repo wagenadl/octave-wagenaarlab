@@ -9,6 +9,11 @@ function spk = ss_oversampledoutliers(spk)
 %   when run on oversampled data. This function extracts the oversampling
 %   factor from the data, so is extremely easy to use.
 
+if ~isfield(spk, 'Fs0')
+  spk = ss_outliers(spk);
+  return
+end
+
 F = spk.Fs / spk.Fs0;
 sp.waveforms = spk.waveforms(:,1:F:end);
 sp.spiketimes = spk.spiketimes;

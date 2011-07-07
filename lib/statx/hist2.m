@@ -4,18 +4,21 @@ function [nn,xx,yy] = hist2(x,y, nx,ny,makenan)
 %    bins in the x-direction, and NY bins in the y-direction.
 %    nn = HIST2(...) returns the bin counts instead of plotting; NN will
 %    be shaped NYxNX.
-%    [nn,xx,yy] = HIST2(...) returns the positions of the bin centers also,
-%    with XX a row vector and YY a column vector, suitable for plotting
-%    using IMAGESC(xx,yy,nn).
+%    [nn,xx,yy] = HIST2(...) returns the positions of the bin centers also:
+%    XX will be a row vector and YY a column vector, so that output is
+%    suitable for plotting using IMAGESC(xx,yy,nn).
 %    Instead of NX and NY being scalars, they can be triplets [X0 DX X1]
-%    and [Y0 DY Y0] to represent explicitly the centers of bins.
+%    and [Y0 DY Y1] to represent explicitly the centers of bins.
 %    Normally, x-values that lie outside the range (X0-DX/2,X1+DX/2) are
 %    mapped to the leftmost and rightmost bins as appropriate, and similarly
 %    for y-values outside the range (Y0-DY/2,Y1+DY/2). Instead, such values
 %    can be discarded by calling HIST2(x,y, nx,ny, 1).
 %    CAUTION: With NX or NY simple integers, this function does NOT ensure
 %    that every data point falls within a bin. Rather, the bin centers
-%    are placed based on percentiles of the data.
+%    are placed based on percentiles of the data, such that a fraction 1/NX of
+%    the data will fall to the left of the first bin's center and another 
+%    fraction 1/NX to the right of the last bin's center, and analogously in
+%    the Y direction.
 
 if nargin<3
   nx=10;

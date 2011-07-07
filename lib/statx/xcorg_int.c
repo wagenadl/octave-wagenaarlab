@@ -92,7 +92,7 @@ void mexFunction( int nlhs, mxArray *plhs[],
   out_xc = (unsigned int *)mxGetData(plhs[0]);
 
   if (!xcorg_int(out_xc,in_T, in_ttx,nx, in_tty,ny)) {
-    // violation of assumption
+    /* violation of assumption */
     mexErrMsgTxt("Vectors must be in non-decreasing order.");
   }
 

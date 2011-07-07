@@ -87,6 +87,8 @@ end
 
 aux.desc = desc;
 aux.kv = kv;
+aux.kv.appliedscale = kv.range/2048;
+aux.kv.appliedauxscale = kv.auxrange/2048;
 
 if nargout<2
   clear aux
@@ -228,6 +230,19 @@ while kv.count>0
     off = off + N;
   end
   kv.count = kv.count - N;
+end
+
+dat.time = dat.time * 1e-3/kv.freq;
+dat.width = dat.width / kv.freq;
+ielc = find(dat.channel<60);
+iaux = find(dat.channel>=60);
+dat.height(ielc) = dat.height(ielc) * kv.range/2048;
+dat.height(iaux) = dat.height(iaux) * kv.auxrange/2048;
+dat.thresh(ielc) = dat.thresh(ielc) * kv.range/2048;
+dat.thresh(iaux) = dat.thresh(iaux) * kv.auxrange/2048;
+if isfield(dat, 'context')
+  dat.context(ielc,:) = dat.context(ielc,:) * kv.range/2048;
+  dat.context(iaux,:) = dat.context(iaux,:) * kv.auxrange/2048;
 end
 
 if fd>=0

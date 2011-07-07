@@ -27,6 +27,7 @@ function spk = detectspike(dat, tms, varargin)
 %             Both heuristics can fail, and will give errors if they are
 %             unclear.
 %      oversamp: oversample the waveforms by given integer factor
+%      usepeak: record timestamp of peak rather than threshold crossing
 
 opts = getopt('thrfac=4 tbin=20 tkill=10 nsamp polarity oversamp usepeak=0', ...
     varargin);
@@ -130,3 +131,6 @@ if ~isempty(opts.oversamp)
   spk.Fs0 = fs;
   spk.Fs = opts.oversamp*fs;
 end
+
+spk.opts = opts;
+
