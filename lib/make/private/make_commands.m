@@ -17,11 +17,18 @@ for c=1:C
       cont = 1;
     end
     
+    idx = strfind(cmd, '$%');
+    if ~isempty(idx)
+      idx=idx(1);
+      cmd = [ cmd(1:idx-1) '''' mtch '''' cmd(idx+2:end) ];
+      cont = 1;
+    end
+    
     idx = strfind(cmd, '$<');
     if ~isempty(idx)
       idx=idx(1);
       str = strrep(deps{1}, '%', mtch);
-      cmd = [ cmd(1:idx-1) '''' dep '''' cmd(idx+2:end) ];
+      cmd = [ cmd(1:idx-1) '''' str '''' cmd(idx+2:end) ];
       cont = 1;
     end
     idx = strfind(cmd, '$^');

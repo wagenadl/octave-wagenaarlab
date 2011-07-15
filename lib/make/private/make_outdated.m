@@ -37,4 +37,7 @@ if exist(tgt, 'file')
 else
   % Target doesn't exist. Outdated to all.
   dps = deps;
+  for d=1:length(deps)
+    dps{d} = strrep(deps{d}, '%', mtch);
+  end
 end
