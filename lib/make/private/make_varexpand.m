@@ -2,9 +2,13 @@ function x = make_varexpand(x, var)
 % MAKE_VAREXPAND - Expands variables
 % Expands user variables ($VAR and $=VAR); does not expand automatic variables.
 
-idx = find(x(1:end-1)=='$' & ...
-    (isalnum(x(2:end)) | x(2:end)=='''' | x(2:end)=='!'));
-while ~isempty(idx)
+while 1
+  x
+  idx = find(x(1:end-1)=='$' & ...
+      (isalnum(x(2:end)) | x(2:end)=='''' | x(2:end)=='!'));
+  if isempty(idx)
+    break;
+  end
   idx=idx(1);
   expnd = 0;
   quote = 0;
@@ -59,5 +63,4 @@ while ~isempty(idx)
     y = y(1:end-2);
   end
   x = [ x(1:idx-1) y x(ids+ide:end) ];
-  idx = find(x(1:end-1)=='$' & (isalnum(x(2:end)) | x(2:end)=='='));
 end
