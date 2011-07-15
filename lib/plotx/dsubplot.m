@@ -7,7 +7,7 @@ function dsubplot(Y,X,y,x,fr);
 if nargin<5
   fr=.65;
 end
-if nargin<4
+if nargin<4 | isempty(x)
   xy = y;
   x = mod(xy-1,X);
   y = div(xy-1,X);

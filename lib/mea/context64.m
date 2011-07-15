@@ -3,6 +3,8 @@ function ctxt = context64(tms, rawfn, npre, npost, chs)
 %    ctxt = CONTEXT64(tms, rawfn), where TMS is a vector of timestamps, 
 %    and RAWFN is the name of a MEABench raw file, extracts context around
 %    each event.
+%    Alternatively, if RAWFN is a cell array containing a string and an
+%    integer, this is used to parse input for CONTEXTNI.
 %    ctxt = CONTEXT64(tms, rawfn, npre, npost, chs) overrides the default of
 %    125 scans pre and post the event's time and specifies a set of
 %    hw channels to extract.
@@ -35,14 +37,33 @@ for m=1:M
 end
 fclose(fd);
 
-% Now run context64
-cfn = tempname;
-r = unix(sprintf('mea context64 -i %s -o %s -t -p %i -P %i %s', ...
-      sfn, cfn, npre, npost, rawfn));
-if r
-  error(sprintf('context64 failed to complete (%i)',r));
+if iscell(rawfn)
+  nch = rawfn{2};
+  rawfn = rawfn{1};
+else
+  nch = [];
 end
-%delete(sfn);
+
+if isempty(nch) & endswith(rawfn, 'bin')
+  error('A non-interleaved binary file cannot be read without channel count');
+end
+
+% Now run context64/ni
+cfn = tempname;
+if isempty(nch)
+  r = unix(sprintf('mea context64 -i %s -o %s -t -p %i -P %i %s', ...
+      sfn, cfn, npre, npost, rawfn));
+  if r
+    error(sprintf('context64 failed to complete (%i)',r));
+  end
+else
+  r = unix(sprintf('mea contextni -i %s -o %s -t -p %i -P %i -c %i %s', ...
+      sfn, cfn, npre, npost, nch, rawfn));
+  if r
+    error(sprintf('contextni failed to complete (%i)',r));
+  end
+end
+delete(sfn);
 
 % Load context
 fd = fopen(cfn, 'rb');
@@ -52,5 +73,12 @@ fclose(fd);
 
 C=length(chs);
 T=npre+npost;
-ctxt = reshape(ctxt,[C T M]);
-ctxt = permute(ctxt,[2 3 1]);
+
+if isempty(nch)
+  ctxt = reshape(ctxt, [C T M]);
+  ctxt = permute(ctxt, [2 3 1]);
+else
+  ctxt = reshape(ctxt, [T C M]);
+  ctxt = permute(ctxt, [1 3 2]);
+end
+
