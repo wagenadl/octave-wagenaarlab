@@ -3,7 +3,6 @@ function x = make_varexpand(x, var)
 % Expands user variables ($VAR and $=VAR); does not expand automatic variables.
 
 while 1
-  x
   idx = find(x(1:end-1)=='$' & ...
       (isalnum(x(2:end)) | x(2:end)=='''' | x(2:end)=='!'));
   if isempty(idx)
