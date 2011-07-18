@@ -78,7 +78,10 @@ for n=1:2:length(varargin)
     % kv.(k) = v;
     kv = setfield(kv,k,v);
   else
-    idx = strmatch(k,opts);
+    idx = strmatch(k,opts,'exact');
+    if isempty(idx)
+      idx = strmatch(k,opts);
+    end
     if isempty(idx)
       if accept_any
 	kv = setfield(kv,k,v);

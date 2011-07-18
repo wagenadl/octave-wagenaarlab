@@ -93,27 +93,25 @@ end
 
 if isempty(idx)
   if exist(tgt,'file')
-    fprintf(1, '%s will be used as-is\n', tgt);
+    fprintf(1, '%s will be used as-is.\n', tgt);
   else
     error(sprintf('No rule to make %s', tgt));
   end
 else
-  dps = make_outdated(tgt, mk.rule.deps{idx}, mtch);
-  if isempty(dps)
-    % Nothing to do
-    fprintf(1, '%s is up-to-date\n', tgt);
-  else
-    % Need to make those dependencies first
-    fprintf(1, 'Need to make %s\n', tgt);
-
-    for k=1:length(dps)
-      fprintf(1, '%s is outdated wrt %s\n', tgt, dps{k});
-      if ~make(dps{k}, mk, 1)
-	return
-      end
+  dps = mk.rule.deps{idx};
+  for k=1:length(dps)
+    dep = strrep(dps{k}, '%', mtch);
+    fprintf(1, '%s depends on %s.\n', tgt, dep);
+    if ~make(dep, mk, 1)
+      return
     end
-    
-    fprintf(1,'Will make %s\n', tgt);
+  end
+
+  dps = make_outdated(tgt, mk.rule.deps{idx}, mtch);
+  if isempty(dps) 
+    fprintf(1, '%s is up-to-date.\n', tgt);
+  else
+    fprintf(1,'Will make %s.\n', tgt);
     % Now, let's make our target
     cmds = make_commands(mk.rule.cmds{idx}, tgt, mk.rule.deps{idx}, mtch);
     for k=1:length(cmds)
@@ -121,7 +119,7 @@ else
 	return
       end
     end
-    fprintf(1,'Done making %s\n', tgt);
+    fprintf(1,'Done making %s.\n', tgt);
   end
 end
 
@@ -130,5 +128,5 @@ if nargout>0
 end
 
 if ~deep
-  fprintf(1,'Make complet\n');
+  fprintf(1,'Make complete\n');
 end
