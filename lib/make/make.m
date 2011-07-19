@@ -40,7 +40,7 @@ function ok = make(tgt, mk, deep)
 %    defined before they are used.
 
 if nargout>0
-  ok = 0;
+  ok = 1;
 end
 
 if nargin<3
@@ -95,7 +95,9 @@ if isempty(idx)
   if exist(tgt,'file')
     fprintf(1, '%s will be used as-is.\n', tgt);
   else
-    error(sprintf('No rule to make %s', tgt));
+    fprintf('No rule to make %s.\n', tgt);
+    ok=0;
+    return;
   end
 else
   dps = mk.rule.deps{idx};
@@ -103,8 +105,12 @@ else
     dep = strrep(dps{k}, '%', mtch);
     fprintf(1, '%s depends on %s.\n', tgt, dep);
     if ~make(dep, mk, 1)
-      return
+      ok=0;
     end
+  end
+  if ok==0
+    fprintf(1, 'Giving up.\n');
+    return;
   end
 
   dps = make_outdated(tgt, mk.rule.deps{idx}, mtch);
