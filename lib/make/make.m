@@ -39,9 +39,7 @@ function ok = make(tgt, mk, deep)
 %    Makefiles are parsed in one pass. That means that variables must be
 %    defined before they are used.
 
-if nargout>0
-  ok = 1;
-end
+ok = 1;
 
 if nargin<3
   deep=0;
@@ -70,6 +68,9 @@ end
 
 if isempty(mk.rule.targets)
   fprintf(1, 'Nothing to make\n');
+  if nargout==0
+    clear ok
+  end
   return;
 end
 
@@ -97,6 +98,9 @@ if isempty(idx)
   else
     fprintf('No rule to make %s.\n', tgt);
     ok=0;
+    if nargout==0
+      clear ok
+    end
     return;
   end
 else
@@ -110,6 +114,9 @@ else
   end
   if ok==0
     fprintf(1, 'Giving up.\n');
+    if nargout==0
+      clear ok
+    end
     return;
   end
 
@@ -122,6 +129,10 @@ else
     cmds = make_commands(mk.rule.cmds{idx}, tgt, mk.rule.deps{idx}, mtch);
     for k=1:length(cmds)
       if ~make_eval(cmds{k})
+	ok = 0;
+	if nargout==0
+	  clear ok
+	end
 	return
       end
     end
@@ -129,10 +140,10 @@ else
   end
 end
 
-if nargout>0
-  ok = 1;
-end
-
 if ~deep
   fprintf(1,'Make complete\n');
+end
+
+if nargout==0
+  clear ok
 end
