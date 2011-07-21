@@ -9,6 +9,8 @@ function [nn,xx,yy] = hist2(x,y, nx,ny,makenan)
 %    suitable for plotting using IMAGESC(xx,yy,nn).
 %    Instead of NX and NY being scalars, they can be triplets [X0 DX X1]
 %    and [Y0 DY Y1] to represent explicitly the centers of bins.
+%    Or, they can be vectors [X0:DX:X1] (with at least 4 elements). Only
+%    the edges and the step size are actually used.
 %    Normally, x-values that lie outside the range (X0-DX/2,X1+DX/2) are
 %    mapped to the leftmost and rightmost bins as appropriate, and similarly
 %    for y-values outside the range (Y0-DY/2,Y1+DY/2). Instead, such values
@@ -30,7 +32,12 @@ if nargin<5
   makenan=0;
 end
 
-if length(nx)==3
+if length(nx)>3
+  x0=nx(1);
+  dx=mean(diff(nx));
+  x1=nx(end);
+  nx=round(1+(x1-x0)/dx);  
+elseif length(nx)==3
   x0=nx(1);
   dx=nx(2);
   x1=nx(3);
@@ -41,11 +48,16 @@ elseif length(nx)==1
   x1 = x_(ceil(N-N/nx));
   dx = (x1-x0)/(nx-1);
 else
-  error('NX must be a scalar or a [X0 DX X1] triplet');
+  error('NX must be a scalar, a [X0 DX X1] triplet, or a [X0:DX:X1] vector');
 end
 
 
-if length(ny)==3
+if length(ny)>3
+  y0=ny(1);
+  dy=mean(diff(ny));
+  y1=ny(end);
+  ny=round(1+(y1-y0)/dy);  
+elseif length(ny)==3
   y0=ny(1);
   dy=ny(2);
   y1=ny(3);
@@ -56,10 +68,10 @@ elseif length(ny)==1
   y1 = y_(ceil(N-N/ny));
   dy = (y1-y0)/(ny-1);
 else
-  error('NY must be a scalar or a [Y0 DY Y1] triplet');
+  error('NY must be a scalar, a [Y0 DY Y1] triplet, or a [Y0:DY:Y1] vector');
 end
 
-x = floor((x - (x0-dx/2)) / dx);
+x = floor((x(:) - (x0-dx/2)) / dx);
 if makenan
   x(x<0)=nan;
   x(x>=nx)=nan;
@@ -68,7 +80,7 @@ else
   x(x>=nx)=nx-1;
 end
 
-y = floor((y - (y0-dy/2)) / dy);
+y = floor((y(:) - (y0-dy/2)) / dy);
 if makenan
   y(y<0)=nan;
   y(y>=ny)=nan;
