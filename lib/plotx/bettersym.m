@@ -24,6 +24,8 @@ for h=1:H
     x=get(hh(h),'marker');
     if isempty(x)
       x='none';
+    else
+      x=x(1);
     end
     axes(get(hh(h),'parent'));
     r=get(hh(h),'markersize');

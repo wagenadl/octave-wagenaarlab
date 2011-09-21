@@ -18,6 +18,8 @@ while ~feof(ifd)
   idx = find(txt>' ');
   if ~isempty(idx)
     txt = txt(idx(1):idx(end));
+  else
+    txt = '';
   end
   iscomment = isempty(txt);
   if ~iscomment
@@ -29,6 +31,7 @@ while ~feof(ifd)
       idx = find(txt>'#');
       txt = txt(idx(1):idx(end));
       columnnames = strtoks(txt);
+      isheader = 0;
     else
       ; % ignore in middle
     end
@@ -48,7 +51,7 @@ for y=1:Y
   end  
 end
 while length(columnnames)<X
-  columnames{end+1} = sprintf('x%i'+length(columnnames)+1);
+  columnames{end+1} = sprintf('x%i',length(columnnames)+1);
 end
 numdat = zeros(Y,X)+nan;
 for y=1:Y
