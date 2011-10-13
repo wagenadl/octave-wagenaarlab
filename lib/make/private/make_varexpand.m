@@ -4,14 +4,20 @@ function x = make_varexpand(x, var)
 
 while 1
   idx = find(x(1:end-1)=='$' & ...
-      (isalnum(x(2:end)) | x(2:end)=='''' | x(2:end)=='!'));
+      (isalnum(x(2:end)) | x(2:end)=='''' | x(2:end)=='!' | ...
+      x(2:end)=='.' | x(2:end)=='$'));
   if isempty(idx)
     break;
   end
   idx=idx(1);
   expnd = 0;
   quote = 0;
-  if x(idx+1)==''''
+  if x(idx+1)=='.'
+    x = [x(1:idx-1) x(idx+2:end)];
+    continue
+  elseif x(idx+1)=='$'
+    x = [x(1:idx-1) '$' x(idx+2:end)];
+  elseif x(idx+1)==''''
     ids = idx+2;
     quote = 1;
   elseif x(idx+1)=='!'

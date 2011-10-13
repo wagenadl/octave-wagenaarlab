@@ -1,8 +1,9 @@
-function ok = make(tgt, mk, deep)
+function ok = make(tgt, mk, flags)
 % MAKE - Simple matlab version of make(1)
 %    MAKE builds the first target in m.Makefile.
 %    MAKE(target) builds a specific target.
 %    MAKE(target, makefile) specifies an alternative makefile.
+%    MAKE('-n', ...) just parses the makefile and show what would be done
 %
 %    Makefile syntax is a much simplified version of GNU Makefiles:
 %    Variables can be defined by the syntax:
@@ -38,11 +39,14 @@ function ok = make(tgt, mk, deep)
 %    Empty lines are ignored. Pound sign (#) introduces comments.
 %    Makefiles are parsed in one pass. That means that variables must be
 %    defined before they are used.
+%    Finally, $. is replaced by nothing and $$ is replaced by '$'.
 
 ok = 1;
 
 if nargin<3
-  deep=0;
+  flags.deep=0;
+  flags.notreal=0;
+  flags.verbose=0;
 end
 if nargin<2
   mk = 'm.Makefile';
@@ -51,17 +55,36 @@ if nargin<1
   tgt = [];
 end
 
+if ~isempty(tgt) & tgt(1)=='-'
+  flagn = tgt(2:end);
+  if nargin>1
+    tgt = mk;
+  else
+    tgt = [];
+  end
+  if nargin>2
+    mk = flags;
+  else
+    mk = 'm.Makefile';
+  end
+  flags.deep=0;
+  flags.notreal = any(flagn=='n');
+  flags.verbose = any(flagn=='v');
+end
+
 if ischar(mk)
   mk = make_readMakefile(mk);
 end
 
-if deep==0
-  if isempty(mk.var.keys)
-    fprintf(1,'(Makefile has no variables.)\n');
-  else
-    fprintf(1,'Makefile variables are:\n');
-    for k=1:length(mk.var.keys)
-      fprintf(1,'  %s: %s\n', mk.var.keys{k}, mk.var.values{k});
+if flags.verbose
+  if flags.deep==0
+    if isempty(mk.var.keys)
+      fprintf(1,'(Makefile has no variables.)\n');
+    else
+      fprintf(1,'Makefile variables are:\n');
+      for k=1:length(mk.var.keys)
+	fprintf(1,'  %s: %s\n', mk.var.keys{k}, mk.var.values{k});
+      end
     end
   end
 end
@@ -107,8 +130,12 @@ else
   dps = mk.rule.deps{idx};
   for k=1:length(dps)
     dep = strrep(dps{k}, '%', mtch);
-    fprintf(1, '%s depends on %s.\n', tgt, dep);
-    if ~make(dep, mk, 1)
+    if flags.verbose
+      fprintf(1, '%s depends on %s.\n', tgt, dep);
+    end
+    fl = flags;
+    fl.deep = 1;
+    if ~make(dep, mk, fl)
       ok=0;
     end
   end
@@ -121,14 +148,16 @@ else
   end
 
   dps = make_outdated(tgt, mk.rule.deps{idx}, mtch);
-  if isempty(dps) 
-    fprintf(1, '%s is up-to-date.\n', tgt);
+  if isempty(dps) & exist(tgt, 'file')
+    if flags.verbose
+      fprintf(1, '%s is up-to-date.\n', tgt);
+    end
   else
     fprintf(1,'Will make %s.\n', tgt);
     % Now, let's make our target
     cmds = make_commands(mk.rule.cmds{idx}, tgt, mk.rule.deps{idx}, mtch);
     for k=1:length(cmds)
-      if ~make_eval(cmds{k})
+      if ~make_eval(cmds{k}, flags.notreal)
 	ok = 0;
 	if nargout==0
 	  clear ok
@@ -140,7 +169,7 @@ else
   end
 end
 
-if ~deep
+if ~flags.deep
   fprintf(1,'Make complete\n');
 end
 

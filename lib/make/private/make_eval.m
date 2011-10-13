@@ -1,4 +1,10 @@
-function ok = make_eval(str)
+function ok = make_eval(str, notreal)
+if notreal
+  fprintf(1,'  Would run %s\n', str);
+  ok = 1;
+  return
+end
+
 fprintf(1,'  Running %s\n',str);
 %try 
   eval(str);
