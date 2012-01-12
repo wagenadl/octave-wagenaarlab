@@ -11,9 +11,11 @@ mk.rule.targets = {};
 mk.rule.deps = {};
 mk.rule.cmds = {};
 
+lineno = 0;
 lastidx=[];
 while ~feof(fd)
   tline = fgetl(fd);
+  lineno = lineno + 1;
   if ~ischar(tline)
     break;
   end
@@ -36,7 +38,7 @@ while ~feof(fd)
   if tline(1)<=' '
     % Got a command expansion
     if isempty(lastidx)
-      error('Last was not a dependency. Unexpected command.');
+      error(sprintf('Last was not a dependency. Unexpected command at line %i.',lineno));
     else
       cmd = make_varexpand(strip(tline), mk.var);
       for idx = lastidx(:)'

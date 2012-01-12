@@ -1,4 +1,4 @@
-function ok = make(tgt, mk, flags)
+function [ok, flags] = make(tgt, mk, flags)
 % MAKE - Simple matlab version of make(1)
 %    MAKE builds the first target in m.Makefile.
 %    MAKE(target) builds a specific target.
@@ -47,6 +47,7 @@ if nargin<3
   flags.deep=0;
   flags.notreal=0;
   flags.verbose=0;
+  flags.reported={};
 end
 if nargin<2
   mk = 'm.Makefile';
@@ -70,6 +71,7 @@ if ~isempty(tgt) & tgt(1)=='-'
   flags.deep=0;
   flags.notreal = any(flagn=='n');
   flags.verbose = any(flagn=='v');
+  flags.reported = {};
 end
 
 if ischar(mk)
@@ -117,7 +119,10 @@ end
 
 if isempty(idx)
   if exist(tgt,'file')
-    fprintf(1, '%s will be used as-is.\n', tgt);
+    if isempty(strmatch(tgt, flags.reported, 'exact'))
+      fprintf(1, '%s will be used as-is.\n', tgt);
+      flags.reported{end+1} = tgt;
+    end
   else
     fprintf('No rule to make %s.\n', tgt);
     ok=0;
@@ -135,7 +140,9 @@ else
     end
     fl = flags;
     fl.deep = 1;
-    if ~make(dep, mk, fl)
+    [okk, fl] = make(dep, mk, fl);
+    flags.reported = fl.reported;
+    if ~okk
       ok=0;
     end
   end

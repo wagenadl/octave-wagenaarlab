@@ -2,10 +2,17 @@ function [y, dy] = physfit_apply(x, p, v)
 % PHYSFIT_APPLY - Applies fit results to data points
 %    yy = PHYSFIT_APPLY(xx, p), where P is a result from PHYSFIT,
 %    applies the function form contained in P to the data XX and returns
-%    the result.
+%    the result. PHYSFIT_APPLY(p, xx) is also accepted.
 %    yy = PHYSFIT_APPLY(xx, p, v) specifies to use other than the last
 %    element of P.
 %    [yy, dy] = PHYSFIT_APPLY(...) also returns uncertainties at each point.
+
+if istruct(x)
+  xx=x;
+  x=p;
+  p=xx;
+  clear xx
+end
 
 if nargin<3 | isempty(v)
   v=length(p);
