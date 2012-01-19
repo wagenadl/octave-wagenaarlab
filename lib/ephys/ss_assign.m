@@ -10,7 +10,9 @@ if nargin<3
   cutoff=inf;
 end
 
-[spk.centroids, spk.cvar] = ss_centroids(master);
+[spk.centroids, svar] = ss_centroids(master);
+spk.cvar = svar.sw;
+
 [N T]=size(spk.waveforms);
 
 qq = find(~isnan(spk.cvar)); R=length(qq);

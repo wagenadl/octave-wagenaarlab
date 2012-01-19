@@ -7,7 +7,7 @@ function [y, dy] = physfit_apply(x, p, v)
 %    element of P.
 %    [yy, dy] = PHYSFIT_APPLY(...) also returns uncertainties at each point.
 
-if istruct(x)
+if isstruct(x)
   xx=x;
   x=p;
   p=xx;

@@ -86,30 +86,3 @@ if laststyle>=2
     end
   end
 end
-
-%%%% on=[];
-%%%% off=[];
-%%%% 
-%%%% i0 = findfirst_le(xx,thr_off);
-%%%% if i0==0
-%%%%   return
-%%%% end
-%%%% 
-%%%% while i0<length(xx)
-%%%%   di = findfirst_ge(xx(i0+1:end),thr_on);
-%%%%   if di==0
-%%%%     break
-%%%%   end
-%%%%   i1 = i0+di;
-%%%%   if i1>=length(xx)
-%%%%     break
-%%%%   end
-%%%%   di = findfirst_le(xx(i1+1:end),thr_off);
-%%%%   if di==0
-%%%%     break
-%%%%   end
-%%%%   i0 = i1+di;
-%%%%   on = [on i1];
-%%%%   off = [off i0];
-%%%% end
-
