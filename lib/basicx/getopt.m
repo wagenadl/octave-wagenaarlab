@@ -34,6 +34,12 @@ if iscell(varargin)
       varargin=varargin{1};
     end
   end
+  if length(varargin)==1
+    if isstruct(varargin{1})
+      kv = varargin{1};
+      return    
+    end
+  end
 end
 
 if mod(length(varargin),2)==1
