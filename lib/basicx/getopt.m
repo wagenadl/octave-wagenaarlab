@@ -22,12 +22,6 @@ function kv = getopt(opts,varargin)
 %    GETOPT('foo=3 bar=''yes''',varargin). Only simple numbers and strings
 %    may be passed this way.
 
-if ischar(opts)
-  if ~isempty(opts)
-    opts = strtoks(opts);
-  end
-end
-
 if iscell(varargin) 
   if length(varargin)==1
     if iscell(varargin{1})
@@ -44,6 +38,23 @@ end
 
 if mod(length(varargin),2)==1
   error('getopt: options and values must come in pairs');
+end
+
+if isstruct(opts)
+  kv=opts;
+  kv.getopt__version=1;  
+  for k=1:2:length(varargin)
+    if isfield(opts,varargin{k})
+      kv.(varargin{k}) = varargin{k+1};
+    end
+  end
+  return
+end
+
+if ischar(opts)
+  if ~isempty(opts)
+    opts = strtoks(opts);
+  end
 end
 
 kv.getopt__version=1;
@@ -69,8 +80,8 @@ for n=1:length(opts)
       end
       opts{n} = opts{n}(1:idx-1);
     end
-    % kv.(opts{n})=val;
-    kv = setfield(kv,opts{n},val);
+    kv.(opts{n})=val;
+    %kv = setfield(kv,opts{n},val);
   end
 end
 
@@ -81,8 +92,8 @@ for n=1:2:length(varargin)
     continue;
   end
   if isempty(opts)
-    % kv.(k) = v;
-    kv = setfield(kv,k,v);
+    kv.(k) = v;
+    %kv = setfield(kv,k,v);
   else
     idx = strmatch(k,opts,'exact');
     if isempty(idx)
@@ -90,15 +101,15 @@ for n=1:2:length(varargin)
     end
     if isempty(idx)
       if accept_any
-	kv = setfield(kv,k,v);
+	kv.(k) = v;%	kv = setfield(kv,k,v);
       else
 	error(sprintf('Unknown option "%s"',k));
       end
     elseif length(idx)>1
       error(sprintf('Ambiguous option "%s"',k));
     else
-      % kv.(opts{idx}) = v;
-      kv = setfield(kv,opts{idx},v);
+      kv.(opts{idx}) = v;
+      %kv = setfield(kv,opts{idx},v);
     end
   end
 end
