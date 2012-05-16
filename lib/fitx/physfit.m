@@ -266,6 +266,7 @@ fit(1).chi2 = nan;
 fit(1).ok = kvg;
 fit(1).sok = rc>sqrt(eps);
 fit(1).caution={};
+fit(1).sumsquares = sum((feval(foo,x,p)-y).^2);
 
 % --- Fit with SY but not SX ---
 if max(sy)>0
@@ -273,7 +274,8 @@ if max(sy)>0
   [f,p,kvg,iter,corp,covp,covr,stdresid,Z,r2,rc] = ...
       leasqr(x,y,p0,foo,1e-4,1e2,wt);
   fit(2).p = p';
-  fit(2).chi2 = sum((feval(foo,x,p)-y).^2.*wt.^2) ./ (N-df);
+  fit(2).sumsquares = sum((feval(foo,x,p)-y).^2.*wt.^2);
+  fit(2).chi2 =  fit(2).sumsquares ./ (N-df);
   fit(2).s = sqrt(diag(covp))' ./ sqrt(fit(2).chi2);
   fit(2).cov = covp ./ fit(2).chi2;
   fit(2).ok = kvg;
@@ -317,7 +319,8 @@ if max(sx)>0 & max(sy)>0
 	leasqr(x,y,p0,foo,1e-4,1e2,wt);
     if kvg | iter==1
       fit(3).p = p';
-      fit(3).chi2 = sum((feval(foo,x,p)-y).^2.*wt.^2) ./ (N-df);
+      fit(3).sumsquares = sum((feval(foo,x,p)-y).^2.*wt.^2);
+      fit(3).chi2 = fit(3).sumsquares ./ (N-df);
       fit(3).s = sqrt(diag(covp))' ./ sqrt(fit(3).chi2);
       fit(3).cov = covp ./ fit(3).chi2;
       fit(3).ok=kvg;
@@ -338,7 +341,10 @@ for k=1:length(fit)
 end
 
 for k=1:length(fit)
-    fit(k).form = form;
+  fit(k).form = form;
+  fit(k).nparam = df;
+  fit(k).dof = N - df;
+  fit(k).Ndata = N;
 end
 
 if nargout>=2
