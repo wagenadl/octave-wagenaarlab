@@ -14,7 +14,7 @@ if isstruct(x)
   clear xx
 end
 
-if nargin<3 | isempty(v)
+if nargin<3 || isempty(v)
   v=length(p);
 end
 

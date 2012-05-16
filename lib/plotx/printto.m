@@ -18,9 +18,19 @@ end
 args = strtoks(sprintf('-d%s %s %s',dev, opts, ofn)); 
 
 % Following hack ensures that Matlab 6.5 prints the whole area.
-a=axis; 
-hold on; 
-h=plot([a(1) a(2)],[a(3) a(4)], 'w.', 'markersize', .1);
+v=version;
+idx = find(v=='.');
+if ~isempty(idx)
+  v=v(1:idx(1)-1);
+end
+v=str2num(v);
+if v<7
+  a=axis; 
+  hold on; 
+  h=plot([a(1) a(2)],[a(3) a(4)], 'w.', 'markersize', .1);
+else
+  h=[];
+end
 
 % Following hack ensures that Octave produces pdfs and eps that match
 % figure size rather than standard paper.
