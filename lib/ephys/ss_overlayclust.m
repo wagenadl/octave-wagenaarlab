@@ -11,10 +11,12 @@ function [aimg,tind,yind,cmap] = ss_overlayclust(spikes, varargin)
 %      darker: make plots darker by given factor
 %      centroids: overlay centroids in plot
 %      marksamples: draw ticks for sample clock
+%      cmap: Nx3 map of colors for the N clusters
 %      fourier: flag to make oversamp use UPSAMPLE rather than spline
 %               interpolation
 %    [img, tind, yind] = SS_OVERLAYCLUST(...) returns image and coordinates
 %    rather than plotting it. TIND is in milliseconds, yind in data units.
+%    [img, tind, yind, cmap] = ... also returns the actually used color map.
 
 opts = getopt('oversamp ybins=100 outliers=0 selection darker=0 cmap centroids=0 marksamples=0 fourier=0', varargin);
 
@@ -62,7 +64,7 @@ if cls
   [dd,ord] = sort(y0); ord(ord)=1:N;
   cc = cc(1+mod(650*ord,1024),:);
 else
-  cc = cc(round(1+[0:M-1]*1023/(M-1)),:);
+  cc = cc(round(1+[0:N-1]*1023/(N-1)),:);
 end
 cc = [[1 1 1]; cc];
 
