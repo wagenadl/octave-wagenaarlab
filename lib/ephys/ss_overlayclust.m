@@ -11,10 +11,12 @@ function [aimg,tind,yind,cmap] = ss_overlayclust(spikes, varargin)
 %      darker: make plots darker by given factor
 %      centroids: overlay centroids in plot
 %      marksamples: draw ticks for sample clock
+%      fourier: flag to make oversamp use UPSAMPLE rather than spline
+%               interpolation
 %    [img, tind, yind] = SS_OVERLAYCLUST(...) returns image and coordinates
 %    rather than plotting it. TIND is in milliseconds, yind in data units.
 
-opts = getopt('oversamp ybins=100 outliers=0 selection darker=0 cmap centroids=0 marksamples=0', varargin);
+opts = getopt('oversamp ybins=100 outliers=0 selection darker=0 cmap centroids=0 marksamples=0 fourier=0', varargin);
 
 if isfield(spikes,'hierarchy')
   asg = spikes.hierarchy.assigns;
@@ -50,14 +52,14 @@ N = max(newasg);
 M = max(asg);
 cc = jet(1024);
 if cls
-  y0 = zeros(M,1);
-  for m=1:M
-    idx = find(asg==m);
+  y0 = zeros(N,1);
+  for n=1:N
+    idx = find(newasg==n);
     if ~isempty(idx)
-      y0(m) = mean(max((spikes.waveforms(idx,:)),[],2));
+      y0(n) = mean(max((spikes.waveforms(idx,:)),[],2));
     end
   end
-  [dd,ord] = sort(y0); ord(ord)=1:M;
+  [dd,ord] = sort(y0); ord(ord)=1:N;
   cc = cc(1+mod(650*ord,1024),:);
 else
   cc = cc(round(1+[0:M-1]*1023/(M-1)),:);
@@ -83,9 +85,13 @@ for n=1:N
   [pky(n),pki(n)] = max(wv0);
   [vly(n),vli(n)] = min(wv0);
   if ~isempty(opts.oversamp)
-    T = size(wv,2);
-    tinterp = [1:1/opts.oversamp:T];
-    wv = interp1([1:T]',wv',tinterp, 'spline')';
+    if opts.fourier
+      wv = upsample(wv', opts.oversamp)';
+    else
+      T = size(wv,2);
+      tinterp = [1:1/opts.oversamp:T];
+      wv = interp1([1:T]',wv',tinterp, 'spline')';
+    end
   end
   wv(1,1)=ymin; wv(1,end)=ymax; % Ugly hack to force decent behavior from histxt
   
@@ -108,7 +114,7 @@ for n=1:N
     im = im*opts.darker;
     im(im>1) = 1;
   end
-  aimg = aimg + im*cc(renum(n)+1,:);
+  aimg = aimg + im*cc(n+1,:);
 end
 aimg(aimg>1) = 1; % clip
 aimg = reshape(aimg, [Y,X,3]);
@@ -205,3 +211,5 @@ if nargout==0
   setappdata(gca, 'colormap', 1-cc);
   clear
 end
+
+cmap = 1-cc;
