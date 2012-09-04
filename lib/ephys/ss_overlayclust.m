@@ -11,14 +11,18 @@ function [aimg,tind,yind,cmap] = ss_overlayclust(spikes, varargin)
 %      darker: make plots darker by given factor
 %      centroids: overlay centroids in plot
 %      marksamples: draw ticks for sample clock
-%      cmap: Nx3 map of colors for the N clusters
 %      fourier: flag to make oversamp use UPSAMPLE rather than spline
 %               interpolation
+%      cmap: map of colors to use. The first is used for outliers (if plotted),
+%            the rest for the selected clusters.
+%      maxplot: no more than this number of traces will be used per cluster.
+%               If there are more traces than this, a random selection will
+%               be made. Default: maxplot=10000.
 %    [img, tind, yind] = SS_OVERLAYCLUST(...) returns image and coordinates
 %    rather than plotting it. TIND is in milliseconds, yind in data units.
 %    [img, tind, yind, cmap] = ... also returns the actually used color map.
 
-opts = getopt('oversamp ybins=100 outliers=0 selection darker=0 cmap centroids=0 marksamples=0 fourier=0', varargin);
+opts = getopt('oversamp ybins=100 outliers=0 selection darker=0 cmap centroids=0 marksamples=0 fourier=0 maxplot=10000', varargin);
 
 if isfield(spikes,'hierarchy')
   asg = spikes.hierarchy.assigns;
@@ -35,41 +39,47 @@ else
 end
 
 N=max(asg);
-yy = hist(asg,[0:N]);
 if isempty(opts.selection)
-  yy(1) = 0; % drop outliers
+  yy = hist(asg,[0:N]);
+  yy(1) = 0; % don't include outliers as a regular cluster
 else
-  for n=0:N
-    if ~any(opts.selection==n)
-      yy(n+1)=0;
-    end
-  end
+  yy = zeros(1,N+1);
+  yy(opts.selection+1) = 1;
 end
 renum = find(yy>0) - 1;
 asgmap = cumsum(yy>0);
 asgmap(yy==0)=0;
-newasg = asgmap(asg+1);
+newasg = asgmap(asg+1); % This starts at 1 for clusters with yy>0, which
+% may include the outlier cluster if explicitly selected.
+% newasg=0 for ignored clusters.
 N = max(newasg);
 
-M = max(asg);
-cc = jet(1024);
-if cls
-  y0 = zeros(N,1);
-  for n=1:N
-    idx = find(newasg==n);
-    if ~isempty(idx)
-      y0(n) = mean(max((spikes.waveforms(idx,:)),[],2));
-    end
+y0 = zeros(N,1);
+for n=1:N
+  idx = find(newasg==n);
+  if ~isempty(idx)
+    y0(n) = mean(max((spikes.waveforms(idx,:)),[],2));
   end
-  [dd,ord] = sort(y0); ord(ord)=1:N;
-  cc = cc(1+mod(650*ord,1024),:);
-else
-  cc = cc(round(1+[0:N-1]*1023/(N-1)),:);
 end
-cc = [[1 1 1]; cc];
+[dd,ord] = sort(y0); 
 
-if ~isempty(opts.cmap)
-  cc = 1-opts.cmap;
+if isempty(opts.selection)
+  plotord = renum(ord);
+else
+  plotord = opts.selection;
+end
+
+if isempty(opts.cmap)
+  cc = jet(1024);
+  if cls
+    ord(ord)=1:N;
+    cc = cc(1+mod(650*ord,1024),:);
+  else
+    cc = cc(round(1+[0:N-1]*1023/(N-1)),:);
+  end
+  cc = [[.75 .75 .75]; cc];
+else
+  cc = opts.cmap;
 end
 
 ymin = min(min(spikes.waveforms(newasg>0,:)));
@@ -81,6 +91,11 @@ vli = zeros(N,1);
 centroids = cell(N,1);
 for n=1:N
   idx = find(newasg==n);
+  if length(idx)>opts.maxplot
+    sel = randperm(length(idx));
+    idx = idx(sel(1:opts.maxplot));
+    clear sel
+  end
   wv = spikes.waveforms(idx,:);
   wv0 = mean(wv);
   centroids{n} = wv0;
@@ -96,7 +111,7 @@ for n=1:N
     end
   end
   wv(1,1)=ymin; wv(1,end)=ymax; % Ugly hack to force decent behavior from histxt
-  
+
   [img{n},tind,yind] = histxt(wv, opts.ybins);
   if ~isempty(opts.oversamp)
     tind = (tind-1)/opts.oversamp + 1;
@@ -107,21 +122,21 @@ for n=1:N
   mxintens(n) = max(img{n}(:));
 end
 [Y X] = size(img{1});
-aimg = zeros(Y*X,3);
+aimg = zeros(Y*X,3) + 1;
 mxint = max(mxintens);
-for n=1:N
+for m=plotord(:)'
+  n = asgmap(m+1);
   im = img{n}(:);
   im = im/mxintens(n);
   if opts.darker>1
     im = im*opts.darker;
     im(im>1) = 1;
   end
-  aimg = aimg + im*cc(n+1,:);
+  for k=1:3
+    aimg(:,k) = (1-im).*aimg(:,k) + im.*cc(n+1,k);
+  end
 end
-aimg(aimg>1) = 1; % clip
 aimg = reshape(aimg, [Y,X,3]);
-
-aimg = 1 - aimg;
 
 if nargout==0
   cla
@@ -162,7 +177,7 @@ if nargout==0
       tt = [1:T];
     end
     tt = (tt-spikes.threshT) * 1000/spikes.Fs;
-    plot(tt, wv, 'color', [.75 .75 .75]);
+    plot(tt, wv, 'color', cc(1,:));
     a=axis;
     text(0, a(3)+.1*(a(4)-a(3)), ...
 	sprintf('0: %i',length(find(asg==0))), ...
@@ -174,10 +189,11 @@ if nargout==0
   end
   
   if opts.centroids
-    for n=1:N
-      if ~isempty(centroids{n})
+    for m=plotord(:)'
+      n = asgmap(m);
+      if n>0 && ~isempty(centroids{n})
 	tt=([1:length(centroids{n})]-spikes.threshT) * 1000/spikes.Fs;
-	plot(tt, centroids{n}, 'color', 1-cc(renum(n)+1,:));
+	plot(tt, centroids{n}, 'color', cc(n,:));
       end
     end
   end
@@ -189,29 +205,29 @@ if nargout==0
     for dx=[-1 1 0]
       for dy=[-1 1 0]
         for n=1:N
-  	if dx==0 & dy==0
-  	  clr='k';
-  	else
-  	  clr='w';
-  	end
-  	dx1 = .001*(a(2)-a(1)) * dx;
-  	dy1 = .001*(a(4)-a(3)) * dy;
-  	text(tind(pki(n))+dx1, pky(n)+dy1, ...
-  	    sprintf('%i: %i',renum(n),length(find(newasg==n))), ...
-  	    'horizontalalignment', 'left', ...
-  	    'verticalalignment', 'middle', ...
-  	    'color', clr);
-  	text(tind(vli(n))+dx1, vly(n)+dy1, ...
-  	    sprintf('%i',renum(n)), ...
-  	    'horizontalalignment', 'left', ...
-  	    'verticalalignment', 'middle', ...
-  	    'color', clr);
-        end
+	  if dx==0 & dy==0
+	    clr='k';
+	  else
+	    clr='w';
+	  end
+	  dx1 = .001*(a(2)-a(1)) * dx;
+	  dy1 = .001*(a(4)-a(3)) * dy;
+	  text(tind(pki(n))+dx1, pky(n)+dy1, ...
+	      sprintf('%i: %i',renum(n),length(find(newasg==n))), ...
+	      'horizontalalignment', 'left', ...
+	      'verticalalignment', 'middle', ...
+	      'color', clr);
+	  text(tind(vli(n))+dx1, vly(n)+dy1, ...
+	      sprintf('%i',renum(n)), ...
+	      'horizontalalignment', 'left', ...
+	      'verticalalignment', 'middle', ...
+	      'color', clr);
+	end
       end
     end
   end
-  setappdata(gca, 'colormap', 1-cc);
+  setappdata(gca, 'colormap', cc);
   clear
 end
 
-cmap = 1-cc;
+cmap = cc;

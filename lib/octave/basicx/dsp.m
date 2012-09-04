@@ -1,4 +1,8 @@
 function dsp(v)
+% DSP - Display the value of a variable compactly
+%   DSP(v) displays the value of the variable V compactly. DSP does not
+%   recurse into structures.
+
 fprintf(1,'%s ', typeinfo(v));
 s=size(v);
 prtsize(s);

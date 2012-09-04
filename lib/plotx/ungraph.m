@@ -4,6 +4,10 @@ function [x,y]=ungraph(img,xsc,ysc)
 %    and its data points in the image IMG and returns scaled coordinates
 %    of clicked points.
 f=figure; clf
+try
+unhide
+catch
+end
 axes('position',[.01 .01 .98 .95]);
 h=imagesc(img);
 title('Click origin...');

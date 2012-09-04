@@ -4,7 +4,7 @@ function x = repmatto(x, S)
 %   give it the size S. Each component of S must be an integer multiple of 
 %   the current size of X in that dimension.
 
-D = size(S);
+D = length(S);
 S0 = size(x);
 D0 = length(S0);
 
