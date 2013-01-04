@@ -32,6 +32,7 @@ elseif iscell(v)
     sep = '';
     for n=1:length(v)
       str = [ str sep d_oneline(v{n}, maxlen/2, 1) ];
+      fprintf(2, "d_oneline: str=%s maxlen=%i\n", str, maxlen);
       if length(str)>maxlen
 	break;
       end

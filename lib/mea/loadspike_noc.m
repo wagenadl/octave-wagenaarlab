@@ -81,7 +81,7 @@ while 1,
       now=nn-n;
     end
     raw(:,n+[1:now]) = dat([1:7 82],1:now);
-    fprintf(1,'Spikeinfos read: %i / %i\r',n,len);
+    fprintf(2, 'Spikeinfos read: %i / %i\r',n,len);
     n = n + now;
   else
     break
@@ -126,4 +126,4 @@ if ~isnan(freq)
   y.width = y.width ./ freq;
 end
 
-fprintf(1,'\n');
+fprintf(2, '\n');

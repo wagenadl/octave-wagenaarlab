@@ -15,22 +15,16 @@ columnnames = {};
 data = {};
 while ~feof(ifd)
   txt = fgets(ifd);
-  idx = find(txt>' ');
-  if ~isempty(idx)
-    txt = txt(idx(1):idx(end));
-  else
-    txt = '';
-  end
-  iscomment = isempty(txt);
+  bits = strtoks(txt);
+  iscomment = isempty(bits);
   if ~iscomment
-    iscomment = txt(1)=='#';
+    iscomment = bits{1}(1)=='#';
   end
   if iscomment
     % Comment line
     if isheader
       idx = find(txt>'#');
-      txt = txt(idx(1):idx(end));
-      columnnames = strtoks(txt);
+      columnnames = strtoks(txt(idx(1):end));
       isheader = 0;
     else
       ; % ignore in middle
@@ -38,8 +32,8 @@ while ~feof(ifd)
   else
     % Data line
     isheader = 0;
-    data{end+1} = strtoks(txt);
-    if mod(length(data),1000)==0
+    data{end+1} = bits;
+    if mod(length(data), 1000)==0
       fprintf(2, 'Read %i data lines\r', length(data));
     end
   end
@@ -57,6 +51,16 @@ end
 while length(columnnames)<X
   columnames{end+1} = sprintf('x%i',length(columnnames)+1);
 end
+
+for n=1:length(columnnames)
+  s = columnnames{n};
+  if ~isletter(s(1))
+    s = [ 'x' s ];
+  end
+  s(~isalnum(s)) = '_';
+  columnnames{n} = s;
+end
+
 numdat = zeros(Y,X)+nan;
 for y=1:Y
   for x=1:length(data{y})

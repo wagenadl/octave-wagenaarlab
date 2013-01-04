@@ -30,6 +30,7 @@ S=size(v);
 L=length(v);
 
 if isstruct(v)
+  % Structure - either scalar or array
   if prod(S)==1
     str = [ str d_struct(v, ind+1)];
   else
@@ -37,6 +38,7 @@ if isstruct(v)
     str = [ str d_structnames(v, ind+1)];
   end
 elseif iscell(v)
+  % Cell array - small or large
   if isempty(v)
     str = [ str inds "{empty cell}\n"];
   elseif length(S)>2
@@ -45,7 +47,18 @@ elseif iscell(v)
   else
     str = [ str d_cell(v, ind) ];
   end
+elseif ischar(v)
+  % String - small or large
+  if isempty(v)
+    str = [ str inds "(empty string)\n"];
+  elseif length(S)>2
+    % High dimensional
+    str = [ str d_highdimstr(v, ind) ];
+  else
+    str = [ str d_string(v, ind) ];
+  end
 elseif ismatrix(v)
+  % Numeric array - small or large
   if isempty(v)
     str = [ str inds d_typeinfo(v) "\n" ];
   elseif length(S)>2
@@ -54,8 +67,6 @@ elseif ismatrix(v)
   else
     str = [ str d_matrix(v, ind) ];
   end
-  
-%elseif ischar(v)    
 else
   str = [ str inds d_typeinfo(v) "\n" ];
 end
