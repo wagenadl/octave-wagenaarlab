@@ -1,4 +1,4 @@
-function [s, data] = dtexttext(ifn)
+function [s, data] = dtextread(ifn)
 % DTEXTREAD - Read text files with headers
 %    s = DTEXTREAD(ifn) reads text from IFN into a structure S.
 %    Lines in the file are split at white space.
@@ -39,9 +39,13 @@ while ~feof(ifd)
     % Data line
     isheader = 0;
     data{end+1} = strtoks(txt);
+    if mod(length(data),1000)==0
+      fprintf(2, 'Read %i data lines\r', length(data));
+    end
   end
 end
 fclose(ifd);
+fprintf(2, 'Finished reading data lines\n');
 
 Y = length(data);
 X = 0;
@@ -69,6 +73,3 @@ for x=2:X
   s = setfield(s, columnnames{x}, numdat(:,x));
 end
 
-
-  
-  
