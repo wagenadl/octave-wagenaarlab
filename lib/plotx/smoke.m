@@ -8,7 +8,7 @@ function [pic,xx,yy]=smoke(x,y,x0,dx,x1,y0,dy,y1);
 % [pic,xx,yy] = ... also returns x and y coordinates for use with SURF.
 % With no output arguments, the function creates a plot.
 
-if nargin<2 | (nargin>4 & nargin<8) | nargin>8
+if nargin<2 || (nargin>4 & nargin<8) || nargin>8
   error('Usage: smoke x y x0 dx x1 y0 dy y1; smoke x y nx ny; smoke x y n');
 end
 if nargin==2

@@ -43,13 +43,13 @@ function y=loadspike(fn,range,freq,n)
 % Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 
-if nargin<2 | isempty(range)
+if nargin<2 || isempty(range)
   range=nan;
 end
-if nargin<3 | isempty(freq)
+if nargin<3 || isempty(freq)
   freq=nan;
 end
-if nargin<4 | isempty(n)
+if nargin<4 || isempty(n)
   n=inf;
 end
 
