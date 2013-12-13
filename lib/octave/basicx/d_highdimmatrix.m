@@ -11,6 +11,8 @@ cut = 0;
 S = size(v);
 S1 = S(3:end);
 L = length(S1);
+fmt = sprintf('%%%is', ind*2);
+inds = sprintf(fmt, '');
 if L==0
   fmt = sprintf('%%%is', ind*2);
   inds = sprintf(fmt, '');
