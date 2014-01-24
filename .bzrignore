@@ -1,3 +1,6 @@
 .dpss
 *.mexa64
 *.mexglx
+*mexw64
+octavecore
+octave-core

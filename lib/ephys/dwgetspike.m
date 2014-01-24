@@ -4,6 +4,8 @@ function [idx,ion,iof,thr] = dwgetspike(yy,sig,dir)
 %   (1) find peaks yy>2*sig.
 %   (2) drop minor peaks within 50 samples of major peaks.
 %   (3) repeat for peaks yy<-2*sig.
+%   Caution: minor negative peaks around major positive peaks (and vv)
+%   do not get dropped.
 %   DWGETSPIKE(yy,sig,dir) only finds +ve spikes if DIR>0 or only -ve
 %   spikes if DIR<0.
 %   [idx, ion, iof] = DWGETSPIKE(...) also returns entering and exiting
