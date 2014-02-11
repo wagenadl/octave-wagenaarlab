@@ -30,9 +30,13 @@ if isfield(spikes,'hierarchy')
 elseif isfield(spikes, 'overcluster')
   asg = spikes.overcluster.assigns;
   cls = 1;
+elseif isfield(spikes, 'assigns')
+  asg = spikes.assigns;
+  cls = 1;
 elseif 1 % any(isinf(spikes.threshV)) | ~isfield(spikes, 'amplitude')
   asg = ceil([1:length(spikes.spiketimes)]*10/length(spikes.spiketimes));
   cls = 0;
+  fprintf(1, 'Caution! Using fake clusters\n');
 else
   asg = 1 + (spikes.amplitude<0);
   cls = 0;
