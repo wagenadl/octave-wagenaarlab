@@ -44,8 +44,8 @@ static void initialize_protectable8(void) {
   /* protect end pixels */
   for (k=1; k<256; k*=2) 
     setpr(pr,k);
-  /* for (k=1; k<256; k*=2)
-     setpr(pr,k*3); */
+  for (k=1; k<256; k*=2)
+      setpr(pr,k*3); 
 
   /* protect connecting pixels */
   for (k=1; k<256; k*=4) {

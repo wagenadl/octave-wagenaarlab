@@ -4,3 +4,4 @@
 *mexw64
 octavecore
 octave-core
+*.mex
