@@ -1,4 +1,4 @@
-function y = loadraw(fn, hw, range, lim, skip) 
+function y = loadraw1c(fn, hw, range, lim, skip) 
 % LOADRAW1C - Read MEABench raw datafiles
 %    y=LOADRAW1C(fn, hw) reads the raw MEA datafile fn and stores the result
 %    for electrode HW (counted 0..63) in y.

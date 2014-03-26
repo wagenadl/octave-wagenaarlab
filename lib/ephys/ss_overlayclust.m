@@ -107,7 +107,7 @@ for n=1:N
   [vly(n),vli(n)] = min(wv0);
   if ~isempty(opts.oversamp)
     if opts.fourier
-      wv = upsample(wv', opts.oversamp)';
+      wv = fupsample(wv', opts.oversamp)';
     else
       T = size(wv,2);
       tinterp = [1:1/opts.oversamp:T];
@@ -116,7 +116,8 @@ for n=1:N
   end
   wv(1,1)=ymin; wv(1,end)=ymax; % Ugly hack to force decent behavior from histxt
 
-  [img{n},tind,yind] = histxt(wv, opts.ybins);
+  [img{n}, tind, yind] = dhistxt(wv', opts.ybins);
+  img{n} = img{n}';
   if ~isempty(opts.oversamp)
     tind = (tind-1)/opts.oversamp + 1;
   end
@@ -125,6 +126,7 @@ for n=1:N
   img{n}(1,end)=0; % Blot out ugly hack
   mxintens(n) = max(img{n}(:));
 end
+
 [Y X] = size(img{1});
 aimg = zeros(Y*X,3) + 1;
 mxint = max(mxintens);
@@ -209,7 +211,7 @@ if nargout==0
     for dx=[-1 1 0]
       for dy=[-1 1 0]
         for n=1:N
-	  if dx==0 & dy==0
+	  if dx==0 && dy==0
 	    clr='k';
 	  else
 	    clr='w';

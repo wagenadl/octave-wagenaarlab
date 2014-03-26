@@ -36,7 +36,7 @@ function y = loadraw(fn, range, lim, skip)
 % along with this program; if not, write to the Free Software
 % Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-if nargin<3 | isempty(lim)
+if nargin<3 || isempty(lim)
   lim=inf;
 end
 if nargin<4
