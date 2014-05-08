@@ -40,13 +40,13 @@ static coord *op_fiback(unsigned int const *obj, int X, int Y,
     dest[Nused].x = x;     
     dest[Nused].y = y;
     Nused++;
-    tryimprove(-1,-1);
     tryimprove(0,-1);
-    tryimprove(1,-1);
     tryimprove(-1,0);
     tryimprove(1,0);
-    tryimprove(-1,1);
     tryimprove(0,1);
+    tryimprove(-1,-1);
+    tryimprove(1,-1);
+    tryimprove(-1,1);
     tryimprove(1,1);
     if (dxbest || dybest) {
       if (Nused>=Nalloc) {

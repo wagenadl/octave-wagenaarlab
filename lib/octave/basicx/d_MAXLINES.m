@@ -1,2 +1,2 @@
 function n = d_MAXLINES
-n = 20;
+n = 18;

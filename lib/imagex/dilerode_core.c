@@ -43,23 +43,39 @@ static void initialize_protectable8(void) {
 
   /* protect end pixels */
   for (k=1; k<256; k*=2) 
-    setpr(pr,k);
+    setpr(pr,k);           //         +
+                           //  o+    o        (and 4 rotated variants of both)
+                           //
   for (k=1; k<256; k*=2)
-      setpr(pr,k*3); 
+    setpr(pr,k*3);         //   +     ++
+                           //  o+     o       (ditto)
+                           //
 
   /* protect connecting pixels */
   for (k=1; k<256; k*=4) {
     for (l=1; l<8; l++) {
-      setpr(pr,k+k*8*l);
-      setpr(pr,k*(1+2)+k*8*l);
-      setpr(pr,k*(1+128)+k*8*l);
-      setpr(pr,k*(1+2+128)+k*8*l);
+      setpr(pr,k+k*8*l);            //  +          +                     +
+                                    //   o+   +o+  +o+   o+   ...        +o+
+                                    //                  +                +
+      
+      setpr(pr,k*(1+2)+k*8*l);      //  + +     +        + +
+                                    //   o+   +o+  ...   +o+
+                                    //                   +
+
+      setpr(pr,k*(1+128)+k*8*l);    //  +     +          +  
+                                    //   o+   +o+  ...   +o+
+                                    //    +     +        + +
+      
+      setpr(pr,k*(1+2+128)+k*8*l);  //  + +   + +        + +
+                                    //   o+   +o+  ...   +o+
+                                    //    +     +        + +
     }
   }
 
-  for (k=2; k<256; k*=4) 
-    for (l=1; l<32; l++) 
-      setpr(pr,k+4*k*l);
+  for (k=2; k<256; k*=4)  //  + +    +   + +    +         + +
+    for (l=1; l<32; l++)  //   o   +o    +o    o   ...    +o
+      setpr(pr,k+4*k*l);  //                  +           +++
+                         
 }
 
 static void ensure_protectable(void) {
@@ -198,9 +214,11 @@ static void op_thin(unsigned char const *img, int X, int Y,
       unsigned char const *pix = row + x;
       if (*pix) {
 	/* This pixel is set, so it could be eroded away */
-	if (!pix[-1] || !pix[1] || !pix[-X] || !pix[X])
-	  if (!protectable8[neighborhood8(row1+x,X)])
-	    row1[x] = 0;
+	if (!pix[-1] || !pix[1] || !pix[-X] || !pix[X]) {
+	  unsigned char *pix1 = row1 + x;
+	  if (!protectable8[neighborhood8(pix1,X)])
+	    *pix1 = 0;
+	}
       }
     }
   }
