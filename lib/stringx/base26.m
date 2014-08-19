@@ -10,7 +10,7 @@ if nargin<2
   forcecell=0;
 end
 
-if forcecell | prod(size(n))>1
+if forcecell || prod(size(n))>1
   [K L]=size(n);
   str = cell(K,L);
   for k=1:K
@@ -27,7 +27,7 @@ else
   n=n-1;
   ok=1;
   while ok
-    if n<=26 & ~isempty(str)
+    if n<=26 && ~isempty(str)
       str=['`'+n str];
       ok=0;
     else

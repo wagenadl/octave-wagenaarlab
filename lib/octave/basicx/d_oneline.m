@@ -89,6 +89,7 @@ if forcebracket && ischar(str)
   if str(1)=='[' || str(1)=='{'
     ;
   else
-    str = [ '[' str ']' ];
+    % str = [ '[' str ']' ];
+    % I don't remember why I wanted this..
   end
 end
