@@ -2,24 +2,25 @@ function kv = getopt(opts,varargin)
 % GETOPT Condense function options into a struct.
 %    kv = GETOPT(opts,...) returns a structure with fields OPTS and values
 %    based on ... 
-%    Options occurring in ... but not in OPTS cause an error, only OPTS=[].
+%    Options occurring in ... but not in OPTS cause an error, unless OPTS is [].
 %    Options not named in ... are set to [].
-%    Option names may be abbreviated, unless OPTS=[].
+%    Option names may be abbreviated, unless OPTS is [].
 %    Option names are always converted to lower case.
 %
 %    For instance,
-%      kv = GETOPT({'foo','bar','longoption'},'foo',3,'longo','x') 
+%      kv = GETOPT({'foo', 'bar', 'longoption'}, 'foo', 3, 'longo', 'x') 
 %    returns
 %      KV = foo: 3
 %           bar: []
 %           longoption: 'x'.
 %
 %    Instead of a cell array, OPTS may be a single string with options 
-%    separated by spaces.
-%    GETOPT may be called as in GETOPT('foo bar',varargin) or as in
-%    GETOPT('foo bar',varargin{:}).
+%    separated by spaces. The magic option name '+' prevents errors
+%    for unknown options.
+%    GETOPT may be called as in GETOPT('foo bar', varargin) or as in
+%    GETOPT('foo bar', varargin{:}).
 %    Defaults may be specified in OPTS. For instance:
-%    GETOPT('foo=3 bar=''yes''',varargin). Only simple numbers and strings
+%    GETOPT('foo=3 bar=''yes''', varargin). Only simple numbers and strings
 %    may be passed this way.
 
 if iscell(varargin) 
@@ -36,7 +37,7 @@ if iscell(varargin)
   end
 end
 
-if mod(length(varargin),2)==1
+if mod(length(varargin), 2)==1
   error('getopt: options and values must come in pairs');
 end
 
@@ -88,9 +89,9 @@ end
 for n=1:2:length(varargin)
   k = lower(varargin{n});
   v = varargin{n+1};
-  if isempty(v)
-    continue;
-  end
+  %if isempty(v)
+  %  continue;
+  %end
   if isempty(opts)
     kv.(k) = v;
     %kv = setfield(kv,k,v);

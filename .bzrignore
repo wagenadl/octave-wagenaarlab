@@ -6,3 +6,5 @@ octavecore
 octave-core
 *.mex
 octave-workspace
+octave-wagenaarlab_*
+wagenaarlab-deb/debian
