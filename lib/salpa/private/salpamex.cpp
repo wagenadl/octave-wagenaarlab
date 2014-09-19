@@ -46,7 +46,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
       mxGetN(prhs[1])*mxGetM(prhs[1])!=7) 
     mexErrMsgTxt("Input 2 must be a real vector of 7 elements.");
 
-  plhs[0] = mxCreateDoubleMatrix(mxGetN(prhs[0]),mxGetM(prhs[0]),mxREAL);
+  plhs[0] = mxCreateDoubleMatrix(mxGetM(prhs[0]),mxGetN(prhs[0]),mxREAL);
 
   T=mxGetN(prhs[0]) * mxGetM(prhs[0]);
   data=mxGetPr(prhs[0]);
