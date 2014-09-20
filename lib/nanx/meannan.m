@@ -19,6 +19,10 @@ end
 
 bad = isnan(x);
 x(bad)=0;
-s1 = sum(~bad,dim);
-sx = sum(x,dim);
-y = sx ./ s1;
+s1 = sum(~bad, dim);
+sx = sum(x, dim);
+if s1==0 && sx==0
+  y = nan;
+else
+  y = sx ./ s1;
+end
