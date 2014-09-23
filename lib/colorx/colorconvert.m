@@ -22,6 +22,9 @@ function cc = colorconvert(cc, varargin)
 %      lshuv -  As cielchuv, but with C* replaced by saturation s.
 %               See http://en.wikipedia.org/wiki/Colorfulness#Saturation
 %      lshab -  As cielch, but with C* replaced by saturation s.
+%      hcl   -  Alternative to cielch proposed by Sarifuddin and Missaoui.
+%               See http://w3.uqo.ca/missaoui/Publications/TRColorSpace.zip
+
 %    cc = COLORCONVERT(cc, k, v, ...) specifies additional parameters:
 %      whitepoint: whitepoint for cielab to/from ciexyz conversion. 
 %            (Either an XYZ triplet or one of 'd50', 'd55', 'd65', 'a', 'c'.)
@@ -52,6 +55,9 @@ elseif strcmp(kv.from, 'lshuv')
 elseif strcmp(kv.from, 'srgb')
   cc = srgbtolinearrgb(cc);
   kv.from = 'linearrgb';
+elseif strcmp(kv.from, 'hcl')
+  cc = hcltolinearrgb(cc);
+  kv.from = 'linearrgb';
 end
 
 if strcmp(kv.from, kv.to)
@@ -76,6 +82,9 @@ end
 post = [];
 if strcmp(kv.to, 'srgb')
   post = @linearrgbtosrgb;
+  kv.to = 'linearrgb';
+elseif strcmp(kv.to, 'hcl')
+  post = @linearrgbtohcl;
   kv.to = 'linearrgb';
 elseif strcmp(kv.to, 'cielch')
   post = @cielabtocielch;
