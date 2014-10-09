@@ -6,15 +6,18 @@ function [nn, tt, cc] = dhistxt(xx, n, varargin)
 %   DHISTXT(xx, cc) specifies bin centers instead of bin count.
 %
 %   nn = DHISTXT(...) returns bin counts instead of plotting. Output will be
-%   shaped TxN where N is the number of bins.
+%   shaped TxN where N is the number of vertical bins.
 %   [nn, tt, cc] = DHISTXT(...) returns bin counts and bin centers. This can
 %   be fed to imagesc as in: IMAGESC(tt, cc, nn');
 %
 %   DHISTXT(xx, n, k1, v1, ...) specifies additional options, which may 
 %   include:
 %      oversample: factor by which to oversample in time domain for smoother
-%                  and denser plotting. Caution from UPSAMPLE applies.
+%                  and denser plotting. Cautions from the documentation
+%                  of UPSAMPLE apply.
 %      finer: factor by which to produce data points between integer time bins.
+%
+%   See also: SMOKE
 
 [T, K] = size(xx);
 kv = getopt('oversample=1 finer=1', varargin);

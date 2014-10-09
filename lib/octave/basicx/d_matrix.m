@@ -17,6 +17,7 @@ end
 str = '';
 cut = 0;
 [Y X] = size(v);
+
 for y=1:Y
   str1 = inds;
   if y==1
@@ -50,7 +51,6 @@ for y=1:Y
 end
 str = [ str " ]\n" ];
 if cut && nargin<3
-  nargin
   str = [ str inds "(" d_size(v) ")\n" ];
 end  
 

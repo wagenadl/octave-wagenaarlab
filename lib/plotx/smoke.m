@@ -1,12 +1,15 @@
 function [pic,xx,yy]=smoke(x,y,x0,dx,x1,y0,dy,y1);
-% pic = SMOKE(x,y,x0,dx,x1,y0,dy,y1) creates a smokey 2D histogram
-% [pic,xx,yy] also returns x and y coordinates for use with SURF.
-% With no output arguments, the function creates a plot.
-% SMOKE(x,y) uses a default picture size
-% SMOKE(x,y,nx) uses a prescribed picture size (square) with automatic limits
-% SMOKE(x,y,nx,ny) uses a prescribed picture size with automatic limits
-% [pic,xx,yy] = ... also returns x and y coordinates for use with SURF.
-% With no output arguments, the function creates a plot.
+% SMOKE - 2D histograms
+%    SMOKE(x,y) plots a 2D histogram of the (x,y) data using 1000x1000 bins
+%    and automatic limits.
+%    SMOKE(x,y,nx) uses a prescribed picture size (square).
+%    SMOKE(x,y,nx,ny) uses a prescribed picture size.
+%    SMOKE(x,y,x0,dx,x1,y0,dy,y1) specifies limits and bin sizes explicitly.
+%    pic = SMOKE(...) returns the image data instead of plotting it.
+%    [pic,xx,yy] = SMOKE(...) also returns x and y coordinates, e.g.,
+%    for use with SURF.
+%
+%    See also: DHISTXT
 
 if nargin<2 || (nargin>4 & nargin<8) || nargin>8
   error('Usage: smoke x y x0 dx x1 y0 dy y1; smoke x y nx ny; smoke x y n');

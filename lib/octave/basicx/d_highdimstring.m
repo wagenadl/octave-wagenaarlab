@@ -1,4 +1,4 @@
-function str = d_highdimmatrix(v, ind, rest, maxlines)
+function str = d_highdimstring(v, ind, rest, maxlines)
 
 if nargin<3
   rest = '';
@@ -15,14 +15,14 @@ if L==0
   fmt = sprintf('%%%is', ind*2);
   inds = sprintf(fmt, '');
   str = [ inds '(:,:,1' rest "):\n" ];
-  str = [ str d_matrix(v, ind+1, maxlines-2)];
+  str = [ str d_string(v, ind+1, maxlines-2)];
 elseif L>1
   S0 = S1(1:end-1);
   vv = reshape(v, [S(1:2) prod(S0) S1(end)]);
   str='';
   for k=1:S1(end)
     v_ = reshape(vv(:,:,:,k), [S(1:2) S0]);
-    add = d_highdimmatrix(v_, ind+1, sprintf(',%i%s', k, rest), maxlines-2);
+    add = d_highdimstring(v_, ind+1, sprintf(',%i%s', k, rest), maxlines-2);
     if length(find(str=="\n")) + length(find(add=="\n")) >= maxlines
       str = [ str inds "...\n" ];
       cut = 1;
@@ -40,7 +40,7 @@ else
   str = '';
   for k=1:S1(end)
     add = [ inds sprintf('(:,:,%i',k) rest "):\n" ];
-    add = [ add d_matrix(v(:,:,k), ind+1, maxlines-2) ];
+    add = [ add d_string(v(:,:,k), ind+1, maxlines-2) ];
     if length(find(str=="\n")) + length(find(add=="\n")) >= maxlines
       str = [ str inds "...\n" ];
       cut = 1;
