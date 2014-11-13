@@ -8,11 +8,13 @@ function rgb = rotacol(rgb,theta)
 if C==1
   rgb=reshape(rgb,[X 1 Y]);
 end
-hsv=colorspace('rgb->hsv',rgb);
+
+hsv=rgb2hsv(rgb);
 
 hsv(:,:,1)=mod(hsv(:,:,1)+theta/(2*pi),1);
 
-rgb=colorspace('hsv->rgb',hsv);
+rgb=hsv2rgb(hsv);
+
 if C==1
   rgb=reshape(rgb,[X Y]);
 end
