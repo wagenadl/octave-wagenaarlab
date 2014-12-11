@@ -32,4 +32,6 @@ else
 end
 
 N=size(clr,1)/2;
-clr=[rotacol(clr(1:N,:),th2/180*pi); rotacol(clr(N+1:end,:),th1/180*pi)];
+if th1~=0 || th2~=0
+  clr=[rotacol(clr(1:N,:),th2/180*pi); rotacol(clr(N+1:end,:),th1/180*pi)];
+end
