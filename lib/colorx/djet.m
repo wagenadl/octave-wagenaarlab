@@ -6,7 +6,11 @@ function cc = djet(N)
 if nargin<1
   N = 256;
 end
-phi=[0:N-1]'/(N-1);
+if N==1
+  phi = 0;
+else
+  phi=[0:N-1]'/(N-1);
+end
 
 B0 = .2;
 G0 = .5;
