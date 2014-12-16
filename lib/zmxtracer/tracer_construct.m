@@ -6,6 +6,18 @@ function trc = tracer_construct(objx, objyy, objth)
 %    the optical axis, and with rays emanating at angles OBJTH
 %    (a vector, specified in radians).
 
+if ~exist('lnull')
+  f = which('tracer_construct');
+  idx = find(f=='/');
+  if isempty(idx)
+    p = './';
+  else
+    p = f(1:idx(end));
+  end
+  addpath([ p 'lenses']);
+  addpath([ p 'glass']);
+end
+
 trc.version = '1.0';
 trc.placed = 0;
 if nargin>0
