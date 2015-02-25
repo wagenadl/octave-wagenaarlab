@@ -17,13 +17,18 @@ function [dat, aux] = mea_load(ifn, varargin)
 %      ctxt: flag to load or not load context (for spike data; default: not (0))
 %      skip: number of records to skip at start of file (default: 0)
 %      count: max number of records to read (default: inf)
+%      shift: channel shift adjustment
 %    Specified parameters override .desc file.
 %    [dat, aux] = MEA_LOAD(ifn) returns additional information from ".desc"
 %    file and the load-time parameters.
 
-kv = getopt('freq gain range auxrange elcs ctxt=0 skip count zero auxzero=2048', varargin);
+kv = getopt('freq gain range auxrange elcs ctxt=0 skip count zero auxzero=2048 shift=0', varargin);
 
 desc = mea_loaddesc(ifn, 1);
+
+if kv.shift<0
+  kv.shift = kv.shift + 64;
+end
 
 if isempty(kv.freq)
   idx = strmatch('Raw sample freq', desc.keys);
@@ -101,23 +106,23 @@ if fd<0
   error('Cannot open file');
 end
 fno = 0;
-fseek(fd, reclen*skip, 'bof');
-offset = ftell(fd)/reclen;
-while offset<skip
-  skip = skip-offset;
+while fseek(fd, reclen*skip, 'bof')<0
+  fseek(fd, 0, 'eof');
+  len = ftell(fd)/reclen;
+  skip = skip - len;
   fclose(fd);
   fno = fno + 1;
   fd = fopen(sprintf('%s-%i',ifn,fno), 'rb');
   if fd<0
     error('Cannot load raw continuation file');
   end    
-  fseek(fd, reclen*skip, 'bof');    
-  offset = ftell(fd)/reclen;  
-end
+end  
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function dat = mea_loadraw(ifn, kv)
 [fd, fno] = mea_skip(ifn, 128, kv.skip);
+fseek(fd, 2*kv.shift, 'cof');
 
 if isempty(kv.elcs)
   kv.elcs=[0:63];

@@ -10,7 +10,7 @@
 */
 
 #include "mex.h"
-#include "matrix.h"
+//#include "matrix.h"
 
 int xcorg_int(unsigned int *dst, unsigned int ndst,
 	      unsigned int const *ttx, unsigned int nx,
