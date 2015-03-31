@@ -23,6 +23,7 @@ iset(igca(), 'tag', 'graph');
 phsc_data{f}.loaded=0;
 phsc_data{f}.figw = figw;
 phsc_data{f}.figh = figh;
+phsc_data{f}.ylim = [-1 1];
 
 h = ibutton('Done', @phsc_done);
 iset(h, 'tag', 'done');
@@ -40,14 +41,14 @@ icallback(h, 'buttonmotionfcn', @phsc_move);
 icallback(h, 'buttondownfcn', @phsc_press);
 icallback(h, 'buttonupfcn', @phsc_release);
 
-h = ipoints(.5, 0);
-iset(h, 'color', [0 0 1], 'markersize', 10, 'tag', 'lowerdots');
+h = iplot([0 1], [1 1]);
+iset(h, 'color', [0 1 0], 'linewidth', 2, 'tag', 'upperline');
 icallback(h, 'buttonmotionfcn', @phsc_move);
 icallback(h, 'buttondownfcn', @phsc_press);
 icallback(h, 'buttonupfcn', @phsc_release);
 
-h = iplot([0 1], [1 1]);
-iset(h, 'color', [0 1 0], 'linewidth', 2, 'tag', 'upperline');
+h = ipoints(.5, 0);
+iset(h, 'color', [0 0 1], 'markersize', 10, 'tag', 'lowerdots');
 icallback(h, 'buttonmotionfcn', @phsc_move);
 icallback(h, 'buttondownfcn', @phsc_press);
 icallback(h, 'buttonupfcn', @phsc_release);
@@ -59,9 +60,7 @@ icallback(h, 'buttondownfcn', @phsc_press);
 icallback(h, 'buttonupfcn', @phsc_release);
 
 iset(f, '*xlim0', iget(igca(), 'xlim'));
-iset(f, '*xlim', iget(igca(), 'xlim'));
-iset(f, '*ylim0', iget(igca(), 'xlim'));
-iset(f, '*ylim', iget(igca(), 'xlim'));
+iset(f, '*ylim0', iget(igca(), 'ylim'));
 
 phsc_loaddat(f, spk);
 
@@ -127,14 +126,16 @@ global phsc_data
 gdspk.tms=[];
 gdspk.amp=[];
 
-if strcmp(phsc_data{figh}.src.type,'spikes')
+if strcmp(phsc_data{figh}.src.type, 'spikes')
   for c=1:phsc_data{figh}.C
     idx = find(phsc_data{figh}.src.spk.chs==c);
     tt = phsc_data{figh}.src.spk.tms(idx);
     yy = phsc_data{figh}.src.spk.hei(idx);
-    sigm=median(abs(yy(yy~=0)))/10;
-    yy = yy/sigm;
-    
+    %sigm=median(abs(yy(yy~=0)))/10;
+    %yy = yy/sigm;
+    yy = sw_sig2log(yy);
+    yy = yy*50/max(yy);
+
     x = phsc_data{figh}.lower_thr{c}(:,1);
     y = phsc_data{figh}.lower_thr{c}(:,2);
     [x,ord]=sort(x);
@@ -170,8 +171,12 @@ end
 function phsc_loaddat(figh, spk)
 global phsc_data
 
+if isfield(spk, 'title')
+  phsc_data{figh}.ifn = spk.title;
+else
+  phsc_data{figh}.ifn = 'data';
+end
 
-phsc_data{figh}.ifn = 'data';
 phsc_data{figh}.src.spk.tms = spk.tms;
 phsc_data{figh}.src.spk.chs = 1+0*spk.tms;
 phsc_data{figh}.src.spk.hei = spk.amp;
@@ -219,6 +224,8 @@ if but~=1
 end
 
 tag = iget(h, 'tag');
+fprintf(1, 'Press %s\n', tag);
+
 act = 0;
 
 global phsc_data
@@ -286,6 +293,7 @@ switch phsc_data{figh}.src.type
   case 'spikes'
     phsc_data{figh}.C = 1;
     phsc_data{figh}.T = max([max(phsc_data{figh}.src.spk.tms) 1]);
+    
   case 'histo'
     phsc_data{figh}.C = size(phsc_data{figh}.src.hst,3);
     phsc_data{figh}.T = size(phsc_data{figh}.src.hst,2);
@@ -331,8 +339,8 @@ iset(figh, 'title', sprintf('ISelectSpike: %s',phsc_data{figh}.ifn));
 
 iset(figh, '*xlim0', [0 phsc_data{figh}.T/60]);
 iset(figh, '*xlim', [0 phsc_data{figh}.T/60]);
-iset(figh, '*ylim0', [-60 60]);
-iset(figh, '*ylim', [-60 60]);
+iset(figh, '*ylim0', phsc_data{figh}.ylim);
+iset(figh, '*ylim', phsc_data{figh}.ylim);
 
 phsc_redraw(figh, 1);
 
@@ -344,9 +352,7 @@ global phsc_data
 
 ax = ifind(figh, 'graph');
 xlim = iget(figh, '*xlim');
-ylim = iget(figh, '*ylim');
 iset(ax, 'xlim', xlim);
-iset(ax, 'ylim', ylim);
 
 if graphtoo
   c = phsc_data{figh}.c;
@@ -355,8 +361,21 @@ if graphtoo
       idx = find(phsc_data{figh}.src.spk.chs==c);
       xx = phsc_data{figh}.src.spk.tms(idx) / 60;
       yy = phsc_data{figh}.src.spk.hei(idx);
-      sigm=median(abs(yy(yy~=0)))/10;
-      yy = sw_sig2log(yy/sigm);
+      % sigm=median(abs(yy(yy~=0)))/10;
+      % yy = sw_sig2log(yy/sigm);
+      yy = sw_sig2log(yy);
+      yy = yy*50/max(yy);
+  
+      ylim = [0 0];
+      if any(yy>0)
+        ylim(2) = max(yy)*1.1;
+      end
+      if any(yy<0)
+        ylim(1) = min(yy)*1.1;
+      end
+      iset(figh, '*ylim0', ylim);
+      iset(ax, 'ylim', ylim);
+    
     case 'histo'
       error('histogram data not yet supported in iselectspike');
       % yy = sw_sig2log(phsc_data{figh}.src.hst_xx);
@@ -407,6 +426,8 @@ if but~=1
 end
 
 tag = iget(h, 'tag');
+fprintf(1, 'Release %s\n', tag);
+
 act = 0;
 
 global phsc_data
@@ -415,28 +436,55 @@ c=phsc_data{figh}.c;
 
 xx = phsc_data{figh}.upper_thr{c}(:,1);
 yy = phsc_data{figh}.upper_thr{c}(:,2);
-nn = find(xx(2:end)<xx(1:end-1));
-fprintf(1, 'iselectspike - release %g\n', rand(1));
-xx
-yy
-nn
-
-if ~isempty(nn)
-  act = 1;
-  xx(nn) = (xx(nn+1)+xx(nn))/2; xx(nn+1)=[];
-  yy(nn) = (yy(nn+1)+yy(nn))/2; yy(nn+1)=[];
-  phsc_data{figh}.upper_thr{c} = [xx yy];
+while 1
+  nn = find(xx(2:end)<xx(1:end-1), 1);
+  if isempty(nn)
+    break;
+  else
+    act = 1;
+    xx(nn) = (xx(nn+1)+xx(nn))/2; xx(nn+1)=[];
+    yy(nn) = (yy(nn+1)+yy(nn))/2; yy(nn+1)=[];
+  end
 end
+
+yl = iget(figh, '*ylim0');
+ymin = sw_log2sig(yl(1));
+ymax = sw_log2sig(yl(2));
+
+if any(yy>ymax)
+  act = 1;
+  yy(yy>ymax) = ymax;
+end
+if any(yy<ymin)
+  act = 1;
+  yy(yy<ymin) = ymin;
+end
+
+phsc_data{figh}.upper_thr{c} = [xx yy];
 
 xx = phsc_data{figh}.lower_thr{c}(:,1);
 yy = phsc_data{figh}.lower_thr{c}(:,2);
-nn = find(xx(2:end)<xx(1:end-1));
-if ~isempty(nn)
-  act = 1;
-  xx(nn) = (xx(nn+1)+xx(nn))/2; xx(nn+1)=[];
-  yy(nn) = (yy(nn+1)+yy(nn))/2; yy(nn+1)=[];
-  phsc_data{figh}.lower_thr{c} = [xx yy];
+while 1
+  nn = find(xx(2:end)<xx(1:end-1), 1);
+  if isempty(nn)
+    break;
+  else
+    act = 1;
+    xx(nn) = (xx(nn+1)+xx(nn))/2; xx(nn+1)=[];
+    yy(nn) = (yy(nn+1)+yy(nn))/2; yy(nn+1)=[];
+  end
 end
+
+if any(yy>ymax)
+  act = 1;
+  yy(yy>ymax) = ymax;
+end
+if any(yy<ymin)
+  act = 1;
+  yy(yy<ymin) = ymin;
+end
+
+phsc_data{figh}.lower_thr{c} = [xx yy];
 
 if act
   phsc_redraw(figh, 0);
