@@ -44,6 +44,7 @@ h = ipoints(.5, 0);
 iset(h, 'color', [0 0 1], 'markersize', 10, 'tag', 'lowerdots');
 icallback(h, 'buttonmotionfcn', @phsc_move);
 icallback(h, 'buttondownfcn', @phsc_press);
+icallback(h, 'buttonupfcn', @phsc_release);
 
 h = iplot([0 1], [1 1]);
 iset(h, 'color', [0 1 0], 'linewidth', 2, 'tag', 'upperline');
@@ -55,6 +56,7 @@ h = ipoints(.5, 1);
 iset(h, 'color', [0 1 0], 'markersize', 10, 'tag', 'upperdots');
 icallback(h, 'buttonmotionfcn', @phsc_move);
 icallback(h, 'buttondownfcn', @phsc_press);
+icallback(h, 'buttonupfcn', @phsc_release);
 
 iset(f, '*xlim0', iget(igca(), 'xlim'));
 iset(f, '*xlim', iget(igca(), 'xlim'));
@@ -414,6 +416,11 @@ c=phsc_data{figh}.c;
 xx = phsc_data{figh}.upper_thr{c}(:,1);
 yy = phsc_data{figh}.upper_thr{c}(:,2);
 nn = find(xx(2:end)<xx(1:end-1));
+fprintf(1, 'iselectspike - release %g\n', rand(1));
+xx
+yy
+nn
+
 if ~isempty(nn)
   act = 1;
   xx(nn) = (xx(nn+1)+xx(nn))/2; xx(nn+1)=[];
