@@ -1,4 +1,4 @@
-function gdspk = iselectspike(spk)
+function [gdspk, idx] = iselectspike(spk)
 % ISELECTSPIKE - Interactive posthoc spike classification
 %    gdspk = SELECTSPIKE(spk) plots a raster of the spikes in SPK (previously
 %    detected using SUC2SPIKE) and lets the user interactively select
@@ -8,6 +8,8 @@ function gdspk = iselectspike(spk)
 %    matter which one is above and which one is below). More handles
 %    can be made by dragging the line; handles can be removed by dragging
 %    them past the next handle.
+%
+%    [gdspk, idx] = SELECTSPIKE(spk) also returns the index of selected spikes.
 
 global phsc_data
 
@@ -84,13 +86,16 @@ while 1
 end
 
 if done
-  gdspk = phsc_getdata(f);
+  [gdspk, idx] = phsc_getdata(f);
   iclose(f);
 else
   gdspk.tms = [];
   gdspk.amp = [];
 end
 
+if nargout<2
+  clear idx
+end
 
 
 % ----------------------------------------------------------------------
@@ -120,7 +125,7 @@ iresume
 
 % ----------------------------------------------------------------------
 
-function gdspk = phsc_getdata(figh)
+function [gdspk,idx] = phsc_getdata(figh)
 global phsc_data
 
 gdspk.tms=[];
