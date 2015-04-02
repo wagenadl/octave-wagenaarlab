@@ -59,12 +59,12 @@ if dir>=0
   end
   ipk(:)=ipk(:)+ion(:)-1;
   for k=1:K-1
-    if hei(k)<hei(k+1) & ipk(k+1)-ipk(k)<maxdt
+    if hei(k)<hei(k+1) && ipk(k+1)-ipk(k)<maxdt
       ipk(k)=0;
     end
   end
   for k=2:K
-    if hei(k)<hei(k-1) & ipk(k)-ipk(k-1)<maxdt
+    if hei(k)<hei(k-1) && ipk(k)-ipk(k-1)<maxdt
       ipk(k)=0;
     end
   end
@@ -85,12 +85,12 @@ if dir<=0
   end
   ipk(:)=ipk(:)+ion(:)-1;
   for k=1:K-1
-    if hei(k)>hei(k+1) & ipk(k+1)-ipk(k)<maxdt
+    if hei(k)>hei(k+1) && ipk(k+1)-ipk(k)<maxdt
       ipk(k)=0;
     end
   end
   for k=2:K
-    if hei(k)>hei(k-1) & ipk(k)-ipk(k-1)<maxdt
+    if hei(k)>hei(k-1) && ipk(k)-ipk(k-1)<maxdt
       ipk(k)=0;
     end
   end
