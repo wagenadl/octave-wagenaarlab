@@ -17,11 +17,13 @@ function kv = getopt(opts,varargin)
 %    Instead of a cell array, OPTS may be a single string with options 
 %    separated by spaces. The magic option name '+' prevents errors
 %    for unknown options.
+%
 %    GETOPT may be called as in GETOPT('foo bar', varargin) or as in
 %    GETOPT('foo bar', varargin{:}).
+%
 %    Defaults may be specified in OPTS. For instance:
-%    GETOPT('foo=3 bar=''yes''', varargin). Only simple numbers and strings
-%    may be passed this way.
+%      GETOPT('foo=3 bar=''yes''', varargin).
+%    Only simple numbers and strings may be passed this way.
 
 if iscell(varargin) 
   if length(varargin)==1

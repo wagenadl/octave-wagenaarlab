@@ -1,6 +1,6 @@
-function [idx,ion,iof,thr] = dwgetspike(yy,sig,dir)
-% DWGETSPIKE   Simple spike detection for imaq_slowwave
-%   idx = SW_GETPSIKE(yy,sig) performs simple spike detection:
+function [idx, ion, iof, thr] = dwgetspike(yy, sig, dir)
+% DWGETSPIKE - Simple spike detection
+%   idx = DWGETSPIKE(yy,sig) performs simple spike detection:
 %   (1) find peaks yy>2*sig.
 %   (2) drop minor peaks within 50 samples of major peaks.
 %   (3) repeat for peaks yy<-2*sig.

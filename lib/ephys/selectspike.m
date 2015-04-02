@@ -1,7 +1,7 @@
 function [gdspk, idx] = selectspike(spk, ttl)
 % SELECTSPIKE - Interactive posthoc spike classification
 %    gdspk = SELECTSPIKE(spk) plots a raster of the spikes in SPK (previously
-%    detected using SUC2SPIKE) and lets the user interactively select
+%    detected using DETECTSPIKE) and lets the user interactively select
 %    which spikes belong to the neuron of interest.
 %
 %    Place the green and blue lines around the relevant dots (it does not
@@ -10,6 +10,8 @@ function [gdspk, idx] = selectspike(spk, ttl)
 %    them past the next handle.
 %
 %    [gdspk, idx] = SELECTSPIKE(spk) also returns the index of selected spikes.
+%
+%    This version only works on Matlab. In Octave, use ISELECTSPIKE.
 
 global phsc_data
 

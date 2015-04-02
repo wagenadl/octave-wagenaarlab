@@ -1,15 +1,18 @@
 function [gdspk, idx] = iselectspike(spk)
 % ISELECTSPIKE - Interactive posthoc spike classification
-%    gdspk = SELECTSPIKE(spk) plots a raster of the spikes in SPK (previously
-%    detected using SUC2SPIKE) and lets the user interactively select
-%    which spikes belong to the neuron of interest.
+%    gdspk = ISELECTSPIKE(spk) plots a raster of the spikes in SPK (previously
+%    detected using REFRACTORYSPIKE or TEMPLATESPIKE) and lets the 
+%    user interactively select which spikes belong to the neuron of interest.
 %
 %    Place the green and blue lines around the relevant dots (it does not
 %    matter which one is above and which one is below). More handles
 %    can be made by dragging the line; handles can be removed by dragging
 %    them past the next handle.
 %
-%    [gdspk, idx] = SELECTSPIKE(spk) also returns the index of selected spikes.
+%    [gdspk, idx] = ISELECTSPIKE(spk) also returns the index of selected spikes.
+%
+%    This version works in Octave and requires the IPlot package. In Matlab,
+%    use SELECTSPIKE. 
 
 global phsc_data
 
@@ -33,8 +36,8 @@ iset(h, 'tag', 'done');
 
 % icallback(igca(), 'buttondownfcn', @phsc_click);
 
-h = ipoints([0 1], [0 0]);
-iset(h, 'tag', 'trace', 'color', [0 0 0], 'markersize', 2);
+h = iimage(zeros(10, 10, 1));
+iset(h, 'tag', 'trace');
 % icallback(h, 'buttondownfcn', @phsc_click);
 
 h = iplot([0 1], [0 0]);
@@ -131,43 +134,40 @@ global phsc_data
 gdspk.tms=[];
 gdspk.amp=[];
 
-if strcmp(phsc_data{figh}.src.type, 'spikes')
-  for c=1:phsc_data{figh}.C
-    idx = find(phsc_data{figh}.src.spk.chs==c);
-    tt = phsc_data{figh}.src.spk.tms(idx);
-    yy = phsc_data{figh}.src.spk.hei(idx);
-    %sigm=median(abs(yy(yy~=0)))/10;
-    %yy = yy/sigm;
-    yy = sw_sig2log(yy);
-    yy = yy*50/max(yy);
+for c=1:phsc_data{figh}.C
+  idx = find(phsc_data{figh}.src.spk.chs==c);
+  tt = phsc_data{figh}.src.spk.tms(idx);
+  tt = tt/60;
+  yy = phsc_data{figh}.src.spk.hei(idx);
+  yy = sw_sig2log(yy);
+  yy = yy*50/max(yy);
 
-    x = phsc_data{figh}.lower_thr{c}(:,1);
-    y = phsc_data{figh}.lower_thr{c}(:,2);
-    [x,ord]=sort(x);
-    y = y(ord);
-    x=[min([0 min(x)-10]); x(:); max([max(tt) max(x)])+10] ;
-    y=[y(1); y(:); y(end)];
-    lower_thr = interp1(x,y,tt,'linear');
+  x = phsc_data{figh}.lower_thr{c}(:,1);
+  y = phsc_data{figh}.lower_thr{c}(:,2);
+  [x,ord]=sort(x);
+  y = y(ord);
+  x=[min([0 min(x)-10]); x(:); max([max(tt) max(x)])+10] ;
+  y=[y(1); y(:); y(end)];
+  lower_thr = interp1(x,y,tt,'linear');
+
+  x = phsc_data{figh}.upper_thr{c}(:,1);
+  y = phsc_data{figh}.upper_thr{c}(:,2);
+  [x,ord]=sort(x);
+  y = y(ord);
+  x=[min([0 min(x)-1]); x(:); max([max(tt) max(x)])+10];
+  y=[y(1); y(:); y(end)];
+  upper_thr = interp1(x,y,tt,'linear');
   
-    x = phsc_data{figh}.upper_thr{c}(:,1);
-    y = phsc_data{figh}.upper_thr{c}(:,2);
-    [x,ord]=sort(x);
-    y = y(ord);
-    x=[min([0 min(x)-1]); x(:); max([max(tt) max(x)])+10];
-    y=[y(1); y(:); y(end)];
-    upper_thr = interp1(x,y,tt,'linear');
-    
-    if mean(upper_thr)<mean(lower_thr)
-      ll=lower_thr;
-      lower_thr=upper_thr;
-      upper_thr=ll;
-    end
-  
-    idx = idx(find(yy>lower_thr & yy<upper_thr));
-    
-    gdspk.tms = phsc_data{figh}.src.spk.tms(idx);
-    gdspk.amp = phsc_data{figh}.src.spk.hei(idx);
+  if mean(upper_thr)<mean(lower_thr)
+    ll=lower_thr;
+    lower_thr=upper_thr;
+    upper_thr=ll;
   end
+
+  idx = idx(find(yy>lower_thr & yy<upper_thr));
+  
+  gdspk.tms = phsc_data{figh}.src.spk.tms(idx);
+  gdspk.amp = phsc_data{figh}.src.spk.hei(idx);
 end
 
 
@@ -183,10 +183,12 @@ else
 end
 
 phsc_data{figh}.src.spk.tms = spk.tms;
-phsc_data{figh}.src.spk.chs = 1+0*spk.tms;
+if isfield(spk, 'chs')
+  phsc_data{figh}.src.spk.chs = spk.chs;
+else
+  phsc_data{figh}.src.spk.chs = 1+0*spk.tms;
+end
 phsc_data{figh}.src.spk.hei = spk.amp;
-
-phsc_data{figh}.src.type = 'spikes';
 
 phsc_process_spikes(figh);
 
@@ -197,16 +199,13 @@ tag = iget(h, 'tag');
 idx = iget(h, '*index');
 xy0 = iget(h, '*xy0');
 
-x = xy0(1)/60;
-y = sw_sig2log(xy0(2));
+x = xy0(1);
+y = xy0(2);
 
 dxy = iget(igca, 'currentpoint') - iget(igca, 'downpoint');
 
 x = x + dxy(1);
 y = y + dxy(2);
-
-x1 = x*60;
-y1 = sw_log2sig(y);
 
 global phsc_data
 figh = igcf;
@@ -214,9 +213,9 @@ c=phsc_data{figh}.c;
 
 switch tag
   case {'lowerline', 'lowerdots' }
-    phsc_data{figh}.lower_thr{c}(idx, :) = [x1 y1];
+    phsc_data{figh}.lower_thr{c}(idx, :) = [x y];
   case {'upperline', 'upperdots' }
-    phsc_data{figh}.upper_thr{c}(idx, :) = [x1 y1];
+    phsc_data{figh}.upper_thr{c}(idx, :) = [x y];
 end
 
 phsc_redraw(figh, 0);
@@ -253,11 +252,16 @@ if ~act
 end
 
 xy = iget(igca, 'currentpoint');
-x = xy(1) * 60;
-y = sw_log2sig(xy(2));
+x = xy(1);
+y = xy(2);
 
+x
+y
+xx
+yy
 switch tag
   case { 'upperline', 'lowerline' }
+    disp(1)
     ii = findfirst_ge(xx, x);
     if ii>0
       xx=[xx(1:ii-1); x; xx(ii:end)];
@@ -268,9 +272,8 @@ switch tag
       ii=length(xx);
     end
   case { 'upperdots', 'lowerdots' }
-    y_ = sw_sig2log(yy);
-    x_ = xx/60;
-    ii = argmin((x_-xy(1)).^2 + (y_-xy(2)).^2);
+    disp(2)
+    ii = argmin((xx-xy(1)).^2);
 end
 
 iset(h, '*index', ii);
@@ -294,26 +297,19 @@ global phsc_data
 phsc_data{figh}.loaded = 1;
 phsc_data{figh}.c = 1;
 
-switch phsc_data{figh}.src.type
-  case 'spikes'
-    phsc_data{figh}.C = 1;
-    phsc_data{figh}.T = max([max(phsc_data{figh}.src.spk.tms) 1]);
-    
-  case 'histo'
-    phsc_data{figh}.C = size(phsc_data{figh}.src.hst,3);
-    phsc_data{figh}.T = size(phsc_data{figh}.src.hst,2);
-end
+phsc_data{figh}.C = max(phsc_data{figh}.src.spk.chs);
+phsc_data{figh}.T = max([max(phsc_data{figh}.src.spk.tms) 1]);
 
 phsc_data{figh}.lower_thr = cell(1,phsc_data{figh}.C);
 phsc_data{figh}.upper_thr = cell(1,phsc_data{figh}.C);
 
-if isfield(phsc_data{figh}.src,'chnames')
+if isfield(phsc_data{figh}.src, 'chnames')
   phsc_data{figh}.chnames = phsc_data{figh}.src.chnames;
 else
   phsc_data{figh}.chnames = cell(1,phsc_data{figh}.C);
 end
 
-dT = min(60,phsc_data{figh}.T/2);
+dT = min(60, phsc_data{figh}.T/2)/60;
 
 for c=1:phsc_data{figh}.C
   phsc_data{figh}.lower_thr{c} = [dT 10];
@@ -361,54 +357,41 @@ iset(ax, 'xlim', xlim);
 
 if graphtoo
   c = phsc_data{figh}.c;
-  switch phsc_data{figh}.src.type
-    case 'spikes'
-      idx = find(phsc_data{figh}.src.spk.chs==c);
-      xx = phsc_data{figh}.src.spk.tms(idx) / 60;
-      yy = phsc_data{figh}.src.spk.hei(idx);
-      % sigm=median(abs(yy(yy~=0)))/10;
-      % yy = sw_sig2log(yy/sigm);
-      yy = sw_sig2log(yy);
-      yy = yy*50/max(yy);
+  idx = find(phsc_data{figh}.src.spk.chs==c);
+  xx = phsc_data{figh}.src.spk.tms(idx) / 60;
+  yy = phsc_data{figh}.src.spk.hei(idx);
+  yy = sw_sig2log(yy);
+  yy = yy*50/max(yy);
   
-      ylim = [0 0];
-      if any(yy>0)
-        ylim(2) = max(yy)*1.1;
-      end
-      if any(yy<0)
-        ylim(1) = min(yy)*1.1;
-      end
-      iset(figh, '*ylim0', ylim);
-      iset(ax, 'ylim', ylim);
-    
-    case 'histo'
-      error('histogram data not yet supported in iselectspike');
-      % yy = sw_sig2log(phsc_data{figh}.src.hst_xx);
-      % xx = [1:phsc_data{figh}.T]/60;
-      % nn = phsc_data{figh}.src.hst(:,:,c);
-      % 
-      % a=axis;
-      % xidx = find(xx>=a(1) & xx<=a(2));
-      % yidx = find(yy>=a(3) & yy<=a(4));
-      % xx=xx(xidx);
-      % yy=yy(yidx);
-      % nn=nn(yidx,xidx);
-      % 
-      % scl = ceil(length(xx) / phsc_data{figh}.axesw);
-      % bin = floor(length(xx)/scl);
-      % xx=mean(reshape(xx(1:scl*bin),[scl bin]),1);
-      % nn=squeeze(sum(reshape(nn(:,1:scl*bin),[length(yy) scl bin]),2));
-      % nn = gsmooth(gsmooth(nn,.05)',.5)';
+  ylim = [0 0];
+  if any(yy>0)
+    ylim(2) = max(yy)*1.1;
   end
-  
-  iset(ifind(ax, 'trace'), 'xdata', xx, 'ydata', yy);
+  if any(yy<0)
+    ylim(1) = min(yy)*1.1;
+  end
+  iset(figh, '*ylim0', ylim);
+  iset(ax, 'ylim', ylim);
+  xlim = iget(figh, '*xlim0');
+
+  [nn, xx, yy] = hist2(xx, yy, [xlim(1) diff(xlim)/2000 xlim(2)], ...
+      [ylim(1) diff(ylim)/2000 ylim(2)]);
+  nn = gsmooth(gsmooth(nn, 2.5)', 1)';
+  xywh = [xx(1) yy(1) xx(end)-xx(1) yy(end)-yy(1)];
+  siz = size(nn');
+  nn = flipud(nn)./max(nn(:));
+  bb = 1 - nn.^.06;
+  gg = 1 - nn.^.4;
+  rr = 1 - nn.^2.0;
+  iset(ifind(ax, 'trace'), 'area', xywh, 'size', siz,  ...
+      'cdata', cat(3, rr, gg, bb));
   iset(ax, 'xlabel', 'Time (min)');
   iset(ax, 'ylabel', 'Spike Amplitude');
 end
 
 c=phsc_data{figh}.c;
-xx = phsc_data{figh}.lower_thr{c}(:,1) / 60;
-yy = sw_sig2log(phsc_data{figh}.lower_thr{c}(:,2));
+xx = phsc_data{figh}.lower_thr{c}(:,1);
+yy = phsc_data{figh}.lower_thr{c}(:,2);
 
 h = ifind(ax, 'lowerdots');
 iset(h, 'xdata', xx, 'ydata', yy);
@@ -416,8 +399,8 @@ iset(h, 'xdata', xx, 'ydata', yy);
 h = ifind(ax, 'lowerline');
 iset(h, 'xdata',[xlim(1); xx; xlim(2)], 'ydata', [yy(1); yy; yy(end)]);
 
-xx = phsc_data{figh}.upper_thr{c}(:,1) / 60;
-yy = sw_sig2log(phsc_data{figh}.upper_thr{c}(:,2));
+xx = phsc_data{figh}.upper_thr{c}(:,1);
+yy = phsc_data{figh}.upper_thr{c}(:,2);
 h = ifind(ax, 'upperdots');
 iset(h, 'xdata', xx, 'ydata', yy);
 h = ifind(ax, 'upperline');
@@ -453,8 +436,8 @@ while 1
 end
 
 yl = iget(figh, '*ylim0');
-ymin = sw_log2sig(yl(1));
-ymax = sw_log2sig(yl(2));
+ymin = yl(1);
+ymax = yl(2);
 
 if any(yy>ymax)
   act = 1;
@@ -513,20 +496,3 @@ function y = sw_sig2log(x)
 %    (multiplier of RMS noise) to log scale for plotting.
 
 y = 20*sign(x).*log(1+abs(x)/15);
-
-% ----------------------------------------------------------------------
-% ----------------------------------------------------------------------
-
-% This file was put together by packmfile from the following sources:
-%    iselectspike.m
-%    phsc_channelselect.m
-%    phsc_done.m
-%    phsc_getdata.m
-%    phsc_loaddat.m
-%    phsc_move.m
-%    phsc_press.m
-%    phsc_process_spikes.m
-%    phsc_redraw.m
-%    phsc_release.m
-%    sw_log2sig.m
-%    sw_sig2log.m
