@@ -9,10 +9,16 @@ if isempty(pkginfo)
   % Where are we?
   here = fileparts(canonicalize_file_name(mfilename("fullpath")));
   pp = strsplit(dirname, filesep())
-  pkgdir = [pkg("prefix") filesep() pp{end}];
+  [a, b] = pkg("prefix");
+  pkgdir = [a filesep pp{end}];
+  bindir = [b filesep pp{end}];
 else
   pkgdir = pkginfo{1}.dir;
+  bindir = pkginfo{1}.archprefix;
 end
 
+printf('Removing paths in %s and %s\n', pkgdir, bindir);
+
 rmpath(genpath(pkgdir));
+rmpath(genpath(bindir));
 
