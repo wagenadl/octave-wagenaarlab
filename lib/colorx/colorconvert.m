@@ -24,7 +24,7 @@ function cc = colorconvert(cc, varargin)
 %      lshab -  As cielch, but with C* replaced by saturation s.
 %      hcl   -  Alternative to cielch proposed by Sarifuddin and Missaoui.
 %               See http://w3.uqo.ca/missaoui/Publications/TRColorSpace.zip
-
+%
 %    cc = COLORCONVERT(cc, k, v, ...) specifies additional parameters:
 %      whitepoint: whitepoint for cielab to/from ciexyz conversion. 
 %            (Either an XYZ triplet or one of 'd50', 'd55', 'd65', 'a', 'c'.)
