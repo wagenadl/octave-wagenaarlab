@@ -1,0 +1,18 @@
+%1
+
+% Search installed packages
+pkgs = pkg("list");
+pkginfo = pkgs(cellfun(@(x) ismember(x.name, {"wagenaarlab"}), pkgs));
+
+if isempty(pkginfo)
+  % The package is not installed yet
+  % Where are we?
+  here = fileparts(canonicalize_file_name(mfilename("fullpath")));
+  pp = strsplit(dirname, filesep())
+  pkgdir = [pkg("prefix") filesep() pp{end}];
+else
+  pkgdir = pkginfo{1}.dir;
+end
+
+addpath(genpath(pkgdir));
+
