@@ -17,8 +17,6 @@ else
   bindir = pkginfo{1}.archprefix;
 end
 
-printf('Removing paths in %s and %s\n', pkgdir, bindir);
-
 rmpath(genpath(pkgdir));
 rmpath(genpath(bindir));
 
