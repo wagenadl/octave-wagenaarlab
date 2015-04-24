@@ -63,6 +63,8 @@ if kv.polarity>=0
     end
     dropwhich = s.amp(maydrop+1)<s.amp(maydrop);
     maydrop = maydrop + dropwhich;
+    s.tms(maydrop) = [];
+    s.amp(maydrop) = [];
     s.idx(maydrop) = [];
     s.wid(maydrop) = [];
   end  
@@ -80,12 +82,16 @@ if kv.polarity<=0
     end
     dropwhich = s.amp(maydrop+1)>s.amp(maydrop);
     maydrop = maydrop + dropwhich;
+    s.tms(maydrop) = [];
+    s.amp(maydrop) = [];
     s.idx(maydrop) = [];
     s.wid(maydrop) = [];
   end
 
   if kv.polarity==0
     spk.idx = [spk.idx; s.idx];
+    spk.amp = [spk.amp; s.amp];
+    spk.tms = [spk.tms; s.tms];
     spk.wid = [spk.wid; s.wid];
   else
     spk = s;
@@ -93,10 +99,10 @@ if kv.polarity<=0
 end
 
 [spk.idx, ord] = sort(spk.idx);
+spk.tms = spk.tms(ord);
+spk.amp = spk.amp(ord);
 spk.wid = spk.wid(ord);
 
-spk.amp = yy(spk.idx);
-spk.tms = tt(spk.idx);
 if ~isempty(kv.f_low) || ~isempty(kv.f_high)
   spk.amp0 = yy0(spk.idx);
 end
