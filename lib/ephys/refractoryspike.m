@@ -7,7 +7,7 @@ function spk = refractoryspike(tt, yy, varargin)
 %      tms - time stamps of the spikes
 %      hei - amplitudes of the spikes
 %      idx - index into the input vectors.
-%      wid - width of spike (measured between zero crossings)
+%      wid - width of spike (measured in seconds between zero crossings)
 %
 %   REFRACTORYSPIKE(yy, tt, key, value, ...) specifies additional parameters:
 %      threshold - threshold specified in units of YY. No default.
@@ -17,6 +17,8 @@ function spk = refractoryspike(tt, yy, varargin)
 %                 negative, 0 for either (default).
 %      f_low - low-end frequency for bandpass filtering, in Hz. Default: none.
 %      f_high - high-end frequency for bandpass filtering, in Hz. Default: none.
+%      biphasic - if not zero, adds the amplitude of immediately preceding
+%                 opposite-polarity peaks
 %
 %   If (and only if) filtering is applied, the result will have an additional
 %   structure hei0 to hold the height before filtering.
@@ -24,7 +26,7 @@ function spk = refractoryspike(tt, yy, varargin)
 %   REFRACTORYSPIKE(yy, tt, ...) or REFRACTORYSPIKE(yy, fs, ...) also works.
 %   Note that results are formatted for direct use in (I)SELECTSPIKE.
 
-kv = getopt('threshold rmsthr trefract=10 polarity=0 f_low f_high', varargin);
+kv = getopt('threshold rmsthr trefract=10 polarity=0 f_low f_high biphasic=0', varargin);
 if ~isempty(kv.threshold) && ~isempty(kv.rmsthr)
   error('REFRACTORYSPIKE cannot take both THRESHOLD and RMSTHR');
 end
@@ -68,6 +70,10 @@ if kv.polarity>=0
     s.idx(maydrop) = [];
     s.wid(maydrop) = [];
   end  
+
+  if kv.biphasic
+    s = makebiphasic(s, tt, yy, 1);
+  end
   
   spk = s;
 end
@@ -87,6 +93,9 @@ if kv.polarity<=0
     s.idx(maydrop) = [];
     s.wid(maydrop) = [];
   end
+  if kv.biphasic
+    s = makebiphasic(s, tt, yy, -1);
+  end
 
   if kv.polarity==0
     spk.idx = [spk.idx; s.idx];
@@ -105,4 +114,15 @@ spk.wid = spk.wid(ord);
 
 if ~isempty(kv.f_low) || ~isempty(kv.f_high)
   spk.amp0 = yy0(spk.idx);
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function spk = makebiphasic(spk, tt, yy, pol)
+a0 = mean(pol*spk.amp(pol*spk.amp>0))
+w0 = mean(spk.wid(pol*spk.amp>a0))
+di = round(w0/mean(diff(tt)));
+for k=1:length(spk.tms)
+  ii = [-di:0]+spk.idx(k);
+  ii = ii(ii>0 & ii<=length(tt));
+  spk.amp(k) = spk.amp(k) + pol*max(-pol*yy(ii));
 end

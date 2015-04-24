@@ -20,9 +20,9 @@ function spk = dumbspike(tt, yy, thr)
 [tt, yy] = normalizespikedetargs(tt, yy);
 
 if thr>0
-  [idx, itr, i0, t1, istart, iend] = schmittpeak(yy, thr, 0);
+  [idx, i0, i1, istart, iend] = schmittpeak2(yy, thr, 0);
 else
-  [idx, itr, i0, t1, istart, iend] = schmittpeak(-yy, -thr, 0);
+  [idx, i0, i1, istart, iend] = schmittpeak2(-yy, -thr, 0);
 end
 
 spk.idx = idx;
