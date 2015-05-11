@@ -84,10 +84,12 @@ if isempty(kv.count)
   kv.count=inf;
 end
 
-if endswith(ifn, '.raw')
+if endswith(ifn, 'raw')
   dat = mea_loadraw(ifn, kv);
-elseif endswith(ifn, '.spike')
+elseif endswith(ifn, 'spike')
   dat = mea_loadspike(ifn, kv);
+else
+  error('Unknown file ending - cannot load');
 end
 
 aux.desc = desc;
@@ -138,7 +140,7 @@ else
 end
 
 while kv.count>0
-  d0 = fread(fd, [64 min(kv.count, 32768)], 'int16')';
+  d0 = fread(fd, [64*min(kv.count, 32768)], 'int16')';
   if isempty(d0)
     fclose(fd);
     fno = fno + 1;
@@ -149,6 +151,7 @@ while kv.count>0
       continue;
     end
   end
+  d0 = reshape(d0, 64, length(d0)/64);
   N = size(d0, 1);
   d0 = d0(:,kv.elcs+1);
   d0(:,kv.elcs<60) = d0(:,kv.elcs<60) - kv.zero;
@@ -196,19 +199,21 @@ else
   end
   off = [];
 end
+
 while kv.count>0
-  raw = fread(fd, [82 min(kv.count, 32768)], 'int16');
+  raw = fread(fd, [82*min(kv.count, 32768)], 'int16');
   if isempty(raw)
     fclose(fd);
     fno = fno + 1;
-    fd = fopen(sprintf('%s-%i',ifn,fno), 'rb');
+    fd = fopen(sprintf('%s-%i',ifn, fno), 'rb');
     if fd<0
       break;
     else
       continue;
     end
   end
-  N = size(raw, 2);
+  raw = reshape(raw, 82, length(raw)/82);
+  N = size(raw, 2)
   ti0 = raw(1,:); idx = find(ti0<0); ti0(idx) = ti0(idx)+65536;
   ti1 = raw(2,:); idx = find(ti1<0); ti1(idx) = ti1(idx)+65536;
   ti2 = raw(3,:); idx = find(ti2<0); ti2(idx) = ti2(idx)+65536;

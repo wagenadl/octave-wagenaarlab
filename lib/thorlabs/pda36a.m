@@ -34,8 +34,8 @@ area_cm2 = 3.6e-1 * 3.6e-1;
 watt = volt/vpera/aperw;
 J_per_cm2_per_s = watt/area_cm2;
 
-h = 6.626e-34;
-c = 2.998e8;
+h = 6.626e-34; % Js
+c = 2.998e8; % m/s
 E_photon = h*c/(wavelength*1e-9);
 
-flux = watt/E_photon;
+flux = J_per_cm2_per_s/E_photon;

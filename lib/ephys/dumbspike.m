@@ -28,7 +28,7 @@ end
 spk.idx = idx;
 spk.tms = tt(idx);
 spk.amp = yy(idx);
-spk.wid = tt(iend) - tt(istart);
+spk.wid = tt(iend-1) - tt(istart);
 if length(spk.wid)<length(spk.idx)
   spk.wid(end+1) = 0;
 end
