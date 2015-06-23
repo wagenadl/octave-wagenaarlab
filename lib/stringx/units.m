@@ -270,7 +270,7 @@ L0=length(base);
 for k=length(allprefix):-1:1
   prf=allprefix(k);
   L=length(prf);
-  if L0>L & strcmp(base(1:L),prf)
+  if L0>L && strcmp(base(1:L),prf)
     % Gotcha
     [mu,co] = units_decode(base(L+1:end), ...
 	allprefix, allprefixval, ...
