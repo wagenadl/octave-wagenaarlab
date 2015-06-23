@@ -300,9 +300,11 @@ Vy=1/(1-n/m)*covr;  % Eq. 7-13-22, Bard         %covariance of the data
 
 jtgj_ = jac'*Qinv*jac;
 rc_ = rcond(jtgj_);
-jtgjinv=inv(jtgj_);			%argument of inv may be singular
+%jtgjinv=inv(jtgj_);			%argument of inv may be singular
 
-covp=jtgjinv*jac'*Qinv*Vy*Qinv*jac*jtgjinv; % Eq. 7-5-13, Bard %cov of parm est
+%covp=jtgjinv*jac'*Qinv*Vy*Qinv*jac*jtgjinv; % Eq. 7-5-13, Bard %cov of parm est
+covp=jtgj_ \ (jac'*Qinv*Vy*Qinv*jac) / jtgj_; % Eq. 7-5-13, Bard %cov of parm est
+% DW followed Matlab's recommendation of using \ and / on 6/10/15.
 d=sqrt(abs(diag(covp)));
 corp=covp./(d*d');
 

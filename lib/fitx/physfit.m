@@ -1,6 +1,6 @@
 function [fit,yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
 %PHYSFIT Function fitting using errors on both X and Y
-%   fit = PHYSFIT(fform,x,y,sy,sx) fits the data (X+-SX,Y+-SY) to the 
+%   fit = PHYSFIT(fform, x, y, sy, sx) fits the data (X+-SX,Y+-SY) to the 
 %   given functional form FFORM.
 %   It returns a struct array:
 %
@@ -10,13 +10,15 @@ function [fit,yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
 %  
 %   Entries in the array contain:
 %
-%     p:    fit parameters for fitting to (X+-SX, Y+-SY);
-%     s:    standard errors on those parameters;
-%     cov:  full covariance matrix for the fit parameters;
-%     chi2: chi^2 value for the fit (not defined for fit(1));
+%     p:    fit parameters for fitting to (X+-SX, Y+-SY).
+%     s:    standard errors on those parameters.
+%     cov:  full covariance matrix for the fit parameters.
+%     chi2: chi^2 value for the fit (not defined for fit(1)).
 %     ok:   1 if converged, 0 if not.
-%     sok:  1 if cov and s OK, 0 if not (poorly conditioned matrix).
+%     sok:  1 if calculated cov and s are OK, 0 if not (which can happen
+%           due to poorly conditioned matrices in the calculations).
 %     caution: cell array of textual cautions.
+%     R2:   R-squared "coefficient of determination", only for fit(1).
 %
 %   FFORM may be one of several standard forms:
 %   
@@ -35,25 +37,28 @@ function [fit,yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
 %   
 %   On return, p = [A B C ...].
 %   
-%   PHYSFIT(fform,x,y,sy,sx,p0) specifies initial parameters values. This is
-%   optional for the standard forms, but required for the string form.
+%   PHYSFIT(fform, x, y, sy, sx, p0) specifies initial parameters values.
+%   This is optional for the standard forms, but required for the string form.
 %   
 %   Note that SY is given before SX in the parameter list. This is to
 %   facilitate using PHYSFIT without errors on X, which is often useful.
-%   Use SX=[] or call as PHYSFIT(fform,x,y,sy) to not specify errors on X. In
-%   this case, fit(3) will not be assigned.
-%   Use SY=[] or call as PHYSFIT(fform,x,y) to not specify errors at all. In
-%   this case, fit(2) and fit(3) will not be assigned.
+%   Use SX=[] or call as PHYSFIT(fform, x, y, sy) to not specify errors on X.
+%   In this case, fit(3) will not be assigned.
+%   Use SY=[] or call as PHYSFIT(fform, x, y) to not specify errors at all. 
+%   In this case, fit(2) and fit(3) will not be assigned.
 % 
 %   Sometimes, X and Y observations are correlated. In that case, use
-%   PHYSFIT(fform,x,y,sy,sx,p0,sxy) to specify the covariance (not its sqrt!).
-%   This will only affect fit(3).
+%   PHYSFIT(fform, x, y, sy, sx, p0, sxy) to specify the covariance
+%   (not its sqrt!). This will only affect fit(3).
 %
 %   [fit,yfit] = PHYSFIT(...) also returns the best fit function values.
+%
+%   PHYSFIT(fform, x, y, p0) is an allowed shortcut for PHYSFIT(fform, x,
+%   y, [], [], p0) *unless* p0 has the same shape as X and Y.
 %   
-%   PHYSFIT is Copyright (C) 2006-2009 Daniel Wagenaar <daw@caltech.edu>.
+%   PHYSFIT is Copyright (C) 2006-2015 Daniel Wagenaar <wagenadl@uc.edu>.
 %   PHYSFIT uses LEASQR by R I Shrager, A Jutan and R Muzic as its core
-%   optimizer. LEASQR.m may be obtained as part of the Octave package.
+%   optimizer. LEASQR is included as "dleasqr.m" with PHYSFIT.
 
 % Copyright (C) 2006 Daniel Wagenaar
 %
@@ -72,17 +77,23 @@ function [fit,yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
 % Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 % --- Interpret arguments and check for size consistency ---
-if nargin<5 || isempty(sx)
-  sx=zeros(size(x));
-end
-if nargin<4 || isempty(sy)
-  sy=zeros(size(x));
-end
 if nargin<6
   p0=[];
 end
 if nargin<7
   sxy=zeros(size(x));
+end
+if nargin==4
+  if length(x)~=length(sy)
+    p0 = sy;
+    sy = [];
+  end
+end
+if nargin<5 || isempty(sx)
+  sx=zeros(size(x));
+end
+if nargin<4 || isempty(sy)
+  sy=zeros(size(x));
 end
 
 if prod(size(sy))==1
@@ -257,7 +268,7 @@ df = length(p0); N = length(x);
 
 % --- Fit without SX or SY ---
 wt=ones(size(sy));
-[f,p,kvg,iter,corp,covp,covr,stdresid,Z,r2,rc] = ...
+[f,p,kvg,itr,corp,covp,covr,stdresid,Z,r2,rc] = ...
     dleasqr(x,y,p0,foo,1e-4,1e2,wt);
 fit(1).p = p';
 fit(1).s = sqrt(diag(covp))';
@@ -267,11 +278,12 @@ fit(1).ok = kvg;
 fit(1).sok = rc>sqrt(eps);
 fit(1).caution={};
 fit(1).sumsquares = sum((feval(foo,x,p)-y).^2);
+fit(1).R2 = 1 - fit(1).sumsquares / sum((y-mean(y)).^2);
 
 % --- Fit with SY but not SX ---
 if max(sy)>0
   wt = 1./sy;
-  [f,p,kvg,iter,corp,covp,covr,stdresid,Z,r2,rc] = ...
+  [f,p,kvg,itr,corp,covp,covr,stdresid,Z,r2,rc] = ...
       dleasqr(x,y,p0,foo,1e-4,1e2,wt);
   fit(2).p = p';
   fit(2).sumsquares = sum((feval(foo,x,p)-y).^2.*wt.^2);
@@ -315,8 +327,8 @@ if max(sx)>0 && max(sy)>0
     sy_eff = sqrt(sy.^2 + dfdx_.^2.*sx.^2 + dfdx_.*sxy);
   
     wt = 1./sy_eff;
-    [f,p,kvg,iter,corp,covp,covr,stdresid,Z,r2,rc] = ...
-	leasqr(x,y,p0,foo,1e-4,1e2,wt);
+    [f,p,kvg,itr,corp,covp,covr,stdresid,Z,r2,rc] = ...
+	dleasqr(x,y,p0,foo,1e-4,1e2,wt);
     if kvg || iter==1
       fit(3).p = p';
       fit(3).sumsquares = sum((feval(foo,x,p)-y).^2.*wt.^2);
