@@ -2,7 +2,7 @@ function kv = getopt(opts,varargin)
 % GETOPT Condense function options into a struct.
 %    kv = GETOPT(opts,...) returns a structure with fields OPTS and values
 %    based on ... 
-%    Options occurring in ... but not in OPTS cause an error, unless OPTS is [].
+%    Options occurring in ... but not in OPTS cause a warning, unless OPTS is [].
 %    Options not named in ... are set to [].
 %    Option names may be abbreviated, unless OPTS is [].
 %    Option names are always converted to lower case.
@@ -15,7 +15,7 @@ function kv = getopt(opts,varargin)
 %           longoption: 'x'.
 %
 %    Instead of a cell array, OPTS may be a single string with options 
-%    separated by spaces. The magic option name '+' prevents errors
+%    separated by spaces. The magic option name '+' prevents warnings
 %    for unknown options.
 %
 %    GETOPT may be called as in GETOPT('foo bar', varargin) or as in
@@ -106,10 +106,10 @@ for n=1:2:length(varargin)
       if accept_any
 	kv.(k) = v;%	kv = setfield(kv,k,v);
       else
-	error(sprintf('Unknown option "%s"',k));
+	warning(sprintf('Unknown option "%s" - ignored',k));
       end
     elseif length(idx)>1
-      error(sprintf('Ambiguous option "%s"',k));
+      warning(sprintf('Ambiguous option "%s" - ignored',k));
     else
       kv.(opts{idx}) = v;
       %kv = setfield(kv,opts{idx},v);
