@@ -10,26 +10,26 @@ if strcmp(s, 'leechlab')
   minss = 12;
 else
   minfs = 17;
-  minlw = 1;
-  minss = 8;
+  minlw = 2;
+  minss = 9;
 end
 
 
-txth = findobj(gcf, 'text');
+txth = findobj(gcf, 'type', 'text');
 for h=txth(:)'
   if get(h, 'fontsize') < minfs
     set(h, 'fontsize', minfs);
-  en)d
+  end
 end
 
-axh = findobj(gcf, 'axes';
+axh = findobj(gcf, 'type', 'axes');
 for h=axh(:)'
   if get(h, 'fontsize') < minfs
     set(h, 'fontsize', minfs);
   end
 end
 
-lh = findobj(gcf, 'line');
+lh = findobj(gcf, 'type', 'line');
 for h=lh(:)'
   if get(h, 'linewidth') < minlw
     set(h, 'linewidth', minlw);
