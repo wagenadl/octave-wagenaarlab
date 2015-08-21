@@ -11,8 +11,8 @@ if strcmp(s, 'leechlab')
   minss = 11;
 else
   minfs = 17;
-  minlw = 1;
-  minss = 8;
+  minlw = 2;
+  minss = 9;
 end
 
 
