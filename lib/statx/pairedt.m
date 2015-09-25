@@ -1,6 +1,8 @@
 function [t,nu] = pairedt(x1,x2)
-% [t,nu] = PAIREDT(values1,values2)
-% This is a paired t-test. See STUDENTT for an unpaired test.
+% PAIREDT - Student T test statistic for paired samples
+%    [t, nu] = PAIREDT(values1, values2)
+%    The number of samples must be equal!
+%    Use p =  1 - TCDF(t, nu) to get confidence level.
 
 mu1 = mean(x1);
 mu2 = mean(x2);

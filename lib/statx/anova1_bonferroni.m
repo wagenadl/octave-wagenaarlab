@@ -5,6 +5,7 @@ function dmu = anova1_bonferroni(a,kk,p)
 %    which C comparisons are performed.
 %    dmu (Cx2) returns the confidence intervals of the comparisons at the
 %    confidence level (1-P).
+%    This uses table lookup for the T distribution, which is rather stupid.
 
 C=size(kk,1);
 dmu0 = zeros(C,1);
