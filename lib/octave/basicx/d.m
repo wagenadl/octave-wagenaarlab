@@ -16,12 +16,11 @@ str = '';
 if ischar(v)
   x=v;
   try
-  v = evalin('caller', v);
-  str = [ inds x " = \n" ];
-  inds = [ inds '  '];
-  ind = ind + 1;
+    v = evalin('caller', v);
+    str = [ inds x " = \n" ];
+    inds = [ inds '  '];
+    ind = ind + 1;
   catch
-  fprintf(1,'foobar\n');
   end
 end
 
