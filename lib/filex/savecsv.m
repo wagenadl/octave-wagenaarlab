@@ -19,6 +19,18 @@ if nargin<2
   error('SAVECSV needs a filename and something to save');
 end
 
+if nargin==2 && isstruct(varargin{1})
+  lbls = fieldnames(varargin{1});
+  N = length(lbls);
+  args = cell(2*N, 1);
+  for n=1:N
+    args{2*n-1} = lbls{n};
+    args{2*n} = varargin{1}.(lbls{n});
+  end
+  savecsv(ofn, args{:});
+  return;
+end
+
 labels = {};
 data = {};
 paired = 0;
