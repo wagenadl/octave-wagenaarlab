@@ -94,6 +94,20 @@ if done
 else
   gdspk.tms = [];
   gdspk.amp = [];
+  idx = [];
+end
+
+ff = fieldnames(spk);
+for f=1:length(ff)
+  if strcmp(ff{f}, 'amp')
+    ;
+  elseif strcmp(ff{f}, 'tms')
+    ;
+  elseif all(size(spk.(ff{f})) == size(spk.tms))
+    gdspk.(ff{f}) = spk.(ff{f})(idx);
+  else
+    gdspk.(ff{f}) = spk.(ff{f});
+  end
 end
 
 if nargout<2
@@ -275,7 +289,7 @@ switch tag
     disp(2)
     ii = argmin((xx-xy(1)).^2);
 end
-
+disp(3)
 iset(h, '*index', ii);
 iset(h, '*xy0', [xx(ii) yy(ii)]);
 
