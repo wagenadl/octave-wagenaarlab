@@ -295,7 +295,7 @@ switch tag
   case { 'upperdots', 'lowerdots' }
     ii = argmin((xx-xy(1)).^2);
 end
-disp(3)
+
 iset(h, '*index', ii);
 iset(h, '*xy0', [xx(ii) yy(ii)]);
 
