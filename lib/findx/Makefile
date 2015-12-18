@@ -1,14 +1,14 @@
-OBJS=	findfirst_eq.mexglx findfirst_ne.mexglx \
-	findfirst_ge.mexglx findfirst_gt.mexglx \
-	findfirst_le.mexglx findfirst_lt.mexglx \
-	findlast_eq.mexglx findlast_ne.mexglx \
-	findlast_ge.mexglx findlast_gt.mexglx \
-	findlast_le.mexglx findlast_lt.mexglx
+OBJS=	findfirst_eq.mex findfirst_ne.mex \
+	findfirst_ge.mex findfirst_gt.mex \
+	findfirst_le.mex findfirst_lt.mex \
+	findlast_eq.mex findlast_ne.mex \
+	findlast_ge.mex findlast_gt.mex \
+	findlast_le.mex findlast_lt.mex
 
-MEX=mex32
+MEX=mkoctfile --mex
 
-#	crossseriesmatch_core.mexglx
-#	extendpeaks_core.mexglx
+#	crossseriesmatch_core.mex
+#	extendpeaks_core.mex
 
 deep: all subdirs
 
@@ -16,10 +16,10 @@ subdirs:
 
 all: $(OBJS)
 
-%.mexglx: %.c
+%.mex: %.c
 	$(MEX) $^
 
-%.mexglx: %.cpp
-	$(MEX) -lstdc++ $^
+%.mex: %.cpp
+	$(MEX) $^
 
 clean:; rm -f $(OBJS)
