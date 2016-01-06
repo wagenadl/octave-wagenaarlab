@@ -20,6 +20,7 @@ global phsc_data
 figw = w/2-40;
 figh = h/2-80;
 f=ifigure;
+%printf('iselectspike f=%i\n', f);
 iset(f, 'position',[20 40], 'size', [figw figh], ...
     'title', 'ISelectSpike');
 
@@ -36,7 +37,7 @@ iset(h, 'tag', 'done');
 
 % icallback(igca(), 'buttondownfcn', @phsc_click);
 
-h = iimage(zeros(10, 10, 1));
+h = iimage(zeros(0, 0, 3));
 iset(h, 'tag', 'trace');
 % icallback(h, 'buttondownfcn', @phsc_click);
 
@@ -90,6 +91,7 @@ end
 
 if done
   [gdspk, idx] = phsc_getdata(f);
+  %  exploretree(f);
   iclose(f);
 else
   gdspk.tms = [];
@@ -135,9 +137,10 @@ phsc_redraw(figh,1);
 % ----------------------------------------------------------------------
 
 function phsc_done(h, x)
-
 f = iget(h, 'parent');
+%printf('phsc_done h=%i f=%i %i\n', h, f, iget(f, '*completed'));
 iset(f, '*completed', 1);
+%printf('-> %i\n', iget(f,'*completed'));
 iresume
 
 % ----------------------------------------------------------------------
@@ -209,6 +212,11 @@ phsc_process_spikes(figh);
 % ----------------------------------------------------------------------
 
 function phsc_move(h, but)
+if h==0
+  printf('phsc_move h=0!?\n')
+  return
+end
+
 tag = iget(h, 'tag');
 idx = iget(h, '*index');
 xy0 = iget(h, '*xy0');
@@ -218,8 +226,11 @@ y = xy0(2);
 
 dxy = iget(igca, 'currentpoint') - iget(igca, 'downpoint');
 
+% printf('phsc_move tag=%s xy0=(%.1f,%.1f) dxy=(%.1f,%.1f)\n', tag,x,y,dxy(1),dxy(2));
+
 x = x + dxy(1);
 y = y + dxy(2);
+
 
 global phsc_data
 figh = igcf;
@@ -237,6 +248,7 @@ phsc_redraw(figh, 0);
 % ----------------------------------------------------------------------
 
 function phsc_press(h, but)
+
 if but~=1
   return;
 end
@@ -269,13 +281,8 @@ xy = iget(igca, 'currentpoint');
 x = xy(1);
 y = xy(2);
 
-x
-y
-xx
-yy
 switch tag
   case { 'upperline', 'lowerline' }
-    disp(1)
     ii = findfirst_ge(xx, x);
     if ii>0
       xx=[xx(1:ii-1); x; xx(ii:end)];
@@ -286,10 +293,9 @@ switch tag
       ii=length(xx);
     end
   case { 'upperdots', 'lowerdots' }
-    disp(2)
     ii = argmin((xx-xy(1)).^2);
 end
-disp(3)
+
 iset(h, '*index', ii);
 iset(h, '*xy0', [xx(ii) yy(ii)]);
 
@@ -408,10 +414,11 @@ xx = phsc_data{figh}.lower_thr{c}(:,1);
 yy = phsc_data{figh}.lower_thr{c}(:,2);
 
 h = ifind(ax, 'lowerdots');
+% printf('setting lowerdots(1) to %.1f %.1f\n', xx(1), yy(1));
 iset(h, 'xdata', xx, 'ydata', yy);
 
 h = ifind(ax, 'lowerline');
-iset(h, 'xdata',[xlim(1); xx; xlim(2)], 'ydata', [yy(1); yy; yy(end)]);
+iset(h, 'xdata', [xlim(1); xx; xlim(2)], 'ydata', [yy(1); yy; yy(end)]);
 
 xx = phsc_data{figh}.upper_thr{c}(:,1);
 yy = phsc_data{figh}.upper_thr{c}(:,2);
@@ -510,3 +517,15 @@ function y = sw_sig2log(x)
 %    (multiplier of RMS noise) to log scale for plotting.
 
 y = 20*sign(x).*log(1+abs(x)/15);
+
+function exploretree(f)
+f
+if strcmp(iget(f,'type'), 'image')
+  ;
+else
+  iget(f)
+end
+ff = iget(f,'children');
+for f=ff(:)'
+  exploretree(f);
+end
