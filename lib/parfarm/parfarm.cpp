@@ -277,9 +277,16 @@ void Worker::loop() {
     }
 
 #if PARFARM_VERBOSE
-    std::cout << "Will evaluate '" << foo.string_value() << "'\n";
+    if (foo.is_string())
+      std::cout << "Will evaluate '" << foo.string_value() << "'\n";
+    else
+      std::cout << "Will evaluate function handle\n";
 #endif
-    octave_value_list ovl = feval(foo.string_value(), args, nargout);
+    octave_value_list ovl = foo.is_string()
+      ? feval(foo.string_value(), args, nargout)
+      : (foo.is_inline_function() || foo.is_function_handle())
+      ? feval(foo.function_value(), args, nargout)
+      : octave_value_list();
 
     bool ok = !error_state && ovl.length()==nargout;
     error_state = 0; // needed?
@@ -328,7 +335,36 @@ static void killerror(std::vector<FarmOut *> &farmout, char const *msg) {
   error(msg);
 }
 
-DEFUN_DLD (parfarm, args, nargout, "Parallel Farm") {
+DEFUN_DLD (parfarm, args, nargout,
+           "PARFARM - Parallel processing farm\n"
+           "   res = PARFARM(foo, arg), where FOO is a function name or handle,\n"
+           "   and ARG is a cell array, is equivalent to:\n"
+           "     for k=1:numel(arg)\n"
+           "        res{k} = feval(foo, arg{k});\n"
+           "     end\n"
+           "   However, PARFARM is much faster on a multi-core or multi-CPU computer,\n"
+           "   because the function calls are performed in parallel.\n\n"
+           "   [res1, res2, ...] = PARFARM(foo, arg1, arg2, ...) is also supported.\n"
+           "   In this case, ARG2, ... may be cell arrays with the same number of\n"
+           "   elements as ARG1, or they may be other kinds of objects that will\n"
+           "   be passed to FOO without indexing.\n\n"
+           "   The number of input arguments and the number of output arguments\n"
+           "   are completely independent from each other. RES1, RES2, ... will\n"
+           "   always be cell vectors.\n\n"
+           "   PARFARM(n) sets the number of sub-processes to use. Currently, N is\n"
+           "   arbitrarily restricted between 2 and 8.\n\n"
+           "   PARFARM() kills the subprocesses. They will be automatically restarted\n"
+           "   at the next call to PARFARM.\n\n"
+           "   It is typically best to initialize PARFARM before loading too much\n"
+           "   data, because that results in faster initial forking. (But it does\n"
+           "   not affect overall performance.)\n\n"
+           "   If any of the calls fail, the corresponding cells in the outputs are\n"
+           "   set to [], and a warning is printed. In the future, an option to\n"
+           "   generate an error message will be implemented.\n\n"
+           "   Caution: Under certain circumstances, PARFARM can be slower than a\n"
+           "   direct loop. This happens especially if the calculations are very fast\n"
+           "   and involve a large amount of data. The reason is that data into and out\n"
+           "   of PARFARM have to be transported between processes using Posix IPC.\n") {
   static std::vector<FarmOut *> farmout;
   static int farmcount = 2;
   int nout = nargout>0 ? nargout : 1;
@@ -536,7 +572,7 @@ DEFUN_DLD (parfarm, args, nargout, "Parallel Farm") {
         int n = x(0,0);
         
         if (n<0) {
-          std::cout << "Caution: Element #" << ielem+1
+          std::cout << "Warning: Element #" << ielem+1
                     << " did not generate a valid result.\n\n";
         } else {
           if (n>nout)
