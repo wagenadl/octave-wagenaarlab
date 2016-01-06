@@ -14,10 +14,11 @@
 #include <sys/wait.h>
 
 /* Communication protocol:
-   The FarmOut sends an octave_value that is an integer specifying the
-   number of following values.
-   The first value is the name of a function to call, the rest are
-   arguments to that function.
+   The FarmOut sends an octave_value that is a pair of integers specifying
+   nargin and nargout.
+   Following that, it sends an octave_value that is the name of a function
+   to call.
+   Following that are the nargin arguments to that function.
    
    Upon completion, the worker sends back an octave_value that is an
    integer specifying the number of following values, which may be zero.
@@ -123,23 +124,21 @@ FarmOut::~FarmOut() {
   for (int iter=0;; iter++) {
     pid_t res = waitpid(pid, &status, options);
     if (res==pid) {
-      std::cout << "parfarm: waitpid good\n";
+      std::cout << "parfarm: Waitpid good\n";
       // all good
       return;
     } else if (res<0) {
       perror("parfarm: Waitpid failed. Aborting");
       abort();
     } else if (res>0) {
-      std::cout << "parfarm: waitpid mysterious: " << res << "\n";
+      std::cout << "parfarm: Waitpid mysterious: " << res << "\n";
       abort();
     } else {
       switch (iter) {
       case 0: {
-        std::cout << "parfarm: FarmOut deleted while worker running.\n";
-        std::cout << "Closing sending pipe and waiting for return to close...\n";
+        std::cout << "parfarm: Closing sending pipe and waiting for return to close...\n";
         close(fdToWorker());
         int n = sleep(1); // This will probably be interrupt by child exiting
-        std::cout << "Back from sleep: " << n << "\n";
       } break;
       case 1:
         std::cout << "parfarm: Worker still running. Sending terminate signal.\n";
@@ -171,7 +170,7 @@ bool FarmOut::sendOValue(octave_value const &x) {
 }
 
 bool FarmOut::receiveOValue(octave_value &x) {
-  static std::string fn = "x";
+  static std::string fn = "y";
   static std::string name;
   static std::string doc;
   bool glb;
@@ -202,6 +201,8 @@ int FarmOut::receiveInteger() {
   }
 }
 
+//////////////////////////////////////////////////////////////////////
+
 Worker::Worker(int fdInputs, int fdResults):
   srcbuf(fdInputs, std::ios::in), resbuf(fdResults, std::ios::out),
   src(&srcbuf), res(&resbuf) {
@@ -226,23 +227,67 @@ void Worker::loop() {
   std::string doc;
   bool glb;
   while (src.good() && res.good()) {
-    std::cout << "Worker waiting\n";
+    std::cout << "Worker ready\n";
     octave_value buf;
     name = read_binary_data(src, false,
                             oct_mach_info::flt_fmt_ieee_little_endian,
                             fn, glb,
                             buf, doc);
-    std::cout << "Worker read '" << name << "'\n";
     if (name=="")
-      break;
+      return;
     int32NDArray nn = buf.int32_array_value();
-    int n = nn(0,0);
-    std::cout << "Worker got int " << n << "\n";
+    int nargin = nn(0,0);
+    int nargout = nn(0,1);
+    if (nargin<0 || nargout<0) 
+      return;
+      
 
-    bool r = save_binary_data(res, buf,
-                              name, doc,
-                              glb, false);
-    std::cout << "Worker wrote " << r << "\n";
+    octave_value foo;
+    octave_value_list args(nargin);
+    name = read_binary_data(src, false,
+                            oct_mach_info::flt_fmt_ieee_little_endian,
+                            fn, glb,
+                            foo, doc);
+    if (name=="") {
+      std::cout << "Worker: Failed to read function name\n";
+      return;
+    }
+    for (int k=0; k<nargin; k++) {
+      name = read_binary_data(src, false,
+                              oct_mach_info::flt_fmt_ieee_little_endian,
+                              fn, glb,
+                              args(k), doc);
+      if (name=="") {
+        std::cout << "Worker: Failed to read arguments";
+        return;
+      }
+    }
+
+    std::cout << "Will evaluate '" << foo.string_value() << "'\n";
+    octave_value_list ovl = feval(foo.string_value(), args, nargout);
+
+    bool ok = !error_state && ovl.length()==nargout;
+    error_state = 0; // needed?
+
+    dim_vector dvx(1,1);
+    int32NDArray x(dvx);
+    x(0,0) = ok ? nargout : -1;
+    octave_value ov(x);
+    
+    if (!save_binary_data(res, ov, name, doc, false, false)) {
+      std::cout << "Worker: Failed to send count\n";
+      return;
+    }
+
+    if (ok) {
+      for (int k=0; k<nargout; k++) {
+        if (!save_binary_data(res, ovl(k), name, doc, false, false)) {
+          std::cout << "Worker: Failed to send result\n";
+          return;
+        }
+      }
+    }
+    
     res.flush();
   }
 }
@@ -250,8 +295,9 @@ void Worker::loop() {
 
 DEFUN_DLD (parfarm, args, nargout, "Parallel Farm") {
   static FarmOut *farmout = 0;
+  int nout = nargout>0 ? nargout : 1;
 
-  dim_vector dv(1, nargout>0 ? nargout : 1);
+  dim_vector dv(1, nout);
   octave_value_list out(dv);
   
   if (args.length()==0) {
@@ -271,22 +317,51 @@ DEFUN_DLD (parfarm, args, nargout, "Parallel Farm") {
     }
   }
 
-  dim_vector dvx(1,1);
+  dim_vector dvx(1,2);
   int32NDArray x(dvx);
-  x(0,0) = args.length();
+  x(0,0) = args.length()-1;
+  x(0,1) = nout;
   octave_value ov = x;
-
-  octave_value y;
   
   bool r = farmout->sendOValue(ov);
-  std::cout << "parfarm: result of sending: " << r << "\n";
+  if (!r) {
+    std::cout << "parfarm: failed to send count\n";
+    return out;
+  }
+  for (int k=0; k<args.length(); k++) {
+    if (!farmout->sendOValue(args(k))) {
+      std::cout << "parfarm: failed to send data\n";
+      return out;
+    }
+  }
   farmout->toWorker().flush();
   
-  r = farmout->receiveOValue(y);
-  std::cout << "parfarm: result of receiving: " << r << "\n";
+  r = farmout->receiveOValue(ov);
+  if (!r) {
+    std::cout << "parfarm: failed to receive count\n";
+    return out;
+  }
+  
+  x = ov.int32_array_value();
+  int n = x(0,0);
 
-  if (nargout>0)
-    out(0) = y;
+  //  std::cout << "parfarm: received " << n << "\n";
+  
+  if (n<0) {
+    std::cout << "parfarm: Result indicates error\n";
+    return out;
+  }
+  
+  if (n>nout)
+    n = nout;
+  for (int k=0; k<n; k++) {
+    r = farmout->receiveOValue(out(k));
+    if (!r) {
+      std::cout << "parfarm: Failed to receive results\n";
+      out = octave_value_list(nout);
+      return out;
+    }
+  }
   return out;
 }
 
