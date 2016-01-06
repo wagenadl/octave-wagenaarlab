@@ -6,12 +6,15 @@
 #include <octave/toplev.h>
 #include <octave/builtin-defun-decls.h>
 #include <octave/ls-oct-binary.h>
+#include <octave/Cell.h>
 
 #include <iostream>
 #include <ext/stdio_filebuf.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+
+#define PARFARM_VERBOSE 0
 
 /* Communication protocol:
    The FarmOut sends an octave_value that is a pair of integers specifying
@@ -90,7 +93,9 @@ FarmOut::FarmOut() {
     // Worker (child)
     close(fdToWorker());
     close(fdFromWorker());
+#if PARFARM_VERBOSE
     std::cout << "Starting worker\n";
+#endif
     try {
       Worker worker(worker_fdFromClient(), worker_fdToClient());
       worker.run();
@@ -124,7 +129,9 @@ FarmOut::~FarmOut() {
   for (int iter=0;; iter++) {
     pid_t res = waitpid(pid, &status, options);
     if (res==pid) {
+#if PARFARM_VERBOSE
       std::cout << "parfarm: Waitpid good\n";
+#endif
       // all good
       return;
     } else if (res<0) {
@@ -136,7 +143,9 @@ FarmOut::~FarmOut() {
     } else {
       switch (iter) {
       case 0: {
+#if PARFARM_VERBOSE
         std::cout << "parfarm: Closing sending pipe and waiting for return to close...\n";
+#endif
         close(fdToWorker());
         int n = sleep(1); // This will probably be interrupt by child exiting
       } break;
@@ -217,7 +226,9 @@ void Worker::run() {
   Worker::loop();
 
   // Clean up: close pipes and quit local octave
+#if PARFARM_VERBOSE
   std::cout << "Worker cleaning up\n";
+#endif
   clean_up_and_exit(0, true);
 }
 
@@ -227,7 +238,9 @@ void Worker::loop() {
   std::string doc;
   bool glb;
   while (src.good() && res.good()) {
+#if PARFARM_VERBOSE
     std::cout << "Worker ready\n";
+#endif
     octave_value buf;
     name = read_binary_data(src, false,
                             oct_mach_info::flt_fmt_ieee_little_endian,
@@ -263,7 +276,9 @@ void Worker::loop() {
       }
     }
 
+#if PARFARM_VERBOSE
     std::cout << "Will evaluate '" << foo.string_value() << "'\n";
+#endif
     octave_value_list ovl = feval(foo.string_value(), args, nargout);
 
     bool ok = !error_state && ovl.length()==nargout;
@@ -291,77 +306,259 @@ void Worker::loop() {
     res.flush();
   }
 }
-  
+
+static void killfarms(std::vector<FarmOut *> &farmout) {
+#if PARFARM_VERBOSE
+  std::cout << "parfarm: Deleting farmouts.\n";
+#endif
+  for (std::vector<FarmOut *>::iterator it=farmout.begin();
+       it!=farmout.end(); it++)
+    delete *it;
+  farmout.clear();
+#if PARFARM_VERBOSE
+  std::cout << "parfarm: Farmouts deleted.\n";
+#endif
+}
+
+static void killerror(std::vector<FarmOut *> &farmout, char const *msg) {
+#if PARFARM_VERBOSE
+  std::cout << "parfarm: " << msg << "\n";
+#endif
+  killfarms(farmout);
+  error(msg);
+}
 
 DEFUN_DLD (parfarm, args, nargout, "Parallel Farm") {
-  static FarmOut *farmout = 0;
+  static std::vector<FarmOut *> farmout;
+  static int farmcount = 2;
   int nout = nargout>0 ? nargout : 1;
 
   dim_vector dv(1, nout);
   octave_value_list out(dv);
   
   if (args.length()==0) {
-    std::cout << "parfarm: Deleting farmout.\n";
-    delete farmout;
-    std::cout << "parfarm: Farmout deleted.\n";
-    farmout = 0;
+    killfarms(farmout);
     return out;
   }
-  
-  if (farmout==0) {
+
+  if (farmout.empty() || args.length()==1) {
+    killfarms(farmout);
+    if (args.length()==1) {
+      int32NDArray x = args(0).int32_array_value();
+      if (error_state)
+        error("Bad arguments");
+      farmcount = x(0, 0);
+      if (farmcount<2 || farmcount>8) {
+        error("parfarm will only work with 2 to 8 processes");
+        return out; // not executed
+      }
+    }
     try {
-      farmout = new FarmOut();
+      for (int k=0; k<farmcount; k++)
+        farmout.push_back(new FarmOut);
     } catch (std::exception) {
       std::cout << "parfarm: Failed to start farmout\n";
+      for (std::vector<FarmOut *>::iterator it=farmout.begin();
+           it!=farmout.end(); it++)
+        delete *it;
+      farmout.clear();
+      error("parfarm: failed to start farmout");
       return out;
     }
+    if (args.length()==1)
+      return out;
+  }
+  
+  if (args.length()<2) {
+    error("parfarm: need function name and arguments");
+    return out;
   }
 
+  // construct argument count
   dim_vector dvx(1,2);
   int32NDArray x(dvx);
   x(0,0) = args.length()-1;
   x(0,1) = nout;
-  octave_value ov = x;
-  
-  bool r = farmout->sendOValue(ov);
-  if (!r) {
-    std::cout << "parfarm: failed to send count\n";
-    return out;
-  }
-  for (int k=0; k<args.length(); k++) {
-    if (!farmout->sendOValue(args(k))) {
-      std::cout << "parfarm: failed to send data\n";
-      return out;
-    }
-  }
-  farmout->toWorker().flush();
-  
-  r = farmout->receiveOValue(ov);
-  if (!r) {
-    std::cout << "parfarm: failed to receive count\n";
-    return out;
-  }
-  
-  x = ov.int32_array_value();
-  int n = x(0,0);
+  octave_value argcnt = x;
 
-  //  std::cout << "parfarm: received " << n << "\n";
+  int nelem = args(1).numel();
+  std::vector<Cell> cells;
+  for (int k=0; k<nout; k++)
+    cells.push_back(Cell(nelem, 1));
   
-  if (n<0) {
-    std::cout << "parfarm: Result indicates error\n";
-    return out;
-  }
-  
-  if (n>nout)
-    n = nout;
-  for (int k=0; k<n; k++) {
-    r = farmout->receiveOValue(out(k));
-    if (!r) {
-      std::cout << "parfarm: Failed to receive results\n";
-      out = octave_value_list(nout);
-      return out;
+  std::vector<int> state(nelem); // 0: ready to go; 1: working; 2: done.
+  std::vector<bool> busy(farmout.size());
+  std::vector<int> current(farmout.size()); // ielem in progress per farm
+  for (int k=0; k<farmout.size(); k++)
+    current[k] = -1;
+  int ndone = 0;
+  int nbusy = 0;
+  while (ndone<nelem) {
+    int ifarm = -1;
+    int ielem = -1;
+    if (nbusy<farmout.size()) {
+      // find a worker
+      for (int i=0; i<farmout.size(); i++) {
+        if (!busy[i]) {
+          ifarm = i;
+          break;
+        }
+      }
+      if (ifarm<0) {
+        killerror(farmout, "Internal error: No worker");
+        return out;
+      }
+
+      // find something to do
+      for (int i=0; i<nelem; i++) {
+        if (state[i]==0) {
+          ielem = i;
+          break;
+        }
+      }
+    }
+
+    if (ielem>=0) {
+      // something to do
+      std::cout << "Setting worker #" << ifarm+1
+                << " to work on element #" << ielem+1
+                << "/" << nelem
+                << "...   \r";
+      std::cout.flush();
+      state[ielem] = 1;
+      busy[ifarm] = true;
+      current[ifarm] = ielem;
+      nbusy ++;
+      
+      if (!farmout[ifarm]->sendOValue(argcnt)) {
+        killerror(farmout, "failed to send count");
+        return out;
+      }
+      for (int k=0; k<args.length(); k++) {
+        if (args(k).is_cell()) {
+          Cell c = args(k).cell_value();
+          if (c.numel()==nelem) {
+            octave_value ov = c(ielem);
+            if (!farmout[ifarm]->sendOValue(ov)) {
+              killerror(farmout, "failed to send data");
+              return out;
+            }
+          } else {
+            if (!farmout[ifarm]->sendOValue(args(k))) {
+              killerror(farmout, "failed to send data");
+              return out;
+            }
+          }
+        } else {
+          if (!farmout[ifarm]->sendOValue(args(k))) {
+            killerror(farmout, "failed to send data");
+            return out;
+          }
+        }
+      }
+      farmout[ifarm]->toWorker().flush();
+    } else {
+      // nothing more to start or all farms working
+      int maxfd = -1; 
+      for (int k=0; k<farmout.size(); k++) {
+        int recfd = farmout[k]->fdFromWorker();
+          if (recfd>maxfd)
+            maxfd = recfd;
+      }
+      fd_set rfd, wfd, efd;
+      struct timeval to;
+#if PARFARM_VERBOSE
+      std::cout << "Waiting for results\n";
+#endif
+      while (true) {
+        FD_ZERO(&rfd);
+        FD_ZERO(&wfd);
+        FD_ZERO(&efd);
+        for (int k=0; k<farmout.size(); k++) {
+          int recfd = farmout[k]->fdFromWorker();
+          FD_SET(recfd, &rfd);
+          FD_SET(recfd, &efd);
+        }
+        to.tv_sec = 1;
+        to.tv_usec = 0;
+        int r = select(maxfd+1, &rfd, &wfd, &efd, &to);
+        if (r<0) {
+          perror("select failed");
+          killerror(farmout, "select failed");
+        }
+        if (octave_signal_caught) {
+          std::cout << "Ctrl-C received\n";
+          killfarms(farmout);
+          octave_signal_caught = 0;
+          octave_handle_signal();
+          return out;
+        }
+        if (r==0) {
+#if PARFARM_VERBOSE
+          std::cout << "(still waiting)\n";
+#endif
+          continue;
+        }
+        int ifarm = -1;
+        for (int k=0; k<farmout.size(); k++) {
+          int recfd = farmout[k]->fdFromWorker();
+          if (FD_ISSET(recfd, &efd)) {
+            killerror(farmout, "Exception from select");
+            return out;
+          }
+          if (FD_ISSET(recfd, &rfd)) {
+            ifarm = k;
+            break;
+          }
+        }
+        if (ifarm<0) {
+          killerror(farmout, "Crazy results from select");
+          return out;
+        }
+        // Worker ifarm is done!
+        int ielem = current[ifarm];
+        if (ielem<0) {
+          killerror(farmout, "Crazy ielem");
+          return out;
+        }
+        state[ielem] = 2; // done
+        ndone++;
+        nbusy--;
+        busy[ifarm] = false;
+        current[ifarm] = -1;
+        octave_value aocnt;
+        r = farmout[ifarm]->receiveOValue(aocnt);
+        if (!r) {
+          killerror(farmout, "failed to receive count");
+          return out;
+        }
+        x = aocnt.int32_array_value();
+        int n = x(0,0);
+        
+        if (n<0) {
+          std::cout << "Caution: Element #" << ielem+1
+                    << " did not generate a valid result.\n\n";
+        } else {
+          if (n>nout)
+            n = nout;
+          for (int k=0; k<n; k++) {
+            octave_value v;
+            r = farmout[ifarm]->receiveOValue(v);
+            cells[k](ielem) = v;
+            if (!r) {
+              killerror(farmout, "failed to receive results");
+              return out;
+            }
+          }
+        }
+        break;
+      }     
     }
   }
+  /* We will have nelem processes to run; let's get ready for results */
+  std::cout << "All done.                                                 \n";
+  for (int k=0; k<nout; k++) 
+    out(k) = octave_value(cells[k]);
   return out;
 }
 
