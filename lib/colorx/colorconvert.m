@@ -24,6 +24,8 @@ function cc = colorconvert(cc, varargin)
 %      lshab -  As cielch, but with C* replaced by saturation s.
 %      hcl   -  Alternative to cielch proposed by Sarifuddin and Missaoui.
 %               See http://w3.uqo.ca/missaoui/Publications/TRColorSpace.zip
+%      lms -    Alternative to ciexyz more closely corresponding to human
+%               cone vision.
 %
 %    cc = COLORCONVERT(cc, k, v, ...) specifies additional parameters:
 %      whitepoint: whitepoint for cielab to/from ciexyz conversion. 
@@ -73,6 +75,9 @@ elseif strcmp(kv.from, 'cielab')
 elseif strcmp(kv.from, 'cieluv')
   cc = cieluvtociexyz(cc, kv.whitepoint, kv.clip);
   kv.from = 'ciexyz';  
+elseif strcmp(kv.from, 'lms')
+  cc = lmstoxyz(cc);
+  kv.from = 'ciexyz';
 end
 
 if ~strcmp(kv.from, 'ciexyz')
@@ -109,6 +114,9 @@ elseif strcmp(kv.to, 'cielab')
 elseif strcmp(kv.to, 'cieluv')
   cc = ciexyztocieluv(cc, kv.whitepoint);
   kv.from = 'cieluv';
+elseif strcmp(kv.to, 'lms')
+  cc = ciexyztolms(cc);
+  kv.from = 'lms';
 end
 
 if ~strcmp(kv.from, kv.to)
