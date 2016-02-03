@@ -6,7 +6,7 @@ function cc = ciexyztolms(cc)
 M1 = rgbxyz;
 M2 = rgblms;
 
-M = inv(M1)*inv(M2);
+M = M2*inv(M1);
 
 cc = cc*M'; % That's the same as (M*cc')'
 

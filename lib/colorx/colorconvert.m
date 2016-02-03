@@ -76,7 +76,7 @@ elseif strcmp(kv.from, 'cieluv')
   cc = cieluvtociexyz(cc, kv.whitepoint, kv.clip);
   kv.from = 'ciexyz';  
 elseif strcmp(kv.from, 'lms')
-  cc = lmstoxyz(cc);
+  cc = lmstociexyz(cc);
   kv.from = 'ciexyz';
 end
 
