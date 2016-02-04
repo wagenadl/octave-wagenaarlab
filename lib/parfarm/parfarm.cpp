@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/time.h>
 
 #define PARFARM_VERBOSE 0
 
@@ -28,6 +29,20 @@
    Each value is a return value from the command.
    Errors are indicated by a -1 value count.
  */
+
+struct timeval tv0;
+struct timezone tz;
+void settime0() {
+  gettimeofday(&tv0, &tz);
+}
+
+void reporttime(char const *msg) {
+  struct timeval tv;
+  gettimeofday(&tv, &tz);
+  double us = tv.tv_usec/1e6 - tv0.tv_usec/1e6;
+  us += tv.tv_sec/1.0 - tv0.tv_sec/1.0;
+  printf("%12.6f %s\n", us, msg);
+}
 
 class Worker {
 public:
@@ -147,17 +162,17 @@ FarmOut::~FarmOut() {
         std::cout << "parfarm: Closing sending pipe and waiting for return to close...\n";
 #endif
         close(fdToWorker());
-        int n = sleep(1); // This will probably be interrupt by child exiting
+        int n = usleep(50000); // This will probably be interrupt by child exiting
       } break;
       case 1:
         std::cout << "parfarm: Worker still running. Sending terminate signal.\n";
         kill(pid, SIGTERM);
-        sleep(2);
+        usleep(100000);
         break;
       case 2:
         std::cout << "parfarm: Worker still running. Sending kill signal.\n";
         kill(pid, SIGKILL);
-        sleep(2);
+        usleep(200000);
         break;
       case 3:
         std::cout << "parfarm: Worker still running. One more chance.\n";
@@ -220,7 +235,7 @@ Worker::Worker(int fdInputs, int fdResults):
 void Worker::run() {
   // Since we forked from octave, we already have an octave interpreter.
   // All we have to do is clear its workspace:
-  Fclear();
+  // Fclear();
 
   // Let's accept commands
   Worker::loop();
@@ -241,11 +256,13 @@ void Worker::loop() {
 #if PARFARM_VERBOSE
     std::cout << "Worker ready\n";
 #endif
+    settime0();
     octave_value buf;
     name = read_binary_data(src, false,
                             oct_mach_info::flt_fmt_ieee_little_endian,
                             fn, glb,
                             buf, doc);
+    reporttime("Got start of command");
     if (name=="")
       return;
     int32NDArray nn = buf.int32_array_value();
@@ -275,7 +292,7 @@ void Worker::loop() {
         return;
       }
     }
-
+    reporttime("got command");
 #if PARFARM_VERBOSE
     if (foo.is_string())
       std::cout << "Will evaluate '" << foo.string_value() << "'\n";
@@ -287,7 +304,7 @@ void Worker::loop() {
       : (foo.is_inline_function() || foo.is_function_handle())
       ? feval(foo.function_value(), args, nargout)
       : octave_value_list();
-
+    reporttime("calculated");
     bool ok = !error_state && ovl.length()==nargout;
     error_state = 0; // needed?
 
@@ -295,7 +312,7 @@ void Worker::loop() {
     int32NDArray x(dvx);
     x(0,0) = ok ? nargout : -1;
     octave_value ov(x);
-    
+    reporttime("will second response"); 
     if (!save_binary_data(res, ov, name, doc, false, false)) {
       std::cout << "Worker: Failed to send count\n";
       return;
@@ -309,8 +326,9 @@ void Worker::loop() {
         }
       }
     }
-    
+    reporttime("response sent"); 
     res.flush();
+    reporttime("flushed");
   }
 }
 
@@ -368,6 +386,8 @@ DEFUN_DLD (parfarm, args, nargout,
   static std::vector<FarmOut *> farmout;
   static int farmcount = 2;
   int nout = nargout>0 ? nargout : 1;
+
+  settime0();
 
   dim_vector dv(1, nout);
   octave_value_list out(dv);
@@ -429,6 +449,7 @@ DEFUN_DLD (parfarm, args, nargout,
     current[k] = -1;
   int ndone = 0;
   int nbusy = 0;
+  reporttime("Ready to start farming");
   while (ndone<nelem) {
     int ifarm = -1;
     int ielem = -1;
@@ -459,7 +480,8 @@ DEFUN_DLD (parfarm, args, nargout,
       std::cout << "Setting worker #" << ifarm+1
                 << " to work on element #" << ielem+1
                 << "/" << nelem
-                << "...   \r";
+                << "...   \n";
+      reporttime("Sending command");
       std::cout.flush();
       state[ielem] = 1;
       busy[ifarm] = true;
@@ -493,6 +515,7 @@ DEFUN_DLD (parfarm, args, nargout,
         }
       }
       farmout[ifarm]->toWorker().flush();
+      reporttime("Done sending command");
     } else {
       // nothing more to start or all farms working
       int maxfd = -1; 
@@ -557,6 +580,8 @@ DEFUN_DLD (parfarm, args, nargout,
           killerror(farmout, "Crazy ielem");
           return out;
         }
+ 	std::cout << "Farm " << ifarm << " done with " << ielem << "\n";
+        reporttime("Receiving results");
         state[ielem] = 2; // done
         ndone++;
         nbusy--;
@@ -587,14 +612,17 @@ DEFUN_DLD (parfarm, args, nargout,
             }
           }
         }
+        reporttime("Done receiving");
         break;
       }     
     }
   }
   /* We will have nelem processes to run; let's get ready for results */
   std::cout << "All done.                                                 \n";
+  reporttime("Creating output");
   for (int k=0; k<nout; k++) 
     out(k) = octave_value(cells[k]);
+   reporttime("Returning from call");
   return out;
 }
 
