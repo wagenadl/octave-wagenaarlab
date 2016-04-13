@@ -22,7 +22,9 @@ end
 
 cc = djet(Y);
 for y=1:Y
-  qpen(cc(y,:), 0);
+  if Y>1
+    qpen(cc(y,:), 0);
+  end
   for t=1:T
     x_ = xx(:,y,t);
     y_ = yy(:,y,t);

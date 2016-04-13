@@ -10,10 +10,7 @@ if nargin<5
   [omega0,phi0,amp0] = fitsine(tt,yy);
 end
 
-p = fminsearch(@fitsine2_err,[omega0,phi0,amp0],[],tt,yy);
+p = fminsearch(@(p) (sum((yy-p(3)*cos(p(1)*tt+p(2))).^2)), [omega0,phi0,amp0]);
 omega=p(1);
 phi=p(2);
 amp=p(3);
-
-function err = fitsine2_err(p,tt,yy)
-err = sum((yy-p(3)*cos(p(1)*tt+p(2))).^2);

@@ -16,21 +16,21 @@ else
 end
 
 
-txth = findobj(gcf, 'type', 'text');
+txth = findall(gcf, 'type', 'text');
 for h=txth(:)'
   if get(h, 'fontsize') < minfs
     set(h, 'fontsize', minfs);
   end
 end
 
-axh = findobj(gcf, 'type', 'axes');
+axh = findall(gcf, 'type', 'axes');
 for h=axh(:)'
   if get(h, 'fontsize') < minfs
     set(h, 'fontsize', minfs);
   end
 end
 
-lh = findobj(gcf, 'type', 'line');
+lh = findall(gcf, 'type', 'line');
 for h=lh(:)'
   if get(h, 'linewidth') < minlw
     set(h, 'linewidth', minlw);
