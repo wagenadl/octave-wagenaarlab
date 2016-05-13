@@ -16,17 +16,31 @@ if nargin<2
   K=D;
 end
 
-cv = cov(xx);
+PRINCOMP = 1;
 
-%[u,d,v]=svds(cv,K);
-
-%[u,d,v]=svd(cv, K);
-%pc = v(:,1:K)';
-
-[pc, d] = eigs(cv, K, 'lm');
-pc = pc';
-
-w = diag(d); w=w(1:K)';
+if PRINCOMP
+  [pc,sig,w] = princomp(xx, 'econ');
+  w = w';
+  pc = pc';
+  DK = K - length(w);
+  if DK>0
+    w = [w, zeros(1,DK)];
+    pc = [pc; zeros(DK,D)];
+    sig = [sig, zeros(N, DK)];
+  elseif DK<0
+    w = w(1:K);
+    pc = pc(1:K,:);
+    sig = sig(:,1:K);
+  end    
+else
+  cv = cov(xx);
+  %[u,d,v]=svds(cv,K);
+  %[u,d,v]=svd(cv, K);
+  %pc = v(:,1:K)';
+  [pc, d] = eigs(cv, K, 'lm');
+  pc = pc';
+  w = diag(d); w=w(1:K)';
+end
 
 if nargout>=3
   sig = xx * pc';
