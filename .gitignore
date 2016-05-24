@@ -2,6 +2,6 @@
 \#*\#
 *.mex*
 *.o
+*.oct
 octave-workspace
 
-parfarm.oct
