@@ -1,5 +1,5 @@
 function lens = lc1060
-% ZEMAX/THORLABS/ZMX/LC1060-A.ZMX - LC1060 Plano-Concave - N-BK7
+% ZMX/LC1060-A.ZMX - LC1060 Plano-Concave - N-BK7
 
 lens.fn = 'lc1060';
 lens.name = 'LC1060-A';

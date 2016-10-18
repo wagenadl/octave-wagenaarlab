@@ -8,6 +8,11 @@ if nargin<2
   x = tracer_imagex(trc);
   qmarker o solid 3
   qmark(x, 0);
+  ximg = x;
+  xspec = [];
+else
+  ximg = [];
+  xspec = x;
 end
 
 [xx, yy] = tracer_rays(trc);
@@ -30,7 +35,7 @@ for y=1:Y
     y_ = yy(:,y,t);
     x_(abs(imag(x_))>1e-5) = nan;
     x_(abs(y_)>50) = nan;
-    x_(abs(x_)>2*max(abs([xmax; trc.xlens(:)]))) = nan;
+    x_(abs(x_)>max(abs([2*xmax; 2*trc.xlens(:); xspec]))) = nan;
     x_ = real(x_);
     y_ = real(y_);
     qplot(x_, y_);

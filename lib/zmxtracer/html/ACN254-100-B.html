@@ -1,0 +1,347 @@
+<!DOCTYPE html><head><script type="text/javascript">/* <![CDATA[ */_cf_loadingtexthtml="<img alt=' ' src='/cfthorscripts/ajax/resources/cf/images/loading.gif'/>";
+_cf_contextpath="";
+_cf_ajaxscriptsrc="/cfthorscripts/ajax";
+_cf_jsonprefix='//';
+_cf_websocket_port=8578;
+_cf_flash_policy_port=1244;
+_cf_clientid='A338DE87DB9F5494EE7249B8AC39F2BA';/* ]]> */</script><script type="text/javascript" src="/cfthorscripts/ajax/messages/cfmessage.js"></script>
+<script type="text/javascript" src="/cfthorscripts/ajax/package/cfajax.js"></script>
+<script type="text/javascript" src="/cfthorscripts/cfform.js"></script>
+<script type="text/javascript" src="/cfthorscripts/masks.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="imagetoolbar" content="no"><title>Thorlabs - ACN254-100-B f=-100.0 mm, Ø1" Achromatic Doublet, ARC: 650-1050 nm</title><style>.greyBG
+	{
+		background-color:#58656E;
+	}
+	#editMetadata
+	{
+		margin-left:10px;
+		background-color:RGBA(177,177,177,0.3);
+		font-weight:bold;
+		float:left;
+		padding:10px;
+		border-radius: 10px;
+	}
+	#editMetadata span
+	{
+		display:none;
+	}</style>
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFAJAXPROXY');
+/* ]]> */</script>
+<script type="text/javascript">
+<!--
+    _CF_checkProductFeedback = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element EmailAddress 'EMAIL' validation checks
+        if (!_CF_checkEmail(_CF_this['EmailAddress'].value, false))
+        {
+            _CF_onError(_CF_this, "EmailAddress", _CF_this['EmailAddress'].value, "Error in EmailAddress text.");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            // run userdefined onSubmit javascript. 
+            return catchEmptyForm('ProductFeedback','CustReply')
+            return true;
+        }
+    }
+//-->
+</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	if (window.ColdFusion) ColdFusion.required['myEmail']=true;
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	if (window.ColdFusion) ColdFusion.required['email']=true;
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	if (window.ColdFusion) ColdFusion.required['rnd']=true;
+/* ]]> */</script>
+<script type="text/javascript">
+<!--
+    _CF_checkshare = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element myEmail required check
+        if( _CF_hasValue(_CF_this['myEmail'], "TEXT", false ) )
+        {
+            //form element myEmail 'EMAIL' validation checks
+            if (!_CF_checkEmail(_CF_this['myEmail'].value, true))
+            {
+                _CF_onError(_CF_this, "myEmail", _CF_this['myEmail'].value, "Please enter your email address");
+                _CF_error_exists = true;
+            }
+
+        }else {
+            _CF_onError(_CF_this, "myEmail", _CF_this['myEmail'].value, "Please enter your email address");
+            _CF_error_exists = true;
+        }
+
+        //form element email required check
+        if( _CF_hasValue(_CF_this['email'], "TEXT", false ) )
+        {
+            //form element email 'EMAIL' validation checks
+            if (!_CF_checkEmail(_CF_this['email'].value, true))
+            {
+                _CF_onError(_CF_this, "email", _CF_this['email'].value, "Please enter your Colleague's email address");
+                _CF_error_exists = true;
+            }
+
+        }else {
+            _CF_onError(_CF_this, "email", _CF_this['email'].value, "Please enter your Colleague's email address");
+            _CF_error_exists = true;
+        }
+
+        //form element rnd required check
+        if( !_CF_hasValue(_CF_this['rnd'], "TEXT", false ) )
+        {
+            _CF_onError(_CF_this, "rnd", _CF_this['rnd'].value, "Please enter the Security Code shown to submit this form");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+<link href="https://www.thorlabs.us/NewSite.css" rel="stylesheet" type="text/css">
+<script src="https://www.thorlabs.us/js/jquery-1.7.2.min.js"></script>
+<script>
+					var sObject = [];
+					sObject['ALLPRODUCTS']= ' All Products';
+					sObject['OPTOMECHANICS']= ' Optomechanics';
+					sObject['MOTIONCONTROL']= ' Motion Control';
+					sObject['OPTICS']= ' Optics';
+					sObject['FIBER']= ' Fiber';
+					sObject['LIGHT']= ' Light';
+					sObject['LIGHTANALYSIS']= ' Light Analysis';
+					sObject['IMAGING']= ' Imaging';
+					sObject['NEWPRODUCTS']= ' New Products';
+					sObject['CUSTOM']= ' OEM and Customization';
+					sObject['DOWNLOAD']= ' Downloads';
+					sObject['TERMANDCONDITION']= ' Terms and Conditions';
+					sObject['RETURN']= ' Returns';
+					sObject['TECHSUPPORT']= ' Technical Support';
+					sObject['DISCOUNT']= ' Discount Policy';
+					sObject['FOOD4THOUGHT']= ' Hungry for Your Thoughts';
+					sObject['MANULOC']= ' Our Manufacturing Locations';
+					sObject['INTERDIST']= ' International Distributors';
+					sObject['PARTNER']= ' Partners';
+					sObject['ABOUTUS']= ' About Us';
+					sObject['PRESSRELEASE']= ' Press Releases';
+					sObject['TRADESHOW']= ' Tradeshows';
+					sObject['CAREER']= ' Careers';
+					sObject['BMC']= ' Boston Micromachines Corporation (BMC)';
+					sObject['IQE']= ' Idesta Quantum Electronics (IQE)';
+					sObject['MENLO']= ' MenloSystems GmbH';
+					sObject['PICO']= ' PicoLuz';
+					sObject['PRAEV']= ' Praevium Research';
+					sObject['LOGIN']= ' Log In';
+					sObject['SHOPCART']= ' Shopping Cart';
+					sObject['REGISTER']= ' Create an Account';
+					sObject['NEEDOTABLES']= ' The Need for Optical Tables';
+					sObject['SOURCEVIB']= ' Sources of Vibration';
+					sObject['THEORYTBLEVIB']= ' Theory of Tabletop Vibration';
+					sObject['TBLEDESIGN']= ' Tabletop Design';
+					sObject['THEORYVIBISO']= ' Theory of Vibration Isolation';
+					sObject['TBLEISODSGN ']= ' Table Isolator Design';
+					sObject['CONCLUSION']= ' Conclusion';
+					sObject['LOGOUT']= ' Log Out';
+					sObject['ACCOUNT']= ' My Account';
+					sObject['SUSTAINLINK']= ' Sustainability Initiatives';
+					sObject['APPLICATIONS']= ' Applications';
+					sObject['QUALITYSYSTEMS']= ' Quality Systems';
+					sObject['PlaceOrder']= ' Place Order';
+					sObject['PlaceQuote']= ' Request Quote';
+					sObject['VENDORPACKING']= ' Vendor Packing Slip';
+					sObject['FAQ']= ' FAQ';
+					sObject['TUTORIALS']= ' Tutorials';
+				</script>
+			
+	<script type="text/javascript" src="https://www.thorlabs.us/js/menucontents.js"></script>
+<script type="text/javascript" src="https://www.thorlabs.us/js/anylinkmenu.js"></script>
+<script type="text/javascript" src="https://www.thorlabs.us/js/ThorScripts.js"></script>
+<script type="text/javascript" src="https://www.thorlabs.us/tabpane/js/tabpane.js"></script>
+<link type="text/css" rel="StyleSheet" href="https://www.thorlabs.us/tabpane/css/luna/tab.min.css">
+<script src="https://www.thorlabs.us/js/jquery.cookie.min.js"></script>
+<script src="https://www.thorlabs.us/js/jquery.cookieDetector.min.js"></script>
+
+<script type="text/javascript">
+	$().ready(function(){
+		$.cookieDetector();
+	});
+</script>
+<script language="javascript" src="https://www.thorlabs.us/PageScript.js"></script>
+<link href="https://www.thorlabs.us/buttons.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/assets/css/tabs.min.css">
+			<script type="text/javascript" src="https://www.thorlabs.us/js/tab.js"></script>
+			<link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
+			<script src="/js/jquery-ui.min.js"></script>
+<link type="text/css" href="https://www.thorlabs.us/search/css/searchsuggest.min.css" rel="stylesheet" />
+			<script type="text/javascript" src="https://www.thorlabs.us/search/js/searchsuggest.js"></script>
+
+<script type="text/javascript" src="https://www.thorlabs.us/nav/iframe.min.js"></script>
+<link rel="stylesheet" href="https://www.thorlabs.us/nav/products.min.css" />
+<link rel="stylesheet" type="text/css" href="https://www.thorlabs.us/js/highslide/highslideMacStyle.css">
+		<script type="text/javascript" src="/js/highslide/highslide-full.min.js"></script>
+		<script type="text/javascript">
+		    hs.showCredits = false;
+		</script>
+<link rel="stylesheet" type="text/css" href="https://www.thorlabs.us/thorproduct.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-custom.min.css"/>
+<script src="https://www.thorlabs.us/js/thorproduct.js" type="text/javascript"></script>
+<meta name="Description" content="f=-100.0 mm, Ø1in Achromatic Doublet, ARC: 650-1050 nm">
+<meta name="Keywords" content="ACN254-100-B,achromats,Collimating lens,achromatic lens,expander,focus lens,doublet lens,ir optics,achromatic doublet,doublet,ir achromat,ir achromatic doublet,ir lens,achromatic doublet lens,lens,lenses,optical quality lens,laser lens,broadband lens,positive lens,convex lens,1 optic,1 inch optic,1 optic,25mm optic,25 mm optic,AR Coated Lens,IR AR Coating,IR AR Coated Lens,IR Lens,NIR AR Coating,NIR AR Coated Lens,NIR lens">
+<style>
+	.breadcrumbContainer{ position:relative; height:50px; width: 990px; }
+	.breadText{ float:left; position:absolute; top:50%;  margin-top:-20px; width: 990px;}
+	.breadImage{ float:right; width:200px; position:relative;  }
+	</style>
+
+<script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">
+				try {
+				var pageTracker = _gat._getTracker("UA-3578926-5");
+				pageTracker._trackPageview();
+				} catch(err) {}
+			</script>
+<script type="text/javascript" src="/assets/js/modal.js"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/css/modal.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/row.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/button.min.css">
+</head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload=""><a name='pageTop'></a><table width="1058" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="white"><tr><td align="left" valign="top" bgcolor="white"><table width="1058" border="0" cellspacing="0" cellpadding="4" ><tr ><td width="260" align="left" valign="middle" background="https://www.thorlabs.us/../../images/newhp/topGradient4.png"><a href="https://www.thorlabs.us/index.cfm" alt=" Home" title=" Home"><img id="thorlabslogo" src="../../images/newhp/Thorlabs_White_3D.png" border="0" alt=" Home" title=" Home" /></a></td><td align="center" valign="bottom" background="https://www.thorlabs.us/../../images/newhp/topGradient4.png"><span id="headerWhiteLink"><a href="https://www.thorlabs.us/login.cfm?lc=create" id="headerWhiteLink" alt=" Create an Account" title=" Create an Account"> Create an Account</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/login.cfm?lc=login" alt=" Log In" title=" Log In" id="headerWhiteLink"> Log In</a></span></td><td width="300" align="right" valign="top" background="https://www.thorlabs.us/../../images/newhp/topGradient4.png"><table border="0" cellspacing="0" cellpadding="0"><tr><td align="right" valign="middle" nowrap="nowrap" id="headerSearch"><form onsubmit="return false;" action="/search/thorsearch.cfm" method="get" id="searchForm"><label for="criteria"> Search</label><input type="text" name="search" id="criteria" value="" style="width: 166px;" class="inputbox" onfocus="clearText(this);closeLayer('currView');closeLayer('CartView');" /><input type="button" value=" Search" onclick="this.form.submit()" class="submit" /></form><div id="results"><div id="terms"></div><div id="productsWrapper"><h3><a href="javascript:;" onclick="submitSearch();" id="viewall">View All &raquo;</a>Matching Part Numbers</h3><div id="products"></div></div></div></td></tr><tr><td align="right" valign="bottom"><table border="0" cellspacing="0" cellpadding="0"><tr><td align="left" valign="bottom" style="color:#CCCCCC"><a href="../../cart/basket/showcott3.cfm" onMouseOver="openLayer('CartView');closeLayer('currView');closeLayer('langView');" id="headerWhiteLink" alt=" Shopping Cart" title=" Shopping Cart"><img src="https://www.thorlabs.us/images/newhp/shopping_cart_smGRAY.png" align="absmiddle" border="0" /><label id="cartQTY" name="cartQTY">(   0)</label></a><div id="cart_Container"><div id="CartView" class="BasketView"><div align="right"><a href="javascript:void(0);" onClick="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" id="CartACTLINKS">Close [X]</a></div><div align="center"></div><div align="center"><div class="CartTitle"><br />Your Shopping Cart is Empty<br /></div></div></div></div></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="right" valign="middle"><div id="curr_Container"><a href="javascript:void(0);" onClick="openLayer('currView');closeLayer('CartView');closeLayer('langView');" id="headerWhiteLink" alt="Change Currency" title="Click to Change Currency">$&nbsp;&nbsp;Dollar&nbsp;&nbsp;&nbsp;&nbsp;<span id="currDrop_dot">&#9660;</span></a><div id="currView" class="currDrop"><div align="right"><a href="javascript:void(0);" onClick="closeLayer('currView')" id="CartACTLINKS"> Close [X]</a></div><div align="center" id="currDrop_Title"><b> Select your Currency</b></div><table width="130" border="0" cellspacing="2" cellpadding="2" align="center" id="curr_DropTable"><tbody><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&CurrencySelect=Euro" id="currDrop_Link" onClick="closeLayer('CartView');">€&nbsp;&nbsp;Euro</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&CurrencySelect=GBPound" id="currDrop_Link" onClick="closeLayer('CartView');">£&nbsp;&nbsp;GBPound</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&CurrencySelect=Krona" id="currDrop_Link" onClick="closeLayer('CartView');">SEK&nbsp;&nbsp;Krona</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&CurrencySelect=JPY" id="currDrop_Link" onClick="closeLayer('CartView');">¥&nbsp;&nbsp;JPY</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&CurrencySelect=RMB" id="currDrop_Link" onClick="closeLayer('CartView');">¥&nbsp;&nbsp;RMB</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&CurrencySelect=BRL" id="currDrop_Link" onClick="closeLayer('CartView');">R$&nbsp;&nbsp;BRL</a></td></tr></tbody></table></div></div></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="right" valign="middle"><div id="lang_Container"><a href="javascript:void(0);" onClick="openLayer('langView');closeLayer('CartView');closeLayer('currView');" id="headerWhiteLink" alt="Change Language" title="Click to Change Language">ENGLISH&nbsp;&nbsp;&nbsp;&nbsp;<span id="currDrop_dot">&#9660;</span></a><div id="langView" class="langDrop"><div align="right"><a href="javascript:void(0);" onClick="closeLayer('langView')" id="CartACTLINKS"> Close [X]</a></div><div align="center" id="currDrop_Title"><b> Click to Change Language</b></div><table width="130" border="0" cellspacing="2" cellpadding="2" align="center" id="curr_DropTable"><tbody><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&Language=CHINESE-Simplified" id="currDrop_Link" onClick="closeLayer('langView');">CHINESE-Simplified</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&Language=GERMAN" id="currDrop_Link" onClick="closeLayer('langView');">GERMAN</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&Language=JAPANESE" id="currDrop_Link" onClick="closeLayer('langView');">JAPANESE</a></td></tr><tr><td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/thorproduct.cfm?partnumber=ACN254-100-B&Language=PORTUGUESE" id="currDrop_Link" onClick="closeLayer('langView');">PORTUGUESE</a></td></tr></tbody></table></div></div></td><td width="14">&nbsp;</td></tr></table></td></tr></table></td></tr><tr><td colspan="3" align="left" valign="middle" id="navMenu" style="padding:0px;"><div id="navbar"><table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td><a href="/navigation.cfm" class="menuanchorclass hasSub" rel="anylinkmenu1" title=" Products Home" id="headerLinktext"> Products Home</a></td><td><a href="/RapidOrder.cfm" onMouseOver="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" title=" Rapid Order"> Rapid Order</a></td><td><a href="/support.cfm" rel="anylinkmenu2" onMouseOver="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" class="menuanchorclass hasSub" title=" Services"> Services</a></td><td><a href="/about_us.cfm" rel="anylinkmenu3" onMouseOver="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" class="menuanchorclass hasSub" title=" The Company"> The Company</a></td><td align="center"><a href="https://www.thorlabs.us/locations.cfm" onMouseOver="closeLayer('CartView');closeLayer('currView');" alt=" Contact Us" title=" Contact Us" id="headerLinktext"> Contact Us</a></td><td align="center" style="border-right:0;"><a href="../../login.cfm?lc=login" class="menuanchorclass hasSub" rel="anylinkmenu5" onmouseover="closeLayer('CartView');closeLayer('currView');" id="headerLinktext">My Thorlabs</a></td></tr>
+</table></div></td></tr><tr><td colspan="3" align="center" valign="bottom" ></td></tr></table></td></tr><tr><td ><div id="LP_DIV_1469734131765" style='padding:0px;  vertical-align:top; width:65px; float:right;padding=0px; margin-right:50px;'></div></td></tr><tr><td align="left" valign="top" ><script type="text/javascript" src="/assets/jquery_gallery/lib/jquery.ad-gallery.js"></script><link rel="stylesheet" type="text/css" href="/assets/jquery_gallery/lib/jquery.ad-gallery.css"><div class="black_overlay" style="display: none;" id="overlay"></div><table width="990" align="center" border="0" cellspacing="1" cellpadding="2"><tr><td align="left" valign="middle"><div class='breadcrumbContainer'><div class='breadText'><a href="navigation.cfm?guide_id=1" alt="Products Home" title="Products Home"><img src="https://www.thorlabs.us/images/newhp/Doghouse2_20px.png" border="0" alt="Products Home"></a> >><a href="navigation.cfm?guide_id=7" alt="Optical Elements" title="Optical Elements">Optical Elements</a> >><a href="navigation.cfm?guide_id=2087" alt="Lenses" title="Lenses">Lenses</a> >><a href="navigation.cfm?guide_id=12" alt="Achromatic Doublets and Triplets" title="Achromatic Doublets and Triplets">Achromatic Doublets and Triplets</a> >><a href="navigation.cfm?guide_id=2388" alt="Cemented Achromatic Doublets" title="Cemented Achromatic Doublets">Cemented Achromatic Doublets</a> >><a href="newgrouppage9.cfm?objectgroup_id=259" alt="Ø1in (Ø25.4 mm) Unmounted Positive and Negative Achromatic Doublets, ARC: 650 - 1050 nm" title="Ø1in (Ø25.4 mm) Unmounted Positive and Negative Achromatic Doublets, ARC: 650 - 1050 nm">Ø1in (Ø25.4 mm) Unmounted Positive and Negative Achromatic Doublets, ARC: 650 - 1050 nm</a> >> ACN254-100-B</div></div></td></tr><tr><td align="center" valign="top"><hr size="1" noshade="noshade" color="#8F0302" /></td></tr><tr><td align="left" class="PartTitle"><b>ACN254-100-B - f=-100.0 mm, Ø1" Achromatic Doublet, ARC: 650-1050 nm</b>&nbsp;</td></tr><tr><td align="left" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="2"><tr><td width="200" align="center" valign="top"><table width="200" border="0" cellspacing="0" cellpadding="0"><tr><td align="center" valign="top"><img src="images/large/7487-lrg.jpg" border="0" width="200" height="200" style="width:200; height:200;" alt="ACN254-100-B - f=-100.0 mm, Ø1in Achromatic Doublet, ARC: 650-1050 nm"></td></tr><tr><td align="center" valign="top"><div class="thumbwrapper"><a href="https://www.thorlabs.us/images/xlarge/7487-xl.jpg" onClick="return hs.expand(this)" class="highslide"><img src="https://www.thorlabs.us/images/productpage/zoom.gif" id="productThumb" border="0" align="bottom" /> Zoom</a><div class="highslide-caption">ACN254-100-B<br />f=-100.0 mm, Ø1in Achromatic Doublet, ARC: 650-1050 nm</div><div id="closebutton" class="highslide-overlay closebutton"	onclick="return hs.close(this)" title="Close"></div></div><a href='newgrouppage9.cfm?objectgroup_id=259&pn=ACN254-100-B' title='Ø1in (Ø25.4 mm) Unmounted Positive and Negative Achromatic Doublets, ARC: 650 - 1050 nm'><img src='images/completeproductdetails.png' border=0></a><hr /></td></tr></table></td><td align="center" valign="top"><table width="100%" border="0" cellspacing="10" cellpadding="0"><tr><td width="80" align="left" valign="top"><b> Part Number:</b></td><td align="left">ACN254-100-B 
+									-<a href="mailto:techsupport@thorlabs.com?subject=ACN254-100-B" class="info">Ask a technical question <span> Ask a technical question.</span></a></td></tr><tr><td align="left"><b> Package Weight:</b></td><td align="left">0.08 lbs
+									 / Each</td></tr><tr><td width="80" align="left" valign="top"><b> Available / Ships:</b></td><td align="left">Today</td></tr><tr><td width="80" align="left" valign="top"><b>RoHS:</b></td><td align="left"></td></tr><tr><td width="80" align="left" valign="top"><b> Price:</b></td><td align="left"  valign="top"><font style="font-size:12px;color:#993333;font-weight:BOLD;">$83.40</font></td></tr><tr><td width="90" align="left" valign="top"><b> Add To Cart:</b></td><td align="left"><form name="add2Basket" method="POST" action="action.cfm?act=add2Cart">Qty :<input type="text" name="QTY" value="1" class="inputbox" size="3" onBlur="this.value=(this.value=='' || (!(parseInt(this.value) > 0) && !(parseInt(this.value) < 0) && !(parseInt(this.value) == 0)))?0:parseInt(this.value)">&nbsp;&nbsp;<input type="submit" name="addCart" value=" Add To Cart" class="submitBtn"><input type="hidden" name="Product_ID" value="32359"><input type="hidden" name="partNumber" value="ACN254-100-B"><input type="hidden" name="serialNumber" value="|"><input type="hidden" name="productTitle" value="f=-100.0 mm, Ø1in Achromatic Doublet, ARC: 650-1050 nm"><input type="hidden" name="weight" value="0.079608106"></form></td></tr><td width="90" align="left" valign="top"><b> Release Date:</b></td><td align="left">Oct 23, 2003</td></table></td><td width="210" align="center" valign="top"><script src="/js/jquery-1.11.2.min.js"></script><script src="/js/bootstrap.min.js"></script><link rel="stylesheet" type="text/css" href="/assets/css/button.min.css"/><link rel="stylesheet" type="text/css" href="/css/bootstrap-custom.min.css"/><script src="/js/clipboard.min.js"></script><script type="text/javascript">var webroot = 'https://www.thorlabs.us';</script><div id="status"></div><table id="docs" width="250" border="0" align="center" cellpadding="2" cellspacing="2" style="border: 1px solid black;font-size: 11px;" bgcolor="#FFFFE6"><tr><td colspan="2" align="left" valign="top"><b> Drawings and Documents:</b></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">Auto CAD PDF</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.pdf" href="/_sd.cfm?fileName=7487-E0W.pdf&partNumber=ACN254-100-B" rel="nofollow" title="Auto CAD PDF" alt="Auto CAD PDF" target="_blank"><img src="/Images/PDF_Icon.gif" alt="Auto CAD PDF" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-E0W.pdf&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-AutoCADPDF.pdf" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.pdf"></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">Auto CAD DXF</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.dxf" href="/_sd.cfm?fileName=7487-E0W.dxf&partNumber=ACN254-100-B" rel="nofollow" title="Auto CAD DXF" alt="Auto CAD DXF" target="_blank"><img src="/Images/DXF_Icon.gif" alt="Auto CAD DXF" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-E0W.dxf&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-AutoCADDXF.dxf" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.dxf"></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">Solidworks</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.sldprt" href="/_sd.cfm?fileName=7487-E0W.sldprt&partNumber=ACN254-100-B" rel="nofollow" title="Solidworks" alt="Solidworks" target="_blank"><img src="/Images/eDrawing_Icon.gif" alt="Solidworks" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-E0W.sldprt&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-Solidworks.sldprt" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.sldprt"></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">eDrawing</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.htm" href="/_sd.cfm?fileName=7487-E0W.htm&partNumber=ACN254-100-B" rel="nofollow" title="eDrawing" alt="eDrawing" target="_blank"><img src="/Images/htm_Icon.gif" alt="eDrawing" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-E0W.htm&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-eDrawing.htm" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.htm"></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">Step</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.step" href="/_sd.cfm?fileName=7487-E0W.step&partNumber=ACN254-100-B" rel="nofollow" title="Step" alt="Step" target="_blank"><img src="/Images/DXF_Icon.gif" alt="Step" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-E0W.step&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-Step.step" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.step"></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">Zemax</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-S02.zar" href="/_sd.cfm?fileName=7487-S02.zar&partNumber=ACN254-100-B" rel="nofollow" title="Zemax" alt="Zemax" target="_blank"><img src="/Images/ZemaxIcon.png" alt="Zemax" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-S02.zar&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-Zemax.zar" data-partnumber="ACN254-100-B" data-docfile="7487-S02.zar"></td></tr><tr><td width="160" align="left" valign="top" style="border-top: 1px dotted lightgray;">Zemax (ZMX)</td><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><a class="downloadDoc" data-partnumber="ACN254-100-B" data-docfile="7487-S03.zmx" href="/_sd.cfm?fileName=7487-S03.zmx&partNumber=ACN254-100-B" rel="nofollow" title="Zemax (ZMX)" alt="Zemax (ZMX)" target="_blank"><img src="/Images/ZemaxIcon.png" alt="Zemax (ZMX)" width="25" height="25" border="0" align="absmiddle"></a>&nbsp;<img id="btnCopy" style="cursor: pointer;" src="/assets/images/clippy.svg" width="20" height="20" align="absmiddle" title="Copy to clipboard" alt="Copy to clipboard" data-clipboard-text="https://www.thorlabs.us/_sd.cfm?fileName=7487-S03.zmx&partNumber=ACN254-100-B">&nbsp;<img id="btnShare" style="cursor: pointer;" src="/assets/images/share.svg" width="20" height="20" align="absmiddle" title="Share Document by Email" alt="Share Document by Email" data-toggle="modal" data-friendlyname="ACN254-100-B-Zemax(ZMX).zmx" data-partnumber="ACN254-100-B" data-docfile="7487-S03.zmx"></td></tr><tr><td align="left" valign="top" style="border-top: 1px dotted lightgray;"><b>RoHS</b>:</td><td align="left" valign="top"  style="border-top: 1px dotted lightgray;"><a href="../../RoHS_cert.cfm?rohs=A (compliant 2011/65/EU)&pn=ACN254-100-B" target="_new"><img src="../../images/RoHS_Cmpliant.jpg" border=0 alt="RoHS Compliant"></a></td></tr><tr><td colspan="2" align="center" valign="top"  style="border-top: 1px dotted lightgray;"><strong> Download all support documents</strong></td></tr><tr><td colspan="2" align="center"><button type="button" id="downloadAll" data-partnumber="ACN254-100-B" data-docfile="7487-E0W.pdf,7487-E0W.dxf,7487-E0W.sldprt,7487-E0W.htm,7487-E0W.step,7487-S02.zar,7487-S03.zmx" class="btn btn-default btn-sm btn-shadow btn-margin-top" style="margin-bottom:5px;">Download</button></td></tr></table><br /><table width="250" border="0" align="center" cellpadding="0" cellspacing="2" style="border: 1px solid black;font-size: 11px;" bgcolor="#FFFFE6"><tr><td style="padding:3px;" width="280" colspan="2" align="left" valign="top"><strong> Building a Setup?</strong><br/>One-Click download of multiple documents available from the shopping cart. No purchase necessary.</td></tr></table><br /><table width="250" border="0" align="center" cellpadding="0" cellspacing="2" style="border: 1px solid black;font-size: 11px;" bgcolor="#FFFFE6"><tr><td style="padding:3px;" width="280" colspan="2" align="left" valign="top"><b> Warranty (Subject to our General Terms and Conditions)</b></td></tr><tr><td style="padding:3px;" width="280" colspan="2" valign="top" style="border-top: 1px dotted lightgray;padding-top:5px;">Two year warranty. Incorporated light sources are warrantied for the lesser of one year or (to the extent applicable) the number of hours stated in the specifications.</td></tr></table><div class="modal fade" id="shareModal" tabindex="-1" role="dialog"><div class="modal-dialog modal-sm" role="document"><div class="modal-content bsc"><div class="modal-body"><h5 class="modal-title" id="myModalLabel"><b>Share Document by Email</b></h5><div class="form-group"><label>Your Email <span style="color:red;">*</span></label><input type="email" class="form-control" id="fromemail" placeholder="Your Email"></div><div class="form-group"><label>Colleague's Email <span style="color:red;">*</span></label><input type="email" class="form-control" id="toemail" placeholder="Colleague's Email"></div><div class="form-group"><label>Support Document</label><input type="text" class="form-control" id="docfname" disabled="true"><input type="hidden" id="docname" value=""><input type="hidden" id="partnumber" value=""></div><div class="form-group"><label>Comment</label><textarea id="commentbox" class="form-control"></textarea></div><button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>&nbsp;<button type="button" class="pull-right btn btn-primary btn-sm" id="sendShareDoc">Send</button></div></div></div></div><script language="javascript">var clipboard = new Clipboard('#btnCopy');
+	clipboard.on('success',function(event){
+		$('#status').html('<b>Link copied to your clipboard</b>').addClass('alert alert-success text-center');
+		setTimeout(function(){
+			$('#status').html('').removeClass('alert alert-success text-center');
+		},2000);
+	});
+
+	$(document).on('click','#btnShare',function(){
+		$('[id^=popover_]').popover('destroy');
+		$('.popover').remove();
+		$('#docfname').val($(this).data('friendlyname'));
+		$('#docname').val($(this).data('docfile'));
+		$('#partnumber').val($(this).data('partnumber'));
+		$('#shareModal').appendTo("body").modal('toggle');
+	});
+
+	$('html').on('click', function(e) {
+		if (typeof $(e.target).data('original-title') == 'undefined' && !$(e.target).parents().is('.popover.in')){
+			$('[id^=popover_]').popover('destroy');
+			$('.popover').remove();
+		}
+	});
+
+	$(document).on('click','#sendShareDoc',function(){
+		var isValid = false,
+			emailTo = $('#toemail').val(),
+			emailFrom = $('#fromemail').val(),
+			emailRegex = /^(?=.*[@])(?=.*[.])/;
+
+		if((emailTo.length > 0 && emailRegex.test(emailTo)) && (emailFrom.length > 0 && emailRegex.test(emailFrom))){
+			isValid = true;
+		}
+
+
+		if(isValid){
+			$.ajax({
+				type: 'POST',
+				url: '/cfc/supportDocs.cfc',
+				data: {method:'shareDocuemnts',fromEmail:$('#fromemail').val(),toEmail:$('#toemail').val(),supportDoc:$('#docname').val(),partNumber:$('#partnumber').val(),comments:$('#commentbox').val()},
+				success: function(resp){
+					$('#shareModal').modal('toggle');
+					$('#status').html('<b>email sent</b>').addClass('alert alert-success text-center');
+					setTimeout(function(){
+						$('#status').html('').removeClass('alert alert-success text-center');
+					},2000);
+				}
+			});
+		} else {
+			alert('Please complete all the required fields');
+		}
+	});
+
+	$('#downloadAll').click(function(){
+		$.ajax({
+			type:'POST',
+			url:'/ajax/downloadDocs.cfm',
+			data:{action:'zip',partNumber:$(this).data('partnumber'),fileName:$(this).data('docfile')},
+			success:function(resp){
+				if(resp != ''){
+					window.location.replace('/cart/basket/downloadZip.cfm?fileName=' + resp);
+					alert('Downloaded zip ' + resp + ' to your downloads folder.');
+				} else {
+					alert('Could not download the selected files.');
+				}
+			}
+		});
+	});</script></td></tr><tr><td colspan="3" align="center" valign="bottom"><table border="0" cellspacing="0" cellpadding="1"><tr><td width="10"><a href="javascript:;" onClick="$('#shareFriend').show();$('#overlay').show();createCaptcha();"><img src="https://www.thorlabs.us/images/productpage/email.gif" border="0" alt=" Share this Product" title=" Share this Product" /></a></td><td><a href="javascript:;" onClick="$('#shareFriend').show();$('#overlay').show();createCaptcha();" alt=" Share this Product" title=" Share this Product"> Share this Product</a></td><td width="10"><a href="javascript: printpage();"><img src="https://www.thorlabs.us/images/productpage/print.gif" border="0" alt=" Print Friendly" title=" Print Friendly" /></a></td><td><a href="javascript: printpage();" alt=" Print Friendly" title=" Print Friendly"> Print Friendly</a></td><td width="10"><a href="login.cfm"><img src="https://www.thorlabs.us/images/productpage/favorite.gif" border="0" title="Add product to Favorites" /></a></td><td><a href="login.cfm" alt=" Add favorite" title=" Add favorite"> Add favorite</a></td><td width="10"><a href="login.cfm"><img src="https://www.thorlabs.us/images/productpage/watch.gif" border="0" title=" Watch for updates" /></a></td><td><a href="login.cfm" alt=" Watch for updates" title=" Watch for updates"> Watch for updates</a></td></tr></table></td></tr></table></td></tr><tr><td align="center" valign="top"><hr size="1" noshade="noshade" color="#8F0302" /></td></tr><tr><td align="left" valign="top"><div id="prodFeedLink" style="display: block;" class="subHeader3"><b> Product Feedback</b> - Let us know what you think about our ACN254-100-B product. <a href="javascript:;" onClick="openLayer('prodFeedback');closeLayer('prodFeedLink');createCaptcha();" class="subHeader2" alt=" Click here to leave us your feedback" title=" Click here to leave us your feedback"> Click here to leave us your feedback</a>.</div><div id="prodFeedback" style="display:none;"><form name="ProductFeedback" id="ProductFeedback" action="feedback_submit.cfm?form=thorproduct" method="post" onsubmit="return _CF_checkProductFeedback(this)"><input type="hidden" name="group_List" value="2231"><input type="hidden" name="objgroupID" value="2231"><input type="hidden" name="QuestionAsked" value="How would you modify this product to make it better?"><input type="hidden" name="part_list" value="ACN254-100-B"><input type="hidden" name="product_list" value="32359"><input type="hidden" name="newFeedbackItems" value="0"><table width="990" border="0" cellpadding="2" cellspacing="2" bgcolor="FFFFE6" align="left" style="border: 1px solid rgb(0,0,0);"><tr><td colspan="3" align="left" valign="top"><table width="100%" border="0" cellspacing="4" cellpadding="2"><tr><td class="subHeader3"><b> Product Feedback</b></td></tr></table></td></tr><tr><td colspan="3" align="left" valign="top"><table width="100%" border="0" cellspacing="4" cellpadding="2"><tr><td width="55%"><b> How would you rate this product / product family against the competition?</b></td><td width="45%"> Needs a lot of work&nbsp;&nbsp;1&nbsp;<input type="radio" name="vote" value="1">&nbsp;2&nbsp;<input type="radio" name="vote" value="2">&nbsp;3&nbsp;<input type="radio" name="vote" value="3" checked>&nbsp;&nbsp;4&nbsp;<input type="radio" name="vote" value="4">&nbsp;&nbsp;Very Good</td></tr></table></td></tr><tr><td colspan="3" align="left" valign="top"><table width="100%" border="0" cellspacing="4" cellpadding="2"><tr><td><b> How would you modify this product to make it better?</b></td></tr></table></td></tr><tr><td colspan="3" align="center" valign="top"><textarea name="CUSTREPLY" style="width: 98%;" rows="6" class="CSS4"></textarea></td></tr><tr><td colspan="3" align="left" valign="top"><table width="100%" border="0" cellspacing="4" cellpadding="2"><tr><td><b><span style="color: red"> Please type the following key into the field to submit this form:</span></b></td></tr></table></td></tr><tr><td colspan="3" align="left" valign="top"><table width="100%" border="0" cellspacing="4" cellpadding="2"><tr><td width="260" align="left" valign="middle"><div id="captchaImg" style="width:250px;height:40px;border: 1px solid rgb(0,0,0);"></div></td><td width="20" align="left" valign="middle"><input type="text" name="rnd" style="height: 40px;" value="" maxlength="6" size="6"></td><td align="left" valign="middle"><a href="javascript: reloadCaptchaImage()" onClick="createCaptcha();"> Click here if you cannot read the security code</a>.</td></tr></table></td></tr><tr><td colspan="3" align="left" valign="top"><table width="100%" border="0" cellspacing="4" cellpadding="2"><tr><td width="100"> Email: ( Not required)</td><td width="30"><input name="EmailAddress" id="EmailAddress"  type="text" /></td><td>&nbsp;</td><td width="60"> Contact me:</td><td width="5"><input type="Checkbox" name="ContactMe" value="1"></td><td>&nbsp;</td><td><input type="Submit" name="SendFeedback" value=" Submit Feedback" class="Submit"> </td><td align="right"><a href="#" onClick="closeLayer('prodFeedback');openLayer('prodFeedLink');"> Close [X]</a></td></tr></table></td></tr></table><input type='text' style='display:none' /></form><script>reloadCaptchaImage();</script></div></td></tr></table><div id="shareFriend" name="shareFriend" style="display: none;"><div align="right"><a href="javascript:" onClick="$('#shareFriend').hide();$('#overlay').hide();"> Close [X]</a></div><form name="share" id="share" action="action.cfm?act=sharing" method="POST" onsubmit="return _CF_checkshare(this)"><div align="center" class="tabHeader2"><strong> Share product details with a friend</strong></div><table width="500" cellpadding="0" cellspacing="0" border="0" align="center" style="border: 1px solid rgb(240,240,240);" bgcolor="#F8F8F8"><tr><td align="left"> Your Email:</td><td><input name="myEmail" id="myEmail"  type="text" /><img src="https://www.thorlabs.us/Images/Required.gif"></td></tr><tr><td align="left"> Colleague's Email:</td><td><input name="email" id="email"  type="text" /><img src="https://www.thorlabs.us/Images/Required.gif"></td></tr><tr><td align="left"> Colleague's First Name:</td><td><input type="text" name="firstname" value = ""></td></tr><tr><td align="left"> Colleague's Last Name:</td><td><input type="text" name="lastName" value=""></td></tr><tr><td align="left"> Colleague's Title:</td><td><input type="text" name="title" value=""></td></tr><tr><td align="left"> Colleague's Oganization:</td><td><input type="text" name="organization" value=""></td></tr><tr><td align="left"> Comment:</td><td><textarea name="comment" rows="2" cols="30"></textarea></td></tr><tr class="CSS4"><td colspan="2"><strong><span style="color: red"> Please type the following key into the field to submit this form:</span></strong> <br /><img id="captchaImgShare" name="captchaImgShare" align="middle" height="40" width="200" /> &nbsp;&nbsp;<input name="rnd" id="rnd"  type="text" maxlength="6"  size="6"  /><img src="https://www.thorlabs.us/Images/Required.gif"> <br /><a href="javascript: reloadCaptchaImage()"> Click here if you cannot read the security code</a>.</td></tr><tr><td colspan="2" align="right"><input type="submit" name="submit" value=" Send product info." class="submitBtn"></td></tr></table><input type="hidden" name="pn" value="ACN254-100-B"><input type="hidden" name="ogID" value="2231"><input type="hidden" name="Captcha" value="3wuoel" /></form></div></td></tr><tr><td align="left" valign="top" ><div style="background-color:white; margin-left:auto; margin-right:auto;padding-top:10px;"><table align="center" style="margin-left:auto; margin-right:auto;"><tr><td height="14" colspan="3" align="center" valign="middle"><img src="../../images/newhp/bottomGradient.png" /></td></tr><tr><td  colspan="3" align="center" valign="top"><a href="https://www.thorlabs.us/login.cfm?lc=login" id="FooterNEWLINK" alt=" Log In" title=" Log In"> Log In</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/profiles/mythorlabs.cfm" id="FooterNEWLINK" alt=" My Account" title=" My Account"> My Account</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/locations.cfm" id="FooterNEWLINK" alt=" Contact Us" title=" Contact Us"> Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/CareersByCountry.cfm" id="FooterNEWLINK" alt=" Careers" title=" Careers"> Careers</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/privacy.cfm" id="FooterNEWLINK" alt=" Privacy Policy" title=" Privacy Policy"> Privacy Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/index.cfm" id="FooterNEWLINK" alt=" Home" title=" Home"> Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/navigation.cfm?guide_id=2375" id="FooterNEWLINK" alt=" FAQ" title=" FAQ"> FAQ</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.thorlabs.us/SiteMap.cfm" id="FooterNEWLINK" alt=" Site Index" title=" Site Index"> Site Index</a></td></tr><tr><td colspan="3" align="center" >Regional Websites:<a href="http://www.thorlabs.com" rel="nofollow">East Coast US</a> | <a href="http://www.thorlabs.de" rel="nofollow">Europe</a> | <a href="http://www.thorlabs.hk" rel="nofollow">Asia</a> | <a href="http://www.thorlabschina.cn" >China</a> | <a href="http://www.thorlabs.co.jp" rel="nofollow">Japan</a></td></tr><tr><td colspan="3" align="center" valign="middle" class="footertextGray" height="60"> Copyright 1999-2016 Thorlabs, Inc.</td></tr><tr><td colspan="3" align="center" valign="top" class="footertextGray2" height="60">Sales: 1-973-300-3000<br> Technical Support: 1-973-300-3000</td></tr></table></div></td></tr></table><span id="display_here"></span><div id="logoDownload" title="Downloadable Logo" ><div style="margin-left: 5px;"><br><br>High Quality Thorlabs Logo 1000px:<a href="https://www.thorlabs.us/logoDownload.cfm" border = 0>Save this Image</a><br><br></div></div><script type="text/javascript">$().ready(function(){
+	$('div#logoDownload').hide();
+	$('#thorlabslogo').bind("contextmenu",function(e){
+		$('div#logoDownload').dialog({
+		   	modal: true,
+		    draggable: true,
+		    resizable: false,
+		    position: ['center', 'top'],
+		    width: 400,
+		    dialogClass: 'ui-dialog-osx',
+		    buttons: {
+			"Close": function() {
+				$(this).dialog("close");
+			 }}
+	 	});
+    	return false;
+    });
+});</script><script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">var pageTracker = _gat._getTracker("UA-3578926-1");
+		pageTracker._initData();
+		pageTracker._trackPageview();</script><script type="text/javascript"> window.lpTag=window.lpTag||{};if(typeof window.lpTag._tagCount==='undefined'){window.lpTag={site:'52040217'||'',section:lpTag.section||'',autoStart:lpTag.autoStart===false?false:true,ovr:lpTag.ovr||{},_v:'1.6.0',_tagCount:1,protocol:'https:',events:{bind:function(app,ev,fn){lpTag.defer(function(){lpTag.events.bind(app,ev,fn);},0);},trigger:function(app,ev,json){lpTag.defer(function(){lpTag.events.trigger(app,ev,json);},1);}},defer:function(fn,fnType){if(fnType==0){this._defB=this._defB||[];this._defB.push(fn);}else if(fnType==1){this._defT=this._defT||[];this._defT.push(fn);}else{this._defL=this._defL||[];this._defL.push(fn);}},load:function(src,chr,id){var t=this;setTimeout(function(){t._load(src,chr,id);},0);},_load:function(src,chr,id){var url=src;if(!src){url=this.protocol+'//'+((this.ovr&&this.ovr.domain)?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site;}var s=document.createElement('script');s.setAttribute('charset',chr?chr:'UTF-8');if(id){s.setAttribute('id',id);}s.setAttribute('src',url);document.getElementsByTagName('head').item(0).appendChild(s);},init:function(){this._timing=this._timing||{};this._timing.start=(new Date()).getTime();var that=this;if(window.attachEvent){window.attachEvent('onload',function(){that._domReady('domReady');});}else{window.addEventListener('DOMContentLoaded',function(){that._domReady('contReady');},false);window.addEventListener('load',function(){that._domReady('domReady');},false);}if(typeof(window._lptStop)=='undefined'){this.load();}},start:function(){this.autoStart=true;},_domReady:function(n){if(!this.isDom){this.isDom=true;this.events.trigger('LPT','DOM_READY',{t:n});}this._timing[n]=(new Date()).getTime();},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],ev:lpTag.ev||[]};lpTag.init();}else{window.lpTag._tagCount+=1;} </script></body></html> 

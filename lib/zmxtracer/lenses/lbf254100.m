@@ -1,5 +1,5 @@
 function lens = lbf254100
-% ZEMAX/THORLABS/ZMX/LBF254-100-A.ZMX - LBF254-100 Best Form Lens - N-BK7
+% ZMX/LBF254-100-A.ZMX - LBF254-100 Best Form Lens - N-BK7
 
 lens.fn = 'lbf254100';
 lens.name = 'LBF254-100-A';

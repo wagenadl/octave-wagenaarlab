@@ -1,5 +1,5 @@
 function lens = lc2067
-% ZEMAX/THORLABS/ZMX/LC2067-A.ZMX - LC2067 Plano-Concave - N-SF11
+% ZMX/LC2067-A.ZMX - LC2067 Plano-Concave - N-SF11
 
 lens.fn = 'lc2067';
 lens.name = 'LC2067-A';

@@ -1,5 +1,5 @@
 function lens = acl1815
-% ZEMAX/THORLABS/ZMX/ACL1815-A.ZMX - Aspheric Condenser Lens, AR-Coated 350-700 nm, Ø18 mm, f=15 mm
+% ZMX/ACL1815-A.ZMX - Aspheric Condenser Lens, AR-Coated 350-700 nm, Ø18 mm, f=15 mm
 
 lens.fn = 'acl1815';
 lens.name = 'ACL1815-A';

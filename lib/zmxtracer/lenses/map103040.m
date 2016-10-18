@@ -1,5 +1,5 @@
 function lens = map103040
-% ZEMAX/THORLABS/ZMX/MAP103040-A.ZMX - 1 Inch Matched Achromatic Pair, Magnification: 1.00:1.33
+% ZMX/MAP103040-A.ZMX - 1 Inch Matched Achromatic Pair, Magnification: 1.00:1.33
 
 lens.fn = 'map103040';
 lens.name = 'MAP103040-A';

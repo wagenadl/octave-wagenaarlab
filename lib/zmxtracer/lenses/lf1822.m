@@ -1,5 +1,5 @@
 function lens = lf1822
-% ZEMAX/THORLABS/ZMX/LF1822-A.ZMX - LE1418 - Positive Meniscus - N-BK7
+% ZMX/LF1822-A.ZMX - LE1418 - Positive Meniscus - N-BK7
 
 lens.fn = 'lf1822';
 lens.name = 'LF1822-A';

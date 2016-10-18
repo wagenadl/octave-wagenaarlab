@@ -1,5 +1,5 @@
 function lens = ac254125
-% ZEMAX/THORLABS/ZMX/AC254-125-A.ZMX - Ø25.4 mm, f=125.0 mm, Near IR Achromat, ARC: 350-700 nm
+% ZMX/AC254-125-A.ZMX - Ø25.4 mm, f=125.0 mm, Near IR Achromat, ARC: 350-700 nm
 
 lens.fn = 'ac254125';
 lens.name = 'AC254-125-A';

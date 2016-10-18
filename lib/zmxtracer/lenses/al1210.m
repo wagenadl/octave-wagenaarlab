@@ -1,5 +1,5 @@
 function lens = al1210
-% ZEMAX/THORLABS/ZMX/AL1210-A.ZMX - Ø12.5 mm, f=10 mm, NA=0.545, S-LAH64 Aspheric Lens, ARC: 350-700 nm
+% ZMX/AL1210-A.ZMX - Ø12.5 mm, f=10 mm, NA=0.545, S-LAH64 Aspheric Lens, ARC: 350-700 nm
 
 lens.fn = 'al1210';
 lens.name = 'AL1210-A';

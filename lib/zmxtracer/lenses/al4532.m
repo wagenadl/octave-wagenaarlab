@@ -1,5 +1,5 @@
 function lens = al4532
-% ZEMAX/THORLABS/ZMX/AL4532-A.ZMX - Ø45 mm, f=32 mm, NA=0.612, S-LAH64 Aspheric Lens, ARC: 350-700 nm
+% ZMX/AL4532-A.ZMX - Ø45 mm, f=32 mm, NA=0.612, S-LAH64 Aspheric Lens, ARC: 350-700 nm
 
 lens.fn = 'al4532';
 lens.name = 'AL4532-A';

@@ -1,5 +1,5 @@
 function lens = le1104
-% ZEMAX/THORLABS/ZMX/LE1104-A.ZMX - LE1104 - Positive Meniscus - N-BK7
+% ZMX/LE1104-A.ZMX - LE1104 - Positive Meniscus - N-BK7
 
 lens.fn = 'le1104';
 lens.name = 'LE1104-A';

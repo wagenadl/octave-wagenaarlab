@@ -1,5 +1,5 @@
 function lens = lf4624
-% ZEMAX/THORLABS/ZMX/LF4624.ZMX - Negative Meniscus - UV Fused Silica
+% ZMX/LF4624.ZMX - Negative Meniscus - UV Fused Silica
 
 lens.fn = 'lf4624';
 lens.name = 'LF4624';

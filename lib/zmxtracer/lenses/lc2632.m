@@ -1,5 +1,5 @@
 function lens = lc2632
-% ZEMAX/THORLABS/ZMX/LC2632-A.ZMX - LC2632 Plano-Concave - N-SF11
+% ZMX/LC2632-A.ZMX - LC2632 Plano-Concave - N-SF11
 
 lens.fn = 'lc2632';
 lens.name = 'LC2632-A';

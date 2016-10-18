@@ -1,5 +1,5 @@
 function lens = al2018
-% ZEMAX/THORLABS/ZMX/AL2018-A.ZMX - Ø20 mm, f=18 mm, NA=0.488, S-LAH64 Aspheric Lens, ARC: 350-700 nm
+% ZMX/AL2018-A.ZMX - Ø20 mm, f=18 mm, NA=0.488, S-LAH64 Aspheric Lens, ARC: 350-700 nm
 
 lens.fn = 'al2018';
 lens.name = 'AL2018-A';

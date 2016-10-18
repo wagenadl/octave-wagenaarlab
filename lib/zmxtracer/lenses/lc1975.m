@@ -1,5 +1,5 @@
 function lens = lc1975
-% ZEMAX/THORLABS/ZMX/LC1975-A.ZMX - LC1975 Plano-Concave - N-BK7
+% ZMX/LC1975-A.ZMX - LC1975 Plano-Concave - N-BK7
 
 lens.fn = 'lc1975';
 lens.name = 'LC1975-A';

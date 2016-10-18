@@ -1,5 +1,5 @@
 function lens = lf1544
-% ZEMAX/THORLABS/ZMX/LF1544-A.ZMX - LF1544 - Negative Meniscus - N-BK7
+% ZMX/LF1544-A.ZMX - LF1544 - Negative Meniscus - N-BK7
 
 lens.fn = 'lf1544';
 lens.name = 'LF1544-A';

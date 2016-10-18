@@ -3,6 +3,7 @@ function tracer_drawsystem(trc, xend)
 %    TRACER_DRAWSYSTEM(trc) draws an optical axis for the tracer
 %    system TRC; the lenses; the object; and little
 %    markers at all focal planes and image planes
+%    TRACER_DRAWSYSTEM(trc, xend) specifies a maximum x position.
 
 K = length(trc.lenses);
 if ~trc.placed

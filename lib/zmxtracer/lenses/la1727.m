@@ -1,5 +1,5 @@
 function lens = la1727
-% ZEMAX/THORLABS/ZMX/LA1727-A.ZMX - LA1727 Plano-Convex - N-BK7
+% ZMX/LA1727-A.ZMX - LA1727 Plano-Convex - N-BK7
 
 lens.fn = 'la1727';
 lens.name = 'LA1727-A';

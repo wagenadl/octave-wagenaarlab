@@ -1,5 +1,5 @@
 function lens = ac508180
-% ZEMAX/THORLABS/ZMX/AC508-180-A.ZMX - Ø50.8 mm, f=180.0 mm, Near IR Achromat, ARC: 350-700 nm
+% ZMX/AC508-180-A.ZMX - Ø50.8 mm, f=180.0 mm, Near IR Achromat, ARC: 350-700 nm
 
 lens.fn = 'ac508180';
 lens.name = 'AC508-180-A';
