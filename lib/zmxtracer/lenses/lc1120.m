@@ -1,5 +1,5 @@
 function lens = lc1120
-% ZEMAX/THORLABS/ZMX/LC1120-A.ZMX - LC1120 Plano-Concave - N-BK7
+% ZMX/LC1120-A.ZMX - LC1120 Plano-Concave - N-BK7
 
 lens.fn = 'lc1120';
 lens.name = 'LC1120-A';

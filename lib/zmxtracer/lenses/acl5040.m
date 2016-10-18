@@ -1,5 +1,5 @@
 function lens = acl5040
-% ZEMAX/THORLABS/ZMX/ACL5040-A.ZMX - Aspheric Condenser Lens, AR-Coated 350-700 nm, Ø50 mm, f=40 mm
+% ZMX/ACL5040-A.ZMX - Aspheric Condenser Lens, AR-Coated 350-700 nm, Ø50 mm, f=40 mm
 
 lens.fn = 'acl5040';
 lens.name = 'ACL5040-A';

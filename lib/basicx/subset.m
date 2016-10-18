@@ -17,8 +17,11 @@ for f=1:F
     len(end+1) = max(S);
   end
 end
-
-len = median(len);
+if isempty(len)
+  len = 0;
+else
+  len = median(len);
+end
 
 for f=1:F
   S = size(x.(fld{f}));

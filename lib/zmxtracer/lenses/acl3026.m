@@ -1,5 +1,5 @@
 function lens = acl3026
-% ZEMAX/THORLABS/ZMX/ACL3026-A.ZMX - Aspheric Condenser Lens, AR-Coated 350-700 nm, Ø30 mm, f=26.5 mm
+% ZMX/ACL3026-A.ZMX - Aspheric Condenser Lens, AR-Coated 350-700 nm, Ø30 mm, f=26.5 mm
 
 lens.fn = 'acl3026';
 lens.name = 'ACL3026-A';

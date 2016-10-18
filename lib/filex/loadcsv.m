@@ -28,10 +28,18 @@ else
 end
 
 for c=1:C
-  col = zeros(R+1-R1,1) + nan;
+  couldbechar = logical(ones(R,1));
   for r=R1:R
-    if isnumeric(c0{r,c}) && isscalar(c0{r,c})
-      col(r+1-R1) = c0{r,c};
+    couldbechar(r) = ischar(c0{r,c}) || isempty(c0{r,c});
+  end
+  if all(couldbechar)
+    col = c0(R1:R,c);
+  else
+    col = zeros(R+1-R1,1) + nan;
+    for r=R1:R
+      if isnumeric(c0{r,c}) && isscalar(c0{r,c})
+	col(r+1-R1) = c0{r,c};
+      end
     end
   end
   str.(hdr{c}) = col;

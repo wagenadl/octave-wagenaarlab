@@ -1,0 +1,3947 @@
+
+
+<!DOCTYPE html>
+<head><script type="text/javascript">/* <![CDATA[ */_cf_loadingtexthtml="<img alt=' ' src='/CFIDE/scripts/ajax/resources/cf/images/loading.gif'/>";
+_cf_contextpath="";
+_cf_ajaxscriptsrc="/CFIDE/scripts/ajax";
+_cf_jsonprefix='//';
+_cf_clientid='358AAA819E2140C278CE03DF94D106A0';/* ]]> */</script><script type="text/javascript" src="/CFIDE/scripts/ajax/messages/cfmessage.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/ajax/package/cfajax.js"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="imagetoolbar" content="no">
+
+
+<title>Visible Achromatic Doublet Pairs</title>
+
+
+
+<style>
+	.greyBG
+	{
+		background-color:#58656E;
+	}
+	#editMetadata
+	{
+		margin-left:10px;
+		background-color:RGBA(177,177,177,0.3);
+		font-weight:bold;
+		float:left;
+		padding:10px;
+		border-radius: 10px;
+	}
+	#editMetadata span
+	{
+		display:none;
+	}
+
+</style>
+	
+	
+
+<script type="text/javascript">/* <![CDATA[ */
+	ColdFusion.Ajax.importTag('CFAJAXPROXY');
+/* ]]> */</script>
+<link href="http://thorlabs.us/NewSite.css" rel="stylesheet" type="text/css">
+<script src="http://thorlabs.us/js/jquery-1.11.0.min.js"></script> <script src="http://thorlabs.us/js/jquery-migrate-1.2.1.min.js"></script>
+<script>
+	var _cfid = 1580681
+	var _cftoken = 28490426
+	</script>
+	
+				<script>
+					var sObject = [];
+					sObject['ALLPRODUCTS']= ' All Products';
+					sObject['OPTOMECHANICS']= ' Optomechanics';
+					sObject['MOTIONCONTROL']= ' Motion Control';
+					sObject['OPTICS']= ' Optics';
+					sObject['FIBER']= ' Fiber';
+					sObject['LIGHT']= ' Light';
+					sObject['LIGHTANALYSIS']= ' Light Analysis';
+					sObject['IMAGING']= ' Imaging';
+					sObject['NEWPRODUCTS']= ' New Products';
+					sObject['CUSTOM']= ' OEM';
+					sObject['DOWNLOAD']= ' Downloads';
+					sObject['TERMANDCONDITION']= ' Terms and Conditions';
+					sObject['RETURN']= ' Returns';
+					sObject['TECHSUPPORT']= ' Technical Support';
+					sObject['DISCOUNT']= ' Discount Policy';
+					sObject['FOOD4THOUGHT']= ' Hungry for Your Thoughts';
+					sObject['MANULOC']= ' Our Manufacturing Locations';
+					sObject['INTERDIST']= ' International Distributors';
+					sObject['PARTNER']= ' Partners';
+					sObject['ABOUTUS']= ' About Us';
+					sObject['PRESSRELEASE']= ' Press Releases';
+					sObject['TRADESHOW']= ' Tradeshows';
+					sObject['CAREER']= ' Careers';
+					sObject['BMC']= ' Boston Micromachines Corporation (BMC)';
+					sObject['IQE']= ' Idesta Quantum Electronics (IQE)';
+					sObject['MENLO']= ' MenloSystems GmbH';
+					sObject['PICO']= ' PicoLuz';
+					sObject['PRAEV']= ' Praevium Research';
+					sObject['LOGIN']= ' Log In';
+					sObject['SHOPCART']= ' Shopping Cart';
+					sObject['REGISTER']= ' Create an Account';
+					sObject['NEEDOTABLES']= ' The Need for Optical Tables';
+					sObject['SOURCEVIB']= ' Sources of Vibration';
+					sObject['THEORYTBLEVIB']= ' Theory of Tabletop Vibration';
+					sObject['TBLEDESIGN']= ' Tabletop Design';
+					sObject['THEORYVIBISO']= ' Theory of Vibration Isolation';
+					sObject['TBLEISODSGN ']= ' Table Isolator Design';
+					sObject['CONCLUSION']= ' Conclusion';
+					sObject['LOGOUT']= ' Log Out';
+					sObject['ACCOUNT']= ' My Account';
+					sObject['SUSTAINLINK']= ' Sustainability Initiatives';
+					sObject['APPLICATIONS']= ' Applications';
+					sObject['QUALITYSYSTEMS']= ' Quality Systems';
+					sObject['PlaceOrder']= ' Place Order';
+					sObject['PlaceQuote']= ' Request Quote';
+					sObject['VENDORPACKING']= ' Vendor Packing Slip';
+				</script>
+			
+	<script type="text/javascript" src="http://thorlabs.us/js/menucontents.js"></script>
+<script type="text/javascript" src="http://thorlabs.us/js/anylinkmenu.js"></script>
+<script type="text/javascript" src="http://thorlabs.us/js/ThorScripts.js"></script>
+<script type="text/javascript" src="http://thorlabs.us/tabpane/js/tabpane.js"></script>
+<link type="text/css" rel="StyleSheet" href="http://thorlabs.us/tabpane/css/luna/tab.css">
+<script src="http://thorlabs.us/js/jquery.cookie.min.js"></script>
+<script src="http://thorlabs.us/js/jquery.cookieDetector.min.js"></script>
+
+<script type="text/javascript">
+	$().ready(function(){
+		$.cookieDetector();
+	});
+</script>
+<script language="javascript" src="http://thorlabs.us/PageScript.js"></script>
+<link href="http://thorlabs.us/buttons.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/assets/css/tabs.css">
+		<script type="text/javascript" src="http://thorlabs.us/js/tab.js"></script>
+		<link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
+		<script src="/js/jquery-ui.min.js"></script>
+<link type="text/css" href="http://thorlabs.us/search/css/searchsuggest.css" rel="stylesheet" />
+			<script type="text/javascript" src="http://thorlabs.us/search/js/searchsuggest.js"></script>
+
+<script type="text/javascript" src="http://thorlabs.us/nav/iframe.min.js"></script>
+<link rel="stylesheet" href="http://thorlabs.us/nav/products.min.css" />
+<script type="text/javascript" src="http://thorlabs.us/js/photogallery.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://thorlabs.us/js/highslide/highslideMacStyle.css">
+		<link rel="stylesheet" type="text/css" href="http://thorlabs.us/js/highslide/highslide.css" />
+		<script type="text/javascript" src="http://thorlabs.us/js/highslide/highslide-full.min.js"></script>
+		<script type="text/javascript" src="http://thorlabs.us/assets/jquery_gallery/lib/jquery.ad-gallery.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://thorlabs.us/assets/jquery_gallery/lib/jquery.ad-gallery.css">
+		<script type="text/javascript">
+			// remove the registerOverlay call to disable the close button
+			hs.registerOverlay({
+				thumbnailId: 'productThumb',
+				overlayId: 'closebutton',
+				position: 'top right',
+				fade: 2 // fading the semi-transparent overlay looks bad in IE
+			});
+			hs.graphicsDir = 'http://thorlabs.us/js/highslide/graphics/';
+		</script>
+	
+	
+	<script type="text/javascript">
+	    hs.graphicsDir = 'http://thorlabs.us/js/highslide/graphics/';
+	    hs.outlineType = 'rounded-white';
+		hs.wrapperClassName = 'draggable-header';
+		hs.showCredits = false;
+		hs.width = 425;
+		hs.height = 325;
+	</script>
+<link rel="stylesheet" type="text/css" href="http://thorlabs.us/newgrouppage9.css" />
+<script language="javascript" src="http://thorlabs.us/js/jquery.imagesloaded.js"></script>
+<meta name="Description" content="Visible Achromatic Doublet Pairs,Achromatic Doublets and Triplets">
+<meta name="Keywords" content="1 1 imaging lens pair,1 1 lens pair,AC508,Achromat Pair,achromatic doublet,achromatic lens,achromatic lens pair,AR Coated Lens,doublet lens pair,lens pair,m=1,magnifying lens pair,MAP,Matched Achromat,matched achromat pair,matched doublet,matched lens pair,VIS AR Coated Lens,VIS AR Coating,VIS lens,">
+
+<script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">
+				try {
+				var pageTracker = _gat._getTracker("UA-3578926-5");
+				pageTracker._trackPageview();
+				} catch(err) {}
+			</script>
+<script type="text/javascript" src="/assets/js/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/modal.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/row.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/button.css">
+<script>
+				$(document).ready(function(){
+					$('div#lpButDivID-1260522405994').show();
+					$('a[id ^=lpChatBtnHref]').html('<span style="font-size:x-small;color:#000000;">Chat Live With Support Representative</span>');
+				});
+			</script>
+			<script language='javascript'>
+				var lpMTagConfig = {'lpServer' : "server.iad.liveperson.net",'lpNumber' : "75854940",'lpProtocol' : "https"};
+				function lpAddMonitorTag(src){
+					if(typeof(src)=='undefined'||typeof(src)=='object')
+						{src=lpMTagConfig.lpMTagSrc?lpMTagConfig.lpMTagSrc:'/hcp/html/mTag.js';}
+					if(src.indexOf('http')!=0)
+						{src=lpMTagConfig.lpProtocol+"://"+lpMTagConfig.lpServer+src+'?site='+lpMTagConfig.lpNumber;}
+					else{
+						if(src.indexOf('site=')<0)
+						{
+							if(src.indexOf('?')<0)src=src+'?';
+							else src=src+'&';src=src+'site='+lpMTagConfig.lpNumber;
+						}
+					};
+					var s=document.createElement('script');
+					s.setAttribute('type','text/javascript');
+					s.setAttribute('charset','iso-8859-1');
+					s.setAttribute('src',src);
+					document.getElementsByTagName('head').item(0).appendChild(s);
+				}
+				if (window.attachEvent){
+					window.attachEvent('onload',lpAddMonitorTag);
+				}
+				else
+					window.addEventListener("load",lpAddMonitorTag,false);
+			</script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="">
+<a name='pageTop'></a>
+
+
+
+<table width="1058" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="white">
+	<tr>
+
+		<td align="left" valign="top" bgcolor="white">
+			
+			
+			
+			
+			
+			<table width="1058" border="0" cellspacing="0" cellpadding="4" >
+				<tr >
+					<td width="260" align="left" valign="middle" background="http://thorlabs.us/../../images/newhp/topGradient4.png"><a href="http://thorlabs.us/index.cfm" alt=" Home" title=" Home"><img id="thorlabslogo" src="../../images/newhp/Thorlabs_White_3D.png" border="0" alt=" Home" title=" Home" /></a></td>
+					<td align="center" valign="bottom" background="http://thorlabs.us/../../images/newhp/topGradient4.png">
+						
+							<span id="headerWhiteLink"><a href="http://thorlabs.us/login.cfm?lc=create" id="headerWhiteLink" alt=" Create an Account" title=" Create an Account"> Create an Account</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://thorlabs.us/login.cfm?lc=login" alt=" Log In" title=" Log In" id="headerWhiteLink"> Log In</a></span>
+						
+					</td>
+					<td width="300" align="right" valign="top" background="http://thorlabs.us/../../images/newhp/topGradient4.png">
+						
+						
+						
+						<table border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td align="right" valign="middle" nowrap="nowrap" id="headerSearch">
+									
+									
+									
+									
+			<form onsubmit="return false;" action="/search/thorsearch.cfm" method="get" id="searchForm">
+				<label for="criteria"> Search</label>
+				
+				<input type="text" name="search" id="criteria" value="" style="width: 166px;" class="inputbox" onfocus="clearText(this);closeLayer('currView');closeLayer('CartView');" />
+				
+					<input type="button" value=" Search" onclick="this.form.submit()" class="submit" /> 
+			</form>
+		
+		<div id="results">
+			<div id="terms"></div>
+			<div id="productsWrapper">
+				<h3><a href="javascript:;" onclick="submitSearch();" id="viewall">View All &raquo;</a>Matching Part Numbers</h3>
+				<div id="products"></div>
+			</div>
+		</div>
+		
+									
+									
+									
+								</td>
+							</tr>
+							<tr>
+								<td align="right" valign="bottom">
+									
+									
+									
+									
+									<table border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td align="left" valign="bottom" style="color:#CCCCCC">
+												<a href="../../cart/basket/showcott3.cfm" onMouseOver="openLayer('CartView');closeLayer('currView');closeLayer('langView');" id="headerWhiteLink" alt=" Shopping Cart" title=" Shopping Cart">
+													
+														<img src="http://thorlabs.us/images/newhp/shopping_cart_smGRAY.png" align="absmiddle" border="0" />
+													
+													<label id="cartQTY" name="cartQTY">(   0)</label>
+												</a>
+												<div id="cart_Container">
+													
+<div id="CartView" class="BasketView">
+	<div align="right">
+		<a href="javascript:void(0);" onClick="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" id="CartACTLINKS">
+			Close [X]
+		</a>
+	</div>
+	<div align="center">
+		
+	</div>
+	<div align="center">
+		
+			<div class="CartTitle">
+				<br />
+				Your Shopping Cart is Empty
+				<br />
+			</div>
+		
+	</div>
+</div>
+
+												</div>
+											</td>
+											<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+											<td align="right" valign="middle">
+												
+												<div id="curr_Container">
+												<a href="javascript:void();" onClick="openLayer('currView');closeLayer('CartView');closeLayer('langView');" id="headerWhiteLink" alt="Change Currency" title="Click to Change Currency">$&nbsp;&nbsp;Dollar&nbsp;&nbsp;&nbsp;&nbsp;<span id="currDrop_dot">&#9660;</span></a>
+												<div id="currView" class="currDrop">
+												<div align="right"><a href="javascript:void(0);" onClick="closeLayer('currView')" id="CartACTLINKS"> Close [X]</a></div>
+												
+												<div align="center" id="currDrop_Title"><b> Select your Currency</b></div>
+												<table width="130" border="0" cellspacing="2" cellpadding="2" align="center" id="curr_DropTable">
+													<tbody>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&CurrencySelect=Euro" id="currDrop_Link" onClick="closeLayer('CartView');">€&nbsp;&nbsp;Euro</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&CurrencySelect=GBPound" id="currDrop_Link" onClick="closeLayer('CartView');">£&nbsp;&nbsp;GBPound</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&CurrencySelect=Krona" id="currDrop_Link" onClick="closeLayer('CartView');">SEK&nbsp;&nbsp;Krona</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&CurrencySelect=JPY" id="currDrop_Link" onClick="closeLayer('CartView');">¥&nbsp;&nbsp;JPY</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&CurrencySelect=RMB" id="currDrop_Link" onClick="closeLayer('CartView');">¥&nbsp;&nbsp;RMB</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&CurrencySelect=BRL" id="currDrop_Link" onClick="closeLayer('CartView');">R$&nbsp;&nbsp;BRL</a></td>
+													</tr>
+													
+													</tbody>
+												</table>
+												</div>
+												
+												</div>
+												
+											</td>
+											<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+											<td align="right" valign="middle">
+												
+												<div id="lang_Container">
+												<a href="javascript:void();" onClick="openLayer('langView');closeLayer('CartView');closeLayer('currView');" id="headerWhiteLink" alt="Change Language" title="Click to Change Language">ENGLISH&nbsp;&nbsp;&nbsp;&nbsp;<span id="currDrop_dot">&#9660;</span></a>
+												<div id="langView" class="langDrop">
+												<div align="right"><a href="javascript:void(0);" onClick="closeLayer('langView')" id="CartACTLINKS"> Close [X]</a></div>
+												<div align="center" id="currDrop_Title"><b> Click to Change Language</b></div>
+												<table width="130" border="0" cellspacing="2" cellpadding="2" align="center" id="curr_DropTable">
+													<tbody>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&Language=CHINESE-Simplified" id="currDrop_Link" onClick="closeLayer('langView');">CHINESE-Simplified</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&Language=GERMAN" id="currDrop_Link" onClick="closeLayer('langView');">GERMAN</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&Language=JAPANESE" id="currDrop_Link" onClick="closeLayer('langView');">JAPANESE</a></td>
+													</tr>
+													
+													<tr>
+														<td id="currDrop_Link" style="border-top:1px dotted lightgray;"><a href="/newgrouppage9.cfm?objectgroup_id=1716&Language=PORTUGUESE" id="currDrop_Link" onClick="closeLayer('langView');">PORTUGUESE</a></td>
+													</tr>
+													
+													</tbody>
+												</table>
+												</div>
+												</div>
+												
+											</td>
+											<td width="14">&nbsp;</td>
+										</tr>
+									</table>
+									
+									
+									
+								</td>
+							</tr>
+						</table>
+						
+						
+						
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" align="left" valign="middle" id="navMenu" style="padding:0px;"> 
+<div id="navbar"> 
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+		
+			<a href="/navigation.cfm" class="menuanchorclass hasSub" rel="anylinkmenu1" title=" Products Home" id="headerLinktext"> Products Home</a>
+		
+		</td>
+		<td><a href="/RapidOrder.cfm" onMouseOver="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" title=" Rapid Order"> Rapid Order</a></td>
+		<td><a href="/support.cfm" rel="anylinkmenu2" onMouseOver="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" class="menuanchorclass hasSub" title=" Services"> Services</a></td>
+		<td><a href="/about_us.cfm" rel="anylinkmenu3" onMouseOver="closeLayer('CartView');closeLayer('currView');closeLayer('langView');" class="menuanchorclass hasSub" title=" The Company"> The Company</a></td>
+		<td align="center"><a href="http://thorlabs.us/locations.cfm" onMouseOver="closeLayer('CartView');closeLayer('currView');" alt=" Contact Us" title=" Contact Us" id="headerLinktext"> Contact Us</a></td>
+	<td align="center" style="border-right:0;">
+		
+				<a href="../../login.cfm?lc=login" class="menuanchorclass hasSub" rel="anylinkmenu5" onmouseover="closeLayer('CartView');closeLayer('currView');" id="headerLinktext">
+			My Thorlabs</a>
+	</td>
+</tr>
+</table>
+
+
+
+
+</div></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center" valign="bottom" class="greyBG"></td>
+				</tr>
+			</table>
+			
+			
+			
+			
+			
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" class="greyBG">
+		
+		<div id='lpButDivID-1260522405994' style='padding:0px;  vertical-align:top; width:220px; float:right; padding:0px; margin:0px;'></div>
+	
+	
+
+	
+	<iframe name='printFrameVisNav' id='printFrameVisNav' src='about:blank' width='390' height='210' style="display:none;"></iframe>
+	
+
+	<div id="familypageMain">
+		
+
+
+<div id="FamilyPageHeader" class="FamilyPageHeader" style="padding-top:15px;margin-top:0px;">
+	<div id="printFriendly">
+		
+					<a href="newgrouppage9_pf.cfm?guide=10&category_id=142&objectgroup_id=1716" target="_blank"> Print Friendly</a>&nbsp;
+					<a href="newgrouppage9_pf.cfm?guide=10&category_id=142&objectgroup_id=1716" target="_blank">
+					<img src="http://thorlabs.us/Images/topnav/printfriendly.gif" border="0" align="middle"></a>
+				
+	</div>
+	<div id="breadcrumb" style="text-align:left;vertical-align:middle;">
+		 
+		
+						<a href="navigation.cfm?guide_id=1" alt="Products Home" title="Products Home" class="style1"><img src="http://thorlabs.us/images/newhp/Doghouse2_20px.png" border="0" alt="Products Home"></a> >>
+				
+						<a href="navigation.cfm?guide_id=7" alt="Optical Elements" title="Optical Elements" class="style1">Optical Elements</a> >>
+				
+						<a href="navigation.cfm?guide_id=2087" alt="Lenses" title="Lenses" class="style1">Lenses</a> >>
+				
+						<a href="navigation.cfm?guide_id=12" alt="Achromatic Doublets and Triplets" title="Achromatic Doublets and Triplets" class="style1">Achromatic Doublets and Triplets</a> >>
+				
+					<span style="font-size:12px;">Visible Achromatic Doublet Pairs</span>
+					
+	</div>
+
+	<h2 class="HotspotGroupTitle editFP">Visible Achromatic Doublet Pairs</h2><br /> 
+		<div id="FPimgHotspot">
+			
+				<div id="imgoverlaycontainer" data-imgsrc="1716_MatchedDoublet5.jpg">
+					
+
+<div id="familyImage" class="familyImage">
+	
+		<img id="familyimg" src="http://thorlabs.us/Images/GuideImages/1716_MatchedDoublet5.jpg" alt="" class="familyImage">
+	
+</div>
+				</div>
+			
+				<div id="HotSpots" >
+					
+	<b class="RIText" >Related Items</b>
+	
+		<div class="verticalScroller">
+	
+
+		<div class="hotspot" id="HS-2426">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="navigation.cfm?guide_ID=12" title="Achromatic Lenses" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_Optics_AchromaticDoublets_HS.jpg" border="0" /></a>
+				<a href="navigation.cfm?guide_ID=12" title="Achromatic Lenses" style="text-decoration:none;color:black;"><span class="hstext" id="2426text"></span></a>
+			</div>
+			
+		</div>
+	
+
+		<div class="hotspot" id="HS-2427">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="newgrouppage9.cfm?objectgroup_ID=1125" title="Achromatic Doublet Kits" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_Kits_AchromatLens_08HS.jpg" border="0" /></a>
+				<a href="newgrouppage9.cfm?objectgroup_ID=1125" title="Achromatic Doublet Kits" style="text-decoration:none;color:black;"><span class="hstext" id="2427text"></span></a>
+			</div>
+			
+		</div>
+	
+
+		<div class="hotspot" id="HS-11407">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="newgrouppage9.cfm?objectgroup_ID=1069" title="CNC-Polished Aspheric Lenses" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_Lenses_Aspheric_CNC_HS.jpg" border="0" /></a>
+				<a href="newgrouppage9.cfm?objectgroup_ID=1069" title="CNC-Polished Aspheric Lenses" style="text-decoration:none;color:black;"><span class="hstext" id="11407text"></span></a>
+			</div>
+			
+		</div>
+	
+
+		<div class="hotspot" id="HS-2429">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="newgrouppage9.cfm?objectgroup_ID=5548" title="Air-Spaced Doublets" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_Doublet_AirSpaced2_HS.jpg" border="0" /></a>
+				<a href="newgrouppage9.cfm?objectgroup_ID=5548" title="Air-Spaced Doublets" style="text-decoration:none;color:black;"><span class="hstext" id="2429text"></span></a>
+			</div>
+			
+		</div>
+	
+
+		<div class="hotspot" id="HS-2430">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="newgrouppage9.cfm?objectgroup_ID=3307" title="SM1 Lens Tubes" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_LensTubes_SM1_00HS.jpg" border="0" /></a>
+				<a href="newgrouppage9.cfm?objectgroup_ID=3307" title="SM1 Lens Tubes" style="text-decoration:none;color:black;"><span class="hstext" id="2430text"></span></a>
+			</div>
+			
+		</div>
+	
+
+		<div class="hotspot" id="HS-2432">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="newgrouppage9.cfm?objectgroup_ID=3306" title="SM05 Lens Tubes" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_SM05_LensTubes_HS.jpg" border="0" /></a>
+				<a href="newgrouppage9.cfm?objectgroup_ID=3306" title="SM05 Lens Tubes" style="text-decoration:none;color:black;"><span class="hstext" id="2432text"></span></a>
+			</div>
+			
+		</div>
+	
+
+		<div class="hotspot" id="HS-2434">
+			<div class="HSImageArea" style="background-repeat:no-repeat;">
+				<a href="navigation.cfm?guide_ID=2023" title="Beam Expanders" class="IMGLink"><img src="http://thorlabs.us/images/hotspots/3aHS_Beam_Expanders.jpg" border="0" /></a>
+				<a href="navigation.cfm?guide_ID=2023" title="Beam Expanders" style="text-decoration:none;color:black;"><span class="hstext" id="2434text"></span></a>
+			</div>
+			
+		</div>
+	
+	</div>
+<script>
+
+$(document).ready(function(){
+	$('#editHotspots').click(function(evt){
+		setHotSpots(objectgroup_id,'open');
+	});
+});
+
+$('.IMGLink').click(function(e){
+	if($("#closeHotSpotButton").length > 0){
+		e.preventDefault();	
+	}
+});
+
+function setHotSpots(group_id,mode){
+	var submitstring = "/ajax/hotspots.cfm";
+	$.ajax({
+		type:"GET",
+		url: submitstring,
+		async: false,
+		data:{objectgroup_ID:group_id,mode:mode,imageroot:webroot},
+		success: function(resp){
+			$('#HotSpots').html(resp);
+			$('#closeHotSpotButton').click(function(evt){
+				setHotSpots(objectgroup_id,'edit');
+			});
+			if(mode == 'open'){
+				setUpOpenMode();
+			}
+		}
+	});
+}
+
+function setUpOpenMode(){
+	setUpSorting();	
+	addButtonListeners();
+}
+
+function addButtonListeners(){
+	$('#NewHS').click(function(evt){
+		editHotspot();
+	});
+	$('#CloneHS').click(function(evt){
+		openCloneHSPopup(objectgroup_id);
+	});
+	$('.activeIcon').click(function(evt){
+		var draftID = $(this).data('draftid');
+		setActive(draftID,0);
+	});
+	$('.inactiveIcon').click(function(evt){
+		var draftID = $(this).data('draftid');
+		setActive(draftID,1);
+	});
+	$('.removeHSIcon').click(function(evt){
+		var sofirm = confirm('This will PERMANENTLY delete this hotspot. Are you sure?');
+		if(sofirm){
+			deleteHotspot($(this).data('draftid'));	
+		}
+	});
+};
+
+function setActive(draftID,Active){
+
+	var submitstring = '/cfc/contenteditor/Hotspot.cfc?method=setActive';
+	$.ajax({
+		type:"GET",
+		url: submitstring,
+		async: false,
+		data:{HSDraftID:draftID,Active:Active},
+		success: function(resp){
+			setHotSpots(objectgroup_id,'open');
+		}
+	});
+	
+}
+
+function deleteHotspot(draftID){
+
+	var submitstring = '/cfc/contenteditor/Hotspot.cfc?method=deleteHotspot';
+	$.ajax({
+		type:"GET",
+		url: submitstring,
+		async: false,
+		data:{HSDraftID:draftID},
+		success: function(resp){
+			alert('Hotspot Deleted!');
+			setHotSpots(objectgroup_id,'open');
+		}
+	});
+	
+}
+
+function openCloneHSPopup(groupid){
+	var submitstring = "/ajax/modal.cfm";
+	var ID='CloneHSPopup-' + groupid;
+
+	$.ajax({
+			type:"get",
+			url: submitstring,
+			async: false,
+			data: {custTagname:'CloneHSPopup',customID:ID,myStruc:groupid},
+			success: function(resp){
+				$('#display_here').html(resp);
+				$('#display_here').show();
+				$('#' + ID).modal('toggle');
+				$('#' + ID).find('.modal-dialog').css('width','800');
+			}
+	});
+}
+
+function setUpSorting(){
+	$("#HotSpots").sortable({
+		handle:".HSDraggable",
+		items: "[class='hotspot']",
+		update:function(event,ui){
+			saveHSOrders();
+		}
+	});	
+}
+
+function saveHSOrders(){
+	var tempArray = $("#HotSpots").sortable("toArray");
+	for(var i=0;i<tempArray.length;i++){
+		var draftID = tempArray[i].replace("HS-","");
+		$.ajax({
+			type: "POST",
+			url: "/cfc/contentEditor/Hotspot.cfc?method=saveHSOrder",
+			data: {HSDraftID:draftID,order:i}
+		});
+	}
+}
+
+	
+
+</script> 	
+				</div>
+			
+		</div>
+	
+	<br style="clear:both;"/>
+</div>
+<script type='text/javascript' >
+	$(document).ready(function () {
+		$('#familyimg').imagesLoaded(function( $images, $proper, $broken ){
+		      $images.each( function() {
+	  		  		$('#hotsp').width(($(this).width())+ 200);
+	  		 		$('#hotsp').addClass('hotspclass');
+				 if($(this).width() < 800) {
+				 	 $('#hotsp').css( "margin-left", "25px" );
+				 	 $('#hotsp').css( "margin-right", "25px" );
+		 		 }
+		})
+	})
+	});
+</script>
+	</div>
+
+	
+	
+		<div id="tabContainer">
+			
+	<script type="text/javascript">
+		$(document).on("click",".quickview",function(e){
+			var modalString = "/ajax/modal.cfm";
+			var partNumber = $(this).data('partnumber');
+			$.ajax({
+				type: "get",
+				url: modalString,
+				data: {custTagname:'quickview',myStruc:partNumber},
+				success: function(resp) {
+					if($("#qv"+partNumber.replace(/\//,"_")).length == 0){
+						$('#modalplaceholder').append(resp);
+					}
+					$("#qv"+partNumber.replace(/\//,"_")).dialog({
+						position: [e.clientX,e.clientY],
+						minWidth: 450,
+						resizable: false
+					});
+				}
+			});
+		});
+	</script>
+
+<div id="tabTitles">
+	<ul class="nav nav-fp" id="myTab-1716">
+		
+					<li id="tabTitle4DCA48C8-D52F-4135-8B39-6A3A6DCFCCEA-1716">
+						<a href="#4DCA48C8-D52F-4135-8B39-6A3A6DCFCCEA-1716" name="4DCA48C8-D52F-4135-8B39-6A3A6DCFCCEA-1716" data-toggle="tab" data-objectid="1716">
+							<div  class="tabTitle">Overview</div>
+							
+						</a>
+					</li>
+				
+					<li id="tabTitleA5CC6454-CB39-4520-9F0F-E08592E9E8FF-1716">
+						<a href="#A5CC6454-CB39-4520-9F0F-E08592E9E8FF-1716" name="A5CC6454-CB39-4520-9F0F-E08592E9E8FF-1716" data-toggle="tab" data-objectid="1716">
+							<div  class="tabTitle">Performance</div>
+							
+						</a>
+					</li>
+				
+					<li id="li12647ECA-157F-45CD-BBDB-EE3461BF32A4"  class="nsort">
+						<a href="#12647ECA-157F-45CD-BBDB-EE3461BF32A4-1716" name="12647ECA-157F-45CD-BBDB-EE3461BF32A4-1716" data-toggle="tab" data-objectid="1716">
+							Documents 
+						</a>
+					</li>
+				
+					<li id="li0BCB21C2-5C2D-40D9-9BDE-B95550718F4A"  class="nsort">
+						<a href="#0BCB21C2-5C2D-40D9-9BDE-B95550718F4A-1716" name="0BCB21C2-5C2D-40D9-9BDE-B95550718F4A-1716" data-toggle="tab" data-objectid="1716">
+							Feedback 
+						</a>
+					</li>
+				
+					<li id="li00160B12-4D25-4AA8-B399-0AE3A5B7A28C" class="nsort">
+						<a href="#00160B12-4D25-4AA8-B399-0AE3A5B7A28C-1716" name="00160B12-4D25-4AA8-B399-0AE3A5B7A28C-1716" data-toggle="tab" data-objectid="1716">
+							Tag Cloud 
+						</a>
+					</li>
+				
+	</ul>
+</div>
+<div id="tabContent-1716" class="tabContent">
+	
+					<div class="tab-pane" id="4DCA48C8-D52F-4135-8B39-6A3A6DCFCCEA-1716">
+						
+						<div class="">
+							
+										<script type="text/javascript" src="mapper.js"> </script>
+										<!-- Generated by XStandard version 3.0.0.0 on 2014-10-02T16:51:26 --><div class="tableFloatRight" style="margin-top:0px"><table cellspacing="0" class="SpecTable" width="312"><thead><tr align="left" valign="top"><th colspan="2" id="th19F4D4300000">General Specifications</th></tr></thead><tbody><tr align="left" valign="top"><td headers="th19F4D4300000"><strong>Design Wavelengths</strong></td><td align="center" headers="th19F4D4300000">486.1, 587.6, and 656.3 nm</td></tr><tr align="left" valign="top"><td align="left" headers="th19F4D4300000"><strong>Focal Length Tolerance</strong></td><td align="center" headers="th19F4D4300000" valign="middle">±1%</td></tr><tr align="left" valign="top"><td headers="th19F4D4300000" valign="middle"><strong>Reflectivity<br />(400 - 700 nm)</strong></td><td align="center" headers="th19F4D4300000" valign="middle">R<sub>avg</sub> &lt; 0.5%</td></tr></tbody></table></div><div class="tableFloatRight" style="width:210px;margin-top:0px;"><table cellspacing="0" class="SpecTable" width="210"><thead><tr><th align="center" id="th19B528400000"><img alt="" src="/images/Document_icon15px.png" /> Zemax Files</th></tr></thead><tbody><tr><td align="center" headers="th19B528400000">Click on the red Document icon next to the item numbers below to access the Zemax file download. Our entire <a href="/software_pages/ViewSoftwarePage.cfm?Code=Zemax">Zemax Catalog</a> is also available.</td></tr></tbody></table></div><h1>Features</h1><ul><li>Broadband AR Coating for 400 - 700 nm Range</li><li>Ideal for Image Relay, NA Conversion, or Image Magnification</li><li>Different Magnifications for Imaging and Numerical Aperture Matching</li><li>Focal Lengths Clearly Marked for Quick Identification</li><li><a href="/NewGroupPage9.cfm?ObjectGroup_ID=3306">SM05</a>- or <a href="/NewGroupPage9.cfm?ObjectGroup_ID=2373">SM1</a>-Threaded for Compatibility with Thorlabs Mechanics</li><li>Also Available: <a href="/NewGroupPage9.cfm?ObjectGroup_ID=4718">NIR Doublet Pairs with AR Coating for 650 - 1050 nm Range</a></li></ul><p>Our achromatic doublets are designed for infinite conjugate ratios, but are ideal for finite conjugate applications when used in pairs. In finite conjugate applications, both the object and image are a finite distance from the lens pair. Thorlabs' Matched Achromatic Pairs combine two of our <a href="/NewGroupPage9.cfm?ObjectGroup_ID=120&amp;Visual_ID=1643" title="Achromatic Doublets">stock achromatic doublets</a> for image relay systems, NA conversion, or image magnification.</p><p>These pairs are housed in <a href="/NewGroupPage9.cfm?ObjectGroup_ID=3306" title="SM series threaded lens tubes">SM05 (0.535&quot;-40)</a> or <a href="/NewGroupPage9.cfm?ObjectGroup_ID=3307" title="SM series threaded lens tubes">SM1 (1.035&quot;-40)</a> threaded housings, which have outer diameters of Ø0.7&quot; and Ø1.2&quot;, respectively. The housing is engraved with the part number, focal lengths, and magnification of the pair, thereby allowing for easy identification. Since the lenses are pre-mounted, there is no need to handle the glass optics, making these achromats ideal for integration into a host of OEM applications.</p><p>To achieve the specified magnification, orient the mount so that the end of the housing with the shorter focal length lens is closer to the object. If the lens is used in the reverse direction, the inverse magnification will be achieved. If the two lenses have the same focal length, either orientation of the housing will produce 1:1 magnification.</p><div align="center" style="width:100%;"><div class="tableCenter" style="width:800px;"><div class="imgFloatRight" style="width:350px; margin-top:2em; margin-bottom:1em"><a href="/tutorials.cfm?tabID=26066"><img alt="Optic Cleaning Tutorial" border="0" height="100" src="/images/TabImages/OpticCleaningTutorial_vn.jpg" width="160" /></a><br /><br /><a href="NewGroupPage9.cfm?ObjectGroup_ID=5840"><img alt="Optical Coatings and Substrates" border="0" src="/images/TabImages/Coating&amp;Substrates_button.jpg" /></a></div><div class="imgFloatLeft" style="margin-bottom:1em; margin-top:0px"><a href="../images/TabImages/MAP_A_Reflectance_large.gif" onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', spaceForcaption: 60})"><img alt="MAP Reflectance" border="0" src="/images/TabImages/MAP_A_Reflectance_medium.gif" /><br />Click to Zoom</a><br /><a href="images/TabImages/MAP_A_Reflectance_xls.xls">Click to Download Reflectance Data</a></div></div></div> 
+						</div>
+						
+					</div>
+					
+					<div class="tab-pane" id="A5CC6454-CB39-4520-9F0F-E08592E9E8FF-1716">
+						
+						<div class="">
+							
+										<script type="text/javascript" src="mapper.js"> </script>
+										<!-- Generated by XStandard version 1.7.0.0 on 2013-02-22T15:35:38 --><div align="center" style="width:100%"><div class="tableCenter" style="width:800px;"><p>The matched Achromatic Pairs offer superior performance in a simplified package compared to traditional spherical singlets when used for image relay. In the first set of plots to the right, two LA1509-A N-BK7 plano-convex lenses are optimized to image the Thorlabs logo. In the second set of plots, the MAP10100100-A is used to image the logo, and the improvement is obvious. The doublet pair in the MAP configuration is able to minimize the spherical and chromatic aberrations to produce a better image.&#160;</p><div style="margin-right:0px"><img alt="LA1509-A Pair" height="225" src="/images/TabImages/LA_DogImage_0311.jpg" width="600" /><br /><strong>Figure 1. LA1509-A Pair</strong><br /><br /><img alt="MAP10100100-A Pair" height="225" src="/images/TabImages/MAP_DogImage_0311.jpg" width="600" /><br /><strong>Figure 2. MAP10100100-A Pair</strong></div><p style="margin:0px; clear:both"><br style="margin:0px" /></p><h1>Example Focal Length Shift Plot</h1><p>The plot to the right shows the focal length shift vs. wavelength for our MAP107575-A Lens Pair. <a href="images/TabImages/MAP107575-A_FocalShift.xlsx">An Excel version of this data is also available.</a></p><p><a href="images/TabImages/MAP1107575-A_focalshift_lg.gif" onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', spaceForcaption: 60})"><img alt="MAP107575-A Focal Shift" border="0" src="/images/TabImages/MAP107575-A_focalshift_sm.gif" /></a><br /><a href="images/TabImages/MAP1107575-A_focalshift_lg.gif" onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', spaceForcaption: 60})">Click to Enlarge</a></p></div></div> 
+						</div>
+						
+					</div>
+					
+					<div class="tab-pane" id="12647ECA-157F-45CD-BBDB-EE3461BF32A4-1716"> 
+<table width="100%" align="center" border="0" cellspacing="2" cellpadding="0">
+	
+	<tr>
+		<td height="35" align="left" valign="middle">
+			<b>Click the <img alt="Support Documentation icon" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> document icon or Part Number below to view the available support documentation</b></td>
+	</tr>
+	
+	<tr>
+		<td align="left" valign="top">
+			
+			
+						
+			<table width="100%" border="0" cellspacing="2" cellpadding="0">
+				<tr>
+					<td align="left" valign="top">
+						
+						
+												
+						<table width="100%" border="0" cellspacing="0" cellpadding="2">
+							<tr bgcolor="#E2E2E2">
+								<td nowrap="nowrap"><b>Part Number</b></td>
+								<td></td>
+								<td><b>Product Description</b></td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP051919-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP051919-A Support Documentation'} )" alt="MAP051919-A Support Documentation" title="MAP051919-A Support Documentation"><img alt="MAP051919-A Support Documentation" title="MAP051919-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP051919-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1 Matched Achr. Pair, f1=19 mm, f2=19 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP051925-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP051925-A Support Documentation'} )" alt="MAP051925-A Support Documentation" title="MAP051925-A Support Documentation"><img alt="MAP051925-A Support Documentation" title="MAP051925-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP051925-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1.32 Matched Achr. Pair, f1=19 mm, f2=25 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP051950-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP051950-A Support Documentation'} )" alt="MAP051950-A Support Documentation" title="MAP051950-A Support Documentation"><img alt="MAP051950-A Support Documentation" title="MAP051950-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP051950-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:2.63 Matched Achr. Pair, f1=19 mm, f2=50 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP052550-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP052550-A Support Documentation'} )" alt="MAP052550-A Support Documentation" title="MAP052550-A Support Documentation"><img alt="MAP052550-A Support Documentation" title="MAP052550-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP052550-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:2 Matched Achr. Pair, f1=25 mm, f2=50 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP10100100-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP10100100-A Support Documentation'} )" alt="MAP10100100-A Support Documentation" title="MAP10100100-A Support Documentation"><img alt="MAP10100100-A Support Documentation" title="MAP10100100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP10100100-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1 Matched Achr. Pair, f1=100 mm, f2=100 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP1030100-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1030100-A Support Documentation'} )" alt="MAP1030100-A Support Documentation" title="MAP1030100-A Support Documentation"><img alt="MAP1030100-A Support Documentation" title="MAP1030100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP1030100-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:3.33 Matched Achr. Pair, f1=30 mm, f2=100 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP103030-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103030-A Support Documentation'} )" alt="MAP103030-A Support Documentation" title="MAP103030-A Support Documentation"><img alt="MAP103030-A Support Documentation" title="MAP103030-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP103030-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1 Matched Achr. Pair, f1=30 mm, f2=30 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP103040-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103040-A Support Documentation'} )" alt="MAP103040-A Support Documentation" title="MAP103040-A Support Documentation"><img alt="MAP103040-A Support Documentation" title="MAP103040-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP103040-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1.33 Matched Achr. Pair, f1=30 mm, f2=40 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP103050-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103050-A Support Documentation'} )" alt="MAP103050-A Support Documentation" title="MAP103050-A Support Documentation"><img alt="MAP103050-A Support Documentation" title="MAP103050-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP103050-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1.67 Matched Achr. Pair, f1=30 mm, f2=50 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+						</table>
+						
+						
+							
+					</td>
+					
+					<td align="left" valign="top">
+						
+						
+										
+						<table width="100%" border="0" cellspacing="0" cellpadding="2">
+							<tr bgcolor="#E2E2E2">
+								<td nowrap="nowrap"><b>Part Number</b></td>
+								<td></td>
+								<td><b>Product Description</b></td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP103075-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103075-A Support Documentation'} )" alt="MAP103075-A Support Documentation" title="MAP103075-A Support Documentation"><img alt="MAP103075-A Support Documentation" title="MAP103075-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP103075-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:2.5 Matched Achr. Pair, f1=30 mm, f2=75 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP1040100-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1040100-A Support Documentation'} )" alt="MAP1040100-A Support Documentation" title="MAP1040100-A Support Documentation"><img alt="MAP1040100-A Support Documentation" title="MAP1040100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP1040100-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:2.5 Matched Achr. Pair, f1=40 mm, f2=100 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP104040-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP104040-A Support Documentation'} )" alt="MAP104040-A Support Documentation" title="MAP104040-A Support Documentation"><img alt="MAP104040-A Support Documentation" title="MAP104040-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP104040-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1 Matched Achr. Pair, f1=40 mm, f2=40 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP1050100-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1050100-A Support Documentation'} )" alt="MAP1050100-A Support Documentation" title="MAP1050100-A Support Documentation"><img alt="MAP1050100-A Support Documentation" title="MAP1050100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP1050100-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:2 Matched Achr. Pair, f1=50 mm, f2=100 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP105050-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP105050-A Support Documentation'} )" alt="MAP105050-A Support Documentation" title="MAP105050-A Support Documentation"><img alt="MAP105050-A Support Documentation" title="MAP105050-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP105050-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1 Matched Achr. Pair, f1=50 mm, f2=50 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP105075-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP105075-A Support Documentation'} )" alt="MAP105075-A Support Documentation" title="MAP105075-A Support Documentation"><img alt="MAP105075-A Support Documentation" title="MAP105075-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP105075-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1.5 Matched Achr. Pair, f1=50 mm, f2=75 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#E4E4E4">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP1075150-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1075150-A Support Documentation'} )" alt="MAP1075150-A Support Documentation" title="MAP1075150-A Support Documentation"><img alt="MAP1075150-A Support Documentation" title="MAP1075150-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP1075150-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:2 Matched Achr. Pair, f1=75 mm, f2=150 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+							<tr bgcolor="#FFFFFF">
+								<td align="left" valign="top" nowrap="nowrap"><a href="_SD-Popup.cfm?partnumber=MAP107575-A" onClick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP107575-A Support Documentation'} )" alt="MAP107575-A Support Documentation" title="MAP107575-A Support Documentation"><img alt="MAP107575-A Support Documentation" title="MAP107575-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" /> MAP107575-A</a></td>
+								<td width="5" align="left" valign="top">:</td>
+								<td align="left" valign="top">1:1 Matched Achr. Pair, f1=75 mm, f2=75 mm, BBAR 400-700 nm</td>
+							</tr>
+							
+						</table>
+						
+						
+												
+					</td>
+					
+			  	</tr>
+		  </table>
+			
+			
+						
+		</td>
+	</tr>	
+	
+</table>
+</div>
+				
+					<div class="tab-pane" id="0BCB21C2-5C2D-40D9-9BDE-B95550718F4A-1716">
+<style>
+	.smallestCTag { font-size: xx-small; }
+	.smallCTag { font-size: small; }
+	.mediumCTag { font-size: medium; }
+	.largeCTag { font-size: large; }
+	.largestCTag { font-size: xx-large; }
+	</style>
+
+
+
+ <script type="text/javascript">
+
+
+	function getdocuments(objectgroupid, divname) {
+		var http = false;
+
+
+		if(navigator.appName == "Microsoft Internet Explorer") {
+		  http = new ActiveXObject("Microsoft.XMLHTTP");
+		} else {
+		  http = new XMLHttpRequest();
+		}
+		 http.abort();
+		 http.open("GET", "_ajaxDocs.cfm?objectgroup_id=" + objectgroupid, true);
+		 http.onreadystatechange=function() {
+			if(http.readyState == 4) {
+			  document.getElementById(divname).innerHTML = http.responseText;
+			}
+		}
+		 http.send(null);
+	}
+	function createCaptcha() {
+		//document.getElementById('captchaImg').innerHTML = 'hi';
+		var ele = document.getElementById('captchaImg');
+			ele.innerHTML = '<img id="captchaImgCatReq-searchFeedbackForm" alt="" name="captchaImgCatReq" width="250" />';
+			reloadCaptchaImage('captchaImgCatReq');
+	}
+</script>
+<div>
+	<script language = "Javascript">
+						function taLimit() {
+							var taObj=event.srcElement;
+							if (taObj.value.length==taObj.maxLength*1) return false;
+						}
+
+						function taCount(visCnt) {
+							var taObj=event.srcElement;
+							if (taObj.value.length>taObj.maxLength*1) taObj.value=taObj.value.substring(0,taObj.maxLength*1);
+							if (visCnt) visCnt.innerText=taObj.maxLength-taObj.value.length;
+						}
+					</script> 
+	
+	
+	
+	<br />
+	
+	<form action="feedback_submit.cfm?form=product" name="userFeedbackForm" method="POST" onSubmit="return catchEmptyForm('userFeedbackForm','CustReply'); ">
+		<input type="hidden" name="objectgroup_id" value="1716">
+		<input type="hidden" name="redirectURL" value="NewGroupPage9.cfm
+		?objectgroup_id=1716" /> 
+		<table width="97%" align="center" cellpadding=1 cellspacing=0 border="0" class="formTable">
+			<tr>
+				<td colspan=4 class="formTitle" align="center">
+					Please Give Us Your Feedback
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="9" width="5%">
+					&nbsp;
+				</td>
+				<td valign="top" colspan="2">
+					<table>
+						<tr>
+							<td>
+								<strong>
+									Email
+								</strong>
+							</td>
+							<td rowspan="3" width="48">
+								&nbsp;
+							</td>
+							<td>
+								<strong>
+									Feedback On
+								</strong>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" name="EmailAddress"
+								
+								>(Optional)
+							</td>
+							<td>
+								
+								<SELECT NAME="FeedbackItems" onChange="document.getElementById('_UsefulScale').style.display = (this.selectedIndex == 1)?'none':'block';">
+									<OPTION VALUE="MAP051919-A,MAP051925-A,MAP051950-A,MAP052550-A,MAP10100100-A,MAP103030-A,MAP104040-A,MAP105050-A,MAP107575-A,MAP1030100-A,MAP103040-A,MAP103050-A,MAP103075-A,MAP1040100-A,MAP1050100-A,MAP105075-A,MAP1075150-A">
+										ALL PRODUCTS
+									</OPTION>
+									<OPTION VALUE="Presentation">
+										Presentation Feedback
+									</OPTION>
+									
+											<option value="MAP051919-A">
+												MAP051919-A
+											</option>
+										
+											<option value="MAP051925-A">
+												MAP051925-A
+											</option>
+										
+											<option value="MAP051950-A">
+												MAP051950-A
+											</option>
+										
+											<option value="MAP052550-A">
+												MAP052550-A
+											</option>
+										
+											<option value="MAP10100100-A">
+												MAP10100100-A
+											</option>
+										
+											<option value="MAP103030-A">
+												MAP103030-A
+											</option>
+										
+											<option value="MAP104040-A">
+												MAP104040-A
+											</option>
+										
+											<option value="MAP105050-A">
+												MAP105050-A
+											</option>
+										
+											<option value="MAP107575-A">
+												MAP107575-A
+											</option>
+										
+											<option value="MAP1030100-A">
+												MAP1030100-A
+											</option>
+										
+											<option value="MAP103040-A">
+												MAP103040-A
+											</option>
+										
+											<option value="MAP103050-A">
+												MAP103050-A
+											</option>
+										
+											<option value="MAP103075-A">
+												MAP103075-A
+											</option>
+										
+											<option value="MAP1040100-A">
+												MAP1040100-A
+											</option>
+										
+											<option value="MAP1050100-A">
+												MAP1050100-A
+											</option>
+										
+											<option value="MAP105075-A">
+												MAP105075-A
+											</option>
+										
+											<option value="MAP1075150-A">
+												MAP1075150-A
+											</option>
+										
+								</SELECT>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Contact Me: <input type="Checkbox" name="ContactMe" value="1" 
+								
+								>
+							</td>
+							<td>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="formNote">
+									Your email address will NOT be displayed.
+								</span>
+							</td>
+							<td>
+							</td>
+						</tr>
+						</tr> 
+					</table>
+				</td>
+				<td rowspan="9" width="5%">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td height="24">
+					&nbsp;
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td class ="formField" colspan=2>
+					<strong>
+						<span style="color:red">
+							Please type the following key into the field to submit this form:
+						</span>
+					</strong>
+					<br />
+					
+					<div id="captchaImg" style="width:250px;height:40px;">
+					</div>
+					<input type="text" name="rnd" value="" maxlength="6" size="6">
+					<a href="javascript: reloadCaptchaImage()">
+						Click Here
+					</a>
+					if you can not read the security code.
+					<br />
+					<span class="formNote">
+						This code is to prevent automated spamming of our site
+						<br />
+						Thank you for your understanding.
+					</span>
+					<script>
+									reloadCaptchaImage();
+								</script></strong>&nbsp;&nbsp; 
+				</td>
+			</tr>
+			<tr>
+				<td height="24">
+					&nbsp;
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr class="CSS4">
+				<td colspan="2">
+					<div id="_UsefulScale">
+						<strong>
+							Would this product be useful to you?
+						</strong>
+						&nbsp; &nbsp; &nbsp; 
+						<b>
+							Little Use
+						</b>
+						&nbsp;&nbsp; 1
+						<input name="Vote" type="radio" value="1">
+						2
+						<input name="Vote" type="radio" value="2">
+						3
+						<input name="Vote" type="radio" value="3" checked>
+						4
+						<input name="Vote" type="radio" value="4">
+						<b>
+							Very Useful
+						</b>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 >
+					<br />
+					Enter Comments Below:
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 align="center">
+					<textarea class="formTextarea" name="CustReply" cols=50 rows=10  onkeypress="return taLimit()" onKeyUp="return taCount(myCounter)"  maxLength="8000">
+						
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td height="24">
+					&nbsp;
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="Submit Feedback" />
+				</td>
+				<td align="right">
+					Characters remaining 
+					<B>
+						<SPAN id=myCounter>
+							8000
+						</SPAN>
+					</B>
+					&nbsp;&nbsp;&nbsp;
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+	<table width="97%" align="center" cellpadding=1 cellspacing=0 class="formTable">
+		<tr>
+			<td colspan="2" class="commentBlock">
+				Posted Comments:
+			</td>
+		</tr>
+		
+			<style>
+				.commentGroup{width:950px; font-size:12px; font-family:arial; margin-top:5px;margin-bottom:15px; margin-left5px; margin-right:5px; border:1px solid #660000; background-color:#ffffff;} .commentHeader{width:49%; font-size:12px; font-family:arial; font-weight:bold; padding:3px; background-color:#ffffff;} .commentBody{width:880px; font-size:11px; font-family:arial;padding:10px;clear:both;} .cFloatLeft{float:left;} .cFloatRight{float:right;} .AParent{padding:0px; border-top:3px solid #660000;} .BChild{margin-left:25px; margin-right:25px; margin-top:10px;border-top:1px solid #660000; } .commentText{background-color:#ffffcc;} 
+			</style>
+			<tr>
+				<td class="commentText" colspan=2>
+					
+						<div class="commentGroup">
+							
+								<div class="AParent">
+									<div class='commentHeader cFloatLeft'>
+										Poster: 
+										<i>
+											tcohen
+										</i>
+									</div>
+									<div class="commentHeader cFloatRight">
+										Posted Date: 
+										<i>
+											2012-03-28 11:31:00.0
+										</i>
+									</div>
+									<div class="commentBody">
+										Response from Tim at Thorlabs: Thank you for your feedback! I have contacted you with the focal length shift data and an OPD plot for spherical aberration.
+									</div>
+									<div style="clear:both">
+									</div>
+								</div>
+							
+							<div style="clear:both;">
+							</div>
+						</div>
+					
+						<div class="commentGroup">
+							
+								<div class="AParent">
+									<div class='commentHeader cFloatLeft'>
+										Poster: 
+										<i>
+											Simone.Rupp
+										</i>
+									</div>
+									<div class="commentHeader cFloatRight">
+										Posted Date: 
+										<i>
+											2012-03-27 05:03:34.0
+										</i>
+									</div>
+									<div class="commentBody">
+										Dear Thorlabs team, 
+are there any data available that allow me to estimate the focal length shift due to chromatic aberration? For some other Thorlabs products (e.g. achromatic triplets) those data are available as excel files.
+I'm especially interested in the MAP107575-A in a wavelength range from 500 or 600 nm to 700 nm.
+If there are any numbers quantifying the effect of spherical aberrations, these would be interesting for me, too.
+Thank you!
+									</div>
+									<div style="clear:both">
+									</div>
+								</div>
+							
+							<div style="clear:both;">
+							</div>
+						</div>
+					
+						<div class="commentGroup">
+							
+								<div class="AParent">
+									<div class='commentHeader cFloatLeft'>
+										Poster: 
+										<i>
+											apalmentieri
+										</i>
+									</div>
+									<div class="commentHeader cFloatRight">
+										Posted Date: 
+										<i>
+											2009-10-13 14:25:42.0
+										</i>
+									</div>
+									<div class="commentBody">
+										A response from Adam at Thorlabs: I am currently checking with our optics division and hope to provide you with more information soon.  I will respond to your email address and this feedback post.  
+									</div>
+									<div style="clear:both">
+									</div>
+								</div>
+							
+							<div style="clear:both;">
+							</div>
+						</div>
+					
+						<div class="commentGroup">
+							
+								<div class="AParent">
+									<div class='commentHeader cFloatLeft'>
+										Poster: 
+										<i>
+											roberto.nesci
+										</i>
+									</div>
+									<div class="commentHeader cFloatRight">
+										Posted Date: 
+										<i>
+											2009-10-13 14:02:21.0
+										</i>
+									</div>
+									<div class="commentBody">
+										how large is the corrected focal plane of this optical assembly?
+Thank you
+
+Roberto Nesci
+									</div>
+									<div style="clear:both">
+									</div>
+								</div>
+							
+							<div style="clear:both;">
+							</div>
+						</div>
+					
+	</table>
+</div>
+</div>
+				
+					<div class="tab-pane" id="00160B12-4D25-4AA8-B399-0AE3A5B7A28C-1716"> 
+	
+	<style>
+	.smallestCTag { font-size: xx-small; }
+	.smallCTag { font-size: small; }
+	.mediumCTag { font-size: medium; }
+	.largeCTag { font-size: large; }
+	.largestCTag { font-size: xx-large; } 
+	</style>
+	
+	
+	<table width="600" style="text-align:center">
+		<tr><td>Click on any phrase below to search our site using our new Search Engine:</td></tr>
+		<tr>
+			<td>
+					
+					<a href="../search/thorsearch.cfm?search=1 1 imaging lens pair" class="smallestCTag" rel="nofollow" >1 1 imaging lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=1 1 lens pair" class="smallCTag" rel="nofollow" >1 1 lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=AC508" class="smallestCTag" rel="nofollow" >AC508</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=Achromat Pair" class="smallCTag" rel="nofollow" >Achromat Pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=achromatic doublet" class="largestCTag" rel="nofollow" >achromatic doublet</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=achromatic lens" class="largestCTag" rel="nofollow" >achromatic lens</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=achromatic lens pair" class="largestCTag" rel="nofollow" >achromatic lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=AR Coated Lens" class="mediumCTag" rel="nofollow" >AR Coated Lens</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=doublet lens pair" class="largestCTag" rel="nofollow" >doublet lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=lens pair" class="largestCTag" rel="nofollow" >lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=m=1" class="smallestCTag" rel="nofollow" >m=1</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=magnifying lens pair" class="largeCTag" rel="nofollow" >magnifying lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=MAP" class="smallCTag" rel="nofollow" >MAP</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=Matched Achromat" class="smallCTag" rel="nofollow" >Matched Achromat</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=matched achromat pair" class="largestCTag" rel="nofollow" >matched achromat pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=matched doublet" class="largestCTag" rel="nofollow" >matched doublet</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=matched lens pair" class="largestCTag" rel="nofollow" >matched lens pair</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=VIS AR Coated Lens" class="mediumCTag" rel="nofollow" >VIS AR Coated Lens</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=VIS AR Coating" class="mediumCTag" rel="nofollow" >VIS AR Coating</a>&nbsp;&nbsp;
+						
+					<a href="../search/thorsearch.cfm?search=VIS lens" class="mediumCTag" rel="nofollow" >VIS lens</a>&nbsp;&nbsp;
+					
+			</td>
+		</tr>
+	</table>
+	</div>
+				
+</div>
+<div id="modalplaceholder"></div>
+<script type="text/javascript">
+	var currentTab = 'Overview';
+	var currentTabID;
+	
+	$('#myTab-1716 a:first').tab('show');
+	currentTabID = $('#myTab-1716 li.active a').attr('name');
+	
+	
+	$('#myTab-1716 a:not(#inserttab)').live("click", function(e) {
+		var currentTabObjectID = $(this).data("objectid");
+		currentTab = $(this).html();
+		currentTab = $.trim(currentTab.replace(/(<([^>]+)>)/ig,""));
+		
+		if(currentTab == 'Feedback')
+		{
+			createCaptcha();	
+		}
+		$(this).tab('show');
+		currentTabID = $('#myTab-'+currentTabObjectID+' li.active a').attr('name');
+		if($("#viewSelect option:selected").val() == "Edit")
+		{
+			SwitchGallery($("#viewSelect option:selected").val());
+		}
+	});
+	
+	
+		
+					
+</script>
+
+		</div>
+	
+
+	<div id="sgContainer">
+		
+		
+				<div id="SG-3678" class="SubGroup ">
+			
+		<div class="SubGroupHeader">
+			
+					<a href="#">
+						<img src="http://thorlabs.us/images/arrow_Vert.gif" class="vertArrow" border="0">
+					</a>
+				
+				<div class="SubGroupTitle" height="30" >
+					<a name="3678"></a>
+					<h3 id="sgTitle-3678" >SM05-Threaded, M = 1, Matched Achromatic Doublet Pair</h3>
+					
+				</div>
+			
+			<div class="row SubGroupDescription">
+				
+				
+						<div id="sgDescription-3678"
+						class="  col-md-12">
+							<table class="SpecTable" cellspacing="0" width="100%">
+<thead> 
+<tr align="left" valign="top">
+<th id="th0541DFF00000" rowspan="2" width="80" align="left">Item #</th> <th id="th0541DFF00001" style="vertical-align: middle;" rowspan="2" align="center">M<sup>a</sup></th> <th id="th0541DFF00002" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>1</sub><br />(mm)</th> <th id="th0541DFF00003" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>2</sub><br />(mm)</th> <th id="th0541DFF00004" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b1</sub><br />(mm)</th> <th id="th0541DFF00005" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b2</sub><br />(mm)</th> <th id="th0541DFF00006" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">t<sub>c</sub><br />(mm)</th> <th id="th0541DFF00007" style="vertical-align: middle;" rowspan="2" align="center">Dia<br />(mm)</th> <th id="th0541DFF00008" style="vertical-align: middle;" rowspan="2" align="center">L<br />(mm)</th> <th id="th0541DFF00009" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>1</sub><br />(mm)</th> <th id="th0541DFF00010" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>2</sub><br />(mm)</th> <th id="th0541DFF00011" style="vertical-align: middle;" rowspan="2" align="center">RMS Spot<br />Size<sup>b</sup></th> <th id="th0541DFF00011" colspan="2" align="center" valign="bottom">Lens Material</th> <th style="vertical-align: middle;" rowspan="2" align="center">Theoretical<br />Transmission<strong><sup>d</sup></strong><span style="vertical-align: middle;"> </span></th><th style="vertical-align: middle;" rowspan="2" align="center">Ref.<br />Dwg.</th>
+</tr>
+<tr>
+<th align="center">Left<sup>c</sup> </th><th align="center">Right<sup>c</sup> </th>
+</tr>
+</thead> 
+<tbody>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP051919-A</strong></td>
+<td align="center">1:1</td>
+<td align="center">19.0</td>
+<td align="center">19.0</td>
+<td align="center">15.9</td>
+<td align="center">15.9</td>
+<td align="center">4.0</td>
+<td align="center">17.8</td>
+<td align="center">26.6</td>
+<td align="center">10.6</td>
+<td align="center">10.6</td>
+<td align="center" valign="top">16.5 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="middle"><a onclick="return infoIcon('MAP051919-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+<td align="center" valign="middle"><a onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', captionText:'Please note the focal length is determined from the back principal plane, which does not necessarily line up with the edge of the lens.'})" href="images/TabImages/Achromatic_Doublet_Pair_DWG.gif"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="Achromatic Doublet Pair Drawing" /></a></td>
+</tr>
+</tbody>
+</table>
+<ul class="tableFooter">
+<li>Magnification</li>
+<li>Entrance Pupil Diameter: 11.9 mm; Design Wavelengths: 486.1 nm, 587.6 nm, 656.3 nm; FOV: 0°. RMS spot size is calculated for an on-axis point source, with object and image distance adjusted until the weighted sum of the spot size of each design wavelength is minimized. The magnification at this object/image conjugate does not necessarily match the listed value.</li>
+<li>"Left" and "Right" refer to the orientations of the lenses in the drawing found in the Reference Drawing (Ref. Dwg.) column.</li>
+<li>Click on <img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="More Info Icon" width="15" height="15" /> for plots and downloadable data of the transmission for the lens.</li>
+</ul>
+						</div>
+						
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	<div class="partnumbers" id="parts-3678"> <form name='PNform3678' id="PNform3678">
+				<table width='980' border="0" cellspacing="0" cellpadding="0" align="center">
+					<tr>
+						<td colspan="7"  align="right">
+							<strong> Based on your currency / country selection, your order will ship from Newton, New Jersey</strong>&nbsp;&nbsp; 
+						</td>
+					</tr>
+					
+						<tr><td colspan=7 height="5"></td></tr>
+						<tr><td colspan=7 height="1" bgcolor="990000"></td></tr>
+						<tr bgcolor="FFFFFF">
+							<td class="CSS2" width="30px" style="padding: 6px;"><strong>+1</strong></td>
+							<td class="CSS2" width="45px" style="padding: 6px;"><strong> Qty</strong></td>
+							
+								<td class="CSS2" align="center" width="40px" style="padding: 6px;"><strong> Docs</strong></td>
+							
+							<td class="CSS2" colspan="2" style="padding: 6px;"><strong> Part Number - Universal/Imperial </strong></td>
+							<td class="CSS2" width="80px" style="padding: 6px;"><strong>Price</strong></td>
+							<td class="CSS2" width="120px" style="padding: 6px;"><strong><a href="availships.cfm" title=" Availability and transit time between Thorlabs warehouses." onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 375, height:90, headingText: 'Available/Ships'} )" > Available / Ships</a></strong></td>
+						</tr>
+						<tr>
+							<td colspan=7 height="1" bgcolor="990000"></td>
+						</tr>
+					  	<script type="text/javascript">
+							$(function(){
+								$('.AltRow-3678').filter(':even').css({ background: '#f0f0f0' });
+							});
+					  	</script>
+						<tbody id="prodList-3678">
+							
+									<tr class="AltRow-3678" id="productID-100004364">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3678', '1', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[1]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3678);">
+															<input type="hidden" name="product_id[1]" value="100004364">
+															<input type="hidden" name="weight[1]" value="0.1622">
+															<input type="hidden" name="partNumber[1]" value="MAP051919-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP051919-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP051919-A'} )">
+															<img alt="MAP051919-A Support Documentation" title="MAP051919-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP051919-A">MAP051919-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004364">1:1 Matched Achr. Pair, f1=19 mm, f2=19 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$144.84 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+							<tr>
+								<td colspan='7' align="left">
+									
+				  						<input type="hidden" name="GroupPage" value="GroupPage">
+										<input type="hidden" name="typ" value="">
+										<div id="Message-3678" class="Message"></div>
+										<button type="button" id="submitDiv3678" class="FPBTN btn btn-default btn-shadow btn-margin-top">
+											Add To Cart 
+										</button>
+									
+								</td>
+				  			</tr>
+						
+					</tbody>
+				</table>
+			<input type="hidden" name="itemCount" value="1"> 
+				<input type="hidden" name="userID" value="158068128490426">
+				<input type="hidden" name="area" value="">
+			
+			</form>
+		</div>
+
+				</div>
+			
+				<div id="SG-3679" class="SubGroup ">
+			
+		<div class="SubGroupHeader">
+			
+					<a href="#">
+						<img src="http://thorlabs.us/images/arrow_Vert.gif" class="vertArrow" border="0">
+					</a>
+				
+				<div class="SubGroupTitle" height="30" >
+					<a name="3679"></a>
+					<h3 id="sgTitle-3679" >SM05-Threaded, M > 1, Matched Achromatic Doublet Pairs</h3>
+					
+				</div>
+			
+			<div class="row SubGroupDescription">
+				
+				
+						<div id="sgDescription-3679"
+						class="  col-md-12">
+							<table class="SpecTable" cellspacing="0" width="100%">
+<thead> 
+<tr align="left" valign="top">
+<th id="th0541DFF00000" rowspan="2" width="80" align="left">Item #</th> <th id="th0541DFF00001" style="vertical-align: middle;" rowspan="2" align="center">M<sup>a</sup></th> <th id="th0541DFF00002" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>1</sub><br />(mm)</th> <th id="th0541DFF00003" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>2</sub><br />(mm)</th> <th id="th0541DFF00004" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b1</sub><br />(mm)</th> <th id="th0541DFF00005" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b2</sub><br />(mm)</th> <th id="th0541DFF00006" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">t<sub>c</sub><br />(mm)</th> <th id="th0541DFF00007" style="vertical-align: middle;" rowspan="2" align="center">Dia<br />(mm)</th> <th id="th0541DFF00008" style="vertical-align: middle;" rowspan="2" align="center">L<br />(mm)</th> <th id="th0541DFF00009" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>1</sub><br />(mm)</th> <th id="th0541DFF00010" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>2</sub><br />(mm)</th> <th id="th0541DFF00011" style="vertical-align: middle;" rowspan="2" align="center">RMS Spot<br />Size<sup>b</sup></th> <th id="th0541DFF00011" colspan="2" align="center" valign="bottom">Lens Material</th> <th style="vertical-align: middle;" rowspan="2" align="center"><span style="vertical-align: middle;">Theoretical<br />Transmission</span><sup>d</sup><span style="vertical-align: middle;"> </span></th><th style="vertical-align: middle;" rowspan="2" align="center">Ref.<br />Dwg.</th>
+</tr>
+<tr>
+<th align="center">Left<sup>c</sup> </th><th align="center">Right<sup>c</sup> </th>
+</tr>
+</thead> 
+<tbody>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP051925-A</strong></td>
+<td align="center">1:1.3</td>
+<td align="center">19.0</td>
+<td align="center">25.0</td>
+<td align="center">15.7</td>
+<td align="center">20.9</td>
+<td align="center">4.0</td>
+<td align="center">17.8</td>
+<td align="center">27.7</td>
+<td align="center">10.4</td>
+<td align="center">15.5</td>
+<td align="center" valign="top">14.2 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="middle"><a onclick="return infoIcon('MAP051925-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+<td rowspan="3" align="center" valign="middle"><a onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', captionText:'Please note the focal length is determined from the back principal plane, which does not necessarily line up with the edge of the lens.'})" href="images/TabImages/Achromatic_Doublet_Pair_DWG.gif"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="Achromatic Doublet Pair Drawing" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP052550-A</strong></td>
+<td align="center">1:2</td>
+<td align="center">25.0</td>
+<td align="center">50.0</td>
+<td align="center">21.4</td>
+<td align="center">47.7</td>
+<td align="center">4.0</td>
+<td align="center">17.8</td>
+<td align="center">27.3</td>
+<td align="center">16.0</td>
+<td align="center">41.8</td>
+<td align="center" valign="top">10.2 µm</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="top">N-BK7/SF2</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP052550-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP051950-A</strong></td>
+<td align="center">1:2.63</td>
+<td align="center">19.0</td>
+<td align="center">50.0</td>
+<td align="center">15.4</td>
+<td align="center">48.4</td>
+<td align="center">4.0</td>
+<td align="center">17.8</td>
+<td align="center">25.7</td>
+<td align="center">10.3</td>
+<td align="center">42.9</td>
+<td align="center" valign="top">20.8 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BK7/SF2</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP051950-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+</tbody>
+</table>
+<ul class="tableFooter">
+<li>Magnification</li>
+<li>Entrance Pupil Diameter: 11.9 mm; Design Wavelengths: 486.1 nm, 587.6 nm, 656.3 nm; FOV: 0°. RMS spot size is calculated for an on-axis point source, with object and image distance adjusted until the weighted sum of the spot size of each design wavelength is minimized. The magnification at this object/image conjugate does not necessarily match the listed value.</li>
+<li>"Left" and "Right" refer to the orientations of the lenses in the drawing found in the Reference Drawing (Ref. Dwg.) column.</li>
+<li>Click on <img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="More Info Icon" width="15" height="15" /> for plots and downloadable data of the transmission for the lens.</li>
+</ul>
+						</div>
+						
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	<div class="partnumbers" id="parts-3679"> <form name='PNform3679' id="PNform3679">
+				<table width='980' border="0" cellspacing="0" cellpadding="0" align="center">
+					<tr>
+						<td colspan="7"  align="right">
+							<strong> Based on your currency / country selection, your order will ship from Newton, New Jersey</strong>&nbsp;&nbsp; 
+						</td>
+					</tr>
+					
+						<tr><td colspan=7 height="5"></td></tr>
+						<tr><td colspan=7 height="1" bgcolor="990000"></td></tr>
+						<tr bgcolor="FFFFFF">
+							<td class="CSS2" width="30px" style="padding: 6px;"><strong>+1</strong></td>
+							<td class="CSS2" width="45px" style="padding: 6px;"><strong> Qty</strong></td>
+							
+								<td class="CSS2" align="center" width="40px" style="padding: 6px;"><strong> Docs</strong></td>
+							
+							<td class="CSS2" colspan="2" style="padding: 6px;"><strong> Part Number - Universal/Imperial </strong></td>
+							<td class="CSS2" width="80px" style="padding: 6px;"><strong>Price</strong></td>
+							<td class="CSS2" width="120px" style="padding: 6px;"><strong><a href="availships.cfm" title=" Availability and transit time between Thorlabs warehouses." onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 375, height:90, headingText: 'Available/Ships'} )" > Available / Ships</a></strong></td>
+						</tr>
+						<tr>
+							<td colspan=7 height="1" bgcolor="990000"></td>
+						</tr>
+					  	<script type="text/javascript">
+							$(function(){
+								$('.AltRow-3679').filter(':even').css({ background: '#f0f0f0' });
+							});
+					  	</script>
+						<tbody id="prodList-3679">
+							
+									<tr class="AltRow-3679" id="productID-100004365">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3679', '1', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[1]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3679);">
+															<input type="hidden" name="product_id[1]" value="100004365">
+															<input type="hidden" name="weight[1]" value="0.0868">
+															<input type="hidden" name="partNumber[1]" value="MAP051925-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP051925-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP051925-A'} )">
+															<img alt="MAP051925-A Support Documentation" title="MAP051925-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP051925-A">MAP051925-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004365">1:1.32 Matched Achr. Pair, f1=19 mm, f2=25 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$144.84 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3679" id="productID-100004367">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3679', '2', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[2]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3679);">
+															<input type="hidden" name="product_id[2]" value="100004367">
+															<input type="hidden" name="weight[2]" value="0.082">
+															<input type="hidden" name="partNumber[2]" value="MAP052550-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP052550-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP052550-A'} )">
+															<img alt="MAP052550-A Support Documentation" title="MAP052550-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP052550-A">MAP052550-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004367">1:2 Matched Achr. Pair, f1=25 mm, f2=50 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$144.84 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3679" id="productID-100004366">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3679', '3', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[3]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3679);">
+															<input type="hidden" name="product_id[3]" value="100004366">
+															<input type="hidden" name="weight[3]" value="0.1322">
+															<input type="hidden" name="partNumber[3]" value="MAP051950-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP051950-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP051950-A'} )">
+															<img alt="MAP051950-A Support Documentation" title="MAP051950-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP051950-A">MAP051950-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004366">1:2.63 Matched Achr. Pair, f1=19 mm, f2=50 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$144.84 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+							<tr>
+								<td colspan='7' align="left">
+									
+				  						<input type="hidden" name="GroupPage" value="GroupPage">
+										<input type="hidden" name="typ" value="">
+										<div id="Message-3679" class="Message"></div>
+										<button type="button" id="submitDiv3679" class="FPBTN btn btn-default btn-shadow btn-margin-top">
+											Add To Cart 
+										</button>
+									
+								</td>
+				  			</tr>
+						
+					</tbody>
+				</table>
+			<input type="hidden" name="itemCount" value="3"> 
+				<input type="hidden" name="userID" value="158068128490426">
+				<input type="hidden" name="area" value="">
+			
+			</form>
+		</div>
+
+				</div>
+			
+				<div id="SG-3680" class="SubGroup ">
+			
+		<div class="SubGroupHeader">
+			
+					<a href="#">
+						<img src="http://thorlabs.us/images/arrow_Vert.gif" class="vertArrow" border="0">
+					</a>
+				
+				<div class="SubGroupTitle" height="30" >
+					<a name="3680"></a>
+					<h3 id="sgTitle-3680" >SM1-Threaded, M = 1, Matched Achromatic Doublet Pairs</h3>
+					
+				</div>
+			
+			<div class="row SubGroupDescription">
+				
+				
+						<div id="sgDescription-3680"
+						class="  col-md-12">
+							<table class="SpecTable" cellspacing="0" width="100%">
+<thead> 
+<tr align="left" valign="top">
+<th id="th0541DFF00000" rowspan="2" width="80" align="left">Item #</th> <th id="th0541DFF00001" style="vertical-align: middle;" rowspan="2" align="center">M<sup>a</sup></th> <th id="th0541DFF00002" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>1</sub><br />(mm)</th> <th id="th0541DFF00003" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>2</sub><br />(mm)</th> <th id="th0541DFF00004" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b1</sub><br />(mm)</th> <th id="th0541DFF00005" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b2</sub><br />(mm)</th> <th id="th0541DFF00006" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">t<sub>c</sub><br />(mm)</th> <th id="th0541DFF00007" style="vertical-align: middle;" rowspan="2" align="center">Dia<br />(mm)</th> <th id="th0541DFF00008" style="vertical-align: middle;" rowspan="2" align="center">L<br />(mm)</th> <th id="th0541DFF00009" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>1</sub><br />(mm)</th> <th id="th0541DFF00010" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>2</sub><br />(mm)</th> <th id="th0541DFF00011" style="vertical-align: middle;" rowspan="2" align="center">RMS Spot<br />Size<sup>b</sup></th> <th id="th0541DFF00011" colspan="2" align="center" valign="bottom">Lens Material</th> <th style="vertical-align: middle;" rowspan="2" align="center"><span style="vertical-align: middle;">Theoretical<br />Transmission</span><sup>d</sup><span style="vertical-align: middle;"> </span></th><th style="vertical-align: middle;" rowspan="2" align="center">Ref.<br />Dwg.</th>
+</tr>
+<tr>
+<th align="center">Left<sup>c</sup> </th><th align="center">Right<sup>c</sup> </th>
+</tr>
+</thead> 
+<tbody>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP103030-A</strong></td>
+<td align="center">1:1</td>
+<td align="center">30.0</td>
+<td align="center">30.0</td>
+<td align="center">22.8</td>
+<td align="center">22.8</td>
+<td align="center">6.0</td>
+<td align="center">30.5</td>
+<td align="center">44.2</td>
+<td align="center">17.8</td>
+<td align="center">17.8</td>
+<td align="center" valign="top">70.7 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="middle"><a onclick="return infoIcon('MAP103030-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+<td rowspan="5" align="center" valign="middle"><a onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', captionText:'Please note the focal length is determined from the back principal plane, which does not necessarily line up with the edge of the lens.'})" href="images/TabImages/Achromatic_Doublet_Pair_DWG.gif"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="Achromatic Doublet Pair Drawing" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP104040-A</strong></td>
+<td align="center">1:1</td>
+<td align="center">40.0</td>
+<td align="center">40.0</td>
+<td align="center">32.8</td>
+<td align="center">32.8</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">38.7</td>
+<td align="center">28.0</td>
+<td align="center">28.0</td>
+<td align="center" valign="top">63.7 µm</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP104040-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP105050-A</strong></td>
+<td align="center">1:1</td>
+<td align="center">50.0</td>
+<td align="center">50.0</td>
+<td align="center">43.7</td>
+<td align="center">43.7</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">38.4</td>
+<td align="center">38.0</td>
+<td align="center">38.0</td>
+<td align="center" valign="top">21.2 µm</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP105050-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP107575-A</strong></td>
+<td align="center">1:1</td>
+<td align="center">75.0</td>
+<td align="center">75.0</td>
+<td align="center">70.4</td>
+<td align="center">70.4</td>
+<td align="center">6.2</td>
+<td align="center">30.5</td>
+<td align="center">35.3</td>
+<td align="center">65.3</td>
+<td align="center">65.4</td>
+<td align="center" valign="top">7.7 µm</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP107575-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP10100100-A</strong></td>
+<td align="center">1:1</td>
+<td align="center">100.0</td>
+<td align="center">100.0</td>
+<td align="center">97.4</td>
+<td align="center">97.2</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">27.6</td>
+<td align="center">92.0</td>
+<td align="center">92.0</td>
+<td align="center" valign="top">6.5 µm</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP10100100-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+</tbody>
+</table>
+<ul class="tableFooter">
+<li>Magnification</li>
+<li>Entrance Pupil Diameter: 22.9 mm; Design Wavelengths: 486.1 nm, 587.6 nm, 656.3 nm; FOV: 0°. RMS spot size is calculated for an on-axis point source, with object and image distance adjusted until the weighted sum of the spot size of each design wavelength is minimized. The magnification at this object/image conjugate does not necessarily match the listed value.</li>
+<li>"Left" and "Right" refer to the orientations of the lenses in the drawing found in the Reference Drawing (Ref. Dwg.) column.</li>
+<li>Click on <img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="More Info Icon" width="15" height="15" /> for plots and downloadable data of the transmission for the lens.</li>
+</ul>
+						</div>
+						
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	<div class="partnumbers" id="parts-3680"> <form name='PNform3680' id="PNform3680">
+				<table width='980' border="0" cellspacing="0" cellpadding="0" align="center">
+					<tr>
+						<td colspan="7"  align="right">
+							<strong> Based on your currency / country selection, your order will ship from Newton, New Jersey</strong>&nbsp;&nbsp; 
+						</td>
+					</tr>
+					
+						<tr><td colspan=7 height="5"></td></tr>
+						<tr><td colspan=7 height="1" bgcolor="990000"></td></tr>
+						<tr bgcolor="FFFFFF">
+							<td class="CSS2" width="30px" style="padding: 6px;"><strong>+1</strong></td>
+							<td class="CSS2" width="45px" style="padding: 6px;"><strong> Qty</strong></td>
+							
+								<td class="CSS2" align="center" width="40px" style="padding: 6px;"><strong> Docs</strong></td>
+							
+							<td class="CSS2" colspan="2" style="padding: 6px;"><strong> Part Number - Universal/Imperial </strong></td>
+							<td class="CSS2" width="80px" style="padding: 6px;"><strong>Price</strong></td>
+							<td class="CSS2" width="120px" style="padding: 6px;"><strong><a href="availships.cfm" title=" Availability and transit time between Thorlabs warehouses." onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 375, height:90, headingText: 'Available/Ships'} )" > Available / Ships</a></strong></td>
+						</tr>
+						<tr>
+							<td colspan=7 height="1" bgcolor="990000"></td>
+						</tr>
+					  	<script type="text/javascript">
+							$(function(){
+								$('.AltRow-3680').filter(':even').css({ background: '#f0f0f0' });
+							});
+					  	</script>
+						<tbody id="prodList-3680">
+							
+									<tr class="AltRow-3680" id="productID-100004370">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3680', '1', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[1]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3680);">
+															<input type="hidden" name="product_id[1]" value="100004370">
+															<input type="hidden" name="weight[1]" value="0.31">
+															<input type="hidden" name="partNumber[1]" value="MAP103030-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP103030-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103030-A'} )">
+															<img alt="MAP103030-A Support Documentation" title="MAP103030-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP103030-A">MAP103030-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004370">1:1 Matched Achr. Pair, f1=30 mm, f2=30 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3680" id="productID-100004375">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3680', '2', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[2]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3680);">
+															<input type="hidden" name="product_id[2]" value="100004375">
+															<input type="hidden" name="weight[2]" value="0.24">
+															<input type="hidden" name="partNumber[2]" value="MAP104040-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP104040-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP104040-A'} )">
+															<img alt="MAP104040-A Support Documentation" title="MAP104040-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP104040-A">MAP104040-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004375">1:1 Matched Achr. Pair, f1=40 mm, f2=40 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3680" id="productID-100004377">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3680', '3', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[3]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3680);">
+															<input type="hidden" name="product_id[3]" value="100004377">
+															<input type="hidden" name="weight[3]" value="0.224">
+															<input type="hidden" name="partNumber[3]" value="MAP105050-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP105050-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP105050-A'} )">
+															<img alt="MAP105050-A Support Documentation" title="MAP105050-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP105050-A">MAP105050-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004377">1:1 Matched Achr. Pair, f1=50 mm, f2=50 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3680" id="productID-100004380">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3680', '4', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[4]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3680);">
+															<input type="hidden" name="product_id[4]" value="100004380">
+															<input type="hidden" name="weight[4]" value="0.18">
+															<input type="hidden" name="partNumber[4]" value="MAP107575-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP107575-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP107575-A'} )">
+															<img alt="MAP107575-A Support Documentation" title="MAP107575-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP107575-A">MAP107575-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004380">1:1 Matched Achr. Pair, f1=75 mm, f2=75 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3680" id="productID-100004368">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3680', '5', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[5]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3680);">
+															<input type="hidden" name="product_id[5]" value="100004368">
+															<input type="hidden" name="weight[5]" value="0.16">
+															<input type="hidden" name="partNumber[5]" value="MAP10100100-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP10100100-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP10100100-A'} )">
+															<img alt="MAP10100100-A Support Documentation" title="MAP10100100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP10100100-A">MAP10100100-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004368">1:1 Matched Achr. Pair, f1=100 mm, f2=100 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+							<tr>
+								<td colspan='7' align="left">
+									
+				  						<input type="hidden" name="GroupPage" value="GroupPage">
+										<input type="hidden" name="typ" value="">
+										<div id="Message-3680" class="Message"></div>
+										<button type="button" id="submitDiv3680" class="FPBTN btn btn-default btn-shadow btn-margin-top">
+											Add To Cart 
+										</button>
+									
+								</td>
+				  			</tr>
+						
+					</tbody>
+				</table>
+			<input type="hidden" name="itemCount" value="5"> 
+				<input type="hidden" name="userID" value="158068128490426">
+				<input type="hidden" name="area" value="">
+			
+			</form>
+		</div>
+
+				</div>
+			
+				<div id="SG-3681" class="SubGroup ">
+			
+		<div class="SubGroupHeader">
+			
+					<a href="#">
+						<img src="http://thorlabs.us/images/arrow_Vert.gif" class="vertArrow" border="0">
+					</a>
+				
+				<div class="SubGroupTitle" height="30" >
+					<a name="3681"></a>
+					<h3 id="sgTitle-3681" >SM1-Threaded, M > 1, Matched Achromatic Doublet Pairs</h3>
+					
+				</div>
+			
+			<div class="row SubGroupDescription">
+				
+				
+						<div id="sgDescription-3681"
+						class="  col-md-12">
+							<table class="SpecTable" cellspacing="0" width="100%">
+<thead> 
+<tr align="left" valign="top">
+<th id="th0541DFF00000" rowspan="2" width="80" align="left">Item #</th> <th id="th0541DFF00001" style="vertical-align: middle;" rowspan="2" align="center">M<sup>a</sup></th> <th id="th0541DFF00002" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>1</sub><br />(mm)</th> <th id="th0541DFF00003" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>2</sub><br />(mm)</th> <th id="th0541DFF00004" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b1</sub><br />(mm)</th> <th id="th0541DFF00005" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">f<sub>b2</sub><br />(mm)</th> <th id="th0541DFF00006" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">t<sub>c</sub><br />(mm)</th> <th id="th0541DFF00007" style="vertical-align: middle;" rowspan="2" align="center">Dia<br />(mm)</th> <th id="th0541DFF00008" style="vertical-align: middle;" rowspan="2" align="center">L<br />(mm)</th> <th id="th0541DFF00009" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>1</sub><br />(mm)</th> <th id="th0541DFF00010" style="vertical-align: middle;" rowspan="2" align="center" valign="bottom">WD<sub>2</sub><br />(mm)</th> <th id="th0541DFF00011" style="vertical-align: middle;" rowspan="2" align="center">RMS Spot<br />Size<sup>b</sup></th> <th id="th0541DFF00011" colspan="2" align="center" valign="bottom">Lens Material</th> <th style="vertical-align: middle;" rowspan="2" align="center"><span style="vertical-align: middle;">Theoretical<br />Transmission</span><sup>d</sup><span style="vertical-align: middle;"> </span></th><th style="vertical-align: middle;" rowspan="2" align="center">Ref.<br />Dwg.</th>
+</tr>
+<tr>
+<th align="center">Left<sup>c</sup> </th><th align="center">Right<sup>c</sup> </th>
+</tr>
+</thead> 
+<tbody>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP103040-A</strong></td>
+<td align="center">1:1.33</td>
+<td align="center">30.0</td>
+<td align="center">40.0</td>
+<td align="center">21.7</td>
+<td align="center">34.5</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">40.1</td>
+<td align="center">16.6</td>
+<td align="center">29.9</td>
+<td align="center" valign="top">74.3 µm</td>
+<td align="center" valign="top">N-BAF10/SF6HT</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="middle"><a onclick="return infoIcon('MAP103040-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+<td rowspan="8" align="center" valign="middle"><a onclick="return hs.expand(this, {wrapperClassName: 'highslide-no-border', captionText:'Please note the focal length is determined from the back principal plane, which does not necessarily line up with the edge of the lens.'})" href="images/TabImages/Achromatic_Doublet_Pair_DWG.gif"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="Achromatic Doublet Pair Drawing" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP105075-A</strong></td>
+<td align="center">1:1.5</td>
+<td align="center">50.0</td>
+<td align="center">75.0</td>
+<td align="center">43.2</td>
+<td align="center">70.8</td>
+<td align="center">6.2</td>
+<td align="center">30.5</td>
+<td align="center">37.7</td>
+<td align="center">37.7</td>
+<td align="center">65.8</td>
+<td align="center" valign="top">17.9 µm</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP105075-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP103050-A</strong></td>
+<td align="center">1:1.67</td>
+<td align="center">30.0</td>
+<td align="center">50.0</td>
+<td align="center">22.3</td>
+<td align="center">44.4</td>
+<td align="center">5.6</td>
+<td align="center">30.5</td>
+<td align="center">41.8</td>
+<td align="center">16.7</td>
+<td align="center">39.4</td>
+<td align="center" valign="top">68.0 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP103050-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP1050100-A</strong></td>
+<td align="center">1:2</td>
+<td align="center">50.0</td>
+<td align="center">100.0</td>
+<td align="center">43.2</td>
+<td align="center">98.0</td>
+<td align="center">3.8</td>
+<td align="center">30.5</td>
+<td align="center">32.6</td>
+<td align="center">37.7</td>
+<td align="center">92.7</td>
+<td align="center" valign="top">23.4 µm</td>
+<td align="center" valign="top">N-BAF10/SF10</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP1050100-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP1075150-A</strong></td>
+<td align="center">1:2</td>
+<td align="center">75.0</td>
+<td align="center">150.0</td>
+<td align="center">70.2</td>
+<td align="center">146.6</td>
+<td align="center">2.9</td>
+<td align="center">30.5</td>
+<td align="center">30.9</td>
+<td align="center">65.1</td>
+<td align="center">141.2</td>
+<td align="center" valign="top">9.1 µm</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP1075150-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP103075-A</strong></td>
+<td align="center">1:2.5</td>
+<td align="center">30.0</td>
+<td align="center">75.0</td>
+<td align="center">21.7</td>
+<td align="center">73.8</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">37.9</td>
+<td align="center">16.7</td>
+<td align="center">68.5</td>
+<td align="center" valign="top">88.6 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP103075-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP1040100-A</strong></td>
+<td align="center">1:2.5</td>
+<td align="center">40.0</td>
+<td align="center">100.0</td>
+<td align="center">32.9</td>
+<td align="center">97.1</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">33.2</td>
+<td align="center">28.2</td>
+<td align="center">91.6</td>
+<td align="center" valign="top">85.1 µm</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP1040100-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left"><strong>MAP1030100-A</strong></td>
+<td align="center">1:3.33</td>
+<td align="center">30.0</td>
+<td align="center">100.0</td>
+<td align="center">21.8</td>
+<td align="center">97.2</td>
+<td align="center">4.0</td>
+<td align="center">30.5</td>
+<td align="center">35.0</td>
+<td align="center">16.7</td>
+<td align="center">91.7</td>
+<td align="center" valign="top">114.7 µm</td>
+<td align="center" valign="top">N-BAF10/N-SF6HT</td>
+<td align="center" valign="top">N-BK7/SF5</td>
+<td align="center" valign="top"><a onclick="return infoIcon('MAP1030100-A');" href="#"><img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="info" width="15" height="15" /></a></td>
+</tr>
+</tbody>
+</table>
+<ul class="tableFooter">
+<li>Magnification</li>
+<li>Entrance Pupil Diameter: 22.9 mm; Design Wavelengths: 486.1 nm, 587.6 nm, 656.3 nm; FOV: 0°. RMS spot size is calculated for an on-axis point source, with object and image distance adjusted until the weighted sum of the spot size of each design wavelength is minimized. The magnification at this object/image conjugate does not necessarily match the listed value.</li>
+<li>"Left" and "Right" refer to the orientations of the lenses in the drawing found in the Reference Drawing (Ref. Dwg.) column.</li>
+<li>Click on <img src="http://thorlabs.us/images/TabImages/info_icon.png" border="0" alt="More Info Icon" width="15" height="15" /> for plots and downloadable data of the transmission for the lens.</li>
+</ul>
+						</div>
+						
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	<div class="partnumbers" id="parts-3681"> <form name='PNform3681' id="PNform3681">
+				<table width='980' border="0" cellspacing="0" cellpadding="0" align="center">
+					<tr>
+						<td colspan="7"  align="right">
+							<strong> Based on your currency / country selection, your order will ship from Newton, New Jersey</strong>&nbsp;&nbsp; 
+						</td>
+					</tr>
+					
+						<tr><td colspan=7 height="5"></td></tr>
+						<tr><td colspan=7 height="1" bgcolor="990000"></td></tr>
+						<tr bgcolor="FFFFFF">
+							<td class="CSS2" width="30px" style="padding: 6px;"><strong>+1</strong></td>
+							<td class="CSS2" width="45px" style="padding: 6px;"><strong> Qty</strong></td>
+							
+								<td class="CSS2" align="center" width="40px" style="padding: 6px;"><strong> Docs</strong></td>
+							
+							<td class="CSS2" colspan="2" style="padding: 6px;"><strong> Part Number - Universal/Imperial </strong></td>
+							<td class="CSS2" width="80px" style="padding: 6px;"><strong>Price</strong></td>
+							<td class="CSS2" width="120px" style="padding: 6px;"><strong><a href="availships.cfm" title=" Availability and transit time between Thorlabs warehouses." onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 375, height:90, headingText: 'Available/Ships'} )" > Available / Ships</a></strong></td>
+						</tr>
+						<tr>
+							<td colspan=7 height="1" bgcolor="990000"></td>
+						</tr>
+					  	<script type="text/javascript">
+							$(function(){
+								$('.AltRow-3681').filter(':even').css({ background: '#f0f0f0' });
+							});
+					  	</script>
+						<tbody id="prodList-3681">
+							
+									<tr class="AltRow-3681" id="productID-100004371">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '1', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[1]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[1]" value="100004371">
+															<input type="hidden" name="weight[1]" value="0.278">
+															<input type="hidden" name="partNumber[1]" value="MAP103040-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP103040-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103040-A'} )">
+															<img alt="MAP103040-A Support Documentation" title="MAP103040-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP103040-A">MAP103040-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004371">1:1.33 Matched Achr. Pair, f1=30 mm, f2=40 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004378">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '2', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[2]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[2]" value="100004378">
+															<input type="hidden" name="weight[2]" value="0.198">
+															<input type="hidden" name="partNumber[2]" value="MAP105075-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP105075-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP105075-A'} )">
+															<img alt="MAP105075-A Support Documentation" title="MAP105075-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP105075-A">MAP105075-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004378">1:1.5 Matched Achr. Pair, f1=50 mm, f2=75 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004372">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '3', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[3]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[3]" value="100004372">
+															<input type="hidden" name="weight[3]" value="0.289">
+															<input type="hidden" name="partNumber[3]" value="MAP103050-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP103050-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103050-A'} )">
+															<img alt="MAP103050-A Support Documentation" title="MAP103050-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP103050-A">MAP103050-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004372">1:1.67 Matched Achr. Pair, f1=30 mm, f2=50 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004376">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '4', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[4]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[4]" value="100004376">
+															<input type="hidden" name="weight[4]" value="0.194">
+															<input type="hidden" name="partNumber[4]" value="MAP1050100-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP1050100-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1050100-A'} )">
+															<img alt="MAP1050100-A Support Documentation" title="MAP1050100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP1050100-A">MAP1050100-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004376">1:2 Matched Achr. Pair, f1=50 mm, f2=100 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004379">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '5', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[5]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[5]" value="100004379">
+															<input type="hidden" name="weight[5]" value="0.162">
+															<input type="hidden" name="partNumber[5]" value="MAP1075150-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP1075150-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1075150-A'} )">
+															<img alt="MAP1075150-A Support Documentation" title="MAP1075150-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP1075150-A">MAP1075150-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004379">1:2 Matched Achr. Pair, f1=75 mm, f2=150 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004373">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '6', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[6]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[6]" value="100004373">
+															<input type="hidden" name="weight[6]" value="0.2112">
+															<input type="hidden" name="partNumber[6]" value="MAP103075-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP103075-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP103075-A'} )">
+															<img alt="MAP103075-A Support Documentation" title="MAP103075-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP103075-A">MAP103075-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004373">1:2.5 Matched Achr. Pair, f1=30 mm, f2=75 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004374">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '7', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[7]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[7]" value="100004374">
+															<input type="hidden" name="weight[7]" value="0.4073">
+															<input type="hidden" name="partNumber[7]" value="MAP1040100-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP1040100-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1040100-A'} )">
+															<img alt="MAP1040100-A Support Documentation" title="MAP1040100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP1040100-A">MAP1040100-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004374">1:2.5 Matched Achr. Pair, f1=40 mm, f2=100 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+									<tr class="AltRow-3681" id="productID-100004369">
+										
+												<td style="padding-top:3px;padding-right:2px;">
+													
+															<a href="#" onclick="return plusOne('3681', '8', event);" title="Add One">
+																<img src="Images/AddToBasket.gif" border="0">
+															</a>
+														
+												</td>
+											
+											<td>
+												
+															<input type="text" name="QTY[8]" autocomplete="off" onChange="" value="" class="inputbox" size="3" onClick="this.select();" onblur="changeBtn(this,3681);">
+															<input type="hidden" name="product_id[8]" value="100004369">
+															<input type="hidden" name="weight[8]" value="0.2">
+															<input type="hidden" name="partNumber[8]" value="MAP1030100-A">					
+														
+											</td>
+										
+													<td align="center">
+														<a href="_SD-Popup.cfm?partnumber=MAP1030100-A" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 300, height:320, headingText: 'MAP1030100-A'} )">
+															<img alt="MAP1030100-A Support Documentation" title="MAP1030100-A Support Documentation" border="0" height="15" src="images/Document_icon15px.png" width="15" align="absmiddle" />
+														</a>
+													</td>
+												
+										<td colspan="2" class="CSS4">
+											<table>
+												<tr>
+													<td class="prodNumber partNumLT13">
+														<a href="thorproduct.cfm?partnumber=MAP1030100-A">MAP1030100-A</a>
+													</td>
+													<td class="prodDesc">
+														
+														<span id="prodTitle-100004369">1:3.33 Matched Achr. Pair, f1=30 mm, f2=100 mm, BBAR 400-700 nm</span>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="CSS4" align="right" style="padding-right: 15px;">
+											$171.36 
+										</td>
+										<td class="CSS4 AvailableShips">
+											
+											<table width="110" border="0" cellspacing="0" cellpadding="0">
+												<tr align="center">
+													
+														<td width="45">
+															<img src="../../Images/BlackCheckMark.gif">
+														</td>
+														<td>
+													Today 
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									
+							<tr>
+								<td colspan='7' align="left">
+									
+				  						<input type="hidden" name="GroupPage" value="GroupPage">
+										<input type="hidden" name="typ" value="">
+										<div id="Message-3681" class="Message"></div>
+										<button type="button" id="submitDiv3681" class="FPBTN btn btn-default btn-shadow btn-margin-top">
+											Add To Cart 
+										</button>
+									
+								</td>
+				  			</tr>
+						
+					</tbody>
+				</table>
+			<input type="hidden" name="itemCount" value="8"> 
+				<input type="hidden" name="userID" value="158068128490426">
+				<input type="hidden" name="area" value="">
+			
+			</form>
+		</div>
+
+				</div>
+			
+	</div>
+	
+<div id="ajaxReturn"></div>
+<script type="text/javascript" src="http://thorlabs.us/js/jquery.query-loop.js"></script>
+<script>
+$(document).ready(function(){
+
+	$(".RedSpecTable tr:nth-child(even)").addClass("evenRow");
+	$(".RedSpecTable tr td:first-child").addClass("firstCell");
+	$(".RedSpecTable tr th:first-child").addClass("firstCell");
+
+	$('[class*=FPBTN]').click(function(event) {
+		event.preventDefault();
+		event.stopPropagation();
+	});
+
+	/*
+	 * function prototype code modified from here:
+	 * http://api.jquery.com/serializeArray/#comment-130159436
+	 */
+	(function( $ ){
+		$.fn.serializeJSON=function() {
+			var json = [];
+			jQuery.map($(this).serializeArray(), function(n, i){
+			json.push('"' + escape(n['name']) + '":"' + escape(n['value']) + '"');
+			});
+			return '{' + json.join(',') + '}';
+		};
+	})( jQuery );
+
+  	$('[class*=FPBTN]').click(add2Basket);
+ });
+
+ function add2Basket(event, poid)
+ {
+  	var plusOneID = poid;
+
+ 	// CheckCustLength();
+ 	if (!Date.now)
+  	{
+		  Date.now = function()
+		{
+	    	return new Date().valueOf();
+		}
+	}
+	var timestamp = Date.now();
+
+ 	var submitFile = "../cfc/cart.cfc?method=AddFormToCart&returnFormat=JSON&_"+timestamp;
+ 	// get form name
+ 	var thisform = ((event.target || event.srcElement).id || plusOneID);
+ 	thisID = thisform.replace("submitDiv","");
+ 	thisform=thisform.replace("submitDiv","PNform");
+ 	
+ 	// disable any submit events
+	$("form#"+thisform).submit(function(event) {
+		event.preventDefault();
+	});
+
+	//Check if QTY is Blank or 0
+	var qtyCheck = 0;
+	$('#PNform'+thisID + ' input[name^="QTY["], input[name^="QTYCust["]').each(function(){
+		if($(this).val() != "" && $(this).val() > 0){
+			qtyCheck += 1;
+		}
+	});
+
+	if (qtyCheck == 0){
+		return;
+	}
+
+
+	// put form data in JSON format
+	var MyData = $("form#"+thisform).serializeJSON();
+	var isInfoIcon = (MyData.indexOf("InfoIcon") !== -1)? true : false;
+	// make CFC call
+	$.ajax({
+	   type: "POST",
+	   url: submitFile,
+	   data: {formJSON: MyData, zerostockheader: ""},
+	   success: function(resp) {
+		   resp = JSON.parse(resp);
+		   var items = [];
+		   if (!Date.now)
+	   	   {
+				  Date.now = function()
+				{
+			    	return new Date().valueOf();
+				}
+			}
+			var timestamp = Date.now();
+
+			   $.post("../AJAX/getSubGroup.cfm?objectgroup_id="+thisID+"&webroot=http://thorlabs.us&rootDrive=C&userCountry=US&ispreview=no&dataareaID=THO&userPricing=158068128490426&nodeid=N7W&applydiscount=1&CFID=1580681&CFTOKEN=28490426&_"+Date.now(),function(data){
+				  if(!isInfoIcon && thisID != 7181 && thisID != 789)
+				  {
+				   $("#parts-"+thisID).html(data);
+				  }
+			   	// Display Message:
+				if (resp.DATA.length > 0)
+				{
+					$.coldfusion.eachRow(resp, function( rowIndex )
+					{
+							items.push(this.PARTNUM + " : " + this.SERIALNUM + " " + this.PRODUCTTITLE + " is unavailable for purchase");
+					});
+
+					//ERROR MESSAGE.
+
+					$("#Message-"+thisID).html("<P>"+items.join( "<br/>" )+ "</P>");
+					$("#Message-"+thisID).removeClass('successMessage');
+					$("#Message-"+thisID).addClass('errorMessage');
+					$("#Message-"+thisID).show();
+					setTimeout('$("#Message-"+thisID).hide();', 5000)
+				}
+				else
+				{
+				//ITEMS ADDED.
+
+					$("#Message-"+thisID).html("<p>Items Added To Cart!</p>");
+					$("#Message-"+thisID).removeClass('errorMessage');
+					$("#Message-"+thisID).addClass('successMessage');
+					$("#Message-"+thisID).show();
+					setTimeout('$("#Message-"+thisID).hide();', 5000)
+				}
+
+				// now get the new Cart!
+				if(!isInfoIcon)
+			  	{
+					$("#submitDiv"+thisID).click(add2Basket);
+			  	}
+				$.get("../AJAX/getCartMini.cfm?applyDiscount=1&SECUREBASKET=http://thorlabs.us/cart/basket&_"+timestamp,function(data)
+				{
+					closeLayer('currView');
+					closeLayer('langView');
+
+					$('div#cart_Container').html(data);
+
+					openLayer('CartView');
+				});
+			});
+	   }
+	});
+}
+
+function Toggle(ID)
+{
+
+	if($(ID).is(":visible"))
+	{
+		$(ID).hide();
+	}
+	else
+	{
+		$(ID).show();
+	}
+
+	return false;
+}
+
+function plusOne(sgid, index, event)
+{
+
+        $('#PNform'+sgid+' input[name="QTY['+index+']"]').val('1');
+        $('#PNform'+sgid+' input[name^="QTY"]:not(input[name="QTY['+index+']"])').val('0');
+
+		/*
+        if($.browser.msie)
+        {
+   	        event.srcElement.id = "submitDiv"+sgid;
+        }
+        else
+        {
+        	event.target.id = "submitDiv"+sgid;
+        }
+        */
+
+
+        add2Basket(event, "submitDiv"+sgid);
+
+        return false;
+}
+
+function changeQty(_fieldName, _formName)
+{
+	var myVal = $("form#"+_formName+" input[name='"+_fieldName+"']").val();
+	if (myVal == '0')
+	{
+		$("form#"+_formName+" input[name='"+_fieldName+"']").attr("value","1").change();
+	}
+	else
+	{
+		$("form#"+_formName+" input[name='"+_fieldName+"']").attr("value","0").change();
+	}
+}
+
+function highlightSubmit(key){
+	el=document.getElementById(key);
+	el.className = "FPSubmitActive";
+}
+
+function unhighlightSubmit(key){
+	el=document.getElementById(key);
+	el.className = "FPSubmit";
+}
+
+
+function toggle_SpecTable(tbid,lnkid)
+{
+  if(document.all){document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "block" ? "none" : "block";}
+  else{document.getElementById(tbid).style.display = document.getElementById(tbid).style.display == "table" ? "none" : "table";}
+  document.getElementById(lnkid).value = document.getElementById(lnkid).value == "Less [-]" ? "More [+]" : "Less [-]";
+}
+
+function reloadAnimation(imgID){
+	var timestamp = new Date().getTime();
+	var animatedImage = new Image();
+	animatedImage.src = $('img#'+imgID+'').attr('src');
+	animatedImage.src = animatedImage.src +'?'+timestamp
+	$('img#'+imgID+'').attr('src',animatedImage.src);
+}
+
+function printCard(partNumber)
+{
+	$("#printFrame").attr('src', "/_productCards.cfm?partnumber="+partNumber);
+	return false;
+}
+
+var Hide = function(){return false;};
+var Show = function(){return false;};
+function printVisCard(OBJID)
+{
+	$("#printFrameVisNav").attr('src', "/_visNavCards.cfm?ObjectGroupId="+OBJID);
+	Show = function()
+	{
+		$('#pf').show();
+		$('#wait').hide();
+	};
+	Hide = function()
+	{
+		$('#pf').hide();
+		$('#wait').show();
+	};
+
+	Hide();
+	setTimeout('Show();', 30000);
+	return false;
+}
+
+
+//Usage: infoIcon('L488P060MLD');
+function infoIcon(PRTNUM)
+{
+	var e;
+	e = window.event;
+	var mode = $("#viewSelect option:selected").val();
+
+	if(mode && mode == "Edit")
+	{
+		
+			return false;
+	
+	}
+	else
+	{
+				
+		var posx = 0;
+		var posy = 0;
+		if (!e)
+		{
+				posx += window.innerWidth/4;
+			posy += window.scrollY+window.innerHeight/4;	
+		}
+		else
+		{
+		if (e.pageX || e.pageY) 	
+			{
+				posx = e.pageX;
+				posy = e.pageY;
+			}
+			else if (e.clientX || e.clientY) 	{
+				posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+				posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+			}
+		}
+		posx += 15;
+		posy -= 80;
+	
+	
+		//$("#modal").remove();
+		var Dialog = 0;
+	if (!Date.now) { Date.now = function now() { return +(new Date); }; } 
+	
+		var ts = Date.now();
+	
+		$.ajax({
+			url: '_infotab.cfm',
+			type: 'get',
+			cache: false,
+			dataType: 'html',
+			data: {PartNumber:PRTNUM},
+			//async: false,
+			success: function(x, textStatus, jqXHR)
+			{
+				var ID = "modal"+ts
+				Dialog=$('body').append("<div id='"+ID+"'></div>");
+					$("#"+ID).html(x);
+		
+					$("#"+ID).css({position:"absolute",top:posy+"px",left:posx+"px"});
+					$("#"+ID+" a[role='close']").click(function(){
+						$("#"+ID).remove();						
+						return false;							
+					});
+					$("#"+ID).draggable({handle: "div#title"});
+					$("#"+ID+" #title").css({cursor:'move'});
+					//$("#"+ID+" #tabs").tabs();
+								
+					//Toggle Event
+					
+					$("#"+ID+" a[role='front']").data("toggle", "1");
+	
+					$("#"+ID+" a[role='front']").click(function(){
+						if($(this).data("toggle") == 1 || $(this).data("toggle") === undefined)
+						{
+								$("a[role='front']").each(function(){
+															
+							 		if($(this).parent().parent().css("zIndex") == 4000)
+							 		{
+										$(this).parent().parent().css("zIndex", "3000");						 								 		
+							 		}
+							 		else
+							 		{
+										$(this).parent().parent().css("zIndex", "3000");						 								 		
+							 		}
+									
+									$("span.ui-icon", this).each(function(){
+										$(this).removeClass("ui-icon-circle-minus").removeClass("ui-icon-circle-plus").addClass("ui-icon-circle-plus");
+									});
+									$(this).data("toggle", "1");
+								});	
+								
+								$(this).parent().parent().css("zIndex", "4000");
+								$("span.ui-icon", this).removeClass("ui-icon-circle-plus")
+								$("span.ui-icon", this).addClass("ui-icon-circle-minus");
+							$(this).data("toggle", "2");
+						}
+						else
+						{
+							$("a[role='front']").each(function(){
+								 
+								$(this).parent().parent().css("zIndex", "3000");
+								
+								$("span.ui-icon", this).each(function(){
+									$(this).removeClass("ui-icon-circle-minus").removeClass("ui-icon-circle-plus").addClass("ui-icon-circle-plus");
+								});
+								$(this).data("toggle", "1");
+							});
+							
+							$(this).parent().parent().css("zIndex", "2000");
+							$("span.ui-icon", this).removeClass("ui-icon-circle-minus")
+							$("span.ui-icon", this).addClass("ui-icon-circle-plus");
+							$(this).data("toggle", "1");	
+						}
+						return false;
+					});
+					
+				},
+				error: function(jqXHR, textStatus, errorThrown)		
+				{
+					return false;
+				}
+		});
+	}
+
+	return false;
+}
+
+function changeBtn(x,SGID){
+	var zeroCounter = 0;
+	var qtyValue = x.value.replace(/\D+/,'');
+
+	if(qtyValue == '' || isNaN(parseInt(qtyValue))){
+		x.value = 0;
+	} else {
+		x.value = qtyValue;
+		if($('#submitDiv'+SGID).hasClass('btn-default')){
+			$('#submitDiv'+SGID).removeClass('btn-default').addClass('btn-addtocart');
+		}
+	}
+	$('#PNform'+SGID + ' input[name^="QTY["], input[name^="QTYCust["]').each(function(){
+		if($(this).val() != 0){
+			zeroCounter += 1;
+		}
+	});
+	if(zeroCounter ==0){
+		$('#submitDiv'+SGID).removeClass('btn-addtocart').addClass('btn-default');
+	}
+}
+
+$(document).on("click",".productDetails",function(){
+	var productID = $(this).data("productid"),
+		partNumber = $(this).data("partnumber");
+		
+	var dispHTML = '<div id="productPreview" title="'+partNumber+'">';
+				
+	$.ajax({
+		type:"GET",
+		url:"/cfc/familyPage/SubGroup.cfc?method=getCEProductInfo&returnformat=JSON&queryformat=column",
+		data:{productID:productID},
+		async:false,
+		success:function(resp){
+			resp = resp.replace('//','');
+			resp = JSON.parse(resp);
+			
+			var xlimage = resp.DATA.STDIMAGE[0];
+			xlimage = xlimage.replace("-std", "-xl");
+			
+			var threading = resp.DATA.METRICPARTNUMBER[0].toString(),
+				threadingText = (threading === "Universal" ? threading : (threading === "Yes"? "Metric" : "Imperial"));
+			
+			
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">Product Title:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.PRODUCTTITLE[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">DocLog:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.DOCLOG[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright"><a href="/images/Small/'+resp.DATA.SMIMAGE[0]+'" id="smimgpath" class="highslide" onclick="return hs.expand(this)">Small Image</a>:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.SMIMAGE[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright"><a href="/images/Standard/'+resp.DATA.STDIMAGE[0]+'" id="stdimgpath" class="highslide" onclick="return hs.expand(this)">Standard Image:</a></div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.STDIMAGE[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright"><a href="/images/Large/'+resp.DATA.LRGIMAGE[0]+'" id="lrgimgpath" class="highslide" onclick="return hs.expand(this)">Large Image</a>:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.LRGIMAGE[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright"><a href="/images/xlarge/'+xlimage+'" id="xlrgimgpath" class="highslide" onclick="return hs.expand(this)">XLarge Image</a>:</div><div class="col-sm-7 productDetailsSpace">'+xlimage+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">Threading:</div><div class="col-sm-7 productDetailsSpace">'+threadingText+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">Is Special:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.ONSPECIAL[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">Product Description:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.PRODUCTDESCRIPTION[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">Keywords:</div><div class="col-sm-7 productDetailsSpace">'+resp.DATA.KEYWORDS[0]+'</div></div>';
+			dispHTML += '<div class="row"><div class="col-sm-3 formright">Google Description:</div><div class="col-sm-7 productDetailsSpace"> '+resp.DATA.EXTERNALDESC[0]+'</div></div>';
+		}
+	});
+	dispHTML += '</div>';
+	
+	$("#productDetails-"+productID).html(dispHTML);
+	$("#productPreview").dialog({
+		width:550,
+		buttons:[{
+			text:"Close",
+			click:function(){
+				$(this).dialog("destroy").remove();
+			}
+		}]	
+	});
+});
+</script>
+
+
+<div style="text-align:center;margin-top:10px;">
+	
+
+<div class="navbar SubGroup">
+	<div class="SubGroupTitle"><strong>Additional Achromatic Doublets and Triplets</strong></div>
+	<table width="100%" border='0' style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;" cellpadding = 2 cellspacing = 2>
+		<tr>
+
+
+			
+						<td valign="top" width='25%'>
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=120 " style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 400 - 700 nm Unmounted Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=2696" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 400 - 700 nm Mounted Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+					 	<img src ="http://thorlabs.us/images/tabImages/arrow.gif">
+					400 - 700 nm Achromatic<br/>Doublet Pairs 
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=6083" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 350 - 700 nm Air-Spaced Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=259 " style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 650 - 1050 nm Unmounted Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=3647" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 650 - 1050 nm Mounted Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+						</td><td valign="top"width='25%'>
+						
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=4718" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 650 - 1050 nm Achromatic Doublet Pairs 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=3471" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 650 - 1050 nm Air-Spaced Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=899 " style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 1050 - 1620 nm Unmounted Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=4066" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 1050 - 1620 nm Mounted Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=5428" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 3 - 5 &micro;m Air-Spaced<br/>Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=5429" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 8 - 12 &micro;m Air-Spaced Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+						</td><td valign="top"width='25%'>
+						
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=6802" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 240 - 410 nm Air-Spaced Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=5370" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 Steinheil Achromatic Triplets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=5368" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 Hastings Achromatic Triplets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=5528" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 Cylindrical Achromatic Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="newgrouppage9.cfm?objectgroup_id=1125" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 Achromatic Doublets Kits 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+				
+				<li style="margin:0;height:17px;list-style:none;margin:0;padding:8px\9;">
+					
+
+					 <a href="navigation.cfm?guide_id=2231" style="font-size:10px; font-family:Verdana, Arial, Helvetica, sans-serif;">
+					 Air-Spaced Doublets 
+						</a>
+
+					
+				</li>
+				<br>
+				
+					
+						</td>
+					
+		</tr>
+	</table>
+
+</div>
+</div>
+
+
+			
+			
+			
+			
+			
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" class="greyBG">
+			
+			
+			
+			
+			
+			<div style="background-color:white; margin-left:auto; margin-right:auto;padding-top:10px;">
+			<table align="center" style="margin-left:auto; margin-right:auto;">
+				<tr>
+					<td height="14" colspan="3" align="center" valign="middle"><img src="../../images/newhp/bottomGradient.png" /></td>
+				</tr>
+					<td  colspan="3" align="center" valign="top">
+						
+								<a href="http://thorlabs.us/login.cfm?lc=login" id="FooterNEWLINK" alt=" Log In" title=" Log In"> Log In</a>
+							
+							&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://thorlabs.us/profiles/mythorlabs.cfm" id="FooterNEWLINK" alt=" My Account" title=" My Account"> My Account</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="http://thorlabs.us/locations.cfm" id="FooterNEWLINK" alt=" Contact Us" title=" Contact Us"> Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="http://thorlabs.us/privacy.cfm" id="FooterNEWLINK" alt=" Privacy Policy" title=" Privacy Policy"> Privacy Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="http://thorlabs.us/index.cfm" id="FooterNEWLINK" alt=" Home" title=" Home"> Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="http://thorlabs.us/SiteMap.cfm" id="FooterNEWLINK" alt=" Site Index" title=" Site Index"> Site Index</a>
+					</td>
+				</tr>
+				
+					<tr>
+						<td colspan="3" align="center" >
+							Regional Websites:  <a href="http://www.thorlabs.com" rel="nofollow">East Coast US US</a> | <a href="http://www.thorlabs.de" rel="nofollow">Europe</a> | <a href="http://www.thorlabs.hk" rel="nofollow">Asia</a> | <a href="http://www.thorlabschina.cn" >China</a> | <a href="http://www.thorlabs.co.jp" rel="nofollow">Japan</a>
+						</td>
+					</tr>
+				
+				<tr>
+					<td colspan="3" align="center" valign="middle" class="footertextGray" height="60"> Copyright 1999-2014 Thorlabs, Inc. 
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="3" align="center" valign="top" class="footertextGray2" height="60">
+						
+						
+						
+						Sales: 1-973-579-7227<br> Technical Support: 1-973-300-3000 
+						
+						
+						
+					</td>
+				</tr>
+				
+			</table>
+			</div>
+			
+			
+			
+			
+			
+			
+		</td>
+	</tr>
+</table>
+
+<span id="display_here"></span>
+
+<div id="logoDownload" title="Downloadable Logo" >
+	<div style="margin-left: 5px;">
+		<br>
+		<br>
+		High Quality Thorlabs Logo 1000px:
+		<a href="http://thorlabs.us/logoDownload.cfm" border = 0>
+			Save this Image
+		</a>
+		<br>
+		<br>
+	</div>
+</div>
+<script type="text/javascript">
+$().ready(function(){
+	$('div#logoDownload').hide();
+	$('#thorlabslogo').bind("contextmenu",function(e){
+		$('div#logoDownload').dialog({
+		   	modal: true,
+		    draggable: true,
+		    resizable: false,
+		    position: ['center', 'top'],
+		    show: 'blind',
+		    hide: 'blind',
+		    width: 400,
+		    dialogClass: 'ui-dialog-osx',
+		    buttons: {
+			"Close": function() {
+				$(this).dialog("close");
+			 }}
+	 	});
+    	return false;
+    });
+});
+</script>
+
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-3578926-1");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+	</script>
+
+		<!-- BEGIN LivePerson Monitor. -->
+		
+		<script type='text/javascript' charset='UTF-8' src='https://server.iad.liveperson.net/hc/75854940/?cmd=mTagRepstate&site=75854940&buttonID=22&divID=lpButDivID-1260522405994&bt=3&c=1'></script>
+		<!-- END LivePerson Monitor. -->
+
+</body>
+</html> 

@@ -1,5 +1,5 @@
 function lens = lb1779
-% ZEMAX/THORLABS/ZMX/LB1779-A.ZMX - LB1779 Bi-Convex - N-BK7
+% ZMX/LB1779-A.ZMX - LB1779 Bi-Convex - N-BK7
 
 lens.fn = 'lb1779';
 lens.name = 'LB1779-A';

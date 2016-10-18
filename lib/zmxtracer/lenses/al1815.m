@@ -1,5 +1,5 @@
 function lens = al1815
-% ZEMAX/THORLABS/ZMX/AL1815-A.ZMX - Ø18 mm, f=15 mm, NA=0.534, S-LAH64 Aspheric Lens, ARC: 350-700 nm
+% ZMX/AL1815-A.ZMX - Ø18 mm, f=15 mm, NA=0.534, S-LAH64 Aspheric Lens, ARC: 350-700 nm
 
 lens.fn = 'al1815';
 lens.name = 'AL1815-A';

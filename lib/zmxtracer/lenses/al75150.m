@@ -1,5 +1,5 @@
 function lens = al75150
-% ZEMAX/THORLABS/ZMX/AL75150-A.ZMX - LA75150-A Ø75 mm, f=150 mm, NA=0.230, N-BK7 Aspheric Lens, ARC: 350-700 nm
+% ZMX/AL75150-A.ZMX - LA75150-A Ø75 mm, f=150 mm, NA=0.230, N-BK7 Aspheric Lens, ARC: 350-700 nm
 
 lens.fn = 'al75150';
 lens.name = 'AL75150-A';

@@ -1,5 +1,5 @@
 function lens = ld2060
-% ZEMAX/THORLABS/ZMX/LD2060-A.ZMX - LD2060 Bi-Concave - N-SF11
+% ZMX/LD2060-A.ZMX - LD2060 Bi-Concave - N-SF11
 
 lens.fn = 'ld2060';
 lens.name = 'LD2060-A';

@@ -1,5 +1,5 @@
 function lens = ld2746
-% ZEMAX/THORLABS/ZMX/LD2746-A.ZMX - LD2746 Bi-Concave - N-SF11
+% ZMX/LD2746-A.ZMX - LD2746 Bi-Concave - N-SF11
 
 lens.fn = 'ld2746';
 lens.name = 'LD2746-A';
