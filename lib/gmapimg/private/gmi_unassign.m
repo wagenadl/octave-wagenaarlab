@@ -1,12 +1,14 @@
 function gmi_unassign(f, area)
+
+global cd_data
+
 if nargin<2
-  for a=2:5
+  A = max(cd_data{f}.can.area);
+  for a=2:A
     gmi_unassign(f,a);
   end
   return
 end
-
-global cd_data
 
 iact = find(cd_data{f}.act.area==area & ~cd_data{f}.act.hasidx);
 cd_data{f}.act.idx(iact) = 0;
