@@ -4,7 +4,9 @@ OBJS=	findfirst_eq.mex findfirst_ne.mex \
 	findlast_eq.mex findlast_ne.mex \
 	findlast_ge.mex findlast_gt.mex \
 	findlast_le.mex findlast_lt.mex \
-	crossseriesmatch_core.mex  
+	crossseriesmatch_core.mex \
+	throwtest.mex \
+	binsearch_core.mex
 
 MEX=mkoctfile --mex
 
