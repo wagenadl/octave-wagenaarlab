@@ -53,13 +53,7 @@ else
   if r<1 && r1<1
     printf('(drag to %s)\n', cd_data{f}.can.id{m});
     area = cd_data{f}.can.area(m);
-    oldn = find(cd_data{f}.act.idx==m);
-    if ~isempty(oldn)
-      % The canonical was previously attached to something
-      cd_data{f}.act.idx(oldn) = nan;
-      cd_data{f}.act.hasidx(oldn) = 0;
-      iset(cd_data{f}.hta(oldn), 'text', '');
-    end
+    gmi_bu_detachold(f, m);
     % If the actual was previously occupied, that occupation is 
     % automatically removed; we don't need to worry.      
     cd_data{f}.act.id{n} = cd_data{f}.can.id{m};
@@ -77,6 +71,7 @@ else
     cd_data{f}.deletedcan(m) = 0;
   elseif r1<1
     % Drag canonical to nowhere - remove it
+    gmi_bu_detachold(f, m);
     iset(cd_data{f}.ht(m), 'color', [.5 .5 1]);    
     cd_data{f}.deletedcan(m) = 1;
   else
@@ -85,3 +80,13 @@ else
   iset(cd_data{f}.hta(n), 'text', cd_shortid(cd_data{f}.act.id{n}));
 end
 
+function gmi_bu_detachold(f, m)
+global cd_data
+
+oldn = find(cd_data{f}.act.idx==m);
+if ~isempty(oldn)
+  % The canonical was previously attached to something
+  cd_data{f}.act.idx(oldn) = nan;
+  cd_data{f}.act.hasidx(oldn) = 0;
+  iset(cd_data{f}.hta(oldn), 'text', '');
+end

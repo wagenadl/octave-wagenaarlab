@@ -12,6 +12,7 @@ for n=1:N
 end
 cd_data{f}.ht = ht;
 iset(ht, 'halign', 'center', 'valign', 'middle');
+iset(ht(find(cd_data{f}.deletedcan)), 'color', [.5 .5 1]);
 
 %% Plot actuals
 N = length(cd_data{f}.act.r);

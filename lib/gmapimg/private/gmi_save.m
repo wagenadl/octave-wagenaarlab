@@ -18,6 +18,7 @@ cres = cd_data{f}.cres;
 act = cd_data{f}.act;
 img = cd_data{f}.img;
 arealabel = cd_data{f}.arealabel;
+deletedcan = cd_data{f}.deletedcan;
 
 fprintf(1,'Saving into "%s"...\n', fname);
-save(fname, 'ifn', 'can', 'cres', 'act', 'img', 'arealabel');
+save(fname, 'ifn', 'can', 'cres', 'act', 'img', 'arealabel', 'deletedcan');
