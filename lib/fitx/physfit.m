@@ -1,22 +1,23 @@
-function [fit,yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
-%PHYSFIT Function fitting using errors on both X and Y
-%   fit = PHYSFIT(fform, x, y, sy, sx) fits the data (X+-SX,Y+-SY) to the 
-%   given functional form FFORM.
+function [fit, yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
+% PHYSFIT Function fitting using errors on both X and Y
+%   fit = PHYSFIT(fform, x, y, sy, sx) fits the data (X ± SX, Y ± SY) to
+%   the given functional form FFORM.
 %   It returns a struct array:
 %
 %     fit(1) is for fitting to (X, Y);
-%     fit(2) is for fitting to (X, Y+-SY);
-%     fit(3) is for fitting to (X+-SX, Y+-SY).
+%     fit(2) is for fitting to (X, Y ± SY);
+%     fit(3) is for fitting to (X ± SX, Y ± SY).
 %  
 %   Entries in the array contain:
 %
-%     p:    fit parameters for fitting to (X+-SX, Y+-SY).
+%     p:    fit parameters for fitting to (X ± SX, Y ± SY).
 %     s:    standard errors on those parameters.
 %     cov:  full covariance matrix for the fit parameters.
 %     chi2: chi^2 value for the fit (not defined for fit(1)).
 %     ok:   1 if converged, 0 if not.
 %     sok:  1 if calculated cov and s are OK, 0 if not (which can happen
-%           due to poorly conditioned matrices in the calculations).
+%           due to poorly conditioned matrices in the calculations even
+%           if the fit parameters did converge).
 %     caution: cell array of textual cautions.
 %     R2:   R-squared "coefficient of determination", only for fit(1).
 %
@@ -51,12 +52,12 @@ function [fit,yfit] = physfit(fform,x,y,sy,sx,p0,sxy)
 %   PHYSFIT(fform, x, y, sy, sx, p0, sxy) to specify the covariance
 %   (not its sqrt!). This will only affect fit(3).
 %
-%   [fit,yfit] = PHYSFIT(...) also returns the best fit function values.
+%   [fit, yfit] = PHYSFIT(...) also returns the best fit function values.
 %
 %   PHYSFIT(fform, x, y, p0) is an allowed shortcut for PHYSFIT(fform, x,
 %   y, [], [], p0) *unless* p0 has the same shape as X and Y.
 %   
-%   PHYSFIT is Copyright (C) 2006-2015 Daniel Wagenaar <wagenadl@uc.edu>.
+%   PHYSFIT is Copyright (C) 2006-2017 Daniel Wagenaar <daw@caltech.edu>.
 %   PHYSFIT uses LEASQR by R I Shrager, A Jutan and R Muzic as its core
 %   optimizer. LEASQR is included as "dleasqr.m" with PHYSFIT.
 
