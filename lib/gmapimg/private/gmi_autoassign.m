@@ -31,7 +31,7 @@ for n=1:length(idyn)
     cd_data{f}.act.idx(k) = m;
     id = cd_data{f}.can.id{m};
   else
-    cd_data{f}.act.idx(k) = 0;
+    cd_data{f}.act.idx(k) = nan;
     id = '';
   end
   cd_data{f}.act.id{k} = id;

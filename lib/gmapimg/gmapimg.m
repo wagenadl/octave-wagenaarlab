@@ -22,6 +22,8 @@ switch nargin
  error('gmapimg(ifn, dv)');
 end
 
+x = gmi_cleanup(x);
+
 xywh = get(0, 'screensize');
 R = (xywh(4) - 100) * .8;
 
@@ -37,11 +39,6 @@ cd_data{f}.cvis = 1;
 cd_data{f}.area = 1;
 cd_data{f}.pressact = 0;
 cd_data{f}.presspt = [];
-
-if ~isfield(cd_data{f}, 'deletedcan')
-  cd_data{f}.deletedcan = logical(zeros(size(cd_data{f}.can.x)));
-end
-
 
 gmi_plotimage(f);
 iset(igca(), 'xaxis', 'off', 'yaxis', 'off');

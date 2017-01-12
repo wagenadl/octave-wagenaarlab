@@ -88,5 +88,8 @@ if ~isempty(oldn)
   % The canonical was previously attached to something
   cd_data{f}.act.idx(oldn) = nan;
   cd_data{f}.act.hasidx(oldn) = 0;
+  for n = oldn(:)'
+    cd_data{f}.act.id{n} = '';
+  end
   iset(cd_data{f}.hta(oldn), 'text', '');
 end

@@ -58,3 +58,5 @@ str.cres = cres;
 str.can = can;
 str.img = img;
 str.arealabel = arealabel;
+
+str.deletedcan = logical(zeros(size(str.can.x)));
