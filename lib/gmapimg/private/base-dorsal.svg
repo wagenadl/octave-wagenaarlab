@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="2350.5874"
+   height="1816.7048"
+   id="svg5767">
+  <desc
+     id="desc5769">Ellipses for dorsal side of leech ganglion</desc>
+  <defs
+     id="defs6065">
+    <clipPath
+       id="clipPath5041">
+      <rect
+         width="614.36987"
+         height="530.07489"
+         x="153.22186"
+         y="28.258162"
+         id="rect5043"
+         style="color:#000000;fill:#eeeeee;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    </clipPath>
+  </defs>
+  <g
+     transform="matrix(3.9934892,-0.16811568,0,4.2059188,6.3062541e-6,81.936253)"
+     id="g8030">
+    <g
+       id="g6184">
+      <path
+         d="m 90.893395,413.36303 c 36.656725,-7.98666 114.663615,-36.80444 143.984335,-5.62778 41.58286,44.21498 109.31444,51.59914 147.44387,99.71085 16.61569,20.96566 20.06904,69.21772 24.88151,95.53274 l 96.69025,-10.00141 c 7.47841,-26.22169 3.08625,-45.00897 40.25162,-81.73684 37.16535,-36.72786 140.28699,-83.32855 172.73947,-123.21776 12.26379,-15.07413 64.08694,-2.87038 102.1748,0.9876 l 0,-24.34113 c -39.66992,-7.53117 -95.43407,-16.51794 -94.52814,-37.45933 0.90595,-20.94139 54.30602,-41.78136 90.10821,-49.60711 l 0,-26.65064 C 766.01481,264.16474 698.10453,299.96702 671.91137,262.73933 645.71823,225.51164 585.48403,154.43154 559.20003,135.05436 532.916,115.67717 497.07361,70.315065 499.28571,19.25188 l -83.32413,0 c 0.70344,51.149771 -31.51047,71.803561 -51.26538,87.20897 -26.14027,20.3849 -119.8423,123.99698 -149.19017,155.50055 -25.3247,27.18487 -80.87665,-4.23506 -116.509435,-21.84667 l 0,25.80305 c 35.223225,22.32169 118.341915,46.2538 117.709355,72.98548 -0.39533,16.70656 -79.94045,35.75519 -125.812555,49.27108 z"
+         transform="matrix(0.95806281,0,0,0.77622783,-146.79617,-20.934771)"
+         clip-path="url(#clipPath5041)"
+         id="path4703-7"
+         style="fill:#d7d7d7;fill-opacity:1;stroke:#000000;stroke-width:0.5658896;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 292.89095,412.45888 1.41152,-38.11114"
+         id="path5045"
+         style="fill:none;stroke:#000000;stroke-width:0.24400195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="M 290.89095,42.639917 291.59671,1"
+         id="path5047"
+         style="fill:none;stroke:#000000;stroke-width:0.24400195;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       transform="matrix(1,0.03769023,0,1,0,-6.8026287)"
+       id="g6189">
+      <path
+         d="m 72.693414,231.78395 c 31.053496,-9.1749 62.606716,-18.91598 83.279826,-26.81893 20.16364,-7.70818 73.39919,-11.52744 105.86421,-14.82099"
+         id="path4651"
+         style="fill:none;stroke:#000000;stroke-width:0.24400195px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         d="m 330.29629,200.73045 c 39.52264,-8.23388 61.4952,-12.14644 92.45474,-0.70576 27.83035,10.28433 73.63443,22.81962 117.86213,26.81893"
+         id="path4653"
+         style="fill:none;stroke:#000000;stroke-width:0.24400195px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+  <g transform="translate(65,155)">
+    <!-- ELLIPSES 65 155 2351 -->
+    </g>
+</svg>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="1706.9783"
+   height="1362.5256"
+   id="svg6589">
+  <desc
+     id="desc6591">Ellipses for ventral side of leech ganglion</desc>
+  <defs
+     id="defs6913">
+    <clipPath
+       id="clipPath6180">
+      <rect
+         width="666.78149"
+         height="545.03766"
+         x="117.99785"
+         y="24.870829"
+         id="rect6182"
+         style="color:#000000;fill:#eeeeee;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    </clipPath>
+  </defs>
+  <g
+     transform="matrix(2.4435783,-0.04763613,0.14245892,2.4415979,-291.88005,-23.340712)"
+     id="g5887">
+    <g
+       id="g5882">
+      <path
+         d="m 50.377395,384.26801 c 36.656723,-7.98666 78.451145,-19.95091 116.728115,-12.90153 82.09886,15.11996 185.18986,65.23743 223.31929,113.34914 16.61569,20.96566 20.06904,69.21772 24.88151,95.53274 l 84.16712,0 c 7.47841,-26.22169 3.08625,-45.00897 40.25162,-81.73684 37.16535,-36.72786 140.28699,-83.32855 172.73947,-123.21776 12.26379,-15.07413 64.08694,-2.87038 102.1748,0.9876 l 0,-24.34113 c -39.66992,-7.53117 -91.01414,-3.78887 -90.10821,-24.73026 0.90595,-20.94139 54.30602,-41.78136 90.10821,-49.60711 l 0,-26.65064 c -48.62451,13.21252 -101.8017,58.10699 -127.99486,20.8793 -26.19314,-37.22769 -87.164,-126.49217 -113.448,-145.86935 C 546.91243,106.58498 497.07361,70.315065 499.28571,19.25188 l -83.32413,0 c 0.70344,51.149771 -31.51047,71.803561 -51.26538,87.20897 -26.14027,20.3849 -133.83874,120.3601 -163.18661,151.86367 -25.3247,27.18487 -115.499405,-6.96272 -151.132195,-24.57433 l 0,25.80305 c 35.223221,22.32169 116.131955,37.16161 115.499395,63.89329 -0.39533,16.70656 -69.627294,22.1169 -115.499395,35.63279 z"
+         clip-path="url(#clipPath6180)"
+         id="path4703-7"
+         style="fill:#d7d7d7;fill-opacity:1;stroke:#000000;stroke-width:0.81833845;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 458.31142,570.24836 0,-54.06354"
+         id="path4705"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         d="m 456.76057,25.25188 1.55085,52.307671"
+         id="path4707"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       id="g5859">
+      <path
+         d="m 407.20605,492.19957 c 0.86358,-29.30983 -11.12018,-64.94998 -18.94592,-101.64443 -7.82573,-36.69444 -37.4501,-60.52972 -55.61585,-84.0543"
+         id="path4651"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         d="m 534.57387,497.7871 c 0.57823,-34.22065 2.62214,-63.00155 7.59268,-92.89022 4.97054,-29.88868 31.7207,-52.35021 35.07726,-64.93586"
+         id="path4653"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         d="m 423.90735,83.846721 c -0.40958,40.342869 -6.89074,68.564289 -19.65948,111.198889 -12.76873,42.6346 -18.48369,90.35657 -72.49429,111.81323 -54.0106,21.45666 -105.14164,-8.88051 -132.95587,-24.29557"
+         id="path4655"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         d="m 500.08779,86.028866 c 0.40958,40.342874 11.30865,43.492494 17.93381,107.629644 6.62516,64.13714 0.90541,105.66905 43.98938,140.33893 43.08397,34.66988 108.48686,-25.57832 138.59043,-34.99849"
+         id="path4655-4"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         d="m 549.35658,322.29622 c -28.62562,19.83884 -67.35402,14.45733 -93.61051,14.62439 -26.25649,0.16706 -76.52417,-24.24853 -94.68992,-47.77311"
+         id="path4651-4"
+         style="fill:none;stroke:#000000;stroke-width:0.40916923px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+  <g transform="translate(105,95)" >
+    <!-- ELLIPSES 105 95 1707 -->
+  </g>
+</svg>
