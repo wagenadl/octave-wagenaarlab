@@ -1,5 +1,5 @@
 function cam = gmi_guesscamera(rois, dv)
-  ncams = length(unique(rois.cam));
+  ncams = length(unique(rois.cam(rois.cam>0)));
   if ncams==1
     % Only one camera
     x = sort(abs(rois.x));
