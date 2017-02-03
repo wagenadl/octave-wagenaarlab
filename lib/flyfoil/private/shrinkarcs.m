@@ -26,11 +26,6 @@ ctrlphi = arg(exp(i*ctrlphi1) + exp(i*ctrlphi2));
 ctrlx = ctrlx - diam/2 * cos(ctrlphi);
 ctrly = ctrly - diam/2 * sin(ctrlphi);
 
-if pltflg
-  hold on
-  h = plot(ctrlx, ctrly, 'k*'); nottiny;
-end
-
 % Let's get some intermediate points as well
 interphi = arg(exp(i*arcs.phis) + exp(i*arcs.phie));
 interx = arcs.xc + arcs.R .* cos(interphi);
@@ -39,9 +34,9 @@ intery = arcs.yc + arcs.R .* sin(interphi);
 interx = interx - diam/2 * cos(interphi);
 intery = intery - diam/2 * sin(interphi);
 
-if pltflg
-  h1 = plot(interx, intery, 'r*'); nottiny;
-end
+%if pltflg
+%  h1 = plot(interx*25.4, intery*25.4, 'r*'); nottiny;
+%end
 
 % Segments with R <~ diam/2 are problematic.
 % We'll replace sequences of such segments with two new segments that join
@@ -70,8 +65,6 @@ while k<=K
     while l<=K && arcs.R(l)<=diam/2
       l = l+1;
     end
-    k
-    l
     % So segments k+1...l-1 are problematic.
     % We'll replace segments k...l with a new pair
 
@@ -109,17 +102,6 @@ while k<=K
   end
 end
 
-if pltflg
-  figure(2); clf
-  plotarcs(arcs);
-  hold on
-  h = plot(ctrlxo, ctrlyo, 'k*'); nottiny;
-  h1 = plot(interxo, interyo, 'r*'); nottiny;
-  a=max(abs(axis))
-  axis([-a a -a a])
-  axis square;
-end
-
 N = length(interxo);
 for n=1:N
   arcout.xs(n) = ctrlxo(n);
@@ -138,15 +120,17 @@ arcout.phis = atan2(arcout.ys-arcout.yc, arcout.xs-arcout.xc);
 arcout.phie = atan2(arcout.ye-arcout.yc, arcout.xe-arcout.xc);
 
 if pltflg
-  figure(pltflg); clf
+  figure(3); clf
   plotarcs(arcs);
   hold on
-  h = plot(ctrlxo, ctrlyo, 'k*'); nottiny;
-  h1 = plot(interxo, interyo, 'r*'); nottiny;
+  h = plot(ctrlxo*25.4, ctrlyo*25.4, 'k*'); nottiny;
+  h1 = plot(interxo*25.4, interyo*25.4, 'r*'); nottiny;
   plotarcs(arcout); nottiny;
-  a=max(abs(axis))
+  axis tight
+  a=max(abs(axis))*1.05;
   axis([-a a -a a])
   axis square;
+  title 'Result of shrinking to observe mill diameter'
 end
 
 if nargout==0

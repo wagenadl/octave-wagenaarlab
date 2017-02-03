@@ -3,8 +3,8 @@ hold on
 N = length(arcs.R);
 cc = djet(N);
 for n=1:N
-  plot(arcs.xs(n), arcs.ys(n), '+', 'color', cc(n,:));
-  plot(arcs.xe(n), arcs.ye(n), 'x', 'color', cc(n,:));  
+  plot(arcs.xs(n)*25.4, arcs.ys(n)*25.4, '+', 'color', cc(n,:));
+  plot(arcs.xe(n)*25.4, arcs.ye(n)*25.4, 'x', 'color', cc(n,:));  
   s = arcs.phis(n);
   e = arcs.phie(n);
   if mod(e-s, 2*pi)>=pi
@@ -15,7 +15,8 @@ for n=1:N
   end
   phi = [s:.001:e];
 
-  plot(arcs.xc(n)+arcs.R(n)*cos(phi), arcs.yc(n)+arcs.R(n)*sin(phi), ...
+  plot((arcs.xc(n)+arcs.R(n)*cos(phi))*25.4, ...
+      (arcs.yc(n)+arcs.R(n)*sin(phi))*25.4, ...
       'color', cc(n,:));  
 end
 

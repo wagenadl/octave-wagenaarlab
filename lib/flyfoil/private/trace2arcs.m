@@ -27,15 +27,17 @@ arcs2 = fitarcs(xx(L2:end), yy(L2:end), eps);
 arcs = catstr(arcs1, arcs2);
 
 if pltflg
-  figure(1); clf
-  plot(xx, yy, 'k');
+  figure(2); clf
+  plot(xx*25.4, yy*25.4, 'k');
   nottiny
   plotarcs(arcs);
   nottiny
-  a=max(abs(axis))
+  axis tight
+  a=max(abs(axis))*1.05;
   axis([-a a -a a])
   axis square;
   fprintf(1, 'Got %i arcs\n', length(arcs.R));
+  title('Extracted arcs');
 end
 
 if nargout==0

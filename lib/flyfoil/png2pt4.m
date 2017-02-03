@@ -12,20 +12,21 @@ function png2pt4(ifn, ofn, varargin)
 %      passes - number of steps to reach zend from zrapid (default: 1)
 %      feed - cutting feed rate (default: 0.1 in/min, which is very slow)
 %      rpm - cutting speed (default: 5000 rpm)
+%      color - RGB triplet to select (default: none, select any)
 %      
 %    The curve must be presented as light-on-dark. This is achieved 
 %    automatically if the curve is presented as solid-on-transparent.
 %    The center of the curve is used as the outside of the cut.
 
-kv = getopt('dpi=9000 diam=0.010 tol=1 plot=1 zrapid=.005 zend=-.002 feed=.1 rpm=5000 passes=1', varargin);
+kv = getopt('dpi=9000 diam=0.010 tol=1 plot=1 zrapid=.005 zend=-.002 feed=.1 rpm=5000 passes=1 color=[]', varargin);
 
 if nargin<2
   [p, b, e] = fileparts(ifn);
   ofn = [p filesep b '.pt4'];
 end
 
-[xx, yy] = tracefoil(ifn, kv.dpi, 1);
-arcs = trace2arcs(xx, yy, 2*kv.tol/kv.dpi, 1);
+[xx, yy] = tracefoil(ifn, kv.dpi, kv.color, kv.plot);
+arcs = trace2arcs(xx, yy, 2*kv.tol/kv.dpi, kv.plot);
 arco = shrinkarcs(arcs, kv.diam, kv.plot);
 
 arcs2pt4(arco, ofn);
