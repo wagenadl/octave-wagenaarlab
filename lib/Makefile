@@ -72,3 +72,10 @@ endef
 
 $(foreach d,$(ALLDIRS), $(eval $(call INSTALLTEMPLATE,$d)))
 $(foreach d,$(PRIVATEDIRS), $(eval $(call INSTALLTEMPLATE,$d)))
+
+INSTALLFILES: PACKINFO
+
+PACKINFO:;
+	install -d $(OCTMDEST)/packinfo
+	install -m644 DESCRIPTION COPYING NEWS README $(OCTMDEST)/packinfo
+	install -m644 PKG_ADD PKG_DEL $(OCTMDEST)
