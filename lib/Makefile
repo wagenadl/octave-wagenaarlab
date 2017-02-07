@@ -3,7 +3,7 @@
 
 ######################################################################
 # Compiling
-ALL: INFO
+ALL:
 
 define DIRTEMPLATE
 ALL: DIR$1
@@ -16,12 +16,10 @@ MAKEDIRS=$(subst /Makefile,,$(MAKEFILES))
 ALLDIRS=$(filter-out debian/,$(wildcard */)) \
 	$(sort $(dir $(wildcard octave/*/*))) \
 	$(sort $(dir $(wildcard matlab/*/*))) \
-	$(sort $(dir $(wildcard zmxtracer/*/*)))
+	zmxtracer/glass zmxtracer/lenses
 PRIVATEDIRS=$(wildcard */private)
 
 $(foreach d,$(MAKEDIRS), $(eval $(call DIRTEMPLATE,$d)))
-
-INFO:; echo $(ALLDIRS)
 
 ######################################################################
 # Archiving
@@ -86,3 +84,12 @@ PACKINFO:;
 	install -d $(OCTMDEST)/packinfo
 	install -m644 DESCRIPTION COPYING NEWS README $(OCTMDEST)/packinfo
 	install -m644 PKG_ADD PKG_DEL $(OCTMDEST)
+
+######################################################################
+# Documentation
+INSTALLFILES: DOCS
+
+DOCPATH=$(INSTALLPATH)/share/doc/octave-wagenaarlab
+DOCS:;
+	install -d $(DOCPATH)/zmx
+	install zmxtracer/doc/*.pdf $(DOCPATH)/zmx/
