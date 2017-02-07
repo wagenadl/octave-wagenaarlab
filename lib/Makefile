@@ -1,11 +1,74 @@
-DIRS=salpa/private ephys findx statx peakx gmapimg/private
+######################################################################
+# Makefile for Wagenaar lab octave code
 
+######################################################################
+# Compiling
 ALL:
 
 define DIRTEMPLATE
 ALL: DIR$1
 .PHONY: DIR$1
-DIR$1:; make -C $1
+DIR$1:; +make -C $1
 endef
 
-$(foreach d,$(DIRS), $(eval $(call DIRTEMPLATE,$d)))
+MAKEFILES=$(wildcard */Makefile) $(wildcard */private/Makefile)
+MAKEDIRS=$(subst /Makefile,,$(MAKEFILES))
+ALLDIRS=$(filter-out debian/,$(wildcard */))
+PRIVATEDIRS=$(wildcard */private)
+
+$(foreach d,$(MAKEDIRS), $(eval $(call DIRTEMPLATE,$d)))
+
+######################################################################
+# Archiving
+
+TAR:;	git archive --prefix=octave-wagenaarlab/ \
+		-o ../../octave-wagenaarlab$(VERSIONSUFFIX).tar.gz \
+		HEAD .
+
+######################################################################
+# Installation
+
+install:	ALL INSTALLFILES
+
+ifdef DESTDIR
+  # Debian uses this
+  INSTALLPATH = $(DESTDIR)/usr
+else
+  INSTALLPATH = /usr/local
+endif
+
+OCT_PACKAGE=wagenaarlab-$(lastword $(shell grep Version DESCRIPTION))
+# The version number for the octave package is obtained from the DESCRIPTION file
+
+DEB_HOST_MULTIARCH = $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+OCT_HOST_TYPE = $(shell octave-config -p CANONICAL_HOST_TYPE)
+OCT_API_VSN = $(shell octave-config -p API_VERSION)
+OCTBINDEST=$(INSTALLPATH)/lib/$(DEB_HOST_MULTIARCH)/octave/packages/$(OCT_PACKAGE)/$(OCT_HOST_TYPE)-$(OCT_API_VSN)
+OCTMDEST=$(INSTALLPATH)/share/octave/packages/$(OCT_PACKAGE)
+
+define INSTALLTEMPLATE =
+INSTALLFILES: INSTALLM-$(1)
+
+INSTALLM-$(1):;
+	install -d $$(OCTMDEST)/$(1)
+	install -m0644 $$(wildcard $(1)/*.m) $$(OCTMDEST)/$(1)
+ifeq ($$(wildcard $(1)/*.oct),)
+else
+INSTALLFILES: INSTALLOCT-$(1)
+INSTALLOCT-$(1):
+	install -d $$(OCTBINDEST)/$(1)
+	install -m0644 $$(wildcard $(1)/*.oct) $$(OCTBINDEST)/$(1)
+	strip $$(OCTBINDEST)/$(1)/*.oct
+endif
+ifeq ($$(wildcard $(1)/*.mex),)
+else
+INSTALLFILES: INSTALLMEX-$(1)
+INSTALLMEX-$(1):
+	install -d $$(OCTBINDEST)/$(1)
+	install -m0644 $$(wildcard $(1)/*.mex) $$(OCTBINDEST)/$(1)
+	strip $$(OCTBINDEST)/$(1)/*.mex
+endif
+endef
+
+$(foreach d,$(ALLDIRS), $(eval $(call INSTALLTEMPLATE,$d)))
+$(foreach d,$(PRIVATEDIRS), $(eval $(call INSTALLTEMPLATE,$d)))
