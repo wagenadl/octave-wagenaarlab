@@ -13,9 +13,8 @@ endef
 
 MAKEFILES=$(wildcard */Makefile) $(wildcard */private/Makefile)
 MAKEDIRS=$(subst /Makefile,,$(MAKEFILES))
-ALLDIRS=$(filter-out debian/,$(wildcard */)) \
+ALLDIRS=$(filter-out matlab/,$(filter-out debian/,$(wildcard */))) \
 	$(sort $(dir $(wildcard octave/*/*))) \
-	$(sort $(dir $(wildcard matlab/*/*))) \
 	zmxtracer/glass zmxtracer/lenses
 PRIVATEDIRS=$(wildcard */private)
 
