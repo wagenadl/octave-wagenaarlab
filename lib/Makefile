@@ -56,17 +56,19 @@ ifeq ($$(wildcard $(1)/*.oct),)
 else
 INSTALLFILES: INSTALLOCT-$(1)
 INSTALLOCT-$(1):
-	install -d $$(OCTBINDEST)/$(1)
-	install -m0644 $$(wildcard $(1)/*.oct) $$(OCTBINDEST)/$(1)
-	strip $$(OCTBINDEST)/$(1)/*.oct
+	install -d $$(subst /private,,$$(OCTBINDEST)/$(1))
+	install -m0644 $$(wildcard $(1)/*.oct) \
+		$$(subst /private,,$$(OCTBINDEST)/$(1))
+	strip $$(subst /private,,$$(OCTBINDEST)/$(1))/*.oct
 endif
 ifeq ($$(wildcard $(1)/*.mex),)
 else
 INSTALLFILES: INSTALLMEX-$(1)
 INSTALLMEX-$(1):
-	install -d $$(OCTBINDEST)/$(1)
-	install -m0644 $$(wildcard $(1)/*.mex) $$(OCTBINDEST)/$(1)
-	strip $$(OCTBINDEST)/$(1)/*.mex
+	install -d $$(subst /private,,$$(OCTBINDEST)/$(1))
+	install -m0644 $$(wildcard $(1)/*.mex) \
+		$$(subst /private,,$$(OCTBINDEST)/$(1))
+	strip $$(subst /private,,$$(OCTBINDEST)/$(1))/*.mex
 endif
 endef
 
