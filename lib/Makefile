@@ -3,7 +3,7 @@
 
 ######################################################################
 # Compiling
-ALL:
+ALL: INFO
 
 define DIRTEMPLATE
 ALL: DIR$1
@@ -13,10 +13,15 @@ endef
 
 MAKEFILES=$(wildcard */Makefile) $(wildcard */private/Makefile)
 MAKEDIRS=$(subst /Makefile,,$(MAKEFILES))
-ALLDIRS=$(filter-out debian/,$(wildcard */))
+ALLDIRS=$(filter-out debian/,$(wildcard */)) \
+	$(sort $(dir $(wildcard octave/*/*))) \
+	$(sort $(dir $(wildcard matlab/*/*))) \
+	$(sort $(dir $(wildcard zmxtracer/*/*)))
 PRIVATEDIRS=$(wildcard */private)
 
 $(foreach d,$(MAKEDIRS), $(eval $(call DIRTEMPLATE,$d)))
+
+INFO:; echo $(ALLDIRS)
 
 ######################################################################
 # Archiving
