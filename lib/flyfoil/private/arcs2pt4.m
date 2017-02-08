@@ -1,4 +1,4 @@
-function arcs2pt4(arcs, ofn, varargin)
+function [nextrec, nextevt] = arcs2pt4(arcs, ofn, varargin)
 % ARCS2PT4 - Convert a series of arcs to a PT4 file for the ProtoTRAK
 %    ARCS2PT4(arcs, ofn) converts a series of arcs (from TRACEFOIL or
 %    SHRINKARCS) to a ".pt4" file for the ProtoTRAK mill.
@@ -9,24 +9,50 @@ function arcs2pt4(arcs, ofn, varargin)
 %      passes - number of steps to reach zend from zrapid (default: 1)
 %      feed - cutting feed rate (default: 0.1 in/min, which is very slow)
 %      rpm - cutting speed (default: 5000 rpm)
+%      startrec - starting record number (for continuing a previous file)
+%      startevt - starting event number  (for continuing a previous file)
+%    [nextrec, nextevt] = ARCS2PT4(...) returns starting record and event
+%    numbers for a continuation run. In this case, no footer is written.
 
-kv = getopt('diam=0.010 zrapid=.005 zend=-.002 feed=.1 rpm=5000 passes=1', varargin);
+if nargin==3 && isstruct(varargin{1})
+  kv = varargin{1}; % Magic use by png2pt4.m
+else
+  kv = getopt('diam=0.010 zrapid=.005 zend=-.002 feed=.1 rpm=5000 passes=1 firstrec=1 firstevt=56', varargin);
+end
 
-fd = fopen(ofn, 'wb');
+if kv.firstrec==1
+  fd = fopen(ofn, 'wb');
+else
+  fd = fopen(ofn, 'ab');
+end
 if fd<0
   error('Cannot write output');
 end
 
 global a2p_rec
-a2p_rec = 1;
+global a2p_evt
+a2p_rec = kv.firstrec;
+a2p_evt = kv.firstevt;
 
-header(fd, ofn);
-tooltable(fd, kv);
-fixturetable(fd, kv);
+if kv.firstrec==1
+  header(fd, ofn);
+  tooltable(fd, kv);
+  fixturetable(fd, kv);
+  section(fd, 'EVENTS');
+end
 
 events(fd, arcs, kv);
 
+if nargout<2
+  endsec(fd, 1);
+end
+
 fclose(fd);
+
+if nargout>=2
+  nextrec = a2p_rec;
+  nextevt = a2p_evt;
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function header(fd, ofn)
@@ -67,9 +93,9 @@ section(fd, 'FIXTURETABLE');
 endsec(fd, 1);
 
 function events(fd, arcs, kv)
-section(fd, 'EVENTS');
+global a2p_evt
 begrec(fd);
-keyval(fd, 'EVENT', '56');
+keyval(fd, 'EVENT', sprintf('%i', a2p_evt));
 keyval(fd, 'TYPE', "14\tIRR PROFILE");
 keyval(fd, 'OK', '1');
 abskey(fd, 'XBEG', arcs.xs(1));
@@ -91,14 +117,11 @@ keyval(fd, 'COMMENT', '');
 keyval(fd, 'FIXTURE', '0');
 endrec(fd);
 
-global a2p_evt
-a2p_evt = 57;
+a2p_evt = a2p_evt + 1;
 K = length(arcs.xs);
 for k=1:K
   arcevent(fd, subset(arcs, [1:K]==k));
 end
-
-endsec(fd, 1);
 
 function arcevent(fd, arc)
 global a2p_evt

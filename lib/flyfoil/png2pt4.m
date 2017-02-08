@@ -1,4 +1,4 @@
-function png2pt4(ifn, ofn, varargin)
+function [nextrec, nextevt] = png2pt4(ifn, ofn, varargin)
 % PNG2PT4 - Convert a PNG file with a closed curve to a PT4 file for milling
 %    PNG2PT4(ifn, ofn) converts a PNG file with a single closed curve
 %    to a PT4 file for the Prototrak mill.
@@ -13,12 +13,19 @@ function png2pt4(ifn, ofn, varargin)
 %      feed - cutting feed rate (default: 0.1 in/min, which is very slow)
 %      rpm - cutting speed (default: 5000 rpm)
 %      color - RGB triplet to select (default: none, select any)
+%      startrec - starting record number (for continuing a previous file)
+%      startevt - starting event number  (for continuing a previous file)
+%
+%    [nextrec, nextevt] = PNG2PT4(...) returns starting record and event
+%    numbers for a continuation run. In this case, no footer is written.
+%    At the moment, each run in a series must use the same mill. Different
+%    depths are allowed.
 %      
 %    The curve must be presented as light-on-dark. This is achieved 
 %    automatically if the curve is presented as solid-on-transparent.
 %    The center of the curve is used as the outside of the cut.
 
-kv = getopt('dpi=9000 diam=0.010 tol=1 plot=1 zrapid=.005 zend=-.002 feed=.1 rpm=5000 passes=1 color=[]', varargin);
+kv = getopt('dpi=9000 diam=0.010 tol=1 plot=1 zrapid=.005 zend=-.002 feed=.1 rpm=5000 passes=1 color=[] firstrec=1 firstevt=56', varargin);
 
 if nargin<2
   [p, b, e] = fileparts(ifn);
@@ -29,4 +36,8 @@ end
 arcs = trace2arcs(xx, yy, 2*kv.tol/kv.dpi, kv.plot);
 arco = shrinkarcs(arcs, kv.diam, kv.plot);
 
-arcs2pt4(arco, ofn);
+if nargout>=2
+  [nextrec, nextevt] = arcs2pt4(arco, ofn, kv);
+else
+  arcs2pt4(arco, ofn);
+end
