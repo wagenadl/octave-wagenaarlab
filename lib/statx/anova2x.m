@@ -62,15 +62,9 @@ F_A = MS_A/MSE;
 F_B = MS_B/MSE;
 F_AB = MS_AB/MSE;
 
-if exist('fcdf')==2
-  p_A = 1-fcdf(F_A,DF_A,DFE);
-  p_B = 1-fcdf(F_B,DF_B,DFE);
-  p_AB = 1-fcdf(F_AB,DF_AB,DFE);
-else
-  p_A = 1-cdff(F_A,DF_A,DFE);
-  p_B = 1-cdff(F_B,DF_B,DFE);
-  p_AB = 1-cdff(F_AB,DF_AB,DFE);
-end
+p_A = 1-fcdf(F_A,DF_A,DFE);
+p_B = 1-fcdf(F_B,DF_B,DFE);
+p_AB = 1-fcdf(F_AB,DF_AB,DFE);
 
 an.table{1} = sprintf('%12s %8s %8s %8s %8s %8s','Source','SS','DF','MS','F','p <');
 an.table{2} = sprintf('%12s %8.3f %8i %8.3f %8.3f %8.4g','Factor A',SS_A,a-1,MS_A,F_A,p_A);

@@ -12,11 +12,7 @@ dmu = a.data.avg(k1) - a.data.avg(k2);
 t = dmu/sqrt(a.MSE*(1/a.data.nnn(k1)+1/a.data.nnn(k2)));
 df = a.DFE;
 
-if exist('tcdf')==2
-  p=tcdf(t,df);
-else
-  p=cdft(t,df);
-end
+p=tcdf(t,df);
 
 if nargout<3
   clear df;

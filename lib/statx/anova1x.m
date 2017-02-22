@@ -37,11 +37,7 @@ MSE = SSE/DFE;
 
 F = MST/MSE;
 
-if exist('fcdf')==2
-  p=1-fcdf(F,DFT,DFE);
-else
-  p=1-cdff(F,DFT,DFE);
-end
+p=1-fcdf(F,DFT,DFE);
 
 a.table{1} = sprintf('%12s %8s %8s %8s %8s %8s','Source','SS','DF','MS','F','p <');
 a.table{2} = sprintf('%12s %8.3f %8i %8.3f %8.3f %8.4g','Treatments',SST,DFT,MST,F,p);

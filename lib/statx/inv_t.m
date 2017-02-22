@@ -11,24 +11,4 @@ function t=inv_t(p,df)
 %   unfortunately, makes the number at most as large in absolute value
 %   as the true number.
 
-if df>100
-  t=inv_norm(p);
-  return
-end
-
-load ttable.mat;
-
-S=size(p);
-p=p(:);
-
-flip=p>.5;
-p(flip)=1-p(flip);
-
-cnt=sum(repmat(p,[1 length(pp)]) < repmat(pp,[prod(S) 1]),2);
-
-idx=find(cnt<length(pp));
-
-t=p+inf;
-t(idx) = tt(df,cnt(idx)+1);
-t(~flip)=-t(~flip);
-t(p==.5)=0;
+t = tinv(p, df);
