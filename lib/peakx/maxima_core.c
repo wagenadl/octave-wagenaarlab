@@ -1,8 +1,9 @@
 /* maxima_core.c */
 
 #include "mex.h"
+#include <stdint.h>
 
-int maxima_core(double *data, int T, double frc, int *idxout) {
+int maxima_core(double *data, int T, double frc, uint32_t *idxout) {
   int N=0;
   int t;
   double lastmin=data[0], lastmax=data[0];
@@ -51,7 +52,7 @@ void mexFunction(int nlhs, mxArray *plhs[],
   double *idxout; /* output */
   int n, N;
   mxArray *peakidx_m;
-  int peakidx_s[2];
+  uint32_t peakidx_s[2];
 
   if (nrhs!=2) 
     mexErrMsgTxt("Two inputs required.");
@@ -79,7 +80,7 @@ void mexFunction(int nlhs, mxArray *plhs[],
   peakidx_s[0] = T; peakidx_s[1] = 1;
 
   peakidx_m = mxCreateNumericArray(2, peakidx_s, mxUINT32_CLASS, mxREAL);
-  peakidx = mxGetPr(peakidx_m);
+  peakidx = (uint32_t*)mxGetPr(peakidx_m);
 
   N = maxima_core(data,T,frc,peakidx);
   

@@ -92,3 +92,7 @@ DOCPATH=$(INSTALLPATH)/share/doc/octave-wagenaarlab
 DOCS:;
 	install -d $(DOCPATH)/zmx
 	install zmxtracer/doc/*.pdf $(DOCPATH)/zmx/
+
+######################################################################
+# Zip
+zip:; git archive -o /tmp/wagenaarlab-`git describe`.zip --prefix wagenaarlab/ HEAD .
