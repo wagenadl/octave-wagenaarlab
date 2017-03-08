@@ -39,5 +39,5 @@ arco = shrinkarcs(arcs, kv.diam, kv.plot);
 if nargout>=2
   [nextrec, nextevt] = arcs2pt4(arco, ofn, kv);
 else
-  arcs2pt4(arco, ofn);
+  arcs2pt4(arco, ofn, kv);
 end
