@@ -68,6 +68,7 @@ else
     cc(:,k) = (balph.*bcol(:,k) + (1-balph).*aalph.*acol(:,k)) ./ calph;
   end
   cc(:,Ca) = calph;
+  cc(calph==0, :) = 0;
 end
 
 cc = reshape(cc, Sa);
