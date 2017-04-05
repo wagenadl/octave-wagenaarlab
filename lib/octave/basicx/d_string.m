@@ -47,7 +47,7 @@ for k=1:length(v)
     str = [ str '\r' ];
   elseif d==127
     str = [ str '\?' ];
-  elseif d<32 || (d>=128 && d<160)
+  elseif d<32 %|| (d>=128 && d<160)
     str = [ str '\' sprintf('%03o', d) ];
   else
     str = [ str v(k) ];
