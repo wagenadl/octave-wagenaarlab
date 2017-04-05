@@ -95,4 +95,5 @@ DOCS:;
 
 ######################################################################
 # Zip
-zip:; git archive -o /tmp/wagenaarlab-`git describe`.zip --prefix wagenaarlab/ HEAD .
+zip:; git archive -o /tmp/octave-wagenaarlab-`git describe`.zip --prefix wagenaarlab/ HEAD .
+	echo "Created archive in /tmp/octave-wagenaarlab-`git describe`.zip"
