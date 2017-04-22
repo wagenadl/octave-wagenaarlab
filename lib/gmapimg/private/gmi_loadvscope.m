@@ -53,6 +53,8 @@ can = mtc_denormalizecoords(can, act.norm);
 cres = can;
 
 str.ifn = ifn;
+str.pwd = pwd;
+
 str.act = act;
 str.cres = cres;
 str.can = can;
