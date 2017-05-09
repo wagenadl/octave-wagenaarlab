@@ -3,9 +3,17 @@ function tracer_drawlens(lens, x, rev)
 %    TRACER_DRAWLENS(lens, x) draws the LENS at location X.
 %    TRACER_DRAWLENS(lens, x, 1) draws the LENS at location X, backwards.
 
-[xx_, rr_, fn_] = tracer_lens2surf(lens, rev);
-
 qpen 555 0
+
+if isnumeric(lens)
+  qplot([x x], [-1 1]*12.7); % Arbitrarily draw lens as if it has 1" diam
+  qat(x, 12.7);
+  qalign center bottom
+  qtext(0, -5, ifelse(lens>0, '+', '–'));
+  return
+end
+
+[xx_, rr_, fn_] = tracer_lens2surf(lens, rev);
 
 for k=1:length(xx_)
   x_ = xx_(k) + x;
