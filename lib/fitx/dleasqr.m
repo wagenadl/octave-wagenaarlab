@@ -315,7 +315,7 @@ else
   covr=diag(covr);                 % convert returned values to compact storage
   stdresid=resid./sqrt(diag(Vy));  % compute then convert for compact storage
 end
-Z=((m-n)*jac'*Qinv*jac)/(n*resid'*Qinv*resid);
+Z=((m-n)*jac'*Qinv*jac)/(n*resid'*Qinv*resid + eps);
 
 %%% alt. est. of cov. mat. of parm.:(Delforge, Circulation, 82:1494-1504, 1990
 %%disp('Alternate estimate of cov. of param. est.')
@@ -323,7 +323,11 @@ Z=((m-n)*jac'*Qinv*jac)/(n*resid'*Qinv*resid);
 
 %Calculate R^2 (Ref Draper && Smith p.46)
 %
-r=corr(y(:), f(:));
+if var(y(:))>0 && var(f(:))>0
+  r=corr(y(:), f(:));
+else
+  r = nan;
+end
 r2=r.^2;
 
 % if someone has asked for it, let them have it
