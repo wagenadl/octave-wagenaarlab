@@ -5,6 +5,8 @@ function x = tracer_imagex(trc)
 %   to the most recent call to TRACER_TRACE.
 %   The result is the average among the positions of each of the sets of
 %   rays emanating from individual object points.
+%   If there is only one theta value on input, we calculate the image
+%   of an object at infinity.
 
 xx = tracer_imagexx(trc);
 ok = ~isnan(xx) & ~isinf(xx);

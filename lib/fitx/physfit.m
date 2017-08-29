@@ -279,7 +279,7 @@ fit(1).ok = kvg;
 fit(1).sok = rc>sqrt(eps);
 fit(1).caution={};
 fit(1).sumsquares = sum((feval(foo,x,p)-y).^2);
-fit(1).R2 = 1 - fit(1).sumsquares / sum((y-mean(y)).^2);
+fit(1).R2 = 1 - fit(1).sumsquares / (sum((y-mean(y)).^2) + eps);
 
 % --- Fit with SY but not SX ---
 if max(sy)>0
