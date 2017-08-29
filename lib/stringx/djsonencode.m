@@ -70,7 +70,7 @@ else
   sep = '';
   sep1 = sprintf(',\n%s', ind1);
   for n = 1:length(str)
-    [js1, err] = jsonencode(str{n}, ind1);
+    [js1, err] = djsonencode(str{n}, ind1);
     if ~isempty(err)
       return;
     end
@@ -103,7 +103,7 @@ else
   sep = '';
   sep1 = sprintf(',\n%s', ind1);
   for f = 1:length(fld)
-    [js1, err] = jsonencode(str.(fld{f}), ind1);
+    [js1, err] = djsonencode(str.(fld{f}), ind1);
     if ~isempty(err)
       return;
     end
@@ -173,7 +173,7 @@ else
     end
     sep = '';
     for n = 1:length(str)
-      [js1, err] = jsonencode(str(n), ind1);
+      [js1, err] = djsonencode(str(n), ind1);
       if ~isempty(err)
         return;
       end

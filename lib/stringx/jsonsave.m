@@ -1,8 +1,8 @@
 function err = jsonsave(str, fn, mat)
 % JSONSAVE - Save a JSON file
-%   JSONSAVE(str, fn) encodes the object STR using JSONENCODE
+%   JSONSAVE(str, fn) encodes the object STR using DJSONENCODE
 %   and saves the result into the named file.
-%   JSONSAVE(str, fn, 1) uses MAT2JSON instead of JSONENCODE.
+%   JSONSAVE(str, fn, 1) uses MAT2JSON instead of DJSONENCODE.
 %   err = JSONSAVE(...) returns encoding errors.
 
 if nargin<3
@@ -12,7 +12,7 @@ end
 if mat
   [json, err] = mat2json(str);
 else
-  [json, err] = jsonencode(str);
+  [json, err] = djsonencode(str);
 end
 
 if ~isempty(err)

@@ -1,1 +1,1 @@
-../djsondecode.m
+../stringx/djsondecode.m
