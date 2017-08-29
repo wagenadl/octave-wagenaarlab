@@ -14,11 +14,47 @@ function savecsv(ofn, varargin)
 %    to save the variables "x" and "y."
 %    A major use case for this function is to export data to R, which can read
 %    the results straight into a dataframe using "read.csv('filename.csv')."
+%    A final way to use SAVECSV is like
+%      SAVECSV(filename, vlabel, dimlabels, variable),
+%    where VLABEL must be a single string, VARIABLE a multidimensional matrix,
+%    and DIMLABELS a space-separated list of names for each of the dimensions
+%    of the matrix.
 
 if nargin<2
   error('SAVECSV needs a filename and something to save');
 end
 
+if nargin==4 && ischar(varargin{1}) && ischar(varargin{2}) ...
+          && isnumeric(varargin{3})
+  vlabel = varargin{1};
+  dimlabels = strtoks(varargin{2});
+  var = varargin{3};
+  S = size(var);
+  K = length(dimlabels);
+  if length(S) ~= K
+    error('SAVECSV must have match between labels and data');
+  end
+  args = cell(2*K + 2, 1);
+  args{1} = vlabel;
+  var = var(:);
+  ok = find(~isnan(var));
+  args{2} = var(ok);
+  for k=1:K
+    nn = [1:S(k)];
+    dim = 0*S + 1;
+    dim(k) = S(k);
+    nn = reshape(nn, dim);
+    rep = S;
+    rep(k) = 1;
+    nn = repmat(nn, rep);
+    nn = nn(:);
+    args{2*k + 1} = dimlabels{k};
+    args{2*k + 2} = nn(ok);
+  end
+  savecsv(ofn, args{:});
+  return
+end
+  
 if nargin==2 && isstruct(varargin{1})
   lbls = fieldnames(varargin{1});
   N = length(lbls);
