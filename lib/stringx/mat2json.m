@@ -1,16 +1,16 @@
 function [json, err] = mat2json(str)
-% MAT2JSON - Like JSONENCODE, but handles matrices better
+% MAT2JSON - Like DJSONENCODE, but handles matrices better
 %    json = MAT2JSON(str) encodes the Matlab object STR into JSON just
 %    like JSONENCODE, except that matrices and cell arrays are handled
 %    specially inside structures. Specifically, an additional field
 %    with name ending in "_size" is constructed to preserve size information,
-%    after whcih the matrix or cell array is reshaped to a vector.
+%    after which the matrix or cell array is reshaped to a vector.
 
 str = mat2json_prep(str);
 if nargout>=2
-  [json, err] = jsonencode(str);
+  [json, err] = djsonencode(str);
 else
-  json = jsonencode(str);
+  json = djsonencode(str);
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

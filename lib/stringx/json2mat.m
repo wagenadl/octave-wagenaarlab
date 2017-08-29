@@ -1,7 +1,7 @@
 function str = json2mat(json)
-% JSON2MAT - Like JSONDECODE but with some niceties for Matlab
+% JSON2MAT - Like DJSONDECODE but with some niceties for Matlab
 %    str = JSON2MAT(json) decodes the JSON-encoded string JSON,
-%    just like JSONDECODE, but does some postprocessing:
+%    just like DJSONDECODE, but does some postprocessing:
 %    - Any array that contains only numbers is converted to a matrix.
 %    - If such an array is accompanied by a field with the same name
 %      with "_size" appended to it, the matrix is reshaped to the
@@ -9,7 +9,7 @@ function str = json2mat(json)
 %    - Cell matrices are also suitably reshaped if there is a "_size"
 %      field.
 
-str = jsondecode(json);
+str = djsondecode(json);
 
 str = json2mat_convert(str);
 
@@ -32,7 +32,7 @@ if isstruct(str)
     end
   end
 elseif iscell(str)
-  if all(cellfun(@(x) (isnumeric(x) & isscalar(x)), str))
+  if all(cellfun(@(x) ((isnumeric(x) | islogical(x)) & isscalar(x)), str))
     str = cellfun(@(x) (x), str);
   else
     N = numel(str);

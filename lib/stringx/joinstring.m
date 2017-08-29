@@ -7,8 +7,11 @@ if isempty(x)
   y='';
   return
 end
-y=[];
+
+y='';
+
 for n=1:length(x)-1
   y=[y x{n} s];
 end
+
 y=[y x{end}];
