@@ -9,37 +9,19 @@ function [json, err] = djsonencode(str, ind)
 %   In addition, one-dimensional cell arrays as well as scalar structures
 %   can be encoded, provided they only contain encodable basic types or
 %   nested cell arrays or structures obeying this rule.
+%   In a (mild) extension of JSON, nan-values are written as bareword “NaN.”
+%   (Matlab's JSONENCODE does the same.)
 %   That leaves many Matlab types that cannot be encoded. See MAT2JSON
-%   for a possible solution.
+%   for a partial solution.
 %   If STR is not encodable, an error is reported.
 %   [json, err] = DJSONENCODE(str) returns any error rather than throwing
 %   it. On success, err will be empty.
-%   Note that in general DJSONENCODE(JSONDECODE(json)) is not identical
-%   to JSON, and JSONDECODE(JSONENCODE(str)) is not identical to STR,
+%   Note that in general DJSONENCODE(DJSONDECODE(json)) is not identical
+%   to JSON, and DJSONDECODE(DJSONENCODE(str)) is not identical to STR,
 %   but differences should be minimal (at least if STR is encodable).
 
-json = '';
-err = [];
-
-if nargin<2
-  ind = '';
-end
-
-if iscell(str)
-  [json, err] = jsonencode_cell(str, ind);
-elseif isstruct(str)
-  [json, err] = jsonencode_struct(str, ind);
-elseif ischar(str)
-  [json, err] = jsonencode_char(str, ind);
-elseif isnumeric(str) || islogical(str)
-  [json, err] = jsonencode_numeric(str, ind);
-elseif isempty(str)
-  json = 'null';
-else
-  whos str
-  err = 'Not encodable';
-end
-
+[json, err] = jsonenc_any(str, '');
+json = [json sprintf('\n')];
 if nargout<2
   if isempty(err)
     clear err
@@ -48,8 +30,27 @@ if nargout<2
   end
 end
 
+function [json, err] = jsonenc_any(str, ind)
+json = '';
+err = [];
+
+if iscell(str)
+  [json, err] = jsonenc_cell(str, ind);
+elseif isstruct(str)
+  [json, err] = jsonenc_struct(str, ind);
+elseif ischar(str)
+  [json, err] = jsonenc_char(str, ind);
+elseif isnumeric(str) || islogical(str)
+  [json, err] = jsonenc_numeric(str, ind);
+elseif isempty(str)
+  json = 'null';
+else
+  whos str
+  err = 'Not encodable';
+end
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [json, err] = jsonencode_cell(str, ind)
+function [json, err] = jsonenc_cell(str, ind)
 
 json = '';
 err = [];
@@ -70,7 +71,7 @@ else
   sep = '';
   sep1 = sprintf(',\n%s', ind1);
   for n = 1:length(str)
-    [js1, err] = djsonencode(str{n}, ind1);
+    [js1, err] = jsonenc_any(str{n}, ind1);
     if ~isempty(err)
       return;
     end
@@ -81,7 +82,7 @@ else
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [json, err] = jsonencode_struct(str, ind)
+function [json, err] = jsonenc_struct(str, ind)
 
 json = '';
 err = [];
@@ -103,7 +104,7 @@ else
   sep = '';
   sep1 = sprintf(',\n%s', ind1);
   for f = 1:length(fld)
-    [js1, err] = djsonencode(str.(fld{f}), ind1);
+    [js1, err] = jsonenc_any(str.(fld{f}), ind1);
     if ~isempty(err)
       return;
     end
@@ -114,7 +115,7 @@ else
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [json, err] = jsonencode_char(str, ind)
+function [json, err] = jsonenc_char(str, ind)
 
 json = '';
 err = [];
@@ -134,7 +135,7 @@ str = strrep(str, sprintf('\r'), '\r');
 json = [ '"' str '"'];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [json, err] = jsonencode_numeric(str, ind)
+function [json, err] = jsonenc_numeric(str, ind)
 json = '';
 err = [];
 
@@ -173,7 +174,7 @@ else
     end
     sep = '';
     for n = 1:length(str)
-      [js1, err] = djsonencode(str(n), ind1);
+      [js1, err] = jsonenc_any(str(n), ind1);
       if ~isempty(err)
         return;
       end

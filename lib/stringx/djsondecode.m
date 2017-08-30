@@ -8,7 +8,7 @@ function str = djsondecode(json)
 %    the result is a cell vector. (This is true even if all elements of 
 %    the array are numbers, but see JSON2MAT.)
 %    If JSON represents a string or a number, the result is that
-%    string or number.
+%    string or number. (We recognize “NaN” as a not-a-number double.)
 %    If JSON is “true” or “false,” the result is a logical scalar.
 %    If JSON is “null,” the result is an empty vector.
 %    If JSON cannot be parsed, an error is reported.
@@ -47,6 +47,8 @@ case '0'
   [str, pos] = jsondec_parsenumber(json, pos, 1);
 case { '1', '2', '3', '4', '5', '6', '7', '8', '9' }
   [str, pos] = jsondec_parsenumber(json, pos);
+case 'N'
+  [str, pos] = jsondec_parsenan(json, pos);
 otherwise
   error(sprintf('Expected value at %i', pos))
 end
@@ -60,6 +62,15 @@ len = length(json);
 while pos<=len && any(sprintf(' \n\t') == json(pos))
   pos = pos + 1;
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [str, pos] = jsondec_parsenan(json, pos)
+len = length(json);
+if len-pos<2 || any(json(pos:pos+2) ~= 'NaN')
+  error(sprintf('Expected “NaN” at %i', pos));
+end
+pos = pos + 3;
+str = nan;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [str, pos] = jsondec_parsetfn(json, pos)
