@@ -5,7 +5,7 @@ function spk = refractoryspike(tt, yy, varargin)
 %
 %   Result is a structure with fields:
 %      tms - time stamps of the spikes
-%      hei - amplitudes of the spikes
+%      amp - amplitudes of the spikes
 %      idx - index into the input vectors.
 %      wid - width of spike (measured in seconds between zero crossings)
 %
@@ -21,7 +21,7 @@ function spk = refractoryspike(tt, yy, varargin)
 %                 opposite-polarity peaks
 %
 %   If (and only if) filtering is applied, the result will have an additional
-%   structure hei0 to hold the height before filtering.
+%   structure amp0 to hold the height before filtering.
 %
 %   REFRACTORYSPIKE(yy, tt, ...) or REFRACTORYSPIKE(yy, fs, ...) also works.
 %   Note that results are formatted for direct use in (I)SELECTSPIKE.
