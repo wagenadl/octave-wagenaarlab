@@ -55,9 +55,17 @@ if ~isempty(kv.f_low) || ~isempty(kv.f_high)
   end
 end
 
+s1 = dumbspike(tt, yy, kv.threshold);
+s2 = dumbspike(tt, yy, -kv.threshold);
+
 if kv.polarity>=0
-  s = dumbspike(tt, yy, kv.threshold);
-  
+  s = s1;
+  if kv.biphasic==3
+    s = maketriphasic(s, s2);
+  elseif kv.biphasic
+    s = makebiphasic(s, s2);
+  end
+
   while 1
     maydrop = find(diff(s.tms) < kv.trefract*1e-3);
     if isempty(maydrop)
@@ -71,15 +79,16 @@ if kv.polarity>=0
     s.wid(maydrop) = [];
   end  
 
-  if kv.biphasic
-    s = makebiphasic(s, tt, yy, 1);
-  end
-  
   spk = s;
 end
 
 if kv.polarity<=0
-  s = dumbspike(tt, yy, -kv.threshold);
+  s = s2;
+  if kv.biphasic==3
+    s = maketriphasic(s, s1);
+  elseif kv.biphasic
+    s = makebiphasic(s, s1);
+  end
   
   while 1
     maydrop = find(diff(s.tms) < kv.trefract*1e-3);
@@ -92,9 +101,6 @@ if kv.polarity<=0
     s.amp(maydrop) = [];
     s.idx(maydrop) = [];
     s.wid(maydrop) = [];
-  end
-  if kv.biphasic
-    s = makebiphasic(s, tt, yy, -1);
   end
 
   if kv.polarity==0
@@ -117,12 +123,56 @@ if ~isempty(kv.f_low) || ~isempty(kv.f_high)
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function spk = makebiphasic(spk, tt, yy, pol)
-a0 = mean(pol*spk.amp(pol*spk.amp>0))
-w0 = mean(spk.wid(pol*spk.amp>a0))
-di = round(w0/mean(diff(tt)));
+%function spk = makebiphasic(spk, tt, yy)
+%dt = mean(diff(tt));
+%a0 = mean(pol*spk.amp(pol*spk.amp>0))
+%w0 = mean(spk.wid(pol*spk.amp>a0))
+%di = round(w0/dt);
+%for k=1:length(spk.tms)
+%  ii = [-di:0]+spk.idx(k);
+%  ii = ii(ii>0 & ii<=length(tt));
+%  spk.amp(k) = spk.amp(k) + pol*max(-pol*yy(ii));
+%end
+
+function spk = makebiphasic(spk, alt)
 for k=1:length(spk.tms)
-  ii = [-di:0]+spk.idx(k);
-  ii = ii(ii>0 & ii<=length(tt));
-  spk.amp(k) = spk.amp(k) + pol*max(-pol*yy(ii));
+  t0 = spk.tms(k);
+  idx = find(alt.tms>t0, 1);
+  if ~isempty(idx)
+    a = [];
+    t1 = alt.tms(idx);
+    if t1-t0 < .005
+      a(end+1) = alt.amp(idx);
+    end
+    if idx>1
+      t1 = alt.tms(idx-1);
+      if t0-t1 < .005
+        a(end+1) = alt.amp(idx-1);
+      end
+    end
+    if ~isempty(a)
+      spk.amp(k) += max(a)*sign(spk.amp(k));
+    end
+  end
 end
+
+function spk = maketriphasic(spk, alt)
+for k=1:length(spk.tms)
+  t0 = spk.tms(k);
+  idx = find(alt.tms>spk.tms(k), 1);
+  if ~isempty(idx)
+    a = [];
+    t1 = alt.tms(idx);
+    if t1-t0 < .005
+      a(end+1) = alt.amp(idx);
+    end
+    if idx>1
+      t1 = alt.tms(idx-1);
+      if t0-t1 < .005
+        a(end+1) = alt.amp(idx-1);
+      end
+    end
+    spk.amp(k) -= sum(a);
+  end
+end
+
