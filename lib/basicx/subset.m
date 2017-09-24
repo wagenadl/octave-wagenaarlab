@@ -4,7 +4,7 @@ function x = subset(x, idx)
 %   fields, returns that same structure with elements indexed by IDX 
 %   preserved from each vector.
 %   If X additionally contains nonvectors, or vectors not equal in length
-%   to the median length across vectors, those are preserved without
+%   to the max length across vectors, those are preserved without
 %   subsetting.
 
 len = [];
@@ -12,7 +12,7 @@ fld = fieldnames(x);
 F = length(fld);
 for f=1:F
   S = size(x.(fld{f}));
-  if prod(S) == max(S)
+  if prod(S) == max(S) && ~ischar(x.(fld{f}))
     % Non-empty vector
     len(end+1) = max(S);
   end
@@ -20,7 +20,7 @@ end
 if isempty(len)
   len = 0;
 else
-  len = median(len);
+  len = max(len);
 end
 
 for f=1:F
