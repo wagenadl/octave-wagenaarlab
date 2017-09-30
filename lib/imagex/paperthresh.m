@@ -3,6 +3,15 @@ function paperthresh(ifn, ofn)
 % PAPERTHRESH(ifn, ofn) loads an image, thresholds it, and saves it.
 % PAPERTHRESH(ifn) makes OFN be /tmp/IFN.
 
+if nargin==0
+  [fn,fp] = uigetfile('/home/wagenaar/Pictures/Webcam/*.jpg');
+  if isempty(fn)
+    return;
+  end
+  ifn = [fp filesep fn];
+end
+
+
 img = imread(ifn);
 
 R = 8;
